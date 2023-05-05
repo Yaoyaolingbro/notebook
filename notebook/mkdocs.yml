@@ -1,0 +1,38 @@
+site_name: Yaoyaolingbro's computer learning notebook
+
+nav:
+  - Home:
+    - index.md
+    - 计算机科学导论: home/fundation.md
+
+theme:
+  name: material
+  
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexs
+
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+repo_url: https://github.com/Yaoyaolingbro/Notebook
+repo_name: Yaoyaolingbro/Notebook
