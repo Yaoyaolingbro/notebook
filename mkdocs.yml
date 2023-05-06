@@ -5,7 +5,10 @@ site_author: yaoyaoling
 nav:
   - Home:
     - index.md
-    - 计算机科学导论: home/fundation.md
+    - 计算机科学导论: home/Fundation of computer science/index.md
+    - Missing semester: 
+      - 简介: home/Missing semester/index.md
+      - Git: home/Missing semester/git.md
 
 theme:
   name: material
