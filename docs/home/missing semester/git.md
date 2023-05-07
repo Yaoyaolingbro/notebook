@@ -16,14 +16,14 @@
 ## 使用手册
 由于自己也是初学，我会先把自己使用到的介绍给大家。具体的可以参考[官网](https://git-scm.com/docs)或者看[pro_git](https://github.com/anzhihe/Free-Git-Books/blob/master/book/Professional%20Git.pdf)进行学习。
 
-### 快速上手
-#### 下载别人Github上的项目
+## 快速上手
+### 下载别人Github上的项目
 
 * 一定一定先去看别人仓库的README的提示和操作。可以有助于你了解别人项目的使用方法和一些区别的地方。
 * 一般来说我们可以直接在本地输入`git clone`+`repository address`，如：
 `git clone git@github.com:Yaoyaolingbro/notebook.git`
 
-#### Github上创建一个仓库（repository）
+### Github上创建一个仓库（repository）
 ps：任何东西一定都是以官方文档为准。我的记录只能用作参考。此外命令行上的提示或者`--help`也是个好东西哟！！！
 * 首先我们需要建立自己本地的`SSH`的密钥。
 `ssh-keygen -t rsa -C "youremail@example.com"`
@@ -53,11 +53,11 @@ Hi tianqixin! You've successfully authenticated, but GitHub does not provide she
 $ git config --global user.name "your name"
 $ git config --global user.email "your_email@youremail.com"
 ```
-  平时我们可以用`git config --list`来检查
+  平时我们可以用`git config --list`来检查自己的用户设置。
 
 ---
 
-##### 常规四部曲
+### 常规四部曲
 0. 初始化（initialize）
    第一次使用时你先需要建立分支。在命令行输入`git init --initial-branch=main`或者`git init`。有时`git init`之后会报错，你可以根据他的提示进行操作。
    此外你需要添加远程仓库的“地址”，这里我们建议添加你仓库的SSH密钥，例如`git remote add origin git@github.com:Yaoyaolingbro/secrete.git`
@@ -77,4 +77,11 @@ $ git config --global user.email "your_email@youremail.com"
 4. 将仓库推送到远程仓库（github等）
    第一次使用时输入`git push -u origin main`.之后再提交的话可以直接输入`git push`即可。
 
-####恭喜你！可以拥有自己的仓库啦！
+<strong>恭喜你！可以拥有自己的仓库啦！</strong>
+ 
+### Git附注
+#### 看看过去
+
+你想查看一下到目前为止，都做了什么存档，使用 `git log` 即可，它会提供至今为止所有的 `commit` 信息（时间，提交者，描述，hashcode），为了通过`log`更好的查看工作，你也许需要写出更优秀的commit信息 ([angular规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines))。
+
+如果你想回到过去的某个 `commit`，可以使用 `git reset --hard <commit>`。需要注意的是，如果你使用了 `--hard`，在回到你指定的commit后，你将无法前往这个commit之后的任何一个commit，因此在操作前请慎重。
