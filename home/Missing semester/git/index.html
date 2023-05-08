@@ -615,12 +615,14 @@
 <code>git clone git@github.com:Yaoyaolingbro/notebook.git</code></li>
 </ul>
 <h3 id="githubrepository">Github上创建一个仓库（repository）</h3>
-<p>ps：任何东西一定都是以官方文档为准。我的记录只能用作参考。此外命令行上的提示或者<code>--help</code>也是个好东西哟！！！
-* 首先我们需要建立自己本地的<code>SSH</code>的密钥。
+<p>ps：任何东西一定都是以官方文档为准。我的记录只能用作参考。此外命令行上的提示或者<code>--help</code>也是个好东西哟！！！</p>
+<ul>
+<li>
+<p>首先我们需要建立自己本地的<code>SSH</code>的密钥。
 <code>ssh-keygen -t rsa -C "youremail@example.com"</code>
   后面的 your_email@youremail.com 改为你在 Github 上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。
   成功的话会在<code>~/</code>或者<code>C:/user</code>下生成 .ssh 文件夹，进去，打开 id_rsa.pub，复制里面的 key。</p>
-<ul>
+</li>
 <li>
 <p>回到 github 上，进入 <code>Account =&gt; Settings</code>（账户配置）。然后左边边框选择 <code>SSH and GPG keys</code>，然后点击 <code>New SSH key</code>按钮,<code>title</code> 设置标题，可以随便填，粘贴在你电脑上生成的 key。</p>
 </li>
