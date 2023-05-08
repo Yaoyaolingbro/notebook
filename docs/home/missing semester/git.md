@@ -79,8 +79,8 @@ $ git config --global user.email "your_email@youremail.com"
 
 <strong>恭喜你！可以拥有自己的仓库啦！</strong>
  
-### Git附注
-#### 看看过去
+## Git附注
+1. 看看过去
 
 你想查看一下到目前为止，都做了什么存档，使用 `git log` 即可，它会提供至今为止所有的 `commit` 信息（时间，提交者，描述，hashcode），为了通过`log`更好的查看工作，你也许需要写出更优秀的commit信息 ([angular规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines))。
 
