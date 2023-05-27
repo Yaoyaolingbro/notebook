@@ -1,0 +1,929 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yaoyaoling">
+      
+      
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/home/%E8%B6%85%E7%AE%97/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+      
+      
+        <link rel="prev" href="../../..">
+      
+      
+        <link rel="next" href="../../Fundation%20of%20computer%20science/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+    
+    
+      
+        <title>Lab1 - Yaoyaolingbro's computer learning notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#content" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Yaoyaolingbro&#39;s computer learning notebook" class="md-header__button md-logo" aria-label="Yaoyaolingbro's computer learning notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Yaoyaolingbro's computer learning notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Yaoyaolingbro&#39;s computer learning notebook" class="md-nav__button md-logo" aria-label="Yaoyaolingbro's computer learning notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Yaoyaolingbro's computer learning notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome to Yaoyaoling's notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          超算
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          超算
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lab1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Lab1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-introduction" class="md-nav__link">
+    Lab Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#needed-knowledge" class="md-nav__link">
+    Needed Knowledge
+  </a>
+  
+    <nav class="md-nav" aria-label="Needed Knowledge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    集群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpl" class="md-nav__link">
+    HPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufw" class="md-nav__link">
+    UFW
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-whole-procedure-of-lab" class="md-nav__link">
+    The Whole Procedure of Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="The Whole Procedure of Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    虚拟机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpl_1" class="md-nav__link">
+    HPL环境搭建
+  </a>
+  
+    <nav class="md-nav" aria-label="HPL环境搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    虚拟机环境配制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmpi" class="md-nav__link">
+    Openmpi安装
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Fundation%20of%20computer%20science/" class="md-nav__link">
+        计算机科学导论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+          Missing semester
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Missing semester
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Missing%20semester/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Missing%20semester/git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Missing%20semester/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-introduction" class="md-nav__link">
+    Lab Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#needed-knowledge" class="md-nav__link">
+    Needed Knowledge
+  </a>
+  
+    <nav class="md-nav" aria-label="Needed Knowledge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    集群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpl" class="md-nav__link">
+    HPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufw" class="md-nav__link">
+    UFW
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-whole-procedure-of-lab" class="md-nav__link">
+    The Whole Procedure of Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="The Whole Procedure of Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    虚拟机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpl_1" class="md-nav__link">
+    HPL环境搭建
+  </a>
+  
+    <nav class="md-nav" aria-label="HPL环境搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    虚拟机环境配制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmpi" class="md-nav__link">
+    Openmpi安装
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<div class="cover" style="page-break-after:always;font-family:方正公文仿宋;width:100%;height:100%;border:none;margin: 0 auto;text-align:center;">
+    <div style="width:60%;margin: 0 auto;height:0;padding-bottom:10%;">
+        </br>
+        <img src="https://raw.githubusercontent.com/Keldos-Li/pictures/main/typora-latex-theme/ZJU-name.svg" alt="校名" style="width:100%;"/>
+    </div>
+    </br></br></br></br></br>
+    <div style="width:60%;margin: 0 auto;height:0;padding-bottom:40%;">
+        <img src="https://raw.githubusercontent.com/Keldos-Li/pictures/main/typora-latex-theme/ZJU-logo.svg" alt="校徽" style="width:100%;"/>
+    </div>
+    </br></br></br></br></br></br></br></br>
+    <span style="font-family:华文黑体Bold;text-align:center;font-size:20pt;margin: 10pt auto;line-height:30pt;">《HPC101-Lab1-2023》</span>
+    <p style="text-align:center;font-size:14pt;margin: 0 auto">实验报告 </p>
+    </br>
+    </br>
+    <table style="border:none;text-align:center;width:72%;font-family:仿宋;font-size:14px; margin: 0 auto;">
+    <tbody style="font-family:方正公文仿宋;font-size:12pt;">
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">题　　目</td>
+            <td style="width:2%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 简单集群的搭建</td>     </tr>
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">上课时间</td>
+            <td style="width:2%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 2023.7</td>     </tr>
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">授课教师</td>
+            <td style="width:2%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">ZJU-SCT </td>     </tr>
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">姓　　名</td>
+            <td style="width:2%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 杜宗泽</td>     </tr>
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">学　　号</td>
+            <td style="width:2%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">3220105581 </td>     </tr>
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">组　　别</td>
+            <td style="width:%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 个人完成</td>     </tr>
+        <tr style="font-weight:normal;"> 
+            <td style="width:20%;text-align:right;">日　　期</td>
+            <td style="width:2%">：</td> 
+            <td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">2023.5.28</td>     </tr>
+    </tbody>              
+    </table>
+</div>
+
+<!-- 注释语句：导出PDF时会在这里分页 -->
+
+<h1 id="content">Content</h1>
+<hr />
+<div class="toc">
+<ul>
+<li><a href="#content">Content</a><ul>
+<li><a href="#lab-introduction">Lab Introduction</a></li>
+<li><a href="#needed-knowledge">Needed Knowledge</a><ul>
+<li><a href="#_1">集群</a></li>
+<li><a href="#linux">Linux命令</a></li>
+<li><a href="#hpl">HPL</a></li>
+<li><a href="#ufw">UFW</a></li>
+</ul>
+</li>
+<li><a href="#the-whole-procedure-of-lab">The Whole Procedure of Lab</a><ul>
+<li><a href="#_2">虚拟机</a></li>
+<li><a href="#hpl_1">HPL环境搭建</a><ul>
+<li><a href="#_3">虚拟机环境配制</a></li>
+<li><a href="#openmpi">Openmpi安装</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="lab-introduction">Lab Introduction</h2>
+<hr />
+<blockquote>
+<p>ps：这个实验是浙江大学计算机科学与计算专业大一（2023）短学期——超算课程的实验，详情请点击<a href="https://zjusct.pages.zjusct.io/summer-course-2023/HPC101-Labs-2023/">此处</a></p>
+</blockquote>
+<p>本次实验要求使用四台虚拟机搭建一个简易的集群，并对该集群进行性能测试，最后提交测试结果和实验报告。</p>
+<p>集群搭建的任务包括创建虚拟机、安装 Linux 发行版、配置网络和 ssh 通信。</p>
+<p>性能测试通过使用 OpenMPI 将 HPL 测试程序分配到四个虚拟机节点上执行。因此，需要下载并编译 OpenMPI、BLAS 和 HPL 的源代码，其中 OpenMPI、BLAS是 HPL 的依赖项。</p>
+<h2 id="needed-knowledge">Needed Knowledge</h2>
+<hr />
+<p>(ps:若不想看可跳过，后面实验过程中看不懂了可以再来学习)</p>
+<h3 id="_1"><a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%9B%86%E7%BE%A4">集群</a></h3>
+<p><strong>计算机集群</strong>（英语：computer cluster）是一组松散或紧密连接在一起工作的<a href="https://zh.wikipedia.org/wiki/電子計算機">计算机</a>。由于这些计算机协同工作（并行计算），在许多方面它们可以被视为单个系统。与<a href="https://zh.wikipedia.org/wiki/网格计算">网格计算机</a>不同，计算机集群将每个<a href="https://zh.wikipedia.org/w/index.php?title=节点_(计算机科学)&amp;action=edit&amp;redlink=1">节点</a>设置为执行相同的任务，由软件控制和调度。</p>
+<h3 id="linux">Linux命令</h3>
+<p>这个感觉网上都会有很多教程，可以自己熟悉一下就能学会。 （Tips：man很多时候是个好东西）</p>
+<pre><code class="language-unix">cd ls clear mkdir rmdir ……
+</code></pre>
+<h3 id="hpl">HPL</h3>
+<p>HPL（The High-Performance Linpack Benchmark）是测试高性能计算集群系统浮点性能的基准程序。HPL通过对高性能计算集群采用高斯消元法求解一元N次稠密线性代数方程组的测试，评价高性能计算集群的浮点计算能力。</p>
+<h3 id="ufw">UFW</h3>
+<p><strong>Uncomplicated Firewall</strong>[<a href="https://zh.wikipedia.org/wiki/Uncomplicated_Firewall#cite_note-1">1]</a>，简称<strong>UFW</strong>，是<a href="https://zh.wikipedia.org/wiki/Ubuntu">Ubuntu</a>系统上默认的<a href="https://zh.wikipedia.org/wiki/防火墙">防火墙</a>组件。UFW是为轻量化配置<a href="https://zh.wikipedia.org/wiki/Iptables">iptables</a>而开发的一款工具。UFW 提供一个非常友好的界面用于创建基于<a href="https://zh.wikipedia.org/wiki/IPV4">IPV4</a>，<a href="https://zh.wikipedia.org/wiki/IPV6">IPV6</a>的防火墙规则。UFW 在 Ubuntu 8.04 LTS 后的所有发行版中默认可用[<a href="https://zh.wikipedia.org/wiki/Uncomplicated_Firewall#cite_note-2">2]</a>。UFW 的<a href="https://zh.wikipedia.org/wiki/圖形使用者界面">图形用户界面</a>叫<strong>Gufw</strong></p>
+<h2 id="the-whole-procedure-of-lab">The Whole Procedure of Lab</h2>
+<h3 id="_2">虚拟机</h3>
+<ol>
+<li>
+<p>由于我之前寒假想上手下Linux系统，故已经在自己电脑上安装过<code>VMware</code>，此前使用的是<code>redhat</code>。现在只需要下载Linux的镜像文件即可。由于自己已经使用了半年多的<code>WSL2</code>，故选择下载的是Ubuntu系统，可以直接访问<a href="https://mirrors.zju.edu.cn/docs/ubuntu/">ZJU-mirror</a>即可。（我建议使用Desktop版本，你会快乐很多，后面也会方便很多）<img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_19-11-05.png" /></p>
+</li>
+<li>
+<p>建议使用虚拟机的话可以单独出来磁盘便于管理以及安全。</p>
+</li>
+</ol>
+<blockquote>
+<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_16-56-32.png" /></p>
+</blockquote>
+<ol>
+<li>
+<p>VMware虚拟机的建立网上也有很多教程，故不在此说明。(ps:基本上选择你刚下载好的iso镜像，选择好配置后一路确定即可)</p>
+</li>
+<li>
+<p>虚拟机创建成功，如图：<img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_18-26-36.png" /></p>
+</li>
+</ol>
+<h3 id="hpl_1">HPL环境搭建</h3>
+<p>HPL是<code>Linpack</code>测试的一种，需要依赖<code>OpenMPI</code>&amp;<code>OpenBLAS</code>来实现。</p>
+<h4 id="_3">虚拟机环境配制</h4>
+<blockquote>
+<p>目标：安装相关编译器以及make工具和网络工具</p>
+</blockquote>
+<ul>
+<li><code>sudo apt install gcc g++ python3 gfortran -y</code></li>
+</ul>
+<p>检查的话有<code>… --version</code>即可，或者<code>apt list --installed</code>(但这个太蠢了)</p>
+<ul>
+<li>
+<p><code>sudo apt install make net-tools -y</code></p>
+</li>
+<li>
+<p><code>sudo apt install openssh-server -y</code></p>
+</li>
+</ul>
+<p>用<code>sudo systemctl status ssh</code>和<code>ifconfig</code>验证网络工具和SSH Server</p>
+<ul>
+<li>UFW打开SSH端口</li>
+</ul>
+<h4 id="openmpi">Openmpi安装</h4>
+<ol>
+<li>下载并解压OpenMPI</li>
+</ol>
+<p>网址为：<a href="https://www.open-mpi.org/software/ompi/v4.1/">Open MPI: Version 4.1 (open-mpi.org)</a></p>
+<p>用火狐浏览器打开点击下载后，从终端打开当前文件夹，使用： <code>tar xvf openmpi-4.1.1.tar.gz</code>(学会使用<code>tab</code>补全)</p>
+<p>（ps：用桌面版的好处来啦！）</p>
+<p>非桌面版的用户就正常用<code>wget</code>和<code>curl</code>下载就行。</p>
+<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_19-19-35.png" /></p>
+<ol>
+<li></li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexs"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      
+    
+  </body>
+</html>
