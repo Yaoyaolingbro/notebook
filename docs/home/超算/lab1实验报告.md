@@ -158,13 +158,13 @@ NAT（Network Address Translator）是[网络地址转换](https://baike.baidu.c
 
 2. 建议使用虚拟机的话可以单独出来磁盘便于管理以及安全。
 
-> ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_16-56-32.png)
+![image](\graph\Snipaste_2023-05-27_16-56-32.png)
 
 
 
-3. VMware虚拟机的建立，网上也有很多教程，故不在此说明。(ps:基本上选择你刚下载好的iso镜像，选择好配置后一路确定即可)
+1. VMware虚拟机的建立，网上也有很多教程，故不在此说明。(ps:基本上选择你刚下载好的iso镜像，选择好配置后一路确定即可)
 
-* 虚拟机创建成功，如图：![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_18-26-36.png)
+* 虚拟机创建成功，如图：![image](\graph\Snipaste_2023-05-27_18-26-36.png)
 
   
 
@@ -206,7 +206,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    非桌面版的用户就正常用`wget`和`curl`下载就行。
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_19-19-35.png)
+   ![image](\graph\Snipaste_2023-05-27_19-19-35.png)
 
    
 
@@ -228,7 +228,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    在profile文件末尾添加
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_22-43-18.png)
+   ![image](\graph\Snipaste_2023-05-27_22-43-18.png)
 
    执行以下语句使配制生效
 
@@ -247,7 +247,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    * 测试结果
 
-     ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_21-44-01.png)
+     ![image](\graph\Snipaste_2023-05-27_21-44-01.png)
 
 
 
@@ -259,7 +259,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   想要测试自己是否安装成功可以在本地写个程序测试，代码见[link](https://blog.csdn.net/qq_42694450/article/details/111058653)
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_01-43-52.png)
+  ![image](\graph\Snipaste_2023-05-28_01-43-52.png)
 
 
 
@@ -336,7 +336,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
   HPL.dat xhpl(证明安装成功!如图)
   ```
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_01-45-30.png)
+  ![image](\graph\Snipaste_2023-05-28_01-45-30.png)
 
 
 
@@ -348,7 +348,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
 （Tips：一般先会在左上角的编辑进入 -->虚拟网络编辑器，将子网IP更改为不是192.168.64（可以是65…）。然后再右键克隆，记得提前格出来近100G磁盘，并在里面建四个小文件夹有助于管理和虚拟机的稳定）
 
-![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-13-02.png)
+![image](\graph\Snipaste_2023-05-28_02-13-02.png)
 
 
 
@@ -360,7 +360,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   `ifconfig`
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-24-17.png)
+  ![image](\graph\Snipaste_2023-05-28_02-24-17.png)
 
 * 获得的虚拟机地址如下：
 
@@ -375,7 +375,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   `ping 192.168.253.130 ……`  
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-30-07.png)
+  ![image](\graph\Snipaste_2023-05-28_02-30-07.png)
 
 
 
@@ -389,7 +389,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
 2. 将主机上的公钥拷贝到另外三台虚拟机的目录下
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-46-29.png)
+   ![image](\graph\Snipaste_2023-05-28_02-46-29.png)
 
 3. 远程免密访问测试
 
@@ -424,7 +424,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    运行结果：
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_03-27-36.png)
+   ![image](\graph\Snipaste_2023-05-28_03-27-36.png)
 
 
 
