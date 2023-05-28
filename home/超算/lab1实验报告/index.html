@@ -1062,15 +1062,13 @@
 <p>建议使用虚拟机的话可以单独出来磁盘便于管理以及安全。</p>
 </li>
 </ol>
-<blockquote>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_16-56-32.png" /></p>
-</blockquote>
+<p><img alt="image" src="\graph\Snipaste_2023-05-27_16-56-32.png" /></p>
 <ol>
 <li>
 <p>VMware虚拟机的建立，网上也有很多教程，故不在此说明。(ps:基本上选择你刚下载好的iso镜像，选择好配置后一路确定即可)</p>
 </li>
 <li>
-<p>虚拟机创建成功，如图：<img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_18-26-36.png" /></p>
+<p>虚拟机创建成功，如图：<img alt="image" src="\graph\Snipaste_2023-05-27_18-26-36.png" /></p>
 </li>
 </ol>
 <h3 id="hpl_1">HPL环境搭建</h3>
@@ -1104,7 +1102,7 @@
 <p>用火狐浏览器打开点击下载后，从终端打开当前文件夹，使用： <code>tar xvf openmpi-4.1.1.tar.gz</code>(学会使用<code>tab</code>补全)</p>
 <p>（ps：用桌面版的好处来啦！）</p>
 <p>非桌面版的用户就正常用<code>wget</code>和<code>curl</code>下载就行。</p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_19-19-35.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-27_19-19-35.png" /></p>
 <ol>
 <li>安装OpenMPI</li>
 </ol>
@@ -1117,7 +1115,7 @@
 </ol>
 <p><code>sudo vim /etc/profile</code>(这里需要一点点vim的知识)</p>
 <p>在profile文件末尾添加</p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_22-43-18.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-27_22-43-18.png" /></p>
 <p>执行以下语句使配制生效</p>
 <p><code>source /etc/profile</code></p>
 <p>(ps:可能用户名会变成白色，但是不影响环境更新)</p>
@@ -1127,7 +1125,7 @@
 <ul>
 <li>
 <p>测试结果</p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_21-44-01.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-27_21-44-01.png" /></p>
 </li>
 </ul>
 <h4 id="openblas">OpenBLAS安装</h4>
@@ -1140,7 +1138,7 @@
 </li>
 </ul>
 <p>想要测试自己是否安装成功可以在本地写个程序测试，代码见<a href="https://blog.csdn.net/qq_42694450/article/details/111058653">link</a></p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_01-43-52.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_01-43-52.png" /></p>
 <h3 id="hpl_2">HPL的安装以及环境配制</h3>
 <ul>
 <li><a href="https://netlib.org/benchmark/hpl/software.html">下载</a>并解压<code>hpl-2.3.tar.gz</code></li>
@@ -1197,19 +1195,19 @@
   cd hpl/bin/test
   dir
   HPL.dat xhpl(证明安装成功!如图)</code></p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_01-45-30.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_01-45-30.png" /></p>
 <h3 id="_4">克隆节点</h3>
 <p>在VMware中克隆已经配置好的节点，成为集群的其他三个节点.</p>
 <p>可以在克隆前在主机上先安装好<code>SSH</code>.后面能节约一点点时间。</p>
 <p>（Tips：一般先会在左上角的编辑进入 --&gt;虚拟网络编辑器，将子网IP更改为不是192.168.64（可以是65…）。然后再右键克隆，记得提前格出来近100G磁盘，并在里面建四个小文件夹有助于管理和虚拟机的稳定）</p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-13-02.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_02-13-02.png" /></p>
 <h3 id="_5">测试集群</h3>
 <h4 id="ping">ping通</h4>
 <ul>
 <li>获得每台虚拟机的IP地址</li>
 </ul>
 <p><code>ifconfig</code></p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-24-17.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_02-24-17.png" /></p>
 <ul>
 <li>获得的虚拟机地址如下：</li>
 </ul>
@@ -1221,7 +1219,7 @@
 <li>确认能相互ping通</li>
 </ul>
 <p><code>ping 192.168.253.130 ……</code>  </p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-30-07.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_02-30-07.png" /></p>
 <h4 id="ssh_1">配制SSH</h4>
 <ol>
 <li>生成公钥私钥对</li>
@@ -1231,7 +1229,7 @@
 <ol>
 <li>将主机上的公钥拷贝到另外三台虚拟机的目录下</li>
 </ol>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-46-29.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_02-46-29.png" /></p>
 <ol>
 <li>远程免密访问测试</li>
 </ol>
@@ -1256,7 +1254,7 @@
 </ol>
 <p><code>mpirun --hostfile myhostfile ./xphl</code></p>
 <p>运行结果：</p>
-<p><img alt="image" src="F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_03-27-36.png" /></p>
+<p><img alt="image" src="\graph\Snipaste_2023-05-28_03-27-36.png" /></p>
 <h2 id="discussion">Discussion</h2>
 <hr />
 <p>首先值得一提的是，在本次实验中我收获了很多，一方面了解了超级计算机在并行运算方面的一些简单原理；此外，我学习到了许多网络与通信相关的知识，并且很大程度上在做lab的过程当中，我发现我自己之前所学习到的知识都能整合起来并运用。</p>
