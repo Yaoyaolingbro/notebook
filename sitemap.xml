@@ -41,6 +41,14 @@
          
     </url>
     <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/linux/</loc>
+         <lastmod>2023-07-03</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/linux/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/linux/"/>
+         
+    </url>
+    <url>
          <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/markdown/</loc>
          <lastmod>2023-07-03</lastmod>
          <changefreq>daily</changefreq>
@@ -49,11 +57,27 @@
          
     </url>
     <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/vim/</loc>
+         <lastmod>2023-07-03</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/vim/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/vim/"/>
+         
+    </url>
+    <url>
          <loc>https://yaoyaolingbro.github.io/notebook/home/%E8%B6%85%E7%AE%97/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</loc>
          <lastmod>2023-07-03</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/%E8%B6%85%E7%AE%97/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
          <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/%E8%B6%85%E7%AE%97/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/%E8%B6%85%E7%AE%97/note/</loc>
+         <lastmod>2023-07-03</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/%E8%B6%85%E7%AE%97/note/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/%E8%B6%85%E7%AE%97/note/"/>
          
     </url>
 </urlset>
