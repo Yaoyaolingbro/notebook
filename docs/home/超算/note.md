@@ -44,3 +44,23 @@
 3. Data: statically allocated data.
 4. virtual memory: OS utilizes virtual memory to isolate address space of different processes and provide each process the same linear address space(线性映射，类似于哈希)
 5. Translation Lookaside buffer（TLB） -> could accelerate the virtual memory and physical memory interactive.
+6. NVM: between SSD and SRAM.
+7. Cache Organization(valid bit; dirty bit ; Tag: check if matching)
+8. Cache usage : Read hit ; Read miss ; Write hit(write-back); Write miss(write-allocate)
+9. Multiple Cache Hierarchy。（L1 L2 L3)
+10. Processes vs. Threads.
+
+> differences: Threads in one process share memory but processes not.
+
+11. ```
+    //当两个线程一块进行这个代码时，最小的计算结果是2，思考为什么？
+    for(int i=1; i < 10000; i++)
+    {
+    	counter++;
+    }
+    ```
+
+#### x86 microarchitecture
+
+
+
