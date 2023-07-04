@@ -2,13 +2,9 @@ site_name: Yaoyaolingbro's computer learning notebook
 site_url: https://yaoyaolingbro.github.io/notebook
 site_author: yaoyaoling
 
-nav:
-  - Home:
-    - index.md
-    - 计算机科学导论: home/Fundation of computer science/index.md
-    - Missing semester: 
-      - 简介: home/Missing semester/index.md
-      - Git: home/Missing semester/git.md
+repo_url: https://github.com/Yaoyaolingbro/Notebook
+repo_name: Yaoyaolingbro/Notebook
+
 
 theme:
   name: material
@@ -18,6 +14,20 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexs
+    - header.autohide
+    # - navigation.instant
+    # - navigation.expand
+    # - navigation.sections
+    - navigation.tracking
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    # - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.integrate
+    - content.code.annotate
 
   palette:
 
@@ -25,19 +35,83 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
-      accent: cyan
+      accent: deep purple
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-sunny
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: cyan
+      primary: cyan
+      accent: deep purple
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
 
-repo_url: https://github.com/Yaoyaolingbro/Notebook
-repo_name: Yaoyaolingbro/Notebook
+  
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - footnotes
+
+plugins:
+  - i18n:
+      default_language: zh
+      material_alternate: true
+      languages:
+        zh:
+          name: 简体中文
+          build: true
+        en:
+          name: English
+          build: true
+          site_name: CSDIY.wiki
+      nav_translations:
+        en: 
+          Home: Prospect
+          超算: ZJUSCT
+          计算机科学导论: Introduction to computer science
+          Missing semester: 一些计算机工具 
+          Advanced C Language: 一些C语言的高级技巧
+          CSAPP: 深入理解计算机系统
+          CS106L: 学习一些当代的C++语法
+
+
+          
+  - search:
+      lang: ja
+  - git-revision-date-localized
+  - minify:
+      minify_html: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Yaoyaolingbro/notebook
+  analytics:
+    provider: google
+    property: G-KJB4RXSKZG
+
+
+nav:
+  - Home: index.md
+  - 超算: 
+    - note: home/超算/note.md
+    - AIPP: home/超算/AIPP.md
+  - 计算机科学导论: home/Fundation of computer science/index.md
+  - Missing semester: 
+    - Index: home/Missing semester/index.md
+    - Git: home/Missing semester/git.md
+    - Markdown: home/Missing semester/markdown.md
+    - Linux: home/Missing semester/linux.md
+    - Docker: home/Missing semester/docker.md
+    - vim: home/Missing semester/vim.md
+  - Advanced C Language: home/Advanced C Language/Advanced C Language.md
+  - CSAPP: home/CSAPP/note.md
+  - CS106L: home/CS106L/index.md
