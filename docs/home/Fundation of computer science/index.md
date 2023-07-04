@@ -19,13 +19,16 @@
 
 3. RAM + 寄存器 + ALU 组成一个CPU
 
-   * 取指令-》解释-》执行
+   * 取指令-》解释-》执行（fetch -> decode -> execute) 
 
    * 时钟
-
 4. instruction and programs
 
    - operation code = opcode
    - opcode could instruct the machine to do something on the provided address。
    - HALT instruction(make CPU stop)
    - jump
+5. Advanced CPU Designs
+   * cache（缓存）（synced up 同步）
+   * more advanced instruction
+   * parallelize(并行处理)（throughput 吞吐量）
