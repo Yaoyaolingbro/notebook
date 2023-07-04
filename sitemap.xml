@@ -17,11 +17,27 @@
          
     </url>
     <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/CS106L/</loc>
+         <lastmod>2023-07-04</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/CS106L/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/CS106L/"/>
+         
+    </url>
+    <url>
          <loc>https://yaoyaolingbro.github.io/notebook/home/CS106L/Lecture%201/</loc>
          <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/CS106L/Lecture%201/"/>
          <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/CS106L/Lecture%201/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/CSAPP/note/</loc>
+         <lastmod>2023-07-04</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/CSAPP/note/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/CSAPP/note/"/>
          
     </url>
     <url>
@@ -78,6 +94,14 @@
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/vim/"/>
          <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/vim/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/%E8%B6%85%E7%AE%97/AIPP/</loc>
+         <lastmod>2023-07-04</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/%E8%B6%85%E7%AE%97/AIPP/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/%E8%B6%85%E7%AE%97/AIPP/"/>
          
     </url>
     <url>
