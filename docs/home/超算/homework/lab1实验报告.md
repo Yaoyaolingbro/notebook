@@ -1,52 +1,3 @@
-<div class="cover" style="page-break-after:always;font-family:方正公文仿宋;width:100%;height:100%;border:none;margin: 0 auto;text-align:center;">
-    <div style="width:60%;margin: 0 auto;height:0;padding-bottom:10%;">
-        </br>
-        <img src="https://raw.githubusercontent.com/Keldos-Li/pictures/main/typora-latex-theme/ZJU-name.svg" alt="校名" style="width:100%;"/>
-    </div>
-    </br></br></br></br></br>
-    <div style="width:60%;margin: 0 auto;height:0;padding-bottom:40%;">
-        <img src="https://raw.githubusercontent.com/Keldos-Li/pictures/main/typora-latex-theme/ZJU-logo.svg" alt="校徽" style="width:100%;"/>
-	</div>
-    </br></br></br></br></br></br></br></br>
-    <span style="font-family:华文黑体Bold;text-align:center;font-size:20pt;margin: 10pt auto;line-height:30pt;">《HPC101-Lab1-2023》</span>
-    <p style="text-align:center;font-size:14pt;margin: 0 auto">实验报告 </p>
-    </br>
-    </br>
-    <table style="border:none;text-align:center;width:72%;font-family:仿宋;font-size:14px; margin: 0 auto;">
-    <tbody style="font-family:方正公文仿宋;font-size:12pt;">
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">题　　目</td>
-    		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 简单集群的搭建</td>     </tr>
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">上课时间</td>
-    		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 2023.7</td>     </tr>
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">授课教师</td>
-    		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">ZJU-SCT </td>     </tr>
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">姓　　名</td>
-    		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 杜宗泽</td>     </tr>
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">学　　号</td>
-    		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">3220105581 </td>     </tr>
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">组　　别</td>
-    		<td style="width:%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 个人完成</td>     </tr>
-    	<tr style="font-weight:normal;"> 
-    		<td style="width:20%;text-align:right;">日　　期</td>
-    		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">2023.5.28</td>     </tr>
-    </tbody>              
-    </table>
-</div>
-
-<!-- 注释语句：导出PDF时会在这里分页 -->
 
 # Content
 
@@ -152,19 +103,19 @@ NAT（Network Address Translator）是[网络地址转换](https://baike.baidu.c
 
 ### 虚拟机
 
-1. 由于我之前寒假想上手下Linux系统，故已经在自己电脑上安装过`VMware`，此前使用的是`redhat`。现在只需要下载Linux的镜像文件即可。由于自己已经使用了半年多的`WSL2`，故选择下载的是Ubuntu系统，可以直接访问[ZJU-mirror](https://mirrors.zju.edu.cn/docs/ubuntu/)即可。（我建议使用Desktop版本，你会快乐很多，后面也会方便很多）![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_19-11-05.png)
+1. 由于我之前寒假想上手下Linux系统，故已经在自己电脑上安装过`VMware`，此前使用的是`redhat`。现在只需要下载Linux的镜像文件即可。由于自己已经使用了半年多的`WSL2`，故选择下载的是Ubuntu系统，可以直接访问[ZJU-mirror](https://mirrors.zju.edu.cn/docs/ubuntu/)即可。（我建议使用Desktop版本，你会快乐很多，后面也会方便很多）![image](..\graph\Snipaste_2023-05-27_19-11-05.png)
 
 
 
 2. 建议使用虚拟机的话可以单独出来磁盘便于管理以及安全。
 
-> ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_16-56-32.png)
+> ![image](..\graph\Snipaste_2023-05-27_16-56-32.png)
 
 
 
-3. VMware虚拟机的建立，网上也有很多教程，故不在此说明。(ps:基本上选择你刚下载好的iso镜像，选择好配置后一路确定即可)
+1. VMware虚拟机的建立，网上也有很多教程，故不在此说明。(ps:基本上选择你刚下载好的iso镜像，选择好配置后一路确定即可)
 
-* 虚拟机创建成功，如图：![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_18-26-36.png)
+* 虚拟机创建成功，如图：![image](..\graph\Snipaste_2023-05-27_18-26-36.png)
 
   
 
@@ -206,7 +157,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    非桌面版的用户就正常用`wget`和`curl`下载就行。
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_19-19-35.png)
+   ![image](..\graph\Snipaste_2023-05-27_19-19-35.png)
 
    
 
@@ -228,7 +179,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    在profile文件末尾添加
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_22-43-18.png)
+   ![image](..\graph\Snipaste_2023-05-27_22-43-18.png)
 
    执行以下语句使配制生效
 
@@ -247,7 +198,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    * 测试结果
 
-     ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-27_21-44-01.png)
+     ![image](..\graph\Snipaste_2023-05-27_21-44-01.png)
 
 
 
@@ -259,7 +210,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   想要测试自己是否安装成功可以在本地写个程序测试，代码见[link](https://blog.csdn.net/qq_42694450/article/details/111058653)
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_01-43-52.png)
+  ![image](..\graph\Snipaste_2023-05-28_01-43-52.png)
 
 
 
@@ -336,7 +287,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
   HPL.dat xhpl(证明安装成功!如图)
   ```
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_01-45-30.png)
+  ![image](..\graph\Snipaste_2023-05-28_01-45-30.png)
 
 
 
@@ -348,7 +299,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
 （Tips：一般先会在左上角的编辑进入 -->虚拟网络编辑器，将子网IP更改为不是192.168.64（可以是65…）。然后再右键克隆，记得提前格出来近100G磁盘，并在里面建四个小文件夹有助于管理和虚拟机的稳定）
 
-![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-13-02.png)
+![image](..\graph\Snipaste_2023-05-28_02-13-02.png)
 
 
 
@@ -360,7 +311,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   `ifconfig`
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-24-17.png)
+  ![image](..\graph\Snipaste_2023-05-28_02-24-17.png)
 
 * 获得的虚拟机地址如下：
 
@@ -375,7 +326,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   `ping 192.168.253.130 ……`  
 
-  ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-30-07.png)
+  ![image](..\graph\Snipaste_2023-05-28_02-30-07.png)
 
 
 
@@ -389,7 +340,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
 2. 将主机上的公钥拷贝到另外三台虚拟机的目录下
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_02-46-29.png)
+   ![image](..\graph\Snipaste_2023-05-28_02-46-29.png)
 
 3. 远程免密访问测试
 
@@ -422,7 +373,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    `mpirun --hostfile myhostfile uptime`
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-30_23-39-21.png)
+   ![image](..\graph\Snipaste_2023-05-30_23-39-21.png)
 
 3. 运行HPL
 
@@ -430,7 +381,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    运行结果：
 
-   ![image](F:\Note of computer\docs\home\超算\graph\Snipaste_2023-05-28_03-27-36.png)
+   ![image](..\graph\Snipaste_2023-05-28_03-27-36.png)
 
 
 
@@ -442,5 +393,5 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
 此外，在本次实验中，在OpenMPI安装并测试程序（由于忽略了`&&`连接命令符，导致耽搁了很多时间）以及在HPL的makefile编写过程（最终自己相当于找目录重新手写了一遍makefile），略有磕绊，其他情况都算顺利。本次实验还有一个心得体会就是我们一定要学会看终端反馈回来的报错，不能盲目在网上查找教程（国内教程拉的一匹），这样能够有效并且快速的帮助我们找出自己的问题所在。
 
-最后测试的实验结果如上图，虽然结果有反馈，但仍有困惑的点就是不知道如何去对比体现并行计算的优越性。这个lab给我的五月画上了一个还算圆满的句号。希望能够加入`ZJUSCT`，在段学期内收获
+最后测试的实验结果如上图，虽然结果有反馈，但仍有困惑的点就是不知道如何去对比体现并行计算的优越性。这个lab给我的五月画上了一个还算圆满的句号。希望能够加入`ZJUSCT`，在段学期内收获.
 

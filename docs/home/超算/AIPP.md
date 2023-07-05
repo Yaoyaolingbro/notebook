@@ -4,7 +4,9 @@
 
 MPI is designed to work in a heterogeneous（异构） environment.
 
-fairly heavily（相当）
+fairly heavily（相当）dispatch（分发，调度）
+
+注：本章内容可以结合课本以及`CMU 15-418 Recitation 6` 共同学习。
 
 ### 第一个类似于Hello world 的程序
 
@@ -92,7 +94,7 @@ int main (void){
 
 ![](graph\Snipaste_2023-07-04_21-46-21.png)
 
-![](graph\Snipaste_2023-07-04_21-49-20.png)
+![](graph\Snipaste_2023-07-04_21-48-39.png)
 
 * also have a function `MPI_Probe`is like a mpi receive.
 
