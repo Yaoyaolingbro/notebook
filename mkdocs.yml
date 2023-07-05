@@ -108,7 +108,10 @@ nav:
   - 计算机科学导论: home/Fundation of computer science/index.md
   - Missing semester: 
     - Index: home/Missing semester/index.md
-    - Git: home/Missing semester/git.md
+    - Git: 
+      - index: home/Missing semester/git/index.md
+      - 快速上手: home/Missing semester/git/fast_git.md
+      - 笔记: home/Missing semester/git/note.md
     - Markdown: home/Missing semester/markdown.md
     - Linux: home/Missing semester/linux.md
     - Docker: home/Missing semester/docker.md
@@ -118,3 +121,5 @@ nav:
   - CS106L: 
     - index: home/CS106L/index.md
     - Lecture 1: home/CS106L/Lecture1.md
+  - Spark in life:
+    - Freshman: home/spark in life/freshman.md

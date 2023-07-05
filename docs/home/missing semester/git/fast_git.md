@@ -1,20 +1,3 @@
-## 简介
-
-<strong>Git</strong>是一个分布式版本控制软件，最初由林纳斯·托瓦兹创作，于2005年以GPL许可协议发布。最初目的是为了更好地管理Linux内核开发而设计。应注意的是，这与GNU Interactive Tools[4]（一个类似Norton Commander界面的文件管理器）不同。
-
----
-## 安装方式
-具体详情可以参考官网[git](https://git-scm.com/downloads)
-`windows`
-可直接点击[here](https://git-scm.com/download/win)，下载64位的`standalone`即可.
-(至于standalone和portable的区别可以自己搜索)
-`linux` or `mac`
-使用自己系统上的包管理器就好了（本人目前无mac，有了的话会再更新）
-
----
-
-## 使用手册
-由于自己也是初学，我会先把自己使用到的介绍给大家。具体的可以参考[官网](https://git-scm.com/docs)或者看[pro_git](https://github.com/anzhihe/Free-Git-Books/blob/master/book/Professional%20Git.pdf)进行学习。
 
 ## 快速上手
 ### 下载别人Github上的项目
@@ -81,8 +64,8 @@ $ git config --global user.email "your_email@youremail.com"
 <strong>恭喜你！可以拥有自己的仓库啦！</strong>
  
 ## Git附注
-1. 看看过去
-
 你想查看一下到目前为止，都做了什么存档，使用 `git log` 即可，它会提供至今为止所有的 `commit` 信息（时间，提交者，描述，hashcode），为了通过`log`更好的查看工作，你也许需要写出更优秀的commit信息 ([angular规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines))。
 
 如果你想回到过去的某个 `commit`，可以使用 `git reset --hard <commit>`。需要注意的是，如果你使用了 `--hard`，在回到你指定的commit后，你将无法前往这个commit之后的任何一个commit，因此在操作前请慎重。
+
+更详细的内容请看[note]()

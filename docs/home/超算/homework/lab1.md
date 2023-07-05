@@ -103,7 +103,7 @@ NAT（Network Address Translator）是[网络地址转换](https://baike.baidu.c
 
 ### 虚拟机
 
-1. 由于我之前寒假想上手下Linux系统，故已经在自己电脑上安装过`VMware`，此前使用的是`redhat`。现在只需要下载Linux的镜像文件即可。由于自己已经使用了半年多的`WSL2`，故选择下载的是Ubuntu系统，可以直接访问[ZJU-mirror](https://mirrors.zju.edu.cn/docs/ubuntu/)即可。（我建议使用Desktop版本，你会快乐很多，后面也会方便很多）![image](..\graph\Snipaste_2023-05-27_19-11-05.png)
+1. 由于我之前寒假想上手下Linux系统，故已经在自己电脑上安装过`VMware`，此前使用的是`redhat`。现在只需要下载Linux的镜像文件即可。由于自己已经使用了半年多的`WSL2`，故选择下载的是Ubuntu系统，可以直接访问[ZJU-mirror](https://mirrors.zju.edu.cn/docs/ubuntu/)即可。（我建议使用Desktop版本，你会快乐很多，后面也会方便很多）![image](graph\Snipaste_2023-05-27_19-11-05.png)
 
 
 
@@ -231,7 +231,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
   这里不得不吐槽一下，应该是我目前来说费时最长的地方，基本上自己把整个Makefile全部重新读和写了一遍，模板基本上不能怎么用。然后自己看着make编译出来的报错一点点改。基本上就对应自己找了一遍。如果是完全按照我之前步骤来的，那么可以直接照抄我的Makefile了
 
-  ```
+```
   SHELL        = /bin/sh
   CD           = cd
   CP           = cp
@@ -276,7 +276,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
   RANLIB       = echo
   
   arch = test
-  ```
+```
 
 * 编译并检查是否成功
 
