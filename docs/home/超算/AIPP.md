@@ -1,12 +1,16 @@
 # 并行计算设计导论
 
+## 并行计算相关的基础知识以及硬件
+
+
+
 ## MPI
 
 MPI is designed to work in a heterogeneous（异构） environment.
 
 fairly heavily（相当）dispatch（分发，调度）
 
-注：本章内容可以结合课本以及`CMU 15-418 Recitation 6` 共同学习。
+注：本章内容可以结合课本以及`CMU 15-418 Recitation 6` 共同学习。（Recitation 6 的内容后半部分是一些矩阵优化相关的内容，不想看可以不看）
 
 ### 第一个类似于Hello world 的程序
 
@@ -51,7 +55,7 @@ int main (void){
 ### 一点点MPI程序的代码要点
 
 1. 每个程序是由MPI_Init和MPI_Finalize进行必要的初始化和结束。与MPI有关的函数都要在这里面进行（其中，MPI_Init传入的是*argc和*argv的指针。
-2. 通信子（communicator）、MPI_Comm_size 和 MPI_Comm_rank （一般来说，comm_sz表示进程的数量，my_rank表示进程号）
+2. 通信子（communicator）、MPI_Comm_size 和 MPI_Comm_rank （一般来说，comm_sz表示进程的数量，my_rank表示进程号）（并且要初始化！！！）
 
 ### SPMD编程
 
@@ -98,8 +102,51 @@ int main (void){
 
 * also have a function `MPI_Probe`is like a mpi receive.
 
-![](graph\Snipaste_2023-07-04_22-08-22.png)
-
 * unblocking IO 会使编程变复杂。
 
 ![](graph\Snipaste_2023-07-04_22-24-28.png)
+
+
+
+
+
+### I/O处理
+
+书中举的例子是并行积分方法。
+
+其中的一些要点如下：
+
+1. MPI允许多个输出，但输出的顺序并不一定跟`my_rank`有关，可能是乱序的。
+2. 但输入的话我们一般只规定0号进程负责读取，再将信息分发给各个进程。
+3. 集合通信（collective communication），可以用来提高效率。书中的举例是一个二叉树形结构来通信
+4. MPI_Reduce：用来优化全局求和函数
+
+```
+double local_x[N], sum[N]
+MPI_Reduce(local _x, sum, N, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD)
+//前两个参数必须是地址传参
+```
+
+
+
+![](graph\Snipaste_2023-07-04_22-08-22.png)
+
+> 小结：我们不难注意到点对点通信和集合通信的不同。他们都有些特点：必须有匹配的集合通信函数；传递的参数必须“相容？”；忠告就是不建议将同一块缓冲区作为输入和输出同时调用！
+
+
+
+### 向量处理的技巧
+
+这里会涉及到CMU课程后半部分以及书上的一些知识点：
+
+1. 数据分发：块划分、循环划分、块-循环划分
+2. 散射:`MPI_Scatter`; 聚集：`MPI_Gather`；MPI_ALLgather:可以将每个进程中的send_buf_p内容串联起来。
+3. 书中有矩阵乘法和加法的示例。
+
+
+
+### MPI性能
+
+1. 计时：`MPI_Wtime`用double类型的变量记录返回值及可。
+2. `MPI_Barrier`用来同步进程。在同一通信子的所有进程调用该函数之前所有调用MPI_Barrier 的进程都不能返回。
+3. 排序算法的并行优化。
