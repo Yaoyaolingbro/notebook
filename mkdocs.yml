@@ -8,27 +8,25 @@ repo_name: Yaoyaolingbro/Notebook
 
 theme:
   name: material
-  
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.indexs
-    - header.autohide
-    # - navigation.instant
-    # - navigation.expand
     # - navigation.sections
+    - navigation.prune
+    - navigation.instant
     - navigation.tracking
-    # - navigation.tabs
-    # - navigation.tabs.sticky
+    - navigation.indexes
+    # - navigation.expand
+    - navigation.tracking
     - navigation.top
-    # - navigation.indexes
+    - header.autohide
     - search.highlight
     - search.share
     - search.suggest
     # - toc.integrate
+    - content.code.copy
     - content.code.annotate
-
+    
+    
   palette:
 
     # Palette toggle for light mode
@@ -59,36 +57,28 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - footnotes
+  - meta # 支持markdown博客文件头的元数据，比如标题
+  - toc:
+      permalink: "#"
+      baselevel: 1
+      separator: "_"
+  - admonition  # 支持提示块
+  - pymdownx.details  # 提示块可折叠
+  - attr_list 
+  - pymdownx.inlinehilite # 支持行内语法高亮
+  # - pymdownx.highlight: # 支持代码块语法高亮，！！！跟mermaid冲突
+  #     linenums: true # 显示行号
+  - pymdownx.superfences: # 可在列表等处嵌入块
+      # make exceptions to highlighting of code:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:mermaid2.fence_mermaid
 
 plugins:
-  - i18n:
-      default_language: zh
-      material_alternate: true
-      languages:
-        zh:
-          name: 简体中文
-          build: true
-        en:
-          name: English
-          build: true
-          site_name: CSDIY.wiki
-      nav_translations:
-        en: 
-          Home: Prospect
-          超算: ZJUSCT
-          计算机科学导论: Introduction to computer science
-          Missing semester: 一些计算机工具 
-          Advanced C Language: 一些C语言的高级技巧
-          CSAPP: 深入理解计算机系统
-          CS106L: 学习一些当代的C++语法
-
-
-          
   - search:
-      lang: ja
-  - git-revision-date-localized
-  - minify:
-      minify_html: true
+      lang: zh
+  # - git-revision-date-localized
 
 extra:
   social:
@@ -102,24 +92,26 @@ extra:
 nav:
   - Home: index.md
   - 超算: 
-    - note: home/超算/note.md
-    - AIPP: home/超算/AIPP.md
-    - lab1: home/超算/homework/lab1.md
+    - home/超算/index.md
+    - home/超算/note.md
+    - home/超算/AIPP.md
+    - Lab: 
+      - home/超算/homework/lab1.md
   - 计算机科学导论: home/Fundation of computer science/index.md
   - Missing semester: 
-    - Index: home/Missing semester/index.md
+    - home/Missing semester/index.md
     - Git: 
-      - index: home/Missing semester/git/index.md
-      - 快速上手: home/Missing semester/git/fast_git.md
-      - 笔记: home/Missing semester/git/note.md
+      - home/Missing semester/git/index.md
+      - home/Missing semester/git/fast_git.md
+      - home/Missing semester/git/note.md
     - Markdown: home/Missing semester/markdown.md
     - Linux: home/Missing semester/linux.md
     - Docker: home/Missing semester/docker.md
-    - vim: home/Missing semester/vim.md
+    - Vim: home/Missing semester/vim.md
   - Advanced C Language: home/Advanced C Language/Advanced C Language.md
   - CSAPP: home/CSAPP/note.md
   - CS106L: 
-    - index: home/CS106L/index.md
-    - Lecture 1: home/CS106L/Lecture1.md
+    - home/CS106L/index.md
+    - home/CS106L/Lecture1.md
   - Spark in life:
-    - Freshman: home/spark in life/freshman.md
+    - home/spark in life/freshman.md
