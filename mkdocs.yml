@@ -104,6 +104,7 @@ nav:
   - 超算: 
     - note: home/超算/note.md
     - AIPP: home/超算/AIPP.md
+    - lab1: home/超算/homework/lab1.md
   - 计算机科学导论: home/Fundation of computer science/index.md
   - Missing semester: 
     - Index: home/Missing semester/index.md
