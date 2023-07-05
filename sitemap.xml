@@ -65,14 +65,6 @@
          
     </url>
     <url>
-         <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/git/</loc>
-         <lastmod>2023-07-05</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/git/"/>
-         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/git/"/>
-         
-    </url>
-    <url>
          <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/linux/</loc>
          <lastmod>2023-07-05</lastmod>
          <changefreq>daily</changefreq>
@@ -94,6 +86,38 @@
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/vim/"/>
          <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/vim/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/git/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/git/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/git/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/git/fast_git/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/git/fast_git/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/git/fast_git/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/Missing%20semester/git/note/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/Missing%20semester/git/note/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/Missing%20semester/git/note/"/>
+         
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/home/spark%20in%20life/freshman/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://yaoyaolingbro.github.io/notebook/zh/home/spark%20in%20life/freshman/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://yaoyaolingbro.github.io/notebook/en/home/spark%20in%20life/freshman/"/>
          
     </url>
     <url>
