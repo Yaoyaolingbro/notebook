@@ -115,5 +115,6 @@ nav:
     - vim: home/Missing semester/vim.md
   - Advanced C Language: home/Advanced C Language/Advanced C Language.md
   - CSAPP: home/CSAPP/note.md
-  - CS106L: home/CS106L/index.md
-    - Lecture 1: home/CS106L/Lecture 1.md
+  - CS106L: 
+    - index: home/CS106L/index.md
+    - Lecture 1: home/CS106L/Lecture1.md
