@@ -2,8 +2,8 @@
 
 ## 环境
 
-1. 你可以选择虚拟机来使用
-2. 或者使用`WSL`来操作
+1. 你可以选择虚拟机来使用(建议使用VMware Station；可以使用Ubuntu； 记得最好更换下下载源，可以是[zuj_mirrors](https://mirrors.zju.edu.cn/)or[清华源](https://mirrors.tuna.tsinghua.edu.cn/))
+2. 或者使用[WSL](https://learn.microsoft.com/en-us/windows/wsl/install)来操作
 
 
 
@@ -41,7 +41,11 @@
 * `mount 和umount`一般来说是配合u盘使用。你也可以在`wsl`下看到我们windows本机的东西都挂载到/mnt文件夹下）
 
   
-
+## 结语
+Linux可以说是无论你身处何地，很多人都会默认你会但是学校又不会怎么教你去使用它。
+相信你有以上这些知识你就可以进行一些基础的使用了，快去开启你的Linux探索之旅吧！  
+我始终坚信实践才是最快的学习方法，在我学习的过程当中，很多命令都是边查并且不断使用你就自然而然就学会了。
+一些更高级的用法请看本章其他内容。
   
 
   

@@ -1,5 +1,5 @@
 
-# Content
+# Lab 1
 
 ---
 

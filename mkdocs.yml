@@ -83,7 +83,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Yaoyaolingbro/notebook
+      link: https://github.com/Yaoyaolingbro/notebook/home
   analytics:
     provider: google
     property: G-KJB4RXSKZG
@@ -91,27 +91,43 @@ extra:
 
 nav:
   - Home: index.md
-  - 超算: 
-    - home/超算/index.md
-    - home/超算/note.md
-    - home/超算/AIPP.md
-    - Lab: 
-      - home/超算/homework/lab1.md
-  - 计算机科学导论: home/Fundation of computer science/index.md
+  - ZJU_CS:
+    - 超算: 
+      - ZJU_CS/超算/index.md
+      - ZJU_CS/超算/note.md
+      - ZJU_CS/超算/AIPP.md
+      - Lab: 
+        - ZJU_CS/超算/homework/lab1.md
+    - Advanced C Language: 
+      - ZJU_CS/Advanced C Language/index.md 
+
   - Missing semester: 
-    - home/Missing semester/index.md
+    - Missing semester/index.md
     - Git: 
-      - home/Missing semester/git/index.md
-      - home/Missing semester/git/fast_git.md
-      - home/Missing semester/git/note.md
-    - Markdown: home/Missing semester/markdown.md
-    - Linux: home/Missing semester/linux.md
-    - Docker: home/Missing semester/docker.md
-    - Vim: home/Missing semester/vim.md
-  - Advanced C Language: home/Advanced C Language/Advanced C Language.md
-  - CSAPP: home/CSAPP/note.md
-  - CS106L: 
-    - home/CS106L/index.md
-    - home/CS106L/Lecture1.md
+      - Missing semester/git/index.md
+      - Missing semester/git/fast_git.md
+      - Missing semester/git/note.md
+    - Markdown: 
+      - Missing semester/markdown.md
+    - Linux: 
+      - Missing semester/Linux/index.md
+      - Missing semester/Linux/shell.md
+      - Missing semester/Linux/C.md
+    - Docker: 
+      - Missing semester/docker.md
+    - Vim: 
+      - Missing semester/vim.md
+
+  - Online CS Courses:
+    - 计算机科学导论: 
+      - Online CS Courses/Fundation of computer science/index.md
+    - CSAPP: 
+      - Online CS Courses/CSAPP/index.md
+      - Online CS Courses/CSAPP/note.md
+    - CS106L: 
+      - Online CS Courses/CS106L/index.md
+      - Online CS Courses/CS106L/Lecture1.md
+
   - Spark in life:
-    - home/spark in life/freshman.md
+    - spark in life/index.md
+    - spark in life/freshman.md
