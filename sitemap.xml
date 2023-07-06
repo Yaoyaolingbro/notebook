@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/</loc>
+         <lastmod>2023-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/Advanced%20C%20Language/</loc>
          <lastmod>2023-07-06</lastmod>
          <changefreq>daily</changefreq>
@@ -96,7 +101,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/note/</loc>
+         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/</loc>
+         <lastmod>2023-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/J4/</loc>
+         <lastmod>2023-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/J5/</loc>
+         <lastmod>2023-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/J6/</loc>
+         <lastmod>2023-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/J7/</loc>
          <lastmod>2023-07-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
