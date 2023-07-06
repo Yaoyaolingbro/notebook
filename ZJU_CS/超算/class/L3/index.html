@@ -10,20 +10,20 @@
         <meta name="author" content="yaoyaoling">
       
       
-        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/J7/">
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/%E8%B6%85%E7%AE%97/class/L3/">
       
       
-        <link rel="prev" href="../J6/">
+        <link rel="prev" href="../L2/">
       
       
-        <link rel="next" href="../../AIPP/">
+        <link rel="next" href="../L4/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
-        <title>J7 - Yaoyaolingbro's computer learning notebook</title>
+        <title>7月6日 集群软硬件以及运维基础 - Yaoyaolingbro's computer learning notebook</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#76" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              J7
+              7月6日 集群软硬件以及运维基础
             
           </span>
         </div>
@@ -520,8 +520,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../J4/" class="md-nav__link">
-        J4
+      <a href="../L1/" class="md-nav__link">
+        7月4日 计算机体系结构和高性能计算基础
       </a>
     </li>
   
@@ -534,22 +534,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../J5/" class="md-nav__link">
-        J5
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../J6/" class="md-nav__link">
-        集群软硬件以及运维基础
+      <a href="../L2/" class="md-nav__link">
+        7月5日 高性能计算方法论（HPC）
       </a>
     </li>
   
@@ -568,14 +554,16 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          J7
+          7月6日 集群软硬件以及运维基础
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        J7
+        7月6日 集群软硬件以及运维基础
       </a>
       
         
@@ -583,6 +571,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -592,8 +582,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux基础操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    向量化并行计算基础
+    集群
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用和功耗
   </a>
   
 </li>
@@ -602,6 +606,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L4/" class="md-nav__link">
+        向量化并行计算基础
+      </a>
     </li>
   
 
@@ -1447,6 +1465,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1455,8 +1475,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux基础操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    向量化并行计算基础
+    集群
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用和功耗
   </a>
   
 </li>
@@ -1479,9 +1513,123 @@
   
 
 
-  <h1>J7</h1>
+<h1 id="76">7月6日 集群软硬件以及运维基础<a class="headerlink" href="#76" title="Permanent link">#</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#76">7月6日 集群软硬件以及运维基础</a><ul>
+<li><a href="#linux">Linux基础操作</a></li>
+<li><a href="#_1">集群</a></li>
+<li><a href="#_2">应用和功耗</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="linux">Linux基础操作<a class="headerlink" href="#linux" title="Permanent link">#</a></h3>
+<blockquote>
+<p>本讲有部分内容我放到/missing semester/Linux 中去了</p>
+</blockquote>
+<ol>
+<li>
+<p>学习建议：ChatGPT ；-- help； man</p>
+</li>
+<li>
+<p>Linux会有很多发行版，Ubuntu笔记容易上手，大多集群使用的是Debian。</p>
+</li>
+<li>
+<p>用户管理：<code>/etc/passwd</code>(用户名：密码表示：UID：GID组别：描述性内容：主目录：默认shell)</p>
+</li>
+</ol>
+<p>密码在<code>/etc/shadow</code></p>
+<ol>
+<li>
+<p><code>passwd [user]</code>(集群下如果开了NIS则要用<code>yppasswd</code>)</p>
+</li>
+<li>
+<p>文件系统</p>
+</li>
+</ol>
+<p><img alt="" src="../graph/Snipaste_2023-07-06_20-25-39.png" /></p>
+<blockquote>
+<p>注：/opt中会有一些可选的东西；/mnt一般用来挂在硬盘</p>
+</blockquote>
+<ol>
+<li><code>lsblk</code>用来显示分区 ; <code>df</code>可以看到磁盘使用情况</li>
+<li><code>mount</code>(need the su authority)</li>
+<li><code>umount -l(lazy) -f(forced)</code> </li>
+<li>git的使用！！！（智云课堂42：34左右开始）（可以下载git line插件）</li>
+<li><code>make &amp;&amp; make install</code></li>
+<li><code>ps</code>进程管理，<code>kill</code>杀死进程，<code>htop</code>在线监管</li>
+<li>终端分块：<code>tmux</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>&lt;name&gt;
 
-<h2 id="_1">向量化并行计算基础<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<span class="c1"># 分离对话</span>
+$<span class="w"> </span>tmux<span class="w"> </span>detach<span class="w"> </span>
+或者<span class="w"> </span>ctrl+B<span class="w"> </span>再按<span class="w"> </span>D
+<span class="c1"># 重新建立连接</span>
+$<span class="w"> </span>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>&lt;name&gt;<span class="w"> </span>
+<span class="c1"># 使用会话名称</span>
+$<span class="w"> </span>tmux<span class="w"> </span>switch<span class="w"> </span>-t<span class="w"> </span>&lt;session-name&gt;
+<span class="c1"># rename</span>
+$<span class="w"> </span>tmux<span class="w"> </span>rename-session<span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;new-name&gt;
+
+拆成左右两边
+ctrl+B+%
+看所有section
+ctrl+S
+
+<span class="c1"># 列出所有快捷键，及其对应的 Tmux 命令</span>
+$<span class="w"> </span>tmux<span class="w"> </span>list-keys
+<span class="c1"># 列出所有 Tmux 命令及其参数</span>
+$<span class="w"> </span>tmux<span class="w"> </span>list-commands
+<span class="c1"># 列出当前所有 Tmux 会话的信息</span>
+$<span class="w"> </span>tmux<span class="w"> </span>info
+<span class="c1"># 重新加载当前的 Tmux 配置</span>
+$<span class="w"> </span>tmux<span class="w"> </span>source-file<span class="w"> </span>~/.tmux.conf
+</code></pre></div>
+<ol>
+<li>ctrl+B 再按 '['就可以上下活动光标</li>
+<li>网络：会有端口</li>
+</ol>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-a<span class="w">   </span><span class="c1"># 列出所有端口</span>
+netstat<span class="w"> </span>-pt<span class="w">  </span><span class="c1"># 显示所有PID和进程的名字</span>
+iptables<span class="w"> </span>-L<span class="w"> </span>-n<span class="w">   </span><span class="c1"># 查看端口是否开放</span>
+</code></pre></div>
+<p><img alt="" src="../graph/Snipaste_2023-07-06_21-43-00.png" /></p>
+<blockquote>
+<p>NAS00 起到跳板机的作用</p>
+</blockquote>
+<ol>
+<li>传输文件可以通过<code>scp</code>或者<code>xftp/xshell</code></li>
+</ol>
+<h3 id="_1">集群<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
+<ol>
+<li>HPC集群，node节点</li>
+<li>服务器（主流高性能NVlink AI服务器；开放加速生态OAM AI服务器；高适应性PCLeAI服务器）</li>
+<li>FLOPS（每秒浮点运算次数）； Latency（延迟）； Bandwidth or throughout（吞吐量）</li>
+<li>PCLe(Peripheral Component Interconnect Express): 高速串行计算机扩展总线标准</li>
+<li>存储协议：SATA；NVMe</li>
+<li>M.2是一种接口</li>
+<li>NVLinke服务器是NVIDIA的显卡交互的通信协议</li>
+<li>IPMI（intelligentPlatform Management Interfere）智能平台管理接口</li>
+<li>BMC网络管理平台</li>
+<li>环境管理可以看看：environment Module</li>
+<li>Slurm集群管理和优化用</li>
+</ol>
+<blockquote>
+<ol>
+<li>sbatch:用于将作业提交到队列</li>
+<li>srun：直接再Slurm集群运行命令或者程序</li>
+<li>squeue：查看在队列中的作业</li>
+<li>sinfo：用于查看Slurm管理的节点和分区的情况</li>
+<li>Scancel：用于取消已经提交的作业</li>
+<li>Salloc：交互式作业请求资源</li>
+</ol>
+</blockquote>
+<ol>
+<li>NVIDIA和Intel都有相关HPC的套件</li>
+</ol>
+<h3 id="_2">应用和功耗<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
 
 
   
