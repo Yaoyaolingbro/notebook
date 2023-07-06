@@ -5,7 +5,10 @@
 1. 你可以选择虚拟机来使用(建议使用VMware Station；可以使用Ubuntu； 记得最好更换下下载源，可以是[zuj_mirrors](https://mirrors.zju.edu.cn/)or[清华源](https://mirrors.tuna.tsinghua.edu.cn/))
 2. 或者使用[WSL](https://learn.microsoft.com/en-us/windows/wsl/install)来操作
 
+## 学习建议
+关于Linux的学习，首先关于书籍，我推荐一本[Linux程序设计](https://item.jd.com/10077374760063.html)（暂未找到电子书）。这本比较概括性的讲到了你所需要学习的大多数linux的知识。有示例，比较入门，大概两三天就可以有个初步的学习，但是十分浅尝辄止。
 
+进阶一点的书籍的话推荐[linux就该这样学](https://www.linuxprobe.com/docs/LinuxProbe.pdf)和[鸟哥的Linux私房菜](https://tiramisutes.github.io/images/PDF/vbird-linux-basic-4e.pdf)
 
 ## 一些些基础知识
 
@@ -15,7 +18,8 @@
 * `apt 或 brew`是Ubuntu和MacOS下的包管理器，用来下载和安装
 * 有一些用户上的操作我们之后补充。
 * `alias`可以自定义文件操作的别称。
-* 下载软件（tar压缩包版）
+* 下载软件（tar压缩包版）（snap或者应用商店）(`cur`l 或者 `wget`)
+* su用户会是'#';普通用户是'$'
 
 ![](graph\Snipaste_2023-07-04_09-02-43.png)
 
@@ -23,7 +27,7 @@
 
 * 涉及到目录的操作，我们会用`ls`来显示当前文件夹下的所有内容。（-a显示所有；-l 为长格式显示，可叠加使用，如：`ls -hla`）
 * 用`mkdir`创建文件夹（用 -m 设置参数，例如：`mkdir -m 777 tsk`,777表示所有的用户斗鱼rwx的权限）
-* `chmod`可以用来更改权限。
+* `chmod`可以用来更改权限。（r代表read，w代表write，x代表可执行）`chgrp`用来更改文件或目录的所属组。
 * `rmdir`是删除文件夹。或者`rm`（用-r可以删除非空文件夹）
 * `cd`切换目录（`..`是上一级目录，或者直接从`/`目录开始的绝对路径去操作）
 * `gedit`或者`vim`是两种文本编辑器。第一种可以可视化，第二个会有许多快捷键操作。vim的操作会在另一个文件记录。

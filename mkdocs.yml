@@ -15,7 +15,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.indexes
-    # - navigation.expand
+    #　- navigation.expand
     - navigation.tracking
     - navigation.top
     - header.autohide
@@ -92,10 +92,17 @@ extra:
 nav:
   - Home: index.md
   - ZJU_CS:
+    - ZJU_CS/index.md
     - 超算: 
       - ZJU_CS/超算/index.md
-      - ZJU_CS/超算/note.md
-      - ZJU_CS/超算/AIPP.md
+      - Note: 
+        - ZJU_CS/超算/class/index.md
+        - ZJU_CS/超算/class/J4.md
+        - ZJU_CS/超算/class/J5.md
+        - ZJU_CS/超算/class/J6.md
+        - ZJU_CS/超算/class/J7.md
+      - AIPP: 
+        - ZJU_CS/超算/AIPP.md
       - Lab: 
         - ZJU_CS/超算/homework/lab1.md
     - Advanced C Language: 
