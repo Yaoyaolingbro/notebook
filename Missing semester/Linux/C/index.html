@@ -995,9 +995,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Linux中常见的C语言编程技巧
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Linux中常见的C语言编程技巧
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the_c_program_under_linux" class="md-nav__link">
+    The C program under linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    Makefile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdb" class="md-nav__link">
+    GDB
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1421,6 +1466,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the_c_program_under_linux" class="md-nav__link">
+    The C program under linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    Makefile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdb" class="md-nav__link">
+    GDB
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1440,9 +1514,217 @@
 <h1 id="linuxc">Linux中常见的C语言编程技巧<a class="headerlink" href="#linuxc" title="Permanent link">#</a></h1>
 <div class="toc">
 <ul>
-<li><a href="#linuxc">Linux中常见的C语言编程技巧</a></li>
+<li><a href="#linuxc">Linux中常见的C语言编程技巧</a><ul>
+<li><a href="#the_c_program_under_linux">The C program under linux</a></li>
+<li><a href="#makefile">Makefile</a></li>
+<li><a href="#gdb">GDB</a></li>
+</ul>
+</li>
 </ul>
 </div>
+<h2 id="the_c_program_under_linux">The C program under linux<a class="headerlink" href="#the_c_program_under_linux" title="Permanent link">#</a></h2>
+<ol>
+<li>我们一般使用的C语言编译器是<code>gcc</code>，常见的格式是<code>gcc -o hello hello.c</code>（<code>-o</code>的意思是指定生成文件的命名；未指定的话是产生的文件名是<code>a.out</code>）。Linux环境下我们是用<code>./hello</code>用来执行文件.</li>
+</ol>
+<blockquote>
+<p>静态链接库（.a)、汇编语言源文件（.s)、预处理输出文件（.i）、 目标代码(.o)、 共享函数库（.so)</p>
+<p>并且gcc在编译的时候默认使用动态链接库，编译链接时并不把库文件的代码加入到其中，而是在程序执行的时候带太加载链接库，这样可以节约系统开销。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">-g</td>
+<td align="center">创建用于gdb的符号表和调试信息</td>
+</tr>
+<tr>
+<td align="center">-I/-lm</td>
+<td align="center">连接库文件/会自动选择共享库</td>
+</tr>
+<tr>
+<td align="center">-m</td>
+<td align="center">根据指定的cpu优化代码</td>
+</tr>
+<tr>
+<td align="center">-w</td>
+<td align="center">忽略警告</td>
+</tr>
+<tr>
+<td align="center">-O</td>
+<td align="center">大写的O，是指编译器自己对代码进行优化（但这个优化有些时候可能会改变原有代码的实际目的）</td>
+</tr>
+<tr>
+<td align="center">-Wall</td>
+<td align="center">允许发出gcc提供的所有有用的警告信息</td>
+</tr>
+<tr>
+<td align="center">-E</td>
+<td align="center">只进行预编译</td>
+</tr>
+<tr>
+<td align="center">-S</td>
+<td align="center">跳过汇编和链接的阶段，并保留产生的汇编代码（.s file)</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">产生尽可能多的信息（常用）</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">跳过链接步骤，编译成目标文件（.o) (可以用于多文件编译)</td>
+</tr>
+<tr>
+<td align="center">-I</td>
+<td align="center">在头文件中添加dir目录</td>
+</tr>
+<tr>
+<td align="center">-L</td>
+<td align="center">在库文件的搜索路径列表中添加dir目录</td>
+</tr>
+<tr>
+<td align="center">-static</td>
+<td align="center">链接静态库</td>
+</tr>
+<tr>
+<td align="center">- library</td>
+<td align="center">连接名为library的库文件</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>具体的写库的过程可以看《Linux程序设计》p118.</li>
+</ol>
+<h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">#</a></h2>
+<p>我们常说的Makefile就是GNU <a href="https://www.gnu.org/software/make/manual/make.html">make</a>.它能够帮助我们快速完成编译（使已经编译过且未改动的文件不再编译）。多数同学在c程序设计专题中已经有所了解了。这里有一个深入浅出的<a href="https://seisman.github.io/how-to-write-makefile/overview.html">手册</a>放在这里。我会把一些重要的内容记录在下面。</p>
+<ol>
+<li>命令格式：</li>
+</ol>
+<p><code>make [选项] [make工程文件]</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">-d</td>
+<td align="center">显示调试信息</td>
+</tr>
+<tr>
+<td align="center">-f</td>
+<td align="center">使用指定文件作为依赖关系文件</td>
+</tr>
+<tr>
+<td align="center">-n</td>
+<td align="center">不执行makefile的命令，只是显示输出这些命令</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>编写makefile</li>
+</ol>
+<p>​   makefile文件中通常包含以下的信息：</p>
+<p>​   （1） 需要由make工具创建的目标体（target），通常是目标文件或可执行文件。</p>
+<p>​   （2）要创建目标所依赖的文件。</p>
+<p>​   （3）创建每个目标体时需要的命令。</p>
+<p>​   makefile的书写规则：</p>
+<blockquote>
+<p>目标文件：依赖文件</p>
+<p>（Tab）产生目标文件的命令</p>
+</blockquote>
+<ol>
+<li>
+<p><code>常用清除中间的文件：
+   clean:
+    rm -f *.o</code></p>
+</li>
+<li>
+<p>Makefile中为了使可维护性较高，我们通常会设置环境变量。一般是用大写。</p>
+</li>
+<li>
+<p>makefile中常见预定义变量（因为还没用到，所以先不写了，之后再补充）</p>
+</li>
+<li>
+<p>makefile中常见的自动变量</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$*</td>
+<td align="center">不包含扩展名的目标文件名称</td>
+</tr>
+<tr>
+<td align="center">$+</td>
+<td align="center">所有的依赖文件，以空格分开，以出现的先后为序，可能重复</td>
+</tr>
+<tr>
+<td align="center">$&lt;</td>
+<td align="center">第一个依赖文件的名称</td>
+</tr>
+<tr>
+<td align="center">$?</td>
+<td align="center">所有时间戳比目标文件晚的依赖文件</td>
+</tr>
+<tr>
+<td align="center">$@</td>
+<td align="center">目标文件的完整名称</td>
+</tr>
+<tr>
+<td align="center">$^</td>
+<td align="center">所有不重复的依赖文件，以空格隔开</td>
+</tr>
+<tr>
+<td align="center">$%</td>
+<td align="center">如果目标是归档成员，则该变量表示目标的归档成员名称</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nv">SRC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>..<span class="se">\.</span>.<span class="se">\s</span>rc<span class="se">\a</span>cllib.c
+<span class="nv">INCLUDE_DIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>..<span class="se">\.</span>.<span class="se">\s</span>rc
+<span class="nv">LIB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gdi32<span class="w"> </span>ole32<span class="w"> </span>oleaut32<span class="w"> </span>uuid<span class="w"> </span>winmm<span class="w"> </span>msimg32
+
+<span class="nf">all </span><span class="o">:</span><span class="w"> </span><span class="n">keyboard</span> <span class="n">mouse_move</span> 
+
+<span class="nf">keyboard </span><span class="o">:</span>
+<span class="w">    </span>gcc<span class="w"> </span><span class="k">$(</span>SRC<span class="k">)</span><span class="w"> </span><span class="nv">$@</span>.c<span class="w"> </span>-I<span class="k">$(</span>INCLUDE_DIR<span class="k">)</span><span class="w"> </span><span class="k">$(</span>LIB:%<span class="o">=</span>-l%<span class="k">)</span><span class="w"> </span>-DWINVER<span class="o">=</span>0x0501<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
+
+<span class="nf">mouse_move </span><span class="o">:</span>
+<span class="w">    </span>gcc<span class="w"> </span><span class="k">$(</span>SRC<span class="k">)</span><span class="w"> </span><span class="nv">$@</span>.c<span class="w"> </span>-I<span class="k">$(</span>INCLUDE_DIR<span class="k">)</span><span class="w"> </span><span class="k">$(</span>LIB:%<span class="o">=</span>-l%<span class="k">)</span><span class="w"> </span>-DWINVER<span class="o">=</span>0x0501<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">main</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">o</span> <span class="n">a</span>.<span class="n">o</span> <span class="n">b</span>.<span class="n">o</span>
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span>main.o<span class="w"> </span>a.o<span class="w"> </span>b.o
+<span class="nf">main.o</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">c</span> <span class="n">a</span>.<span class="n">h</span> <span class="n">b</span>.<span class="n">h</span>
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>main.c
+<span class="nf">a.o</span><span class="o">:</span><span class="w"> </span><span class="n">a</span>.<span class="n">c</span> <span class="n">a</span>.<span class="n">h</span>
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>a.c
+<span class="nf">b.o</span><span class="o">:</span><span class="w"> </span><span class="n">b</span>.<span class="n">c</span> <span class="n">b</span>.<span class="n">h</span>
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>b.c
+
+<span class="c"># simple version</span>
+<span class="nf">main</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">o</span> <span class="n">a</span>.<span class="n">o</span> <span class="n">b</span>.<span class="n">o</span>
+<span class="w">    </span>gcc<span class="w">  </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>$^
+<span class="nf">..c.o</span><span class="o">:</span><span class="w"> </span>
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>$&lt;
+</code></pre></div>
+<ol>
+<li>小结：makefile文件主要包含五部分内容：显示规则、饮食规则、变量定义、文件只是和注释。</li>
+</ol>
+<h2 id="gdb">GDB<a class="headerlink" href="#gdb" title="Permanent link">#</a></h2>
+<p>GDB的全称是（GNU Debugger），用于调试c、c++等文件。当然命令行上的东西对于初学者一定是不怎么好用的，我也认为对于刚入门的同学来说不必急着去学习这些工具（vscode中的调试有内嵌gdb）。当你真正有这些需求的时候你自然而然会自己去学习。</p>
 
 
   
