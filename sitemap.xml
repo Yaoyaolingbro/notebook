@@ -6,6 +6,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/AI/AI%E5%85%A5%E9%97%A8/</loc>
+         <lastmod>2023-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/AI/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+         <lastmod>2023-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/AI/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/introduction/</loc>
+         <lastmod>2023-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/AI/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+         <lastmod>2023-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://yaoyaolingbro.github.io/notebook/Missing%20semester/</loc>
          <lastmod>2023-07-10</lastmod>
          <changefreq>daily</changefreq>
@@ -37,6 +57,11 @@
     </url>
     <url>
          <loc>https://yaoyaolingbro.github.io/notebook/Missing%20semester/Linux/WSL/</loc>
+         <lastmod>2023-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://yaoyaolingbro.github.io/notebook/Missing%20semester/Linux/advanced%20Linux/</loc>
          <lastmod>2023-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
