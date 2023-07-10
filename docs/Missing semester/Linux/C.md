@@ -26,6 +26,7 @@
 |  -static  |                          链接静态库                          |
 | - library |                   连接名为library的库文件                    |
 
+> gcc 可以开 -march=native 来避免通用性，适用于本地。
 2. 具体的写库的过程可以看《Linux程序设计》p118.
 
 
