@@ -193,7 +193,7 @@ HPL是`Linpack`测试的一种，需要依赖`OpenMPI`&`OpenBLAS`来实现。
 
    ```
    cd Downloads/openmpi-4.1.4/examples
-   make && mpirun -np 2 hello_c
+   make && mpirun -np 2 hello_c.c
    ```
 
    * 测试结果

@@ -125,6 +125,7 @@ nav:
       - Missing semester/Linux/shell.md
       - Missing semester/Linux/C.md
       - Missing semester/Linux/WSL.md
+      - Missing semester\Linux\advanced Linux.md
     - Docker: 
       - Missing semester/docker.md
     - Vim: 
@@ -139,6 +140,16 @@ nav:
     - CS106L: 
       - Online CS Courses/CS106L/index.md
       - Online CS Courses/CS106L/Lecture1.md
+
+
+  - AI:
+    - AI入门:
+      - AI/AI入门/index.md
+    - 机器学习:
+      - AI/机器学习/index.md
+      - AI/机器学习/introduction.md
+    - 深度学习:
+      - AI/深度学习/index.md
 
   - Spark in life:
     - spark in life/index.md
