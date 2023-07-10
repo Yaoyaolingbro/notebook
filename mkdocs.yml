@@ -101,10 +101,14 @@ nav:
         - ZJU_CS/超算/class/L2.md
         - ZJU_CS/超算/class/L3.md
         - ZJU_CS/超算/class/L4.md
+        - ZJU_CS/超算/class/L5.md
+        - ZJU_CS/超算/class/L6.md
       - AIPP: 
         - ZJU_CS/超算/AIPP.md
       - Lab: 
         - ZJU_CS/超算/homework/lab1.md
+        - ZJU_CS/超算/homework/lab2.md
+        - ZJU_CS/超算/homework/lab2.5.md
     - Advanced C Language: 
       - ZJU_CS/Advanced C Language/index.md 
 
