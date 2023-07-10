@@ -124,6 +124,7 @@ nav:
       - Missing semester/Linux/index.md
       - Missing semester/Linux/shell.md
       - Missing semester/Linux/C.md
+      - Missing semester/Linux/WSL.md
     - Docker: 
       - Missing semester/docker.md
     - Vim: 
