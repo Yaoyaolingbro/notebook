@@ -1,14 +1,16 @@
 # 并行计算设计导论
 
-## 并行计算相关的基础知识以及硬件
+## Chapter 2  并行计算相关的基础知识以及硬件
 
 
 
-## MPI
+## Chapter 3 用MPI进行分布式内存编程
 
 MPI is designed to work in a heterogeneous（异构） environment.
 
 fairly heavily（相当）dispatch（分发，调度）
+
+计算机可以大致分为：分布式内存系统和共享内存系统。本章主要讨论如何使用消息传递来对分布式内存系统进行编程。
 
 注：本章内容可以结合课本以及`CMU 15-418 Recitation 6` 共同学习。（Recitation 6 的内容后半部分是一些矩阵优化相关的内容，不想看可以不看）
 
@@ -150,3 +152,11 @@ MPI_Reduce(local _x, sum, N, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD)
 1. 计时：`MPI_Wtime`用double类型的变量记录返回值及可。
 2. `MPI_Barrier`用来同步进程。在同一通信子的所有进程调用该函数之前所有调用MPI_Barrier 的进程都不能返回。
 3. 排序算法的并行优化。
+
+
+
+
+
+## Chapter 5 用OpenMP进行共享内存编程
+
+OpenMP中的MP代表着“多处理”，是一个共享内存并行编程同一的术语。

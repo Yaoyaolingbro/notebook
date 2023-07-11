@@ -1,4 +1,4 @@
-
+bas
 
 <div class="cover" style="page-break-after:always;font-family:方正公文仿宋;width:100%;height:100%;border:none;margin: 0 auto;text-align:center;">
     <div style="width:60%;margin: 0 auto;height:0;padding-bottom:10%;">
@@ -49,7 +49,7 @@
 </div>
 
 
-<!-- 注释语句：导出PDF时会在这里分页 -->
+
 
 #　标题
 
@@ -127,6 +127,8 @@ for (int i = 0; i < MAXN; ++i)
 ---
 
 ### Code Design
+
+**My Code:**
 
 ```c
 for (int n = 0; n < 20; ++n)
