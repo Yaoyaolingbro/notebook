@@ -703,18 +703,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    并行计算相关的基础知识以及硬件
+  <a href="#chapter_2" class="md-nav__link">
+    Chapter 2  并行计算相关的基础知识以及硬件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mpi" class="md-nav__link">
-    MPI
+  <a href="#chapter_3_mpi" class="md-nav__link">
+    Chapter 3 用MPI进行分布式内存编程
   </a>
   
-    <nav class="md-nav" aria-label="MPI">
+    <nav class="md-nav" aria-label="Chapter 3 用MPI进行分布式内存编程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -725,7 +725,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mpi_1" class="md-nav__link">
+  <a href="#mpi" class="md-nav__link">
     一点点MPI程序的代码要点
   </a>
   
@@ -739,14 +739,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     通信
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     潜在的一些陷阱
   </a>
   
@@ -760,14 +760,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     向量处理的技巧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mpi_2" class="md-nav__link">
+  <a href="#mpi_1" class="md-nav__link">
     MPI性能
   </a>
   
@@ -775,6 +775,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter_5_openmp" class="md-nav__link">
+    Chapter 5 用OpenMP进行共享内存编程
+  </a>
   
 </li>
       
@@ -1844,18 +1851,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    并行计算相关的基础知识以及硬件
+  <a href="#chapter_2" class="md-nav__link">
+    Chapter 2  并行计算相关的基础知识以及硬件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mpi" class="md-nav__link">
-    MPI
+  <a href="#chapter_3_mpi" class="md-nav__link">
+    Chapter 3 用MPI进行分布式内存编程
   </a>
   
-    <nav class="md-nav" aria-label="MPI">
+    <nav class="md-nav" aria-label="Chapter 3 用MPI进行分布式内存编程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1866,7 +1873,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mpi_1" class="md-nav__link">
+  <a href="#mpi" class="md-nav__link">
     一点点MPI程序的代码要点
   </a>
   
@@ -1880,14 +1887,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     通信
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     潜在的一些陷阱
   </a>
   
@@ -1901,14 +1908,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     向量处理的技巧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mpi_2" class="md-nav__link">
+  <a href="#mpi_1" class="md-nav__link">
     MPI性能
   </a>
   
@@ -1916,6 +1923,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter_5_openmp" class="md-nav__link">
+    Chapter 5 用OpenMP进行共享内存编程
+  </a>
   
 </li>
       
@@ -1938,10 +1952,11 @@
 
 
 <h1 id="_1">并行计算设计导论<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2">并行计算相关的基础知识以及硬件<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<h2 id="mpi">MPI<a class="headerlink" href="#mpi" title="Permanent link">#</a></h2>
+<h2 id="chapter_2">Chapter 2  并行计算相关的基础知识以及硬件<a class="headerlink" href="#chapter_2" title="Permanent link">#</a></h2>
+<h2 id="chapter_3_mpi">Chapter 3 用MPI进行分布式内存编程<a class="headerlink" href="#chapter_3_mpi" title="Permanent link">#</a></h2>
 <p>MPI is designed to work in a heterogeneous（异构） environment.</p>
 <p>fairly heavily（相当）dispatch（分发，调度）</p>
+<p>计算机可以大致分为：分布式内存系统和共享内存系统。本章主要讨论如何使用消息传递来对分布式内存系统进行编程。</p>
 <p>注：本章内容可以结合课本以及<code>CMU 15-418 Recitation 6</code> 共同学习。（Recitation 6 的内容后半部分是一些矩阵优化相关的内容，不想看可以不看）</p>
 <h3 id="hello_world">第一个类似于Hello world 的程序<a class="headerlink" href="#hello_world" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -1977,7 +1992,7 @@
 </code></pre></div>
 <p>用<code>mpicc -g -Wall -o hello hello.c</code>来编译</p>
 <p>用<code>mpiexec -n 1 ./hello</code>来运行</p>
-<h3 id="mpi_1">一点点MPI程序的代码要点<a class="headerlink" href="#mpi_1" title="Permanent link">#</a></h3>
+<h3 id="mpi">一点点MPI程序的代码要点<a class="headerlink" href="#mpi" title="Permanent link">#</a></h3>
 <ol>
 <li>每个程序是由MPI_Init和MPI_Finalize进行必要的初始化和结束。与MPI有关的函数都要在这里面进行（其中，MPI_Init传入的是<em>argc和</em>argv的指针。</li>
 <li>通信子（communicator）、MPI_Comm_size 和 MPI_Comm_rank （一般来说，comm_sz表示进程的数量，my_rank表示进程号）（并且要初始化！！！）</li>
@@ -1986,7 +2001,7 @@
 <blockquote>
 <p>Single Program and Multiple Data：我们称为单程序多数据。理论上是每个进程编译不同的程序。但是我们常用的手段是编写一个程序，根据不同的进程号来分配进程。</p>
 </blockquote>
-<h3 id="_3">通信<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<h3 id="_2">通信<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
 <p>在上面的示例程序中，我们将信息通过<code>printf &amp; sprintf</code>来传递。通过MPI_Send来发送MPI_Recv来接受。</p>
 <p><img alt="" src="../graph/Snipaste_2023-07-04_21-09-26.png" /></p>
 <p><img alt="" src="../graph/Snipaste_2023-07-04_21-48-39.png" /></p>
@@ -2012,7 +2027,7 @@
 <li>MPI使用的是“推”通信机制</li>
 <li>MPI消息不可超越。</li>
 </ol>
-<h3 id="_4">潜在的一些陷阱<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<h3 id="_3">潜在的一些陷阱<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
 <ul>
 <li>我们需要每条接受语句有相应的发送语句匹配，防止进程悬挂。</li>
 </ul>
@@ -2044,19 +2059,21 @@ MPI_Reduce(local _x, sum, N, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD)
 <blockquote>
 <p>小结：我们不难注意到点对点通信和集合通信的不同。他们都有些特点：必须有匹配的集合通信函数；传递的参数必须“相容？”；忠告就是不建议将同一块缓冲区作为输入和输出同时调用！</p>
 </blockquote>
-<h3 id="_5">向量处理的技巧<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<h3 id="_4">向量处理的技巧<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
 <p>这里会涉及到CMU课程后半部分以及书上的一些知识点：</p>
 <ol>
 <li>数据分发：块划分、循环划分、块-循环划分</li>
 <li>散射:<code>MPI_Scatter</code>; 聚集：<code>MPI_Gather</code>；MPI_ALLgather:可以将每个进程中的send_buf_p内容串联起来。</li>
 <li>书中有矩阵乘法和加法的示例。</li>
 </ol>
-<h3 id="mpi_2">MPI性能<a class="headerlink" href="#mpi_2" title="Permanent link">#</a></h3>
+<h3 id="mpi_1">MPI性能<a class="headerlink" href="#mpi_1" title="Permanent link">#</a></h3>
 <ol>
 <li>计时：<code>MPI_Wtime</code>用double类型的变量记录返回值及可。</li>
 <li><code>MPI_Barrier</code>用来同步进程。在同一通信子的所有进程调用该函数之前所有调用MPI_Barrier 的进程都不能返回。</li>
 <li>排序算法的并行优化。</li>
 </ol>
+<h2 id="chapter_5_openmp">Chapter 5 用OpenMP进行共享内存编程<a class="headerlink" href="#chapter_5_openmp" title="Permanent link">#</a></h2>
+<p>OpenMP中的MP代表着“多处理”，是一个共享内存并行编程同一的术语。</p>
 
 
   
