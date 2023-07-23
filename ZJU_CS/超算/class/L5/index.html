@@ -645,7 +645,21 @@
       
         <li class="md-nav__item">
   <a href="#cuda" class="md-nav__link">
-    CUDA
+    CUDA架构以及基础知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    GPU 函数的用法以及同步
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
   </a>
   
 </li>
@@ -1797,7 +1811,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../spark%20in%20life/freshman/" class="md-nav__link">
-        浅记我的18年
+        浅记我的大一生活
       </a>
     </li>
   
@@ -1845,7 +1859,21 @@
       
         <li class="md-nav__item">
   <a href="#cuda" class="md-nav__link">
-    CUDA
+    CUDA架构以及基础知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    GPU 函数的用法以及同步
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
   </a>
   
 </li>
@@ -1958,7 +1986,7 @@
 <li>GPU会更偏向跑并行的。</li>
 <li>distinguish between Programming Model and Executing Model。</li>
 </ol>
-<h2 id="cuda">CUDA<a class="headerlink" href="#cuda" title="Permanent link">#</a></h2>
+<h2 id="cuda">CUDA架构以及基础知识<a class="headerlink" href="#cuda" title="Permanent link">#</a></h2>
 <p>英伟达有自己的GPU架构以及编程语言。</p>
 <p><img alt="" src="../graph/%E5%9B%BE%E7%89%873.png" /></p>
 <p><img alt="" src="../graph/%E5%9B%BE%E7%89%872.png" /></p>
@@ -1970,6 +1998,10 @@
 <p><img alt="" src="../graph/Snipaste_2023-07-12_23-11-23.png" /></p>
 <p>这里有一个示例的GPU向量计算的例子。之后我们会详细介绍每个函数的使用。（尤其是从架构的角度出发理解算法设计尤其是“流”的使用。）</p>
 <p><img alt="" src="../graph/Snipaste_2023-07-12_16-12-34.png" /></p>
+<p>一些编程建议如下：</p>
+<p><img alt="" src="../graph/Snipaste_2023-07-13_00-00-59.png" /></p>
+<p>阅读完以上基本内容，此后便开始CUDA语法的介绍了！！！</p>
+<h2 id="gpu">GPU 函数的用法以及同步<a class="headerlink" href="#gpu" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1">//&#39;__global__&#39; before GPU function</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">CPUFunction</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1986,7 +2018,7 @@
 <span class="w">  </span><span class="n">CPUFunction</span><span class="p">();</span>
 
 <span class="w">  </span><span class="n">GPUFunction</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// &lt;&lt;&lt;m,n&gt;&gt;&gt; m is the number of blocks,n is the num of threads in one block</span>
-<span class="w">  </span><span class="n">cudaDeviceSynchronize</span><span class="p">();</span>
+<span class="w">  </span><span class="n">cudaDeviceSynchronize</span><span class="p">();</span><span class="w"> </span><span class="c1">//同步</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">//CUDA 核函数可以访问能够识别如下两种索引的特殊变量：正在执行核函数的线程（位于线程块内）索引和线程所在的线程块（位于网格内）索引。这两种变量分别为 threadIdx.x 和 blockIdx.x</span>
@@ -2048,6 +2080,7 @@
 <span class="p">}</span>
 <span class="n">最后</span><span class="err">，</span><span class="n">为捕捉异步错误</span><span class="err">（</span><span class="n">例如</span><span class="err">，</span><span class="n">在异步核函数执行期间</span><span class="err">），</span><span class="n">请务必检查后续同步</span><span class="w"> </span><span class="n">CUDA</span><span class="w"> </span><span class="n">运行时</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="n">调用所返回的状态</span><span class="err">（</span><span class="n">例如</span><span class="w"> </span><span class="n">cudaDeviceSynchronize</span><span class="err">）；</span><span class="n">如果之前启动的其中一个核函数失败</span><span class="err">，</span><span class="n">则将返回错误</span><span class="err">。</span>
 </code></pre></div>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="n">cudaError_t</span><span class="w"> </span><span class="nf">checkCuda</span><span class="p">(</span><span class="n">cudaError_t</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">cudaSuccess</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2057,6 +2090,7 @@
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+<p><img alt="" src="../graph/Snipaste_2023-07-12_23-50-59.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">&lt;&lt;</span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// 左移20位</span>
 </code></pre></div>
 <h2 id="nsys">使用nsys性能分析器帮助应用程序迭代地进行优化<a class="headerlink" href="#nsys" title="Permanent link">#</a></h2>
