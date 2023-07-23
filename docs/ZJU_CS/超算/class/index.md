@@ -1,6 +1,10 @@
 # note of class
 这里是浙江大学大一超算短学期的课堂笔记  
 
+## 关于本课的学习建议
+
+大家可以先储备一些数逻和祭祖的知识。比如通过cs速成课，以及[DRAM](https://www.youtube.com/watch?v=7J7X7aZvMXQ)来补充一些知识，便于你理解。
+
 **Table**
 
 |  Date  |             Target             |
