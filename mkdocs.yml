@@ -129,7 +129,7 @@ nav:
       - Missing semester/Linux/C.md
       - Missing semester/Linux/WSL.md
       - Missing semester\Linux\advanced Linux.md
-      
+
     - Missing semester/docker.md
     - Missing semester/vim.md
     - Missing semester/ladder.md
@@ -158,3 +158,4 @@ nav:
     - spark in life/index.md
     - spark in life/freshman.md
     - spark in life/GuiZhou.md
+    - spark in life/kickboxing.md
