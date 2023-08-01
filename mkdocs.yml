@@ -129,10 +129,9 @@ nav:
       - Missing semester/Linux/C.md
       - Missing semester/Linux/WSL.md
       - Missing semester\Linux\advanced Linux.md
-    - Docker: 
-      - Missing semester/docker.md
-    - Vim: 
-      - Missing semester/vim.md
+      
+    - Missing semester/docker.md
+    - Missing semester/vim.md
     - Missing semester/ladder.md
 
   - Online CS Courses:
