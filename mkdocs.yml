@@ -117,6 +117,7 @@ nav:
 
   - Missing semester: 
     - Missing semester/index.md
+    - Missing semester/toolbox.md
     - Git: 
       - Missing semester/git/index.md
       - Missing semester/git/fast_git.md

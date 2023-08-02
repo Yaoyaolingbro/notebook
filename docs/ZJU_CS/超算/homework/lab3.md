@@ -201,3 +201,67 @@ __global__ void MultipleCudaKernel(const double *__restrict__ a,
 ---
 
 本次lab教会了我如何使用CUDA进行GPU编程，在整个编程过程中，基本阅读了官方文档，并且了解了thread和warp编程思想，以及结合课上的知识，深入理解了内存的内部构造以及NVIDA显卡的自身结构特性，在此基础上进行了优化。
+
+
+
+## Bonus
+
+关于Bonus，虽然自己没有完整做出来用tensor core的计算方法，但自己也在这个上面投入了比较多的精力，最后根据我的测试应该问题还是出现在了block和grid的数目配置上，因此导致计算结果有误。我的代码如下：
+
+```c
+dim3 grid((size + block_size * WMMA_M - 1) / (block_size * WMMA_M),
+            (size + block_size * WMMA_N - 1) / (block_size * WMMA_N));
+dim3 block(block_size, block_size);
+
+const int WMMA_M = 8;
+const int WMMA_N = 8;
+const int WMMA_K = 4;
+
+/// \brief Do Matrix Multiplication on GPU.
+__global__ void MultipleCudaKernel(const double *__restrict__ a, 
+                                   const double *__restrict__ b, 
+                                   double *__restrict__ result) 
+{
+    // Tile using a 2D grid
+    const int warpM = (blockIdx.x * blockDim.x + threadIdx.x) / warpSize;
+    const int warpN = (blockIdx.y * blockDim.y + threadIdx.y);
+  
+    // Declare the fragments
+    using namespace nvcuda;
+    wmma::fragment<wmma::matrix_a, WMMA_M, WMMA_N, WMMA_K, double, wmma::col_major> a_frag;
+    wmma::fragment<wmma::matrix_b, WMMA_M, WMMA_N, WMMA_K, double, wmma::col_major> b_frag;
+    wmma::fragment<wmma::accumulator, WMMA_M, WMMA_N, WMMA_K, double> acc_frag;
+    //initialize
+    wmma::fill_fragment(acc_frag, 0.0);
+
+    // Loop over size
+    for (int i = 0; i < size; i += WMMA_K) {
+        int aRow = warpM * WMMA_M;
+        int aCol = i;
+
+        int bRow = i;
+        int bCol = warpN * WMMA_N;
+
+        // Bounds checking
+        if (aRow < size && aCol < size && bRow < size && bCol < size) {
+          // Load the inputs
+          wmma::load_matrix_sync(a_frag, a + aRow + aCol * size, size);
+          wmma::load_matrix_sync(b_frag, b + bRow + bCol * size, size);
+
+          // Perform the matrix multiplication
+          wmma::mma_sync(acc_frag, a_frag, b_frag, acc_frag);
+        }
+    }
+
+    int cRow = warpM * WMMA_M;
+    int cCol = warpN * WMMA_N;
+    // Store the output
+    if (cRow < size && cCol < size) {
+    wmma::store_matrix_sync(result + cRow + cCol * size, acc_frag, size, wmma::mem_col_major);
+    }
+}
+```
+
+![](graph\Snipaste_2023-08-02_15-43-20.png)
+
+**结论：**通过tensor core的计算，我们能很大程度上避免冲突并且加速计算。通过printf大法我看出我的计算结果与正确的计算结果相差了大约4倍左右，但不太理解自己错在了哪里？如果可以的话希望超算队的学长可以帮忙指出。
