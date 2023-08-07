@@ -95,6 +95,7 @@ nav:
     - ZJU_CS/index.md
     - 超算: 
       - ZJU_CS/超算/index.md
+      - ZJU_CS/超算/AIPP.md
       - Note: 
         - ZJU_CS/超算/class/index.md
         - ZJU_CS/超算/class/L1.md
@@ -105,8 +106,6 @@ nav:
         - ZJU_CS/超算/class/L6.md
         - ZJU_CS/超算/class/L7.md
         - ZJU_CS/超算/class/L8.md
-      - AIPP: 
-        - ZJU_CS/超算/AIPP.md
       - Lab: 
         - ZJU_CS/超算/homework/lab1.md
         - ZJU_CS/超算/homework/lab2.md
@@ -114,27 +113,31 @@ nav:
         - ZJU_CS/超算/homework/lab3.md
     - Advanced C Language: 
       - ZJU_CS/Advanced C Language/index.md 
+    - Python:
+      - ZJU_CS/Python/index.md
 
   - Missing semester: 
     - Missing semester/index.md
     - Missing semester/toolbox.md
     - Git: 
-      - Missing semester/git/index.md
-      - Missing semester/git/fast_git.md
-      - Missing semester/git/note.md
+      - Missing semester/Git/index.md
+      - Missing semester/Git/fast_git.md
+      - Missing semester/Git/note.md
     - Markdown: 
-      - Missing semester/markdown.md
+      - Missing semester/Markdown/index.md
     - Linux: 
       - Missing semester/Linux/index.md
       - Missing semester/Linux/shell.md
       - Missing semester/Linux/C.md
       - Missing semester/Linux/WSL.md
-      - Missing semester\Linux\advanced Linux.md
-
-    - Missing semester/docker.md
-    - Missing semester/vim.md
-    - Missing semester/ladder.md
-
+      - Missing semester/Linux/advanced Linux.md
+      - Missing semester/Linux/vim.md
+    - Docker:
+      - Missing semester/Docker/index.md
+    - Ladder:
+      - Missing semester/Ladder/index.md
+    - Latex:
+      - Missing semester/Latex/index.md
   - Online CS Courses:
     - 计算机科学导论: 
       - Online CS Courses/Fundation of computer science/index.md
@@ -144,7 +147,9 @@ nav:
     - CS106L: 
       - Online CS Courses/CS106L/index.md
       - Online CS Courses/CS106L/Lecture1.md
-
+    - CS50 AI:
+      - Online CS Courses/CS50 AI/index.md
+      - Online CS Courses/CS50 AI/note.md
 
   - AI:
     - AI入门:
