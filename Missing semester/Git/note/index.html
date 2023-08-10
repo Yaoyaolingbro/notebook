@@ -1055,6 +1055,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#git_1" class="md-nav__link">
+    Git图形化教程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1215,7 +1222,7 @@
   
     <li class="md-nav__item">
       <a href="../../Linux/advanced%20Linux/" class="md-nav__link">
-        一些linux进阶操作
+        一些linux进阶操作or技巧
       </a>
     </li>
   
@@ -1987,6 +1994,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#git_1" class="md-nav__link">
+    Git图形化教程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2007,16 +2021,20 @@
 
 <h1 id="git">深究git<a class="headerlink" href="#git" title="Permanent link">#</a></h1>
 <p>一个篇错的<a href="https://missing.csail.mit.edu/2020/version-control/">思路汇总</a>，视频资源还是比较多的，我会把我大致的学习经过记录在这里</p>
-<div class="toc">
-<ul>
-<li><a href="#git">深究git</a><ul>
-<li><a href="#missing_semester_note">Missing Semester Note</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <h2 id="missing_semester_note">Missing Semester Note<a class="headerlink" href="#missing_semester_note" title="Permanent link">#</a></h2>
-<p>patch(修补)</p>
+<h2 id="git_1">Git图形化教程<a class="headerlink" href="#git_1" title="Permanent link">#</a></h2>
+<ol>
+<li>git commit</li>
+<li>git branch <new branch name></li>
+<li>git checkout <new branch name></li>
+<li>2&amp;3可以合并为：git checkout -b <new branch name></li>
+<li>git merge(如果我们现在在main分支想要将checkout分支的合并过来，我们使用 git merge checkout)</li>
+<li>git rebase(与merge相比也有它的好处)</li>
+<li>git -&gt; main -&gt; c1 or git checkout c1</li>
+<li>git checkout HEAD^ | bugFix^(向上移动一次)</li>
+<li>git branch -f main HEAD~3
+patch(修补)</li>
+</ol>
 
 
   
