@@ -138,6 +138,8 @@ nav:
       - Missing semester/Ladder/index.md
     - Latex:
       - Missing semester/Latex/index.md
+    - Mkdocs material:
+      - Missing semester/Mkdocs material/index.md
   - Online CS Courses:
     - 计算机科学导论: 
       - Online CS Courses/Fundation of computer science/index.md
