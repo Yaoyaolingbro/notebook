@@ -2,7 +2,7 @@
 
 
 
-## Lecture 0    search
+## Lecture0    search
 
 * Knowledge: draw inference from information.
 
@@ -65,7 +65,7 @@ Evaluation function that estimate the expected utility of the game from a given 
 
 
 
-## Lecture 1 Knowledge
+## Lecture1 Knowledge
 
 Knowledge-based agents that reason by operating on internal representation of knowledge.
 
@@ -94,3 +94,53 @@ Game Clue
 ![](graph\Snipaste_2023-08-07_10-42-52.png)
 
 ![](graph\Snipaste_2023-08-07_10-43-28.png)
+
+
+
+## Lecture2  Probability
+
+Probably ultimately boils down to (归结为) the idea(like roll a die)
+
+$0 \leq P(\omega) \leq 1$  &  $\sum_{\omega\in\Omega}^{} P(\omega) = 1$
+
+Negative: $P(\neg a) = 1 - P(a)$
+
+Marginalization:$P(a) = P(a,b) + P(a,\neg b)$
+
+![](graph\Snipaste_2023-08-07_21-24-32.png)
+
+![](graph\Snipaste_2023-08-07_21-24-32.png)
+
+calculate solution：$$P(a|b) =\frac{P(a \land b)}{P(b)}$$
+
+Independence is crucial. When a & b is independent, $P(a \land b)=P(a) \times P(b)$
+
+
+
+### Bayer's Rule
+
+$P(b|a) = \frac{P(b) \times P(a|b)}{P(a)}$
+
+### Joint Probability
+
+$P(C|rain) = \alpha \times P(C, rain)$
+
+### Marginalization
+
+$P(X = x_i) = \sum_{j}P(X = x_i, Y = y_j) = \sum_{j}P(X = x_i| Y = y_j)P(Y = y_j)$
+
+### Condition
+
+$ P(a) = P(a|b)P(b) + P(a|\neg b)P(\neg b)$
+
+### Bayesian Network
+
+data structure that represents the dependencies among random variable 
+
+
+
+![](graph\Snipaste_2023-08-08_15-34-32.png)
+
+### Markov
+
+![](graph\Snipaste_2023-08-08_16-19-44.png)

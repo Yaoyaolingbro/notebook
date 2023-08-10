@@ -8,3 +8,4 @@
 7. 关于ckc以及zju的一些[课程评价](https://mini-full.notion.site/mini-full/cc62a03429714bb6a76e28d0f36a6b2c?v=5d9e0004b91f4d9fb399ef75feb94df0)（来自wkx学长）
 8. 一个必须推荐的博主3b1b！！！（真的可视化教学非常非常好
 9. 关于zju中的一些生存指南（来自宝林，任何人都可以编辑）
+10. [Git图形化学习](https://learngitbranching.js.org/)

@@ -1,5 +1,7 @@
 # 一些简单的Linux使用
+这是一个在github上超100k star的[教程](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
 
+有时间建议反复阅读
 ## 环境
 
 1. 你可以选择虚拟机来使用(建议使用VMware Station；可以使用Ubuntu； 记得最好更换下下载源，可以是[zuj_mirrors](https://mirrors.zju.edu.cn/)or[清华源](https://mirrors.tuna.tsinghua.edu.cn/))
