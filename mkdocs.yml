@@ -93,28 +93,53 @@ nav:
   - Home: index.md
   - ZJU_CS:
     - ZJU_CS/index.md
-    - 超算: 
-      - ZJU_CS/超算/index.md
-      - ZJU_CS/超算/AIPP.md
+    - HPC: 
+      - ZJU_CS/HPC/index.md
+      - ZJU_CS/HPC/AIPP.md
       - Note: 
-        - ZJU_CS/超算/class/index.md
-        - ZJU_CS/超算/class/L1.md
-        - ZJU_CS/超算/class/L2.md
-        - ZJU_CS/超算/class/L3.md
-        - ZJU_CS/超算/class/L4.md
-        - ZJU_CS/超算/class/L5.md
-        - ZJU_CS/超算/class/L6.md
-        - ZJU_CS/超算/class/L7.md
-        - ZJU_CS/超算/class/L8.md
+        - ZJU_CS/HPC/class/index.md
+        - ZJU_CS/HPC/class/L1.md
+        - ZJU_CS/HPC/class/L2.md
+        - ZJU_CS/HPC/class/L3.md
+        - ZJU_CS/HPC/class/L4.md
+        - ZJU_CS/HPC/class/L5.md
+        - ZJU_CS/HPC/class/L6.md
+        - ZJU_CS/HPC/class/L7.md
+        - ZJU_CS/HPC/class/L8.md
       - Lab: 
-        - ZJU_CS/超算/homework/lab1.md
-        - ZJU_CS/超算/homework/lab2.md
-        - ZJU_CS/超算/homework/lab2.5.md
-        - ZJU_CS/超算/homework/lab3.md
-    - Advanced C Language: 
-      - ZJU_CS/Advanced C Language/index.md 
-    - Python:
-      - ZJU_CS/Python/index.md
+        - ZJU_CS/HPC/homework/lab1.md
+        - ZJU_CS/HPC/homework/lab2.md
+        - ZJU_CS/HPC/homework/lab2.5.md
+        - ZJU_CS/HPC/homework/lab3.md
+        - ZJU_CS/HPC/homework/lab4.md
+        - ZJU_CS/HPC/homework/lab5.md
+    - FDS:
+      - ZJU_CS\FDS\index.md
+      - ZJU_CS\FDS\algorithm analysis.md
+      - ZJU_CS\FDS\algorithm.md
+      - ZJU_CS\FDS\graph.md
+      - ZJU_CS\FDS\hash.md
+      - ZJU_CS\FDS\heap.md
+      - ZJU_CS\FDS\set.md
+      - ZJU_CS\FDS\sort.md
+      - ZJU_CS\FDS\tree.md
+    - Big data security and privacy protection:
+      - ZJU_CS\Big data security and privacy protection\index.md
+      - ZJU_CS\Big data security and privacy protection\cryptographic.md
+      - ZJU_CS\Big data security and privacy protection\homework\homework1.md
+      - ZJU_CS\Big data security and privacy protection\homework\homework2.md
+      - ZJU_CS\Big data security and privacy protection\homework\homework3.md
+      - ZJU_CS\Big data security and privacy protection\homework\project.md
+    - Digital desin:
+      - ZJU_CS\DigitalDesign\index.md
+      - ZJU_CS\DigitalDesign\Chap01.md
+      - ZJU_CS\DigitalDesign\Chap02.md
+      - ZJU_CS\DigitalDesign\Chap03.md
+      - ZJU_CS\DigitalDesign\Chap04.md
+      - ZJU_CS\DigitalDesign\Chap05.md
+      - ZJU_CS\DigitalDesign\Chap06.md
+      - ZJU_CS\DigitalDesign\Chap07.md
+      - ZJU_CS\DigitalDesign\glossary.md
 
   - Missing semester: 
     - Missing semester/index.md
@@ -140,6 +165,7 @@ nav:
       - Missing semester/Latex/index.md
     - Mkdocs material:
       - Missing semester/Mkdocs material/index.md
+
   - Online CS Courses:
     - 计算机科学导论: 
       - Online CS Courses/Fundation of computer science/index.md
@@ -161,9 +187,24 @@ nav:
       - AI/机器学习/introduction.md
     - 深度学习:
       - AI/深度学习/index.md
+    - Pytorch:
+      - AI\Pytorch\index.md
+  
+  - Language:
+    - C:
+      - Language\Advanced C Language\index.md
+    - Python:
+      - Language\Python\index.md
+    - Verilog:
+      - Language\Verilog\note.md
+  
+  - Scientific research:
+    - Scientific research\index.md
 
   - Spark in life:
     - spark in life/index.md
     - spark in life/freshman.md
     - spark in life/GuiZhou.md
     - spark in life/kickboxing.md
+    - spark in life\driver license.md
+    - spark in life\second year.md

@@ -15,4 +15,12 @@
 7. git -> main -> c1 or git checkout c1
 8. git checkout HEAD^ | bugFix^(向上移动一次)
 9. git branch -f main HEAD~3
-patch(修补)
+  patch(修补)
+
+
+
+## 团队合作
+
+学会使用git pull是十分重要的，以及分支管理，创建属于自己的feature-name分支。
+
+可以图形化教程中有远程仓库教学。

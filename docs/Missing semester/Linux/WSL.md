@@ -11,3 +11,9 @@
 如果你是win10以上的话，`WSL2`现在配置了GUI。(你可以一些matplotlib画图之类的)
 
 ![](graph\GUI.png)
+
+
+
+## WSL扩容和更改地址（含Verilog安装）
+
+https://www.eet-china.com/mp/a109854.html

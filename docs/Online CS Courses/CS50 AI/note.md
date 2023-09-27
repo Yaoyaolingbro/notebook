@@ -144,3 +144,64 @@ data structure that represents the dependencies among random variable
 ### Markov
 
 ![](graph\Snipaste_2023-08-08_16-19-44.png)
+
+![](graph\Snipaste_2023-08-20_11-57-52.png)
+
+![](graph\Snipaste_2023-08-20_12-42-24.png)
+
+
+
+## Lecture 5
+
+### Active function
+
+$h(x_1, x_2)= w_0 + w_1 x_1 + w_2 x_2$
+
+weight 1 & 2, and bias $w_0$
+
+![](graph\Snipaste_2023-08-21_10-33-00.png)
+
+![](graph\Snipaste_2023-08-21_10-32-50.png)
+
+![](graph\Snipaste_2023-08-21_10-34-12.png)
+
+
+
+### Gradient Descent
+
+![](graph\Snipaste_2023-08-21_11-07-37.png)
+
+Stochastic(随机) Gradient Descent: **One data point**
+
+Mini-Batch: **One small batch** .
+
+
+
+### Perceptron（感知机）
+
+![](graph\Snipaste_2023-08-21_11-55-31.png)
+
+
+
+### Overfitting
+
+![](graph\Snipaste_2023-08-21_12-26-14.png)
+
+
+
+### Computer Vision & CNN
+
+![](graph\Snipaste_2023-08-21_18-35-08.png)
+
+> max pooling always be used.
+
+![](graph\Snipaste_2023-08-21_18-36-07.png)
+
+more resilient & robust
+
+
+
+### RNN
+
+1. feed-forward NN
+
