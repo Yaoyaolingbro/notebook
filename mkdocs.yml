@@ -178,6 +178,11 @@ nav:
     - CS50 AI:
       - Online CS Courses/CS50 AI/index.md
       - Online CS Courses/CS50 AI/note.md
+    - CS61B:
+      - Online CS Courses\CS61B\index.md
+      - Online CS Courses\CS61B\note.md
+    - CS106X:
+      - Online CS Courses\CS106X\index.md
 
   - AI:
     - AI入门:
@@ -196,7 +201,7 @@ nav:
     - Python:
       - Language\Python\index.md
     - Verilog:
-      - Language\Verilog\note.md
+      - Language\Verilog\index.md
   
   - Scientific research:
     - Scientific research\index.md
