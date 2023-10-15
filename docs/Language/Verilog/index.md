@@ -377,9 +377,9 @@ assign  hsel = (addr[9:8] == 2'b00) ? hsel_p1 :
 
 ## 编译命令
 
-C语言中的#都被`所替换
+C语言中的#都被`所替换（define typdef
 
-**``timescale `：在 Verilog 模型中，时延有具体的单位时间表述，并用 ```timescale`编译指令将时间单位与实际时间相关联。该指令用于定义时延、仿真的单位和精度，格式为：
+``timescale `：在 Verilog 模型中，时延有具体的单位时间表述，并用 ```timescale`编译指令将时间单位与实际时间相关联。该指令用于定义时延、仿真的单位和精度，格式为：
 
 `timescale      time_unit / time_precision`
 
