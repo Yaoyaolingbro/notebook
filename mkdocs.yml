@@ -123,6 +123,7 @@ nav:
       - ZJU_CS\FDS\set.md
       - ZJU_CS\FDS\sort.md
       - ZJU_CS\FDS\tree.md
+      - ZJU_CS\FDS\homework.md
     - Big data security and privacy protection:
       - ZJU_CS\Big data security and privacy protection\index.md
       - ZJU_CS\Big data security and privacy protection\cryptographic.md
@@ -202,14 +203,21 @@ nav:
       - Language\Python\index.md
     - Verilog:
       - Language\Verilog\index.md
+    - C++:
+      - Language\C++\index.md
   
   - Scientific research:
     - Scientific research\index.md
 
   - Spark in life:
-    - spark in life/index.md
-    - spark in life/freshman.md
-    - spark in life/GuiZhou.md
-    - spark in life/kickboxing.md
-    - spark in life\driver license.md
-    - spark in life\second year.md
+    - College life:
+      - spark in life\college life\competition.md
+      - spark in life\college life\freshman.md
+      - spark in life\college life\second year.md
+    - Skill:
+      - spark in life\skills\cook.md
+      - spark in life\skills\driver license.md
+      - spark in life\skills\kickboxing.md
+      - spark in life\skills\virtual location.md
+    - Travel:
+      - spark in life\travel\GuiZhou.md
