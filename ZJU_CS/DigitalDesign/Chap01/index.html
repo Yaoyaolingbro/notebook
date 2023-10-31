@@ -898,8 +898,6 @@
         
           
         
-          
-        
       
       
         
@@ -920,20 +918,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/algorithm%20analysis/" class="md-nav__link">
-        算法分析
-      </a>
-    </li>
-  
-
             
           
             
@@ -3369,10 +3353,8 @@
 <hr />
 <h2 id="number_systems">数字系统 | Number Systems<a class="headerlink" href="#number_systems" title="Permanent link">#</a></h2>
 <p>首先需要涉及的问题是进制转换。</p>
-<p>对于一个 $r$ 进制数，它一般被写成这样：</p>
-<p>$$
-(A_{n-1}A_{n-2}...A_1A_0A_{-1}...A_{-(m-1)}A_{-m})_{r}
-$$</p>
+<p>对于一个$r$进制数，它一般被写成这样：</p>
+<p>$$(A_{n-1}A_{n-2}...A_1A_0A_{-1}...A_{-(m-1)}A_{-m})_{r}$$</p>
 <p>而它对应的十进制真值为：</p>
 <p>$$
 \begin{align}
@@ -3426,8 +3408,8 @@ $$</p>
 <hr />
 <h3 id="bcd">BCD 码<a class="headerlink" href="#bcd" title="Permanent link">#</a></h3>
 <p>由于真实世界中大部分数据表述都是以十进制实现的，所以我们需要研究如何用二进制来表示十进制。</p>
-<p>首先，一位二进制数能包含的信息是 1bit，也就是一个“真”或者一个“假”。我们称一个拥有 n 个元素的二进制向量为一个 <strong>n位二进制编码(n-bit binary code)</strong>。一个 n 位二进制数拥有 $2^{n}$ 种可能的组合，因而可以表示 $2^n$ 种信息。</p>
-<p>而我们需要设计的编码系统，就是将我们需要的信息映射到这 $2^n$ 个“空位”中。当然，当我们需要表示的信息数量并不是 2 的幂次时候，会出现一些 未分配(unassigned) 的比特组合。</p>
+<p>首先，一位二进制数能包含的信息是 1bit，也就是一个“真”或者一个“假”。我们称一个拥有 n 个元素的二进制向量为一个 <strong>n位二进制编码(n-bit binary code)</strong>。一个 n 位二进制数拥有$2^{n}$种可能的组合，因而可以表示$2^n$种信息。</p>
+<p>而我们需要设计的编码系统，就是将我们需要的信息映射到这$2^n$个“空位”中。当然，当我们需要表示的信息数量并不是 2 的幂次时候，会出现一些 未分配(unassigned) 的比特组合。</p>
 <p>而在这种编码中，最常用的就是 <strong>BCD码(binary-coded demical)</strong>。其核心思路就是，将十进制的每一位 <strong>分别</strong> 用 <strong>真值相等的 4 位二进制</strong> 表示，即 <code>0</code> ~ <code>9</code> 分别用 <code>0000</code> ~ <code>1001</code> 表示。</p>
 <table>
 <thead>
@@ -3481,9 +3463,7 @@ $$</p>
 </table>
 <div class="admonition note">
 <p class="admonition-title">eg</p>
-<p>$$
-\mathrm{ (185)<em BCD="BCD">{10}\;=\;(0001\;1000\;0101)</em>\;=\;(10111001)_2 }
-$$</p>
+<p>$$ \mathrm{ (185)<em BCD="BCD">{10}\;=\;(0001\;1000\;0101)</em>\;=\;(10111001)_2 } $$</p>
 </div>
 <hr />
 <h3 id="_2">余三码<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
@@ -3547,9 +3527,12 @@ $$</p>
 <p><img alt="" src="../img/5.png" /></p>
 <p>以及在许多状态控制中都有着广泛的应用。</p>
 <p>从笔试做题角度来说，格雷码最麻烦的其实是与十进制数的转换。（此处 <a href="https://www.luogu.com.cn/problem/P5657">@CSP-S2019-Day1-T1</a>）</p>
-<p>此外zmm老师上课也讲解过一种类似于镜面映射不断延拓的方法。</p>
 <div class="admonition note">
-<p>个人认为最好做的做法就是，假设我们要找的是第 k 个格雷码，则对应的格雷码为：</p>
+<p class="admonition-title">技巧</p>
+<ol>
+<li>zmm老师上课也讲解过一种类似于镜面映射不断延拓的方法，比较实用。</li>
+<li>个人认为可以替身思维做法就是，假设我们要找的是第 k 个格雷码，则对应的格雷码为：</li>
+</ol>
 <p>$$
 k \;\;\mathrm{XOR}\;\; (k&gt;&gt;1)
 $$</p>
@@ -3573,7 +3556,7 @@ A-->B
 A-->C
 A-->D
 </div>
-<p>其中一种做法是引入 <strong>奇偶校验位(Parity Bit)</strong>。它分为 <strong>奇校验(Odd Parity)</strong> 和 <strong>偶校验(Even Parity)</strong>。分别通过引入额外的一位，来保证整个信息串中 <code>1</code> 的数量是奇数/偶数。</p>
+<p>其中一种做法是引入 <strong>奇偶校验位(Parity Bit)</strong>。它分为 <strong>奇校验(Odd Parity)</strong> 和 <strong>偶校验(Even Parity)</strong>。分别通过引入额外的一位（<strong>加在最后</strong>），来保证整个信息串中 <code>1</code> 的数量是奇数/偶数。</p>
 <ul>
 <li>比如，如果我们采用偶校验，原始信息为 <code>1101</code>，其中有 3 个 <code>1</code>，这时我们在后面再加上一个 <code>1</code>，保证了整个信息串中有偶数个 <code>1</code>；或者如果原始信息为 <code>1001</code>，其中有 2 个 <code>1</code>，这时我们则在后面加一个 <code>0</code>。此时，如果传输过程中出现了问题，那么 <code>1</code> 的数量很可能变成了一个奇数，此时我们就知道，这个信息是不对的。</li>
 </ul>

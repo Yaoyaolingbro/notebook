@@ -898,8 +898,6 @@
         
           
         
-          
-        
       
       
         
@@ -920,20 +918,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/algorithm%20analysis/" class="md-nav__link">
-        算法分析
-      </a>
-    </li>
-  
-
             
           
             
@@ -3594,16 +3578,17 @@
 <p>运算规则挺简单的，在此略去。</p>
 <p>比较基础的，需要了解与或非的符号表示。</p>
 <ul>
-<li><code>A</code> <code>AND</code> <code>B</code> 可写作 $A \cdot B$ 或者 $AB$；</li>
-<li><code>A</code> <code>OR</code> <code>B</code> 可写作 $A+B$；</li>
-<li><code>NOT A</code> 可写作 $\overline{A}$；</li>
+<li><code>A</code> <code>AND</code> <code>B</code> 可写作$A \cdot B$或者$AB$；</li>
+<li><code>A</code> <code>OR</code> <code>B</code> 可写作$A+B$；</li>
+<li><code>NOT A</code> 可写作$\overline{A}$；</li>
+<li><code>XOR</code> 可以写作$\overline{A}B+A\overline{B}$</li>
 </ul>
 <p>由此可以进行一些组合，例如：</p>
 <ul>
 <li><code>A</code> <code>NOR</code> <code>B</code> 可写作 $\overline{A+B}$；</li>
 <li><code>A</code> <code>NAND</code> <code>B</code> 可写作 $\overline{A\cdot B}$；</li>
 </ul>
-<p>再次还需要提到的是 <strong>德·摩根定律(De Morgan's Laws)</strong>，其表述为：</p>
+<p>再次还需要提到的是 <strong>德·摩根定律(De Morgan's Laws)</strong>，其表述为：(与概率论中十分相似)</p>
 <ul>
 <li>$\overline{A+B} = \overline{A}\cdot\overline{B}$；</li>
 <li>$\overline{A\cdot B} = \overline{A}+\overline{B}$；</li>
@@ -3797,7 +3782,7 @@ $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简�
 <p>或许您觉得最小项的得到非常的自然且简单，我建议您也尝试着看一看追加说明，因为这对理解最大项挺有帮助的。</p>
 </blockquote>
 <p>那么什么是“列举”呢？让我们再看一眼上面对最小项之和的描述：“一旦字面量取值的组合匹配这几个‘最小项’的其中一项，那么结果就是真”，追本溯源，在最小项中，我们就需要做到只有当一个电路的状态是特定组合时，其返回值为 <code>1</code>。</p>
-<p>具体来说，比如，对于 🌰 中的 $m_{5}=X\overline{Y}Z$，也可以通过这样一种更啰嗦的方式表达出来是这样的：</p>
+<p>具体来说，比如，对于 🌰 中的$m_{5}=X\overline{Y}Z$，也可以通过这样一种更啰嗦的方式表达出来是这样的：</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -3838,7 +3823,7 @@ $$</p>
 <p>与最小项对比，无非是把 "product term" 换成了 "sum term"，也就是把 AND 换成了 OR。</p>
 <p>而最大项之积，就是挑出所有结果为 <code>0</code> 的最大项（<em>“挑出”的定义我已经在 SOM 的追加说明中给出，在 POM 的追加说明中我还会再一次提及</em>），再做 AND。以 <code>1</code> 为主体描述 AND 是“都1出1”，而以 <code>0</code> 为主体描述 AND 则是“有0出0”，这与 OR 的“有1出1”也是高度对称的（反之亦然）。也就是说，最大项之积的含义是，在最大项之积中，只要字面量取值的组合匹配这几个“最大项”的其中一项，整个表达式的结果就会变成 <code>0</code>。</p>
 <p>类似的，我们使用符号 $M_{idx}$ 来表示变量组合 $idx$ 是一个最大项，其中 $idx$ 表示描述的那一项在真值表的序号，同时这个下标的二进制也能反映出字面量的组合。</p>
-<p>例如，在 🌰 中，output 为 <code>0</code> 的项有：<code>000</code> <code>001</code> <code>011</code> <code>110</code> 这四项，那么我们需要挑出来的最小项表达就分别是 $M_{0}=X+Y+Z, \; M_{1}=X+Y+\overline{Z}, \; M_{3}=X+\overline{Y}+\overline{Z}, \; M_{6}=\overline{X}+\overline{Y}+Z$。可以检验，只有代入他们对应的那一行真值表组合时，他们才会得到 <code>0</code>。</p>
+<p>例如，在 🌰 中，output 为 <code>0</code> 的项有：<code>000</code> <code>001</code> <code>011</code> <code>110</code> 这四项，那么我们需要挑出来的最小项表达就分别是$M_{0}=X+Y+Z, \; M_{1}=X+Y+\overline{Z}, \; M_{3}=X+\overline{Y}+\overline{Z}, \; M_{6}=\overline{X}+\overline{Y}+Z$。可以检验，只有代入他们对应的那一行真值表组合时，他们才会得到 <code>0</code>。</p>
 <details class="tip" open="open">
 <summary>追加说明</summary>
 <p>同样的，回顾最大项之积的描述：“在最大项之积中，只要字面量取值的组合匹配这几个‘最大项’的其中一项，整个表达式的结果就会变成 <code>0</code>”。</p>
@@ -3945,7 +3930,7 @@ $$
 <p>虽然非门也是门，但是我们通常不把非门直接计入 gate-input cost，所以接下来提到的“输入引脚”默认是不包含非门的输入引脚的。</p>
 </div>
 <p><img alt="" src="../img/14.png" /></p>
-<p>例如这张对应表达式 $F = A+BC+\overline{B}\,\overline{C}$ 的图中：</p>
+<p>例如这张对应表达式$F = A+BC+\overline{B}\,\overline{C}$ 的图中：</p>
 <ul>
 <li>绿色原点表示一级输入引脚；</li>
 <li>蓝色方点表示二级输入引脚；</li>
@@ -3953,18 +3938,18 @@ $$
 </ul>
 <p>也就是说，这里一共有 5 + 2 = 7 个输入引脚，以及 2 个非门输入引脚。</p>
 <p>从表达式来看，它可以看作是每一层运算的参数数量求和，不过我们忽略非门。</p>
-<p>例如，式子 $F=AB+\overline{B}C+C\overline{D}$ 中，最顶层的运算是一个三输入或运算，所以有 3 个输入；接下来有三个二输入与运算，所以各计 2 个输入，一共 2 * 3 = 6 个输入，一共是 9 个输入。</p>
+<p>例如，式子$F=AB+\overline{B}C+C\overline{D}$ 中，最顶层的运算是一个三输入或运算，所以有 3 个输入；接下来有三个二输入与运算，所以各计 2 个输入，一共 2 * 3 = 6 个输入，一共是 9 个输入。</p>
 <p>当然，实际上从底层往上数更方便：</p>
 <ul>
 <li>A 和 B 各自算一个，AB 整体算一个，一共 3 个；</li>
 <li>一共有三组类似 AB 的结构，所以一共是 3 * 3 = 9 个；</li>
-<li>即 $G=9$；</li>
+<li>即$G=9$；</li>
 </ul>
 <p>总之，就是类似于在做算式化简，每做一次化简都需要计入一次操作数的数量。</p>
 <p>而对于 gate-input cost with NOTs，只要再额外计入非门的输入即可。例如上面那个式子：</p>
 <ul>
 <li>发现有两个被非了的字面量，所以要额外计 2 个，一共是 11 个；</li>
-<li>即 $GN=11$；</li>
+<li>即$GN=11$；</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
@@ -3973,12 +3958,12 @@ $$
 <p>接下来放几道例题。</p>
 <div class="admonition note">
 <p>=== "题面"
-    计算 $F=ABC+\overline{A}\,\overline{B}\,\overline{C}$ 的 $L$、$G$、$GN$。</p>
+    计算$F=ABC+\overline{A}\,\overline{B}\,\overline{C}$ 的 $L$、$G$、$GN$。</p>
 </div>
 <p>​    === "答案"
-   - $L = 6$；
-   - $G= 8$；
-   - $GN = 11$；</p>
+   - $L = 6$；  <br />
+   - $G= 8$；  <br />
+   - $GN = 11$；    </p>
 <div class="admonition note">
 <p>=== "题面"
     计算 $F=(A+\overline{C})(\overline{B}+C)(\overline{A}+B)$ 的 $L$、$G$、$GN$。</p>
@@ -4021,7 +4006,7 @@ $$
 <hr />
 <h4 id="_17">卡诺图的思想<a class="headerlink" href="#_17" title="Permanent link">#</a></h4>
 <p>优化逻辑表达式最直白的思想就是减少门电路，也就是去减少 gate-input cost。那么要如何做呢？</p>
-<p>我们考虑到逻辑运算律中的这个推广：$XY+X\overline{Y}=X(Y+\overline{Y})=X$，也就是说，如果两个最小项只差一个字面量的非，那么他们是可以合并的；当然，对称的，根据$(X+\overline{Y})(X+Y)=X+Y\overline{Y}=X$，我们也可以得到这个结论对最大项也成立。</p>
+<p>我们考虑到逻辑运算律中的这个推广$XY+X\overline{Y}=X(Y+\overline{Y})=X$，也就是说，如果两个最小项只差一个字面量的非，那么他们是可以合并的；当然，对称的，根据$(X+\overline{Y})(X+Y)=X+Y\overline{Y}=X$，我们也可以得到这个结论对最大项也成立。</p>
 <p>是不是觉得“只差一个”很耳熟？是的！我们想到了<strong>格雷码</strong>！假设我们将 n 个字面量排列成一个 n bits 的向量，那么只需要按照格雷码排序，一旦发现有相邻的最小项，我们就可以合并他们。</p>
 <p>但这还不够充分，例如在一个有三个字面量的逻辑表达式中，“与一个表达式相邻”的表达式其实有三个，但是用线性的表示方法又没法很好的表示这一点，所以我们想到将它写成一张二维的表，即将字面量拆成两组 bit 向量，各自按照格雷码排列，形成一张二维表，这就是 <strong>卡诺图(Karnaugh Map)</strong>，也叫 <strong>K-map</strong>。</p>
 <p><img alt="" src="../img/15.png" /></p>
@@ -4132,10 +4117,10 @@ $$
 <p><img alt="" src="../img/22.png" width="500.px" /></p>
 <p>都是合理的卡诺图划分。</p>
 <p>在得到这些划分后，我们就可以很方便地将这些项拎出来，写出它们的表达式。</p>
-<p>而至于如何拎出来——不难发现，如果一个方框中，某一个字面量的值既可以是 <code>0</code>，又可以是 <code>1</code> 时（这里指的是输入的值，并非输出结果），在这个优化项的结果中就可以不用写出这个字面量；反之，如果这个字面量 $X$ 的值都是 <code>0</code>，则结果中会包含 $\overline{X}$，如果都是 <code>1</code>，则结果中会包含 $X$。</p>
+<p>而至于如何拎出来——不难发现，如果一个方框中，某一个字面量的值既可以是 <code>0</code>，又可以是 <code>1</code> 时（这里指的是输入的值，并非输出结果），在这个优化项的结果中就可以不用写出这个字面量；反之，如果这个字面量$X$ 的值都是 <code>0</code>，则结果中会包含 $\overline{X}$，如果都是 <code>1</code>，则结果中会包含 $X$。</p>
 <div class="admonition note">
 <p>=== "题面"
-    利用卡诺图优化 $F(X,Y,Z) = \sum m(0,1,2,4,6,7)$ 的结果。
+    利用卡诺图优化$F(X,Y,Z) = \sum m(0,1,2,4,6,7)$ 的结果。
 === "答案"
     画出这个表达式对应的卡诺图：</p>
 <pre><code>![](img/23.png){width=300.png}
