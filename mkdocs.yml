@@ -115,7 +115,6 @@ nav:
         - ZJU_CS/HPC/homework/lab5.md
     - FDS:
       - ZJU_CS\FDS\index.md
-      - ZJU_CS\FDS\algorithm analysis.md
       - ZJU_CS\FDS\algorithm.md
       - ZJU_CS\FDS\graph.md
       - ZJU_CS\FDS\hash.md

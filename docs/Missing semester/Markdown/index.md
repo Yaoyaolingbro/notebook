@@ -149,6 +149,8 @@ Markdown 区块引用是在段落开头使用 > 符号 ，然后后面紧跟一�
 | 单元格 | 单元格 | 单元格 |  
 | 单元格 | 单元格 | 单元格 |  
 
+
+
 ### 数学公式
 
 [一个不错的博主的汇总](https://zinglix.xyz/2017/08/23/latex-maths-cheatsheet/)
@@ -158,6 +160,7 @@ $$
    c & d
 \end{Bmatrix}
 $$
+
 $$
 \begin{CD}
    A @>a>> B \\
@@ -165,8 +168,20 @@ $$
    C @= D
 \end{CD}
 $$
+
 $f(x) = sin(x)+12$
-$$ \sum_{n=1}^{100}x!$$
+
+$$
+f(x) =
+\begin{cases}
+x,  & x\ge0 \\
+-x, & x<0
+\end{cases}
+$$
+
+$$ 
+\sum_{n=1}^{100}x!
+$$
 
 
 
@@ -176,11 +191,14 @@ $$ \sum_{n=1}^{100}x!$$
 
 [官方文档](https://mermaid.js.org/intro/)
 
+mermaid 图形：
+
+
+
 ```mermaid
    sequenceDiagram
        Alice->>Bob: Hello Bob, how are you?
        Bob-->>Alice: I'm good, thanks!
-
 ```
 
 ```mermaid
@@ -223,6 +241,10 @@ $$ \sum_{n=1}^{100}x!$$
    <span style="color: red;">这是红色文本</span>
    ```
 
+
+
+
+
 2. `<iframe>`标签：可以嵌入其他网页或多媒体内容。
    ```markdown
    <iframe src="https://www.example.com" width="500" height="300"></iframe>
@@ -248,27 +270,21 @@ $$ \sum_{n=1}^{100}x!$$
 
 5. `<blockquote>`标签：用于引用文本块。
 
-```markdown
-<blockquote>
-    这是引用的文本块。
-</blockquote>
-```
 
-6. `<sup>`和`<sub>`标签：用于上标和下标文本。
 
 ```markdown
 H<sub>2</sub>O 是水的化学式。
 E = mc<sup>2</sup> 是相对论中的著名公式。
 ```
 
-7. `<del>`和`<ins>`标签：用于表示删除和插入的文本。
+6. `<del>`和`<ins>`标签：用于表示删除和插入的文本。
 
 ```markdown
 <del>这段文字被删除了</del>
 <ins>这段文字被插入了</ins>
 ```
 
-8. `<pre>`标签：用于显示预格式化的文本，保留空格和换行符。
+7. `<pre>`标签：用于显示预格式化的文本，保留空格和换行符。
 
 ```markdown
 <pre>
@@ -277,7 +293,7 @@ E = mc<sup>2</sup> 是相对论中的著名公式。
 </pre>
 ```
 
-9. `<details>`和`<summary>`标签：用于创建可折叠的内容。
+8. `<details>`和`<summary>`标签：用于创建可折叠的内容。
 
 ```markdown
 <details>
