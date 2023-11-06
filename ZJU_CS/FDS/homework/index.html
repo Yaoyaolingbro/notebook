@@ -1035,9 +1035,75 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          作业要点
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         作业要点
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hw1" class="md-nav__link">
+    HW1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw2" class="md-nav__link">
+    HW2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw3" class="md-nav__link">
+    HW3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw4" class="md-nav__link">
+    HW4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw5" class="md-nav__link">
+    HW5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw6" class="md-nav__link">
+    HW6
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3067,6 +3133,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hw1" class="md-nav__link">
+    HW1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw2" class="md-nav__link">
+    HW2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw3" class="md-nav__link">
+    HW3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw4" class="md-nav__link">
+    HW4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw5" class="md-nav__link">
+    HW5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw6" class="md-nav__link">
+    HW6
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3084,14 +3200,130 @@
 
 
 <h1 id="_1">作业要点<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<h2 id="hw1">HW1<a class="headerlink" href="#hw1" title="Permanent link">#</a></h2>
+<ol>
+<li>用递归的方法求斐波那契数列的时间复杂度</li>
+</ol>
+<details>
+在递归树中，每个节点表示一个递归调用，而树的深度表示递归的层数。对于斐波那契数列，每个节点会生成两个子节点，因为每个数都依赖于前两个数的和。
+
+假设我们要计算第n个斐波那契数，递归树的深度将是n。每个节点的计算时间是常数时间，因为它只涉及到简单的加法操作。
+
+因此，递归方法计算斐波那契数列的时间复杂度可以表示为O(2^n)。这是因为递归树的节点数是指数级增长的。
+</details>
+
+<ol>
+<li>$$ P_1:T(1) = 1, T(N) = T(N/3)+1\
+P_2:T(1) = 1, T(N) = 3T(N/3) $$</li>
+</ol>
+<p>求 $P_1, P_2$ 的复杂度</p>
+<details>
+O(logN) for P1, O(N) for P2
+</details>
+
+<ol>
+<li>要温习<code>`Mergesort</code>中merge的思想。</li>
+</ol>
+<h2 id="hw2">HW2<a class="headerlink" href="#hw2" title="Permanent link">#</a></h2>
 <ol>
 <li>Linear List（线性表）的初始定义是数组。</li>
-<li>sparse matrix representation.</li>
-<li>要温习<code>`Mergesort</code>中merge的思想。</li>
-<li>stack pop <code>ooops</code>有多少种方式？   5</li>
-<li>homework 4 ?</li>
-<li>A binary search tree if ood nodes, 如果我们选<code>i/2</code>，之后每次都选<code>i/2</code>；选<code>i/2+1</code>则都选<code>i/2+1</code>。</li>
-<li>什么是decision tree</li>
+<li>insertNode 函数可以背下来
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">insertNode</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 创建新节点</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Element</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">(</span><span class="n">head</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<h2 id="hw3">HW3<a class="headerlink" href="#hw3" title="Permanent link">#</a></h2>
+<ol>
+<li>stack pop <code>ooops</code>有多少种方式？   </li>
+</ol>
+<details>
+5
+</details>
+<ol>
+<li>stack的一种集成方法</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">//初始化时将top赋值为-1</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">stack</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Stack</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">Stack</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">stack</span><span class="p">[</span><span class="o">++</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="n">Stack</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">stack</span><span class="p">[</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">--</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="hw4">HW4<a class="headerlink" href="#hw4" title="Permanent link">#</a></h2>
+<ol>
+<li>There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child.</li>
+</ol>
+<details>
+F 本题是个脑经急转弯题目
+</details>
+
+<ol>
+<li>Given a tree of degree 3. Suppose that there are 3 nodes of degree 2 and 2 nodes of degree 3. Then the number of leaf nodes must be ____.</li>
+</ol>
+<details>
+8
+</details>
+
+<ol>
+<li>If a general tree T is converted into a binary tree BT, then which of the following BT traversals gives the same sequence as that of the post-order traversal of T?</li>
+</ol>
+<details>
+[普通树转二叉树](https://blog.csdn.net/best_LY/article/details/121346561)
+</details>
+
+<!-- prettier-ignore-start -->
+
+<details class="info">
+<summary>Tips</summary>
+<p><a href="https://blog.csdn.net/best_LY/article/details/121346561">普通树转二叉树</a></p>
+</details>
+<!-- prettier-ignore-end -->
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>T的preorder = BT的preorder
+T的postorder = BT的inorder</p>
+</div>
+<ol>
+<li>Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) </li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="../tree/">线索二叉树</a></p>
+</div>
+<h2 id="hw5">HW5<a class="headerlink" href="#hw5" title="Permanent link">#</a></h2>
+<ol>
+<li>In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent.</li>
+</ol>
+<details>
+F 5 could be their grandparents
+</details>
+<ol>
+<li>2-3?</li>
+<li>
+<p>什么是decision tree?</p>
+</li>
+<li>
+<p>A binary search tree if ood nodes, 如果我们选<code>i/2</code>，之后每次都选<code>i/2</code>；选<code>i/2+1</code>则都选<code>i/2+1</code>。</p>
+</li>
+</ol>
+<h2 id="hw6">HW6<a class="headerlink" href="#hw6" title="Permanent link">#</a></h2>
+<ol>
+<li>heap两种插入方式，具体可见hello算法书</li>
+<li>编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树</li>
 <li>红黑树？</li>
 </ol>
 
