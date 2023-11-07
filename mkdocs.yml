@@ -54,31 +54,81 @@ theme:
 
   
 markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - meta
+  - def_list
   - attr_list
   - md_in_html
-  - footnotes
-  - meta # 支持markdown博客文件头的元数据，比如标题
-  - toc:
-      permalink: "#"
-      baselevel: 1
-      separator: "_"
-  - admonition  # 支持提示块
-  - pymdownx.details  # 提示块可折叠
-  - attr_list 
-  - pymdownx.inlinehilite # 支持行内语法高亮
-  # - pymdownx.highlight: # 支持代码块语法高亮，！！！跟mermaid冲突
-  #     linenums: true # 显示行号
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols  #智能符号
   - pymdownx.superfences: # 可在列表等处嵌入块
       # make exceptions to highlighting of code:
       custom_fences:
           - name: mermaid
             class: mermaid
             format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - meta # 支持markdown博客文件头的元数据，比如标题
+  - toc:
+      permalink: "#"
+      baselevel: 1
+      separator: "_"
+  - attr_list 
+  # - pymdownx.highlight: # 支持代码块语法高亮，！！！跟mermaid冲突
+  # - linenums: true # 显示行号
 
 plugins:
+  - changelog
+  - math
   - search:
       lang: zh
-  # - git-revision-date-localized
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
+
+extra_css:
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - css/custom.css
+  - css/card.css
+  - css/tasklist.css
+  - css/flink.css
+  - css/more_changelog.css
+  
+
+extra_javascript:
+  - js/baidu-tongji.js
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
+  - js/katex.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 
 extra:
   social:
@@ -209,6 +259,7 @@ nav:
     - Scientific research\index.md
 
   - Spark in life:
+    - spark in life\index.md
     - College life:
       - spark in life\college life\competition.md
       - spark in life\college life\freshman.md
