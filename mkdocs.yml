@@ -101,7 +101,6 @@ markdown_extensions:
 
 plugins:
   - changelog
-  - math
   - search:
       lang: zh
   - git-revision-date-localized:
