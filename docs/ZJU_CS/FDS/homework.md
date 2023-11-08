@@ -1,23 +1,29 @@
 # 作业要点
+这里记录着所有homework中的要点，便于小测复习！
 
 ## HW1
 1. 用递归的方法求斐波那契数列的时间复杂度
-<details>
-在递归树中，每个节点表示一个递归调用，而树的深度表示递归的层数。对于斐波那契数列，每个节点会生成两个子节点，因为每个数都依赖于前两个数的和。
 
-假设我们要计算第n个斐波那契数，递归树的深度将是n。每个节点的计算时间是常数时间，因为它只涉及到简单的加法操作。
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    在递归树中，每个节点表示一个递归调用，而树的深度表示递归的层数。对于斐波那契数列，每个节点会生成两个子节点，因为每个数都依赖于前两个数的和。
 
-因此，递归方法计算斐波那契数列的时间复杂度可以表示为O(2^n)。这是因为递归树的节点数是指数级增长的。
-</details>
+    假设我们要计算第n个斐波那契数，递归树的深度将是n。每个节点的计算时间是常数时间，因为它只涉及到简单的加法操作。
+
+    因此，递归方法计算斐波那契数列的时间复杂度可以表示为O(2^n)。这是因为递归树的节点数是指数级增长的。
+<!-- prettier-ignore-end -->
+
 
 2. $$ P_1:T(1) = 1, T(N) = T(N/3)+1\\
 P_2:T(1) = 1, T(N) = 3T(N/3) $$
 
 求 $P_1, P_2$ 的复杂度
 
-<details>
-O(logN) for P1, O(N) for P2
-</details>
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    O(logN) for P1, O(N) for P2
+<!-- prettier-ignore-end -->
+
 
 3. 要温习``Mergesort`中merge的思想。
 
@@ -39,9 +45,12 @@ void insertNode(struct Node* head, int Element) {
 
 ## HW3
 1. stack pop `ooops`有多少种方式？   
-<details>
-5
-</details>
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    5
+<!-- prettier-ignore-end -->
+
+
 2. stack的一种集成方法
 
 ```C
@@ -62,21 +71,20 @@ int pop(Stack *s) {
 
 ## HW4
 1. There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child.
-<details>
-F 本题是个脑经急转弯题目
-</details>
+
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    F 本题是个脑经急转弯题目
+<!-- prettier-ignore-end -->
 
 2. Given a tree of degree 3. Suppose that there are 3 nodes of degree 2 and 2 nodes of degree 3. Then the number of leaf nodes must be ____.
 
-<details>
-8
-</details>
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    8
+<!-- prettier-ignore-end -->
 
 3. If a general tree T is converted into a binary tree BT, then which of the following BT traversals gives the same sequence as that of the post-order traversal of T?
-
-<details>
-[普通树转二叉树](https://blog.csdn.net/best_LY/article/details/121346561)
-</details>
 
 <!-- prettier-ignore-start -->
 
@@ -89,16 +97,18 @@ F 本题是个脑经急转弯题目
     T的preorder = BT的preorder
     T的postorder = BT的inorder
 
-4. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
+1. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
 !!! Note 
     [线索二叉树](tree.md)
 
 
 ## HW5
 1. In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent.
-<details>
-F 5 could be their grandparents
-</details>
+
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    F 5 could be their grandparents
+<!-- prettier-ignore-end -->
 2. 2-3?
 3. 什么是decision tree?
 
@@ -111,3 +121,13 @@ F 5 could be their grandparents
 1. heap两种插入方式，具体可见hello算法书
 2. 编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树
 3.  红黑树？
+
+## HW7
+1. In Union/Find algorithm, if Unions are done by size, the depth of any node must be no more than $N/2$ , but not $O(logN)$.
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    假设最初每个节点的深度都为0，那么在进行N-1次按大小合并后，每个节点的深度最多为1。因此，任意节点的深度不会超过N/2。
+    需要注意的是，这个结论是在按大小合并的情况下成立的。如果使用其他合并策略，例如按秩合并（将深度较小的树合并到深度较大的树中），那么节点的深度可能会更小，甚至可能达到O(logN)。
+<!-- prettier-ignore-end -->
+
+
