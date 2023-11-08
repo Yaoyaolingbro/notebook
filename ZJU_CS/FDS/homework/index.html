@@ -1112,6 +1112,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hw7" class="md-nav__link">
+    HW7
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1228,7 +1235,7 @@
   
     <li class="md-nav__item">
       <a href="../../Big%20data%20security%20and%20privacy%20protection/homework/homework3/" class="md-nav__link">
-        Homework3
+        Set 3
       </a>
     </li>
   
@@ -1242,7 +1249,7 @@
   
     <li class="md-nav__item">
       <a href="../../Big%20data%20security%20and%20privacy%20protection/homework/project/" class="md-nav__link">
-        Project
+        Report on Cybersecurity Events and Guidelines for Securing Financial Big Data in Banks and Financial Institutions
       </a>
     </li>
   
@@ -3204,6 +3211,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hw7" class="md-nav__link">
+    HW7
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3223,17 +3237,19 @@
 
 
 <h1 id="_1">作业要点<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>这里记录着所有homework中的要点，便于小测复习！</p>
 <h2 id="hw1">HW1<a class="headerlink" href="#hw1" title="Permanent link">#</a></h2>
 <ol>
 <li>用递归的方法求斐波那契数列的时间复杂度</li>
 </ol>
-<details>
-在递归树中，每个节点表示一个递归调用，而树的深度表示递归的层数。对于斐波那契数列，每个节点会生成两个子节点，因为每个数都依赖于前两个数的和。
-
-假设我们要计算第n个斐波那契数，递归树的深度将是n。每个节点的计算时间是常数时间，因为它只涉及到简单的加法操作。
-
-因此，递归方法计算斐波那契数列的时间复杂度可以表示为O(2^n)。这是因为递归树的节点数是指数级增长的。
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>在递归树中，每个节点表示一个递归调用，而树的深度表示递归的层数。对于斐波那契数列，每个节点会生成两个子节点，因为每个数都依赖于前两个数的和。</p>
+<p>假设我们要计算第n个斐波那契数，递归树的深度将是n。每个节点的计算时间是常数时间，因为它只涉及到简单的加法操作。</p>
+<p>因此，递归方法计算斐波那契数列的时间复杂度可以表示为O(2^n)。这是因为递归树的节点数是指数级增长的。</p>
 </details>
+<!-- prettier-ignore-end -->
 
 <ol start="2">
 <li>
@@ -3242,9 +3258,12 @@ P_2:T(1) = 1, T(N) = 3T(N/3) \]</div>
 </li>
 </ol>
 <p>求 <span class="arithmatex">\(P_1, P_2\)</span> 的复杂度</p>
-<details>
-O(logN) for P1, O(N) for P2
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>O(logN) for P1, O(N) for P2</p>
 </details>
+<!-- prettier-ignore-end -->
 
 <ol start="3">
 <li>要温习<code>`Mergesort</code>中merge的思想。</li>
@@ -3267,9 +3286,13 @@ O(logN) for P1, O(N) for P2
 <ol>
 <li>stack pop <code>ooops</code>有多少种方式？   </li>
 </ol>
-<details>
-5
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>5</p>
 </details>
+<!-- prettier-ignore-end -->
+
 <ol start="2">
 <li>stack的一种集成方法</li>
 </ol>
@@ -3291,24 +3314,26 @@ O(logN) for P1, O(N) for P2
 <ol>
 <li>There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child.</li>
 </ol>
-<details>
-F 本题是个脑经急转弯题目
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>F 本题是个脑经急转弯题目</p>
 </details>
+<!-- prettier-ignore-end -->
 
 <ol start="2">
 <li>Given a tree of degree 3. Suppose that there are 3 nodes of degree 2 and 2 nodes of degree 3. Then the number of leaf nodes must be ____.</li>
 </ol>
-<details>
-8
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>8</p>
 </details>
+<!-- prettier-ignore-end -->
 
 <ol start="3">
 <li>If a general tree T is converted into a binary tree BT, then which of the following BT traversals gives the same sequence as that of the post-order traversal of T?</li>
 </ol>
-<details>
-[普通树转二叉树](https://blog.csdn.net/best_LY/article/details/121346561)
-</details>
-
 <!-- prettier-ignore-start -->
 
 <details class="info">
@@ -3322,7 +3347,7 @@ F 本题是个脑经急转弯题目
 <p>T的preorder = BT的preorder
 T的postorder = BT的inorder</p>
 </div>
-<ol start="4">
+<ol>
 <li>Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) </li>
 </ol>
 <div class="admonition note">
@@ -3333,9 +3358,12 @@ T的postorder = BT的inorder</p>
 <ol>
 <li>In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent.</li>
 </ol>
-<details>
-F 5 could be their grandparents
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>F 5 could be their grandparents</p>
 </details>
+<!-- prettier-ignore-end -->
 <ol start="2">
 <li>2-3?</li>
 <li>
@@ -3351,13 +3379,24 @@ F 5 could be their grandparents
 <li>编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树</li>
 <li>红黑树？</li>
 </ol>
+<h2 id="hw7">HW7<a class="headerlink" href="#hw7" title="Permanent link">#</a></h2>
+<ol>
+<li>In Union/Find algorithm, if Unions are done by size, the depth of any node must be no more than <span class="arithmatex">\(N/2\)</span> , but not <span class="arithmatex">\(O(logN)\)</span>.</li>
+</ol>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>假设最初每个节点的深度都为0，那么在进行N-1次按大小合并后，每个节点的深度最多为1。因此，任意节点的深度不会超过N/2。
+需要注意的是，这个结论是在按大小合并的情况下成立的。如果使用其他合并策略，例如按秩合并（将深度较小的树合并到深度较大的树中），那么节点的深度可能会更小，甚至可能达到O(logN)。</p>
+</details>
+<!-- prettier-ignore-end -->
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年11月6日 23:34:37</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年11月8日 10:28:37</span>
       
         <br>
         Created:
@@ -3441,6 +3480,8 @@ F 5 could be their grandparents
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
