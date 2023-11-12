@@ -236,11 +236,12 @@ nav:
   - AI:
     - AI入门:
       - AI/AI入门/index.md
-    - 机器学习:
-      - AI/机器学习/index.md
-      - AI/机器学习/introduction.md
-    - 深度学习:
-      - AI/深度学习/index.md
+    - Machine Learning:
+      - AI\machine learning\index.md
+      - AI\machine learning\introduction.md
+    - Deep learning:
+      - AI\deep learning\index.md
+      - AI\deep learning\dl2.md
     - Pytorch:
       - AI\Pytorch\index.md
   
@@ -256,6 +257,10 @@ nav:
   
   - Scientific research:
     - Scientific research\index.md
+    - Basic tutor:
+      - Scientific research\basic tutor\voice synthesis.md
+    - Zhaozhou:
+      - Scientific research\Zz\23 NIPS.md
 
   - Spark in life:
     - spark in life\index.md
