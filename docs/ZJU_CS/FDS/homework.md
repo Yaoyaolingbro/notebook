@@ -126,8 +126,22 @@ int pop(Stack *s) {
 1. In Union/Find algorithm, if Unions are done by size, the depth of any node must be no more than $N/2$ , but not $O(logN)$.
 <!-- prettier-ignore-start -->
 ??? info "Tips"
-    假设最初每个节点的深度都为0，那么在进行N-1次按大小合并后，每个节点的深度最多为1。因此，任意节点的深度不会超过N/2。
+    F 假设最初每个节点的深度都为0，那么在进行N-1次按大小合并后，每个节点的深度最多为1。因此，任意节点的深度不会超过N/2。
     需要注意的是，这个结论是在按大小合并的情况下成立的。如果使用其他合并策略，例如按秩合并（将深度较小的树合并到深度较大的树中），那么节点的深度可能会更小，甚至可能达到O(logN)。
 <!-- prettier-ignore-end -->
 
 
+2. The array representation of a disjoint set containing numbers 0 to 8 is given by { 1, -4, 1, 1, -3, 4, 4, 8, -2 }. Then to union the two sets which contain 6 and 8 (with union-by-size), the index of the resulting root and the value stored at the root are:
+
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    4 -5
+<!-- prettier-ignore-end -->
+
+3. Let T be a tree created by union-by-size with N nodes, then the height of T can be .
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    at most $log(N) + 1$
+<!-- prettier-ignore-end -->
+
+1. A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be **reflexive** over S.
