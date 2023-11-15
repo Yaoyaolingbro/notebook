@@ -14,14 +14,18 @@
 ---
 
 ## 使用手册
-由于自己也是初学，我会先把自己使用到的介绍给大家。具体的可以参考[官网](https://git-scm.com/docs)或者看[pro_git](https://github.com/anzhihe/Free-Git-Books/blob/master/book/Professional%20Git.pdf)进行学习。
+我们不得不提如果想在windows下使用或者编写shell脚本，git bash可以很好的让你使用linux下的一些脚本语法而不用进行额外的学习。
 
-**补充：**  
+[官网](https://git-scm.com/docs)或者看[pro_git](https://github.com/anzhihe/Free-Git-Books/blob/master/book/Professional%20Git.pdf)当然是非常好的资料。~~但属实太多啦~~
 
-发现了一个非常好用的git图形化学习的[网站](https://learngitbranching.js.org/)  
+<!-- prettier-ignore-start -->
+!!! note "补充"
+    1. 发现了一个**非常好**用的git图形化学习的[网站](https://learngitbranching.js.org/)  
 
-用GIF解释Git的[基本操作](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)
+    2. 用GIF解释Git的[基本操作](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)
+   
+    3. 为了通过`log`更好的查看工作，你也许需要写出更优秀的commit信息 ([angular规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines))
+   
+    4. 此外，[missing semester](https://www.neverstopbuilding.com/blog/minimax)和CS61B的课程指导也可以作为很好的摘要。
+<!-- prettier-ignore-end -->
 
-为了通过`log`更好的查看工作，你也许需要写出更优秀的commit信息 ([angular规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines))
-
-此外，[missing semester](https://www.neverstopbuilding.com/blog/minimax)和CS61B的课程指导也可以作为很好的摘要。
