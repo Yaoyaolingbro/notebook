@@ -96,7 +96,7 @@ markdown_extensions:
       baselevel: 1
       separator: "_"
   - attr_list 
-  # - pymdownx.highlight: # 支持代码块语法高亮，！！！跟mermaid冲突
+  - pymdownx.highlight: # 支持代码块语法高亮，！！！跟mermaid冲突
   # - linenums: true # 显示行号
 
 plugins:
