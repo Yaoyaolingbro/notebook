@@ -24,3 +24,5 @@
     - [x] [Chap 7 Memory Basics](Chap07.md) 
     - [x] [Glossary](glossary.md)
     - [ ] [学习思路以及资源](learnskill.md)
+
+> 本笔记主要参考了 isshikih（80%） 和 Guahao（10%）。自己在此基础上安装新手的思路进行调整修改。当我们不得不承认他会更有总括性，不完全按照课本章节，甚至每章都有补充。更多内容请看[学习思路以及资源](learnskill.md)

@@ -17,10 +17,10 @@
 
 比较基础的，需要了解与或非的符号表示。
 
-- `A` `AND` `B` 可写作$A \cdot B$或者$AB$；
-- `A` `OR` `B` 可写作$A+B$；
-- `NOT A` 可写作$\overline{A}$；
-- `XOR` 可以写作$\overline{A}B+A\overline{B}$
+- `A` `AND` `B` 写作$A \cdot B$或者$AB$；
+- `A` `OR` `B` 写作$A+B$；
+- `NOT A` 写作$\overline{A}$；
+- `XOR` 写作$\overline{A}B+A\overline{B}$
 
 由此可以进行一些组合，例如：
 
@@ -38,9 +38,19 @@
 
 ![](img/7.jpeg)
 
-> 如图，(a)中绘制了三个常用逻辑门的符号；(b)中则描述了这些运算在 **时序图(timing diagram)** 中的状态；\(c)则描述了在延时（见下）效应下的时序图。
+> 如图，(a)中绘制了三个常用逻辑门的符号；(b)中则描述了这些运算在 **时序图(timing diagram)** 中的状态；(c)则描述了在延时（见下）效应下的时序图。
 > 
 > 还有一个注意点是，非门其实更多的被称为 inverter，而非 NOT。
+
+
+
+### CMOS
+
+![](img/cmos.png)
+
+
+
+### 延时
 
 但是由于是物理层面的实现，所以会有一些逻辑运算层面不会出现的问题，比如 **延时(delay)**。
 
@@ -63,19 +73,27 @@
    - URL: https://www.electronics-tutorials.ws/logic/universal-gates.html
    - Video: https://www.bilibili.com/video/BV1EW411u7th/
 
-    > Universal Logic gates can be used to produce any other logic or Boolean function with the NAND and NOR gates being minimal
+ > Universal Logic gates can be used to produce any other logic or Boolean function with the NAND and NOR gates being minimal
+
+
 
 ## 布尔代数
 
 > literal \~ 字面量，也就是“变量”。
 
+需要注意的是, 如果已知  $X+Y= X+Z$ 或  $XY = XZ$ , 我们不能直接得到  $Y = Z$ .(不能消去)
+
+对于每⼀个布尔函数, 它的真值表是唯⼀的, 但是给定⼀个真值表, 可能有多个布尔函数与之对应.(从布尔函数到真值表映射满射但不单射)
+
+
+
 ### 运算律
 
 ![](img/10.jpeg)
 
-这张图片总结了布尔运算中的运算律，个人感觉最需要强化记忆的是 15 条，因为布尔代数借用了普通代数的符号，但第 15 条在普通代数中并不成立，所以对于习惯这套符号的人来说可能不太 straightfoward。
+这张图片总结了布尔运算中的运算律，个人感觉最需要强化记忆的是 15 条，因为布尔代数借用了普通代数的符号，但第 15 条在普通代数中并不成立，所以需要注意。
 
-在记忆这套运算规律的时候，我个人的一个想法是，一定要建立 **与** 和 **或** 是对等的观念。我们习惯用“真”去理解这两个运算，但是实际上如果你以“假”为主体去分析这两个运算，会发现和“真”是完全对称的。换言之， **与** 和 **或** 是完全对称的运算，而非像他们借用的符号 $\times$ 和 $+$ 那样存在非对称关系。
+在记忆这套运算规律的时候，一定要建立 **与** 和 **或** 是对等的观念。我们习惯用“真”去理解这两个运算，但是实际上如果你以“假”为主体去分析这两个运算，会发现和“真”是完全对称的。
 
 但是让这件事变得又没那么简单的事情是，虽然 **与** 和 **或** 是对等的，但是我们在借用普通代数符号体系的同时，又人为地给他们添加了优先级（但是这也是必要的，否则表达式就会充满括号）。
 
@@ -86,14 +104,18 @@
 3. 与 / AND / $\cdot$；
 4. 或 / OR / $+$；
 
-个人感觉，这一种思路并不直觉，尤其是借用普通代数的符号体系以后更加混淆，所以可能需要一些练习来摆脱这些“刻板印象”。
+<!-- prettier-ignore-start -->
+!!! info "advice"
+    1. 请注意3、4 的优先级
+    2. 并且考前可以多加练习
+<!-- prettier-ignore-end -->
 
 ### 运算律推广
 
-除此之外，从上面提到的运算律中还能推广出如下几个模型：
+除此之外，从上面提到的运算律中还能推广出如下几个模型，**比较重要**：
 
 ![](img/11.jpg)![](img/12.jpg)
-> 对比前三个和后三个，我们再次发现，与 和 或 在逻辑上是对称的。
+
 
 ### 对偶法则
 
@@ -112,12 +134,12 @@
 
 ### 互补函数
 
-一个 **函数的互补(Complement of a Function)** 指的是，将它的 **对偶函数** 中每一个 **变量** 都取反得到的函数，而该函数正好等于原函数的 **非**。
+一个 **函数的互补(Complement of a Function)** 指的是，将它的 **对偶函数** 中每一个 **变量** 都取反得到的函数，而该函数正好等于原函数的 **非**(真值表0/1对调)。
 
 !!! example "eg"
     - 原函数：$F=\overline{A}B+C\overline{B}$；
     - 其对偶函数：$F=(\overline{A}+B)(C+\overline{B})$；
-    - 其互补函数：$\overline{F}=(A+\overline{B})(\overline{C}+D)$；
+    - 其互补函数：$\overline{F}=(A+\overline{B})(\overline{C}+D)$；（当然我们也可以对原函数直接取反）
 
 ### 替代法则
 
@@ -131,7 +153,7 @@
 
 ### 一致性定理
 
-在简化逻辑表达式的时候，**一致性定理(Consensus Theorem)** 也很有用：
+在简化逻辑表达式的时候，**一致性定理(Consensus Theorem)** 如下（**比较好用**）：
 
 $$
 XY+\overline{X}Z+YZ=XY+\overline{X}Z
@@ -142,7 +164,11 @@ $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简�
 
 ## 标准形式与规范形式
 
-由于本质上相等的布尔表达式实际上有很多种写法，而且随着变量越来越复杂，他们之间的比较会很困难。所以我们需要定义一种形式，使得所有相同的表达式都能比较方便的“化简”为同一个形式，同时也能辨别出两个表达式是不同的。这就引入了 **标准形式(Standard Forms)**，包括 SOP 和 POS；以及 **规范形式(Canonical Forms)**，分别为 **最小项之和(Sum of Minterms)SOM** 和 **最大项之积(Product of Maxterms)POM**。
+> 小测会考（狗头
+
+由于本质上相等的布尔表达式实际上有很多种写法，而且随着变量越来越复杂，他们之间的比较会很困难。所以我们需要定义一种形式，使得所有相同的表达式都能比较方便的“化简”为同一个形式，同时也能辨别出两个表达式是不同的。
+
+这就引入了 **标准形式(Standard Forms)**，包括 SOP 和 POS；以及 **规范形式(Canonical Forms)**，分别为 **最小项之和(Sum of Minterms)SOM** 和 **最大项之积(Product of Maxterms)POM**。
 
 为了方便描述，在继续之前，我们先给出这样一张 🌰 真值表。
 
