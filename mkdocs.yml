@@ -215,6 +215,9 @@ nav:
       - Missing semester/Latex/index.md
     - Mkdocs material:
       - Missing semester/Mkdocs material/index.md
+    - Zotero:
+      - Missing semester\Zotero\index.md
+      - Missing semester\Zotero\use.md
 
   - Online CS Courses:
     - 计算机科学导论: 
@@ -243,8 +246,14 @@ nav:
     - Deep learning:
       - AI\deep learning\index.md
       - AI\deep learning\dl2.md
+    - 经典模型:
+      - AI\Model\index.md
+      - AI\Model\cnn.md
+      - AI\Model\rnn.md
+      - AI\Model\transformer.md
     - Pytorch:
       - AI\Pytorch\index.md
+      - AI\Pytorch\note.md
   
   - Language:
     - C:
