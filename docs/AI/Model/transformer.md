@@ -3,7 +3,9 @@
 !!! note "摘要"
 
     论文：[Attention Is All You Need](https://arxiv.org/abs/1706.03762v7)
+    
     参考资料：http://jalammar.github.io/illustrated-transformer/
+    
     源码参考：https://github.com/jadore801120/attention-is-all-you-need-pytorch 
 <!-- prettier-ignore-end -->
 

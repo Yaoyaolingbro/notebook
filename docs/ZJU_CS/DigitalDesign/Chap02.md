@@ -68,10 +68,13 @@
 
 于是又引申出一个概念——**通用门(Universal Gate)**。一个功能完全的，能够表示其他所有门的逻辑门被称为通用门，在我们学过的逻辑门中，NAND 和 NOR 都是通用门。
 
+<!-- prettier-ignore-start -->
 !!! quote "推荐阅读"
-   - Title: Universal Logic Gates
-   - URL: https://www.electronics-tutorials.ws/logic/universal-gates.html
-   - Video: https://www.bilibili.com/video/BV1EW411u7th/
+    - Title: Universal Logic Gates
+    - URL: https://www.electronics-tutorials.ws/logic/universal-gates.html
+    - Video: https://www.bilibili.com/video/BV1EW411u7th/
+<!-- prettier-ignore-end -->
+
 
  > Universal Logic gates can be used to produce any other logic or Boolean function with the NAND and NOR gates being minimal
 
@@ -162,6 +165,7 @@ $$
 其证明的第一步是这样的：
 $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简单了。本质上这个等式是利用了裂项，需要将其中最本质的部分，最小的粒度给裂开来，然后再慢慢消掉。
 
+
 ## 标准形式与规范形式
 
 > 小测会考（狗头
@@ -208,7 +212,7 @@ $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简�
 
     那么什么是“列举”呢？让我们再看一眼上面对最小项之和的描述：“一旦字面量取值的组合匹配这几个‘最小项’的其中一项，那么结果就是真”，追本溯源，在最小项中，我们就需要做到只有当一个电路的状态是特定组合时，其返回值为 `1`。
     
-    具体来说，比如，对于 🌰 中的$m_{5}=X\overline{Y}Z$，也可以通过这样一种更啰嗦的方式表达出来是这样的：
+    具体来说，比如，对于 🌰 中的 $m_{5}=X\overline{Y}Z$，也可以通过这样一种更啰嗦的方式表达出来是这样的：
     
     ```c
     if(X == 1 && Y == 0 && Z == 1) {
