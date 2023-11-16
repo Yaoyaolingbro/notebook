@@ -3880,14 +3880,17 @@
 <p><img alt="" src="../img/9.jpeg" /></p>
 <p>至此，给出了 AND, OR, NOT 三个门的符号表示，类似上一小节提到的那样，我们也可以利用这三个基础的门电路来构成其他的门电路（虽然通常来说，我们可能是通过 NAND + NOT 来实现 AND 的）。</p>
 <p>于是又引申出一个概念——<strong>通用门(Universal Gate)</strong>。一个功能完全的，能够表示其他所有门的逻辑门被称为通用门，在我们学过的逻辑门中，NAND 和 NOR 都是通用门。</p>
+<!-- prettier-ignore-start -->
 <div class="admonition quote">
 <p class="admonition-title">推荐阅读</p>
-</div>
 <ul>
 <li>Title: Universal Logic Gates</li>
 <li>URL: <a href="https://www.electronics-tutorials.ws/logic/universal-gates.html">https://www.electronics-tutorials.ws/logic/universal-gates.html</a></li>
 <li>Video: <a href="https://www.bilibili.com/video/BV1EW411u7th/">https://www.bilibili.com/video/BV1EW411u7th/</a></li>
 </ul>
+</div>
+<!-- prettier-ignore-end -->
+
 <blockquote>
 <p>Universal Logic gates can be used to produce any other logic or Boolean function with the NAND and NOR gates being minimal</p>
 </blockquote>
@@ -4060,7 +4063,7 @@ XY+\overline{X}Z+YZ=XY+\overline{X}Z
 <p>或许您觉得最小项的得到非常的自然且简单，我建议您也尝试着看一看追加说明，因为这对理解最大项挺有帮助的。</p>
 </blockquote>
 <p>那么什么是“列举”呢？让我们再看一眼上面对最小项之和的描述：“一旦字面量取值的组合匹配这几个‘最小项’的其中一项，那么结果就是真”，追本溯源，在最小项中，我们就需要做到只有当一个电路的状态是特定组合时，其返回值为 <code>1</code>。</p>
-<p>具体来说，比如，对于 🌰 中的<span class="arithmatex">\(m_{5}=X\overline{Y}Z\)</span>，也可以通过这样一种更啰嗦的方式表达出来是这样的：</p>
+<p>具体来说，比如，对于 🌰 中的 <span class="arithmatex">\(m_{5}=X\overline{Y}Z\)</span>，也可以通过这样一种更啰嗦的方式表达出来是这样的：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">Output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -4553,7 +4556,7 @@ $$
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年11月16日 21:45:10</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年11月16日 23:09:14</span>
       
         <br>
         Created:
@@ -4633,12 +4636,6 @@ $$
         <script src="../../../js/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
