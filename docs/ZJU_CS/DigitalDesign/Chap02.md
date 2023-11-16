@@ -1,5 +1,6 @@
 # Chap 2 Combinational Logic Circuits
-
+> 附注：本节原笔者在较多篇幅强调了0/1的相对性，虽然篇幅较长，但希望各位能领会其精华所在。
+> 
 ## 逻辑运算
 
 逻辑运算的对象是布尔变量，也就是 0/1 二值。
@@ -40,7 +41,7 @@
 
 > 如图，(a)中绘制了三个常用逻辑门的符号；(b)中则描述了这些运算在 **时序图(timing diagram)** 中的状态；(c)则描述了在延时（见下）效应下的时序图。
 > 
-> 还有一个注意点是，非门其实更多的被称为 inverter，而非 NOT。
+> 还有一个注意点是，非门其实更多的被称为 **inverter**，而非 NOT。
 
 
 
@@ -119,6 +120,10 @@
 
 ![](img/11.jpg)![](img/12.jpg)
 
+<!-- prettier-ignore-start -->
+!!! info "消除律真的很重要"
+    $A + \overline{A}B = A + B$
+<!-- prettier-ignore-end -->
 
 ### 对偶法则
 
@@ -165,6 +170,9 @@ $$
 其证明的第一步是这样的：
 $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简单了。本质上这个等式是利用了裂项，需要将其中最本质的部分，最小的粒度给裂开来，然后再慢慢消掉。
 
+### 其他公式
+![](img/otherformula.png){width=200%}
+
 
 ## 标准形式与规范形式
 
@@ -194,12 +202,14 @@ $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简�
 ---
 
 ### 最小项之和 SOM
+> 这里我们不得不提及原作者对这部分的解释有些过于冗长了，但我认为这部分的解释是非常有趣和具有启发意义的。
 
-课本中对最小项的描述是：
+<!-- prettier-ignore-start -->
+!!! note "课本中最小项的定义"
+    A product term in which all the variables appear exactly once, either complemented or uncomplemented, is called *minterm*. 
+    Its characteristic property is that it represents exactly one combination of binary variable values in the truth table.
+<!-- prettier-ignore-end -->
 
-> A product term in which all the variables appear exactly once, either complemented or uncomplemented, is called *minterm*. 
-> 
-> Its characteristic property is that it represents exactly one combination of binary variable values in the truth table.
 
 用我的话来说，最小项之和就是挑出真值表中所有结果是 `1` 的最小项（*比较模糊但直观，所以请先囫囵吞枣，我在“追加说明”会进一步说明*）然后 `OR` 起来。显然，最小项之和的含义就是，一旦字面量取值的组合匹配了这几个“最小项”的其中一项，那么结果就是 `1`，符合了 `OR` 的“有1得1”的规则。
 
@@ -263,9 +273,13 @@ $$
 
 而最大项之积——以我个人的愚见——就是以 `0` 为主体来研究真值表的特征的。
 
-课本中对最大项的描述是：
+<!-- prettier-ignore-start -->
+!!! note "课本中对最大项的定义"
+    A sum term that contains all the variables in complemented or uncomplemented form is called a maxterm.
+<!-- prettier-ignore-end -->
 
-> A sum term that contains all the variables in complemented or uncomplemented form is called a maxterm.
+
+
 
 与最小项对比，无非是把 "product term" 换成了 "sum term"，也就是把 AND 换成了 OR。
 
@@ -346,34 +360,32 @@ $$
 
 !!! note ""
     === "题面"
-
 ​        请分别写出如下真值表中 $F$ 和 $\overline{F}$ 的 SOM 和 POM。
-
-![](img/13.png)
+        ![](img/13.png)
 
 ​    === "答案"
 ​        答案：
-$$
-        \begin{aligned}
-            F(X,Y,Z)
-            & = \sum m(0,2,5,7) \\
-            & = \overline{X}\,\overline{Y}\,\overline{Z} + \overline{X}Y\overline{Z} + X\overline{Y}Z + XYZ \\
-            & = \prod M(1,3,4,6) \\
-            & = (X+Y+\overline{Z})(X+\overline{Y}+\overline{Z})(\overline{X}+Y+Z)(\overline{X}+\overline{Y}+Z)
-        \end{aligned}
-$$
-$$
-        \begin{array}{l}
-            \overline{F}(X,Y,Z)
-            & = \sum m(1,3,4,6) \\
-            & = \overline{X}\,\overline{Y}Z + \overline{X}YZ + X\overline{Y}\,\overline{Z} + XY\overline{Z} \\
-            & = \prod M(0,2,5,7) \\
-            & = (X+Y+Z)(X+\overline{Y}+Z)(\overline{X}+Y+\overline{Z})(\overline{X}+\overline{Y}+\overline{Z})
-        \end{array}
-$$
-​        于是我们发现一件很有意思的事情，$F$ 的 SOM 的下标与 $\overline{F}$ 的 POM 的下标是一样的；当然对于 $F$ 的 POM 和 $\overline{F}$ 的 SOM 也是一样的。这又双印证了对称性。
+        $$
+                \begin{aligned}
+                    F(X,Y,Z)
+                    & = \sum m(0,2,5,7) \\
+                    & = \overline{X}\,\overline{Y}\,\overline{Z} + \overline{X}Y\overline{Z} + X\overline{Y}Z + XYZ \\
+                    & = \prod M(1,3,4,6) \\
+                    & = (X+Y+\overline{Z})(X+\overline{Y}+\overline{Z})(\overline{X}+Y+Z)(\overline{X}+\overline{Y}+Z)
+                \end{aligned}
+        $$
+        $$
+                \begin{array}{l}
+                    \overline{F}(X,Y,Z)
+                    & = \sum m(1,3,4,6) \\
+                    & = \overline{X}\,\overline{Y}Z + \overline{X}YZ + X\overline{Y}\,\overline{Z} + XY\overline{Z} \\
+                    & = \prod M(0,2,5,7) \\
+                    & = (X+Y+Z)(X+\overline{Y}+Z)(\overline{X}+Y+\overline{Z})(\overline{X}+\overline{Y}+\overline{Z})
+                \end{array}
+        $$
+    ​    于是我们发现一件很有意思的事情，$F$ 的 SOM 的下标与 $\overline{F}$ 的 POM 的下标是一样的；当然对于 $F$ 的 POM 和 $\overline{F}$ 的 SOM 也是一样的。这又双印证了对称性。
 
-> 之后的练习等我做了再添加x 如果做了的话x 😋
+
 
 ---
 
@@ -435,7 +447,10 @@ $$
 - 一共有三组类似 AB 的结构，所以一共是 3 * 3 = 9 个；
 - 即$G=9$；
 
-总之，就是类似于在做算式化简，每做一次化简都需要计入一次操作数的数量。
+<!-- prettier-ignore-start -->
+!!!  ""
+    总而言之我们不妨按照括号一层一层层级往上走数即可。
+<!-- prettier-ignore-end -->
 
 而对于 gate-input cost with NOTs，只要再额外计入非门的输入即可。例如上面那个式子：
 
@@ -460,46 +475,47 @@ $$
 !!! note ""
     === "题面"
         计算 $F=(A+\overline{C})(\overline{B}+C)(\overline{A}+B)$ 的 $L$、$G$、$GN$。
+    
+    ===  "答案"
+      - $L = 6$；
+      - $G= 9$；
+      - $GN = 12$；
 
-​	===  "答案"
-   - $L = 6$；
-   - $G= 9$；
-   - $GN = 12$；
 
 !!! note ""
     === "题面"
         计算 $F=(A+\overline{B})(A+D)(B+C+\overline{D})(\overline{B}+\overline{C}+D)$ 的 $L$、$G$、$GN$。
 
-​	=== "答案"
-   - $L = 10$；
-   - $G= 14$；
-   - $GN = 17$；
+    === "答案"
+        - $L = 10$；
+        - $G= 14$；
+        - $GN = 17$；
 
-        这里需要注意，出现了重复的被非了的字面量，不要重复计算！
+    这里需要注意，出现了重复的被非了的字面量，不要重复计算！
 
 !!! note ""
     === "题面"
         计算 $F=BD+A\overline{B}C+A\overline{B}\,\overline{D}+AB\overline{C}$ 的 $L$、$G$、$GN$。
 
-​	=== "答案"
-​        - $L = 11$；
-​                - $G = 15$；
-​                - $GN = 18$；
+    === "答案"
+        - $L = 11$；
+        - $G = 15$；
+        - $GN = 18$；
 
-        这里同样需要注意，出现了重复的被非了的字面量，不要重复计算！
+    这里同样需要注意，出现了重复的被非了的字面量，不要重复计算！
 
 !!! note ""
     === "题面"
         计算 $F=\overline{A}\,\overline{C}(B+\overline{D})+AC(B+\overline{D})$ 的 $L$、$G$、$GN$。
 
-​	=== "答案"
-​        - $L = 8$；
-​                - $G = 12$；
-​                - $GN = 15$；
+    === "答案"
+        - $L = 8$；
+        - $G = 12$；
+        - $GN = 15$；
 
-```latex
-    这里同样需要注意，出现了比较复杂的逻辑运算，以 $\overline{A}\,\overline{C}(B+\overline{D})$ 为例，自顶向下是：⓵三输入与门，⓶二输入或门；所以应该是 $1^{\overline{A}} + 1^{\overline{C}} + 1^{B} + 1^{\overline{D}} + 1^{B+\overline{D}} + 1^{\overline{A}\,\overline{C}(B+\overline{D})}$，即 6。
-```
+**小结：**
+这里同样需要注意，出现了比较复杂的逻辑运算，以 $\overline{A}\,\overline{C}(B+\overline{D})$ 为例，自顶向下是：⓵三输入与门，⓶二输入或门；所以应该是 $1^{\overline{A}} + 1^{\overline{C}} + 1^{B} + 1^{\overline{D}} + 1^{B+\overline{D}} + 1^{\overline{A}\,\overline{C}(B+\overline{D})}$，即 6。
+
 
 ### 卡诺图
 
@@ -531,8 +547,7 @@ $$
 
 然而，上面的说法其实很牵强。因为一张二维表中，能与一个元素相邻的元素最多只有四个，也就是说我们撑死也只能用卡诺图表示 4 个字面量的情况（当然更多的变量也有处理的方法，但是多少有点麻烦了）。因此，实际上卡诺图只能用于化简非常简单的逻辑表达式。
 
-!!! quote "cm 老师如是说"
-    更多情况下，卡诺图实际上只适合我们做题。但是其思路是非常有意思的。
+更多情况下，卡诺图实际上只适合我们做题。但是其思路是非常有意思的。
 
 ---
 
@@ -566,7 +581,7 @@ $$
 
 4 元字面量的卡诺图则长这个样子：
 
-![](img/17.png){width=500.px}
+![](img/17.png){width=500px}
 
 ---
 
@@ -649,7 +664,7 @@ $$
 
 ---
 
-!!! tip "由卡诺图得到乘积结果"
+!!! tip "值得思考的例题——由卡诺图得到乘积结果"
     尽管我们不停强调 与 和 或 是对称的，但是仍然有很多操作是鉴于我们对 `1` 的偏爱才会顺手的（你会发现，把乘除换成我们完全不熟悉的符号，你甚至可能无从下手）。
     
     所以，在卡诺图的问题中，如果要利用卡诺图得到 $F$ 优化后的乘积形式，也可以将问题转化为求 $\overline{F}$ 优化后的和形式，然后再对其取反过，利用德·摩根定律来得到结果。
@@ -664,11 +679,12 @@ $$
 #### 蕴含项、主蕴含项与基本主蕴含项
 
 **蕴含项(implicant)** 分为 **主蕴含项(prime implicant)** 和 **基本主蕴含项(essential prime implicant)**。
+![](img/implicant.png)
 
 - 在卡诺图中，一个蕴含项就是任意一个包含 $2^n$ 个 `1` 的单元；
 - 而主蕴含项则是在卡诺图中的 **极大** 蕴含项；
     - 对于存在 Dont'cares 的 K-map，如果我们关注的是 `1`，那我们积极地将他们当作 `1` 来处理，反之亦然；
-    - 但是单独的 `X` 不会被认为是主蕴含项；
+    - **注意：** 单独的 `X` 不会被认为是主蕴含项；
 - 基本主蕴含项是包含 只被它(基本主蕴含项)覆盖的 `1` 的主蕴含项；
 
 ![](img/27.png)
@@ -676,26 +692,24 @@ $$
 > 
 > 而右侧的蕴含项则是一个冗余的蕴含项；
 
-!!! warning "注意"
-    对于任意函数，主蕴含项一定存在，但是基本主蕴含项不一定存在。
+**Warning：** <font color ="purple">对于任意函数，主蕴含项一定存在，但是基本主蕴含项不一定存在。</font>
 
 !!! tip "🤔"
     正因为有基本主蕴含项的存在，对于一个任意函数，优化的多解结果总有一部分是不变的（只不过没有基本主蕴含项的时候这部分为零）。
 
----
 
 !!! tip "麦克拉奎因算法"
+    有待研究！
+    链接：https://zh.wikipedia.org/wiki/%E5%A5%8E%E5%9B%A0-%E9%BA%A6%E5%85%8B%E6%8B%89%E6%96%AF%E5%9F%BA%E7%AE%97%E6%B3%95
 
----
+
 
 ## 经典组合电路
 
 !!! note "引入"
     在实际设计中，我们有一些现成的组合电路能够使用，来方便我们设计。
 
-    不过我没有全写出来；
 
----
 
 ### 三态门
 
