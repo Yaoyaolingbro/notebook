@@ -6,6 +6,7 @@ AI一词属实太过宽泛，其下分支也太多太多了。
 <!-- prettier-ignore-start -->
 !!! quote "学习资源"
     [PaperswithCode](https://paperswithcode.com/)这个网站推荐给大家。不能光学理论不看代码（bushi
+    [AI 图谱](https://keywords.groundedai.company/)
 <!-- prettier-ignore-end -->
 
 

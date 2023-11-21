@@ -170,6 +170,7 @@ nav:
       - ZJU_CS\FDS\sort.md
       - ZJU_CS\FDS\tree.md
       - ZJU_CS\FDS\homework.md
+      - ZJU_CS\FDS\exam.md
     - Digital desin:
       - ZJU_CS\DigitalDesign\index.md
       - ZJU_CS\DigitalDesign\Chap01.md
@@ -251,6 +252,8 @@ nav:
       - Language\Advanced C Language\index.md
     - Python:
       - Language\Python\index.md
+      - Language\Python\fastpython.md
+      - Language\Python\skill.md
     - Verilog:
       - Language\Verilog\index.md
     - C++:
@@ -261,7 +264,10 @@ nav:
     - Basic tutor:
       - Scientific research\basic tutor\voice synthesis.md
     - Zhaozhou:
-      - Scientific research\Zz\23 NIPS.md
+      - Scientific research\Zz\index.md
+      - 23 NIPS:
+        - Scientific research\Zz\23NIPS\index.md
+        - Scientific research\Zz\23NIPS\note.md
 
   - Spark in life:
     - spark in life\index.md

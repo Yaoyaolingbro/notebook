@@ -28,3 +28,4 @@
 6. [CCF-deadline](https://ccfddl.github.io/)
 7. [Introduction to MLsys](https://fazzie-key.cool/2023/02/21/MLsys/)
 8. [论文AI](https://txyz.ai/)
+9. [latex识别](https://simpletex.cn/)

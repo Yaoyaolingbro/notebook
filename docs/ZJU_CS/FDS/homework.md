@@ -82,6 +82,8 @@ int pop(Stack *s) {
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     8
+    结点的度（Degree）：结点的子树个数
+    树的度：树的所有结点中最大的度数
 <!-- prettier-ignore-end -->
 
 3. If a general tree T is converted into a binary tree BT, then which of the following BT traversals gives the same sequence as that of the post-order traversal of T?
@@ -144,4 +146,13 @@ int pop(Stack *s) {
     at most $log(N) + 1$
 <!-- prettier-ignore-end -->
 
-1. A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be **reflexive** over S.
+4. A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be **reflexive** over S.
+
+## HW8
+1. A graph with 90 vertices and 20 edges must have at least __ connected component(s)
+
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    70
+
+<!-- prettier-ignore-end -->

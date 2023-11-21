@@ -1,6 +1,6 @@
 # Chap 3 Combinational Logic Design
 
-!!! info "引入"
+!!! info "引言"
     按照功能，逻辑电路分为两类：
         
     - **组合电路(Combinational Circuit)**
@@ -9,7 +9,7 @@
     - **时序电路(Sequential Logic Cirtuit)**
         - 与之对应的，时序电路具有记忆功能，即它的输出可能会依赖之前的结果；
 
-而本章将着眼于组合电路的相关内容，时序电路的相关内容将在 **[下一章](Chap04.md)** 介绍。
+本章着眼于组合电路的相关内容，时序电路的相关内容将在 **[下一章](Chap04.md)** 介绍。
 
 ## 组合电路设计
 
@@ -41,8 +41,7 @@ B ==>|"化简"| C["最简功能"] ===>|"工艺映射"| D["网表"]
 
 B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 ```
-
----
+<br/>
 
 ### 分层设计
 
@@ -92,7 +91,7 @@ B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 
 ---
 
-##### 转换时间
+##### 转换时间 （Transition Time）
 
 转换时间分为 $\mathrm{t_{LH}}$(rise time) 和 $\mathrm{t_{HL}}$(fall time) 两个部分。
 
@@ -115,7 +114,7 @@ B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 
 ---
 
-#### 传播延迟
+#### 传播延迟 （Propagation Delay）
 
 **传播延迟(propagation delay)** 衡量了门的输入变化导致输出变化所需要的时间。由于从低电平转化到高电平和高电平转化到低电平所需要的时间不一样，所以传播延迟同样有两个部分，分别使用 $\mathrm{t_{PHL}}$ 和 $\mathrm{t_{PLH}} 来表示$。
 
@@ -125,11 +124,12 @@ B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 
 > 此外，我们还可以引入 $\mathrm{ t_{pd} }$ 来统一表示 $\mathrm{t_{PHL}}$ 和 $\mathrm{t_{PLH}}$。数值上，$\mathrm{ t_{pd} } = average(\mathrm{t_{PHL}}, \mathrm{t_{PLH}})$ 或 $\mathrm{ t_{pd} } = max(\mathrm{t_{PHL}}, \mathrm{t_{PLH}})$。
 
-!!! note ""
+!!! note "思考题"
     === "题面"
         根据时序图，写出门的传播延迟，此处 $\mathrm{ t_{pd} } = average(\mathrm{t_{PHL}}, \mathrm{t_{PLH}})$。
 
         ![](img/34.png)
+
     === "答案"
         ![](img/35.png)
 

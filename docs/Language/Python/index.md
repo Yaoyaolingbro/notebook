@@ -1,169 +1,18 @@
 # 笔记
+python可谓是现在需要大家人手掌握的一个编程语言了，准确来讲我们把它更偏向定义为解释型语言。（交互性更强但同时运行速度较慢）
 
-一个简明的从c学习python语法的[视频](https://cs50.harvard.edu/x/2023/shorts/python/)
+当然python最大的好处在于其语法的易懂性以及丰富的“包”！！！
 
-## Python基础语法
-
-
-
-### 判断语句
-
-![](graph\Snipaste_2023-08-07_11-06-24.png)
-
-and 或者 or，后面用冒号，tab分层，`elif`
-
-```python
-if course_num == 50:
-	# code block1
-elif not course_num == 51:
-    # code block2
-```
-
-> we dont have to use the exclamation point symbol！, the vertical bar|, ampersand&
+我会将我使用的一些经验记录在下方。
+<!-- prettier-ignore-start -->
+!!! note "资源"
+    === "学习资源"
+    1. 一个简明的从c学习python语法的[视频](https://cs50.harvard.edu/x/2023/shorts/python/)
 
 
+    === "安装"
+    强烈建议大家从一开始便使用conda（最好是miniconda）来管理环境
+    （ZJUers请不要忘记从mirror上换源哟）
+    （windows下的用户也不必那么麻烦，现在可以通过winget来快速下载啦）
+<!-- prettier-ignore-end -->
 
-### bool变量（二元判断符）
-
-```python
-letter = True if input().isalpha() else False
-```
-
-
-
-### Loop循环
-
-```python
-counter = 0
-while counter < 100:
-	print(counter)
-	counter += 1
-	
-for x in range(100):
-    print(x)
-for x in range(0, 100, 2)
-	print(x)
-# not include 100
-```
-
-
-
-#### Loop(redux)
-
-```python
-pizza = {
-    "cheese": 9,
-    "pepperoni": 10,
-    "vegetable": 11,
-    "chicken": 12
-}
-
-for pie in pizza:
-    print(pie)
-    
-for pie,price in pizza.items():
-    print(price)
-    print("A whole {} pizza costs ${}".format(pie,price))
-    print("A whole"+ pie + "pizza costs $" + str(price))
-    print("A whole %s pizza costs $%2d" % (pie,price)) # deprecated in python3
-```
-
-
-
-### List列表
-
-```python
-nums = [x for x in range (10)]
-nums.append(11)
-nums.insert(10,11)
-nums[len(nums):] = [11]
-```
-
-### Tuple元组
-
-![](graph\Snipaste_2023-08-07_19-59-14.png)
-
-```python
-for prez,year in presidents:
-    print("In {1}, {0} took office".format(prez,year))
-```
-
-
-
-### Dictionary
-
-![](graph\Snipaste_2023-08-07_20-07-58.png)
-
-
-
-### Function
-
-![](graph\Snipaste_2023-08-07_20-22-32.png)
-
-```python
-def square(x):
-    return x * x || return x**2
-```
-
-
-
-### Object
-
-![](graph\Snipaste_2023-08-07_20-28-44.png)
-
-It's similar to c++.
-
-```python
-class Student():
-    
-    def __init__(self, name, id):
-        self.name = name
-        self.id = id
-        
-    def change_ID(self, id):
-        self.id = id
-        
-    def print(self):
-        print("{} - {}".format(self.name, self.id))
-        
-jane = Student("Jane", 10)
-jane.print()
-jane.change_ID(11)
-jane.print()
-```
-
-
-
-### Data structure
-
-[runoob](https://www.runoob.com/python3/python3-data-structure.html)
-
-遍历技巧的函数：items、enumerate、zip、reverse、sorted
-
-
-
-## OS使用
-
-1. ```python
-   for filename in os.listdir(directory):
-           if not filename.endswith(".html"):
-               continue
-           with open(os.path.join(directory, filename)) as f:
-               contents = f.read()
-               links = re.findall(r"<a\s+(?:[^>]*?)href=\"([^\"]*)\"", contents)
-               pages[filename] = set(links) - {filename}
-   ```
-
-2. 
-
-
-
-
-
-
-
-## Tips
-
-1. python 中的三元运算符：`return X if X_count == O_count else O`
-2. 返回最大值的索引：`max_score_index = max(enumerate(scores), key=lambda x: x[1])[0]`
-3. `with open(os.path.join(directory, filename)) as f:`使用with处理[异常情况](https://www.runoob.com/python3/python-with.html)
