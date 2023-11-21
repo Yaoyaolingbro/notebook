@@ -22,8 +22,3 @@
 6. git -> main -> c1 or git checkout c1
 7. git checkout HEAD^ | bugFix^(向上移动一次)
 8. git branch -f main HEAD~3
-  patch(修补)
-
-
-
-
