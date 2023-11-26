@@ -135,8 +135,11 @@ Markdown 区块引用是在段落开头使用 > 符号 ，然后后面紧跟一�
 ### 图片
 
 图片是类似网址的：  
+```markdown
 ![alt 属性文本](图片地址)  
 ![alt 属性文本](图片地址 "可选标题")  
+```
+
 
 例如：  
 ![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  

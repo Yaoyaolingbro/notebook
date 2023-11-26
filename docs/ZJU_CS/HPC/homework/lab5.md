@@ -23,9 +23,9 @@
 
 ---
 
-1. [GELU介绍]([On the GELU Activation Function (alaaalatif.github.io)](https://alaaalatif.github.io/2019-04-11-gelu/))
-1. [神经网络基础](https://yaoyaolingbro.github.io/notebook/Online%20CS%20Courses/CS50%20AI/note/)
-1. 3b1b的视频很有启发意义！
+1. [GELU介绍](https://alaaalatif.github.io/2019-04-11-gelu/)
+2. [神经网络基础](https://yaoyaolingbro.github.io/notebook/Online%20CS%20Courses/CS50%20AI/note/)
+3. 3b1b的视频很有启发意义！
 
 
 
