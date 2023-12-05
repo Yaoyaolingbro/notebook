@@ -879,6 +879,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      最大流
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最大流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      最小生成树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最小生成树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prim算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kruskal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kruskal算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2941,6 +2989,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      最大流
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最大流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      最小生成树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最小生成树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prim算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kruskal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kruskal算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3136,13 +3232,25 @@ Adjacency Matrix: 邻接矩阵  <br />
 Adjacency Lists: 邻接表<br />
 Adjacency Multilists: 邻接多重表列  </p>
 </div>
+<h2 id="_13">最大流<a class="headerlink" href="#_13" title="Permanent link">#</a></h2>
+<h3 id="_14">最小生成树<a class="headerlink" href="#_14" title="Permanent link">#</a></h3>
+<p>最小生成树（英语：Minimum spanning tree，简称MST）是最小权重生成树（英语：Minimum weight spanning tree）的简称，是一副连通加权无向图中一棵权值最小的生成树。</p>
+<p>在一给定的无向图 <span class="arithmatex">\(G=(V,E)\)</span> 中, <span class="arithmatex">\((u,v)\)</span> 代表连接顶点 u 与顶点 v 的边, 而 <span class="arithmatex">\(w(u,v)\)</span> 代表此边的权重，若存在 T 为 E 的子集（即 <span class="arithmatex">\(T \subseteq  E\)</span> ) 且 (V, T) 为树，使得：
+$$
+w(T) = \sum_{(u,v) \in T}{w(u,v)}
+$$
+的 w(T) 最小，则此 T 为 G 的最小生成树。</p>
+<h4 id="prim">Prim算法<a class="headerlink" href="#prim" title="Permanent link">#</a></h4>
+<p>个人认为这个算法和<code>dijkstra</code>有非常相似的地方，倘若你已经彻底理解<code>dijkstra</code>算法的话，相信你一定能很快洞悉其中的道理。</p>
+<h4 id="kruskal">Kruskal算法<a class="headerlink" href="#kruskal" title="Permanent link">#</a></h4>
+<p>与Prim算法将点设为对象不同，Kruskal算法是将边设为对象 —— 将所有边从小到大排序，依次加入到生成树当中。</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年9月27日 10:52:36</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月5日 08:55:45</span>
       
         <br>
         Created:

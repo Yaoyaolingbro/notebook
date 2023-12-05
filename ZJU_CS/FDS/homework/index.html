@@ -937,9 +937,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw8" class="md-nav__link">
+  <a href="#hw8_graph" class="md-nav__link">
     <span class="md-ellipsis">
-      HW8
+      HW8 Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw9_shortest_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW9 Shortest_Path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw10_mstmaxstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW10 MST&amp;Maxstream
     </span>
   </a>
   
@@ -2825,9 +2843,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw8" class="md-nav__link">
+  <a href="#hw8_graph" class="md-nav__link">
     <span class="md-ellipsis">
-      HW8
+      HW8 Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw9_shortest_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW9 Shortest_Path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw10_mstmaxstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW10 MST&amp;Maxstream
     </span>
   </a>
   
@@ -2852,7 +2888,8 @@
 
 
 <h1 id="_1">作业要点<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>这里记录着所有homework中的要点，便于小测复习！</p>
+<p>这里记录着所有homework中的要点，便于小测复习！
+[TOC]</p>
 <h2 id="hw1">HW1<a class="headerlink" href="#hw1" title="Permanent link">#</a></h2>
 <ol>
 <li>用递归的方法求斐波那契数列的时间复杂度</li>
@@ -3031,14 +3068,58 @@ T的postorder = BT的inorder</p>
 <ol start="4">
 <li>A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be <strong>reflexive</strong> over S.</li>
 </ol>
-<h2 id="hw8">HW8<a class="headerlink" href="#hw8" title="Permanent link">#</a></h2>
+<h2 id="hw8_graph">HW8 Graph<a class="headerlink" href="#hw8_graph" title="Permanent link">#</a></h2>
+<blockquote>
 <ol>
+<li>图论中的degree是指与该节点所连接的边的个数
+   By contrast， 树中的degree是指子节点的个数</li>
+<li>In a connected graph, the number of edges must be equal or greater than the number of vertices minus 1.</li>
 <li>A graph with 90 vertices and 20 edges must have at least __ connected component(s)</li>
 </ol>
+</blockquote>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>Tips</summary>
 <p>70</p>
+</details>
+<!-- prettier-ignore-end -->
+
+<h2 id="hw9_shortest_path">HW9 Shortest_Path<a class="headerlink" href="#hw9_shortest_path" title="Permanent link">#</a></h2>
+<ol>
+<li>Let P be the shortest path from S to T. If the weight of every edge in the graph is incremented by 2, P will still be the shortest path from S to T.</li>
+</ol>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">key</p>
+<p>F
+Because if shortest road has 6 nodes with 12 while 2<sup>nd</sup>-shortest road has 4 nodes with 13. After every edge incremented by 2. The last shortest road is 24 while last 2<sup>nd</sup>-shortest road is 21 which means it is the current shortest road!</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<ol start="2">
+<li>Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices. In which order that the destinations must be obtained?</li>
+</ol>
+<h2 id="hw10_mstmaxstream">HW10 MST&amp;Maxstream<a class="headerlink" href="#hw10_mstmaxstream" title="Permanent link">#</a></h2>
+<blockquote>
+<p>[x] Finished
+本次作业，你需要对最小生成树（minimum spanning tree）的两个算法清晰的记忆，关于最大流应当学会计算。
+1. The minimum spanning tree of any weighted graph ____</p>
+</blockquote>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>May not exits.
+Exit if it is connected.</p>
+</details>
+<!-- prettier-ignore-end -->
+
+<ol start="2">
+<li>An example question about max stream.</li>
+</ol>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Question</summary>
+<p><img alt="" src="../graph/Snipaste_2023-12-05_08-29-25.png" /></p>
 </details>
 <!-- prettier-ignore-end -->
 
@@ -3047,7 +3128,7 @@ T的postorder = BT的inorder</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年11月21日 19:51:01</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月5日 08:55:45</span>
       
         <br>
         Created:
