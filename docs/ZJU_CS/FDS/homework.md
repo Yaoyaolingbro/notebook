@@ -1,5 +1,6 @@
 # 作业要点
 这里记录着所有homework中的要点，便于小测复习！
+[TOC]
 
 ## HW1
 1. 用递归的方法求斐波那契数列的时间复杂度
@@ -148,11 +149,42 @@ int pop(Stack *s) {
 
 4. A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be **reflexive** over S.
 
-## HW8
-1. A graph with 90 vertices and 20 edges must have at least __ connected component(s)
+## HW8 Graph
+> 1. 图论中的degree是指与该节点所连接的边的个数
+>    By contrast， 树中的degree是指子节点的个数
+1. In a connected graph, the number of edges must be equal or greater than the number of vertices minus 1.
+2. A graph with 90 vertices and 20 edges must have at least __ connected component(s)
 
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     70
 
+<!-- prettier-ignore-end -->
+
+## HW9 Shortest_Path
+1. Let P be the shortest path from S to T. If the weight of every edge in the graph is incremented by 2, P will still be the shortest path from S to T.
+<!-- prettier-ignore-start -->
+!!! Note "key"
+    F
+    Because if shortest road has 6 nodes with 12 while 2nd-shortest road has 4 nodes with 13. After every edge incremented by 2. The last shortest road is 24 while last 2nd-shortest road is 21 which means it is the current shortest road!
+<!-- prettier-ignore-end -->
+
+2. Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices. In which order that the destinations must be obtained?
+   
+
+## HW10 MST&Maxstream 
+> [x] Finished
+> 本次作业，你需要对最小生成树（minimum spanning tree）的两个算法清晰的记忆，关于最大流应当学会计算。
+1. The minimum spanning tree of any weighted graph ____
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    May not exits.
+    Exit if it is connected.
+<!-- prettier-ignore-end -->
+
+2. An example question about max stream.
+
+<!-- prettier-ignore-start -->
+??? info "Question"
+    ![](graph/Snipaste_2023-12-05_08-29-25.png)
 <!-- prettier-ignore-end -->

@@ -202,3 +202,19 @@ $T=O(|V|+|E|)$ 而且不需要堆
     Adjacency Matrix: 邻接矩阵    
     Adjacency Lists: 邻接表  
     Adjacency Multilists: 邻接多重表列  
+
+## 最大流
+
+### 最小生成树
+最小生成树（英语：Minimum spanning tree，简称MST）是最小权重生成树（英语：Minimum weight spanning tree）的简称，是一副连通加权无向图中一棵权值最小的生成树。
+
+在一给定的无向图 $G=(V,E)$ 中, $(u,v)$ 代表连接顶点 u 与顶点 v 的边, 而 $w(u,v)$ 代表此边的权重，若存在 T 为 E 的子集（即 $T \subseteq  E$ ) 且 (V, T) 为树，使得：
+$$
+w(T) = \sum_{(u,v) \in T}{w(u,v)}
+$$
+的 w(T) 最小，则此 T 为 G 的最小生成树。
+#### Prim算法 
+个人认为这个算法和`dijkstra`有非常相似的地方，倘若你已经彻底理解`dijkstra`算法的话，相信你一定能很快洞悉其中的道理。
+
+#### Kruskal算法
+与Prim算法将点设为对象不同，Kruskal算法是将边设为对象 —— 将所有边从小到大排序，依次加入到生成树当中。

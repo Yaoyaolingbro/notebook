@@ -13,14 +13,14 @@
 直接更改电路来修改电路功能被称为硬编程，而可重变成技术让我们能够不更改硬件布线的情况下，实现**逻辑功能的重新编辑**。
 
 !!! example "FPGA"
-    [现场可编程逻辑门阵列(Field Programmable Gate Array)FPGA](https://zh.wikipedia.org/zh-cn/%E7%8E%B0%E5%9C%BA%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E9%97%A8%E9%98%B5%E5%88%97)
+    - [现场可编程逻辑门阵列(Field Programmable Gate Array)FPGA](https://zh.wikipedia.org/zh-cn/%E7%8E%B0%E5%9C%BA%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E9%97%A8%E9%98%B5%E5%88%97)
     - [查找表(lookup table)LUT](https://zh.m.wikipedia.org/zh-hans/%E6%9F%A5%E6%89%BE%E8%A1%A8)
 
 **编程技术(programming technologies)** 在硬件层面有三种实现手段：
 
 - 控制连接来实现（不是可重编程）；
-    - Mask programing
-    - Fuse
+    - Mask programing（掩码编程）
+    - Fuse（保险丝）
     - Anti-fuse
 - 控制门级电路电压；
     - Single-bit storage element
@@ -50,9 +50,8 @@
 
 ### 逻辑符号介绍
 
-!!! example "Buffer"
+!!! example "Buffer——简化表示一个变量的自身和其非"
     ![](img/52.png)
-    > 简化表示一个变量的自身和其非；
 
 !!! example "Wire connecting"
     在可编程逻辑电路中，线的连接不再只有单纯的连通和不连通的关系：
@@ -94,7 +93,6 @@ $$
 
 ???+ example "eg"
     更清晰的表示其内部逻辑的，可以将 ROM 写成这样：
-
     ![](img/58.png)
 
 ---
@@ -124,6 +122,7 @@ $$
 其同 PAL 一样具有一个缺陷是，因为表达函数的方法不是通过 SOM 或者 POM 的形式，所以不一定能够完备表达函数。
 
 在基础上一个改进是在输出的时候再做一次异或（不用非门体现了可重编程的思想），以产生新的项，来弥补项不足的问题。
+**Attention:注意XOR的作用！！！**
 
 ![](img/62.png)
 
