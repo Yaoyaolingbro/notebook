@@ -32,6 +32,8 @@ ZJU:[高校竞赛管理系统 (zju.edu.cn)](http://kyjs.zju.edu.cn/kyjs#/preview
 
 [大数据系统软件国家工程研究中心 (tsinghua.edu.cn)](http://nercbds.tsinghua.edu.cn/bdc/)（四月开始到六月份）
 
+[浙江省以及浙江大学数学建模竞赛]
+
 ### 五月
 
 浙江省大学生数学竞赛

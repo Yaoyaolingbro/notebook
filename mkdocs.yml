@@ -228,8 +228,7 @@ nav:
       - Online CS Courses\CS106X\index.md
 
   - AI:
-    - AI入门:
-      - AI/AI入门/index.md
+    - AI/index.md
     - Machine Learning:
       - AI\machine learning\index.md
       - AI\machine learning\introduction.md
@@ -248,17 +247,23 @@ nav:
   - Language:
     - C:
       - Language\Advanced C Language\index.md
+    - C++:
+      - Language\C++\index.md
+    - CUDA:
+      - Language\CUDA\index.md
+      - Language\CUDA\note.md
     - Python:
       - Language\Python\index.md
       - Language\Python\fastpython.md
       - Language\Python\skill.md
+      - Language\Python\enviroment.md
     - Verilog:
       - Language\Verilog\index.md
-    - C++:
-      - Language\C++\index.md
+    
   
   - Scientific research:
     - Scientific research\index.md
+    - Scientific research\ode.md
     - Basic tutor:
       - Scientific research\basic tutor\voice synthesis.md
     - Zhaozhou:

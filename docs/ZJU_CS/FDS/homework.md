@@ -2,6 +2,7 @@
 这里记录着所有homework中的要点，便于小测复习！
 [TOC]
 
+
 ## HW1
 1. 用递归的方法求斐波那契数列的时间复杂度
 
@@ -166,19 +167,20 @@ int pop(Stack *s) {
 <!-- prettier-ignore-start -->
 !!! Note "key"
     F
+
     Because if shortest road has 6 nodes with 12 while 2nd-shortest road has 4 nodes with 13. After every edge incremented by 2. The last shortest road is 24 while last 2nd-shortest road is 21 which means it is the current shortest road!
 <!-- prettier-ignore-end -->
 
 2. Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices. In which order that the destinations must be obtained?
    
 
-## HW10 MST&Maxstream 
+## HW10 MST & Maxstream 
 > [x] Finished
 > 本次作业，你需要对最小生成树（minimum spanning tree）的两个算法清晰的记忆，关于最大流应当学会计算。
 1. The minimum spanning tree of any weighted graph ____
 <!-- prettier-ignore-start -->
 ??? info "Tips"
-    May not exits.
+    May not exits.  
     Exit if it is connected.
 <!-- prettier-ignore-end -->
 
@@ -188,3 +190,54 @@ int pop(Stack *s) {
 ??? info "Question"
     ![](graph/Snipaste_2023-12-05_08-29-25.png)
 <!-- prettier-ignore-end -->
+
+## HW11 DFS & InsertionSort
+<!-- prettier-ignore-start -->
+!!! Note "导读"
+    === "index"
+    [] finshed?
+    1. 本节需要掌握'biconnected"([重连接](https://www.cnblogs.com/bless/archive/2008/07/30/1256875.html))相关的知识
+    2. u is an articulation point iff
+    > (1)  u is the root and has at least 2 children;  or
+    > (2)  u is not the root, and has at least 1 child such that  $Low(child) \ge Num(u)$
+    3. Euler circuit: 简单来说就是“一笔画”问题，可看[Eular path](https://discrete.openmathbooks.org/dmoi2/sec_paths.html)
+    4. 以及你需要对dfs以及排序有熟练掌握（相信学到这里应该没有不熟练的了吧hhhh
+    
+    === "glossary"
+    |英文|中文|
+    |:--:|:--:|  
+    |articulation point |关节点 |
+    |biconnected | 重联通|
+
+<!-- prettier-ignore-end -->
+
+
+1. For a graph, if each vertex has an even degree or only two vertexes have odd degree, we can find a cycle that visits every edge exactly once
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    F
+
+    It has to be a Euler Cycle, thus only if each vertex has even degrees；Euler Circuit -> exact 2 vertices have odd degrees / all vertices have even degrees
+    
+    
+<!-- prettier-ignore-end -->
+
+1. Apply DFS to a directed acyclic graph, and output the vertex before the end of each recursion. The output sequence will be:
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    acyclic graph -> 无环图
+<!-- prettier-ignore-end -->
+
+1. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    Each Node has exactly 19 degrees
+
+    - Euler Circuit (Strong Form) requires every node to be even degrees
+
+    - Euler Tour (Weak Form) requires 0 or 2 odd degrees
+
+    Remove 1 edge, every 2 nodes will lose 1 degrees, so we lose 10 edges
+<!-- prettier-ignore-end -->
+
+1. 

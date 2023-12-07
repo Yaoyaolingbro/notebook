@@ -1,6 +1,12 @@
 ## Verilog基础语法
 
-本笔记参考Runoob的[教程](https://www.runoob.com/w3cnote/verilog-expression.html)以及其他资料参考学习记录，为硬件课程学习的基础语言。
+<!-- prettier-ignore-start -->
+!!! note "引言"
+    本笔记参考Runoob的[教程](https://www.runoob.com/w3cnote/verilog-expression.html)以及其他资料参考学习记录，为硬件课程学习的基础语言。
+<!-- prettier-ignore-end -->
+
+#### Verilog中的一些特性
+1. 一般来说，当位宽不匹配时，向左补0扩展.
 
 ## 初窥
 
@@ -87,7 +93,7 @@ reg   clk_temp;
 reg  flag1, flag2 ;
 ```
 
-？回头再看）例如在 always 块中，寄存器可能被综合成边沿触发器，在组合逻辑中可能被综合成 wire 型变量。寄存器不需要驱动源，也不一定需要时钟信号。在仿真时，寄存器的值可在任意时刻通过赋值操作进行改写。例如：
+例如在 always 块中，寄存器可能被综合成边沿触发器，在组合逻辑中可能被综合成 wire 型变量。寄存器不需要驱动源，也不一定需要时钟信号。在仿真时，寄存器的值可在任意时刻通过赋值操作进行改写。例如：
 
 ```verilog
 reg rstn ;
@@ -140,7 +146,7 @@ interger表示整数申明；real申明实数；time申明时间，可通过`tim
 
 字符串中**不能包含回车符**,同样如c语言中的‘\n’。如果寄存器变量的宽度大于字符串的大小，则使用 0 来填充左边的空余位；如果寄存器变量的宽度小于字符串大小，则会截去字符串左边多余的数据通常字符串一个字符为8bits。
 
-`reg [0:14*8-1] str; str=“run.runoob.com`
+`reg [0:14*8-1] str; str="run.runoob.com"`
 
 Verilog同样使用\来转义字符表示输出。
 
@@ -163,7 +169,7 @@ c = a + b ;
 
 //寄存器
 reg  [3:0]       cprmu_1, cprmu_2 ;
-always @(posedge clk) begin
+begin
         cprmu_2 = cprmu_1 ^ cprmu_2 ;
 end
          
@@ -271,7 +277,7 @@ c = a+b ;       //结果为c=4'bxxxx
 
 ### 按位操作符
 
-按位操作符包括：取反（~），与（&），或（|），异或（^），同或（~^）。
+按位操作符包括：取反（ ~ ），与（ & ），或（ | ），异或（^），同或（~^）。
 
 按位操作符对 2 个操作数的每 1bit 数据进行按位操作。
 
