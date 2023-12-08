@@ -1,4 +1,4 @@
-site_name: Yaoyaolingbro's computer learning notebook
+site_name: Yaoyaolingbro's notebook
 site_url: https://yaoyaolingbro.github.io/notebook
 site_author: yaoyaoling
 
@@ -235,6 +235,7 @@ nav:
     - Deep learning:
       - AI\deep learning\index.md
       - AI\deep learning\dl2.md
+      - AI\deep learning\flow.md
     - 经典模型:
       - AI\Model\index.md
       - AI\Model\cnn.md

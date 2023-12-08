@@ -119,19 +119,19 @@ Independence is crucial. When a & b is independent, $P(a \land b)=P(a) \times P(
 
 ### Bayer's Rule
 
-$P(b|a) = \frac{P(b) \times P(a|b)}{P(a)}$
+$ P(b|a) = \frac{P(b) \times P(a|b)}{P(a)} $
 
 ### Joint Probability
 
-$P(C|rain) = \alpha \times P(C, rain)$
+$ P(C|rain) = \alpha \times P(C, rain) $
 
 ### Marginalization
 
-$P(X = x_i) = \sum_{j}P(X = x_i, Y = y_j) = \sum_{j}P(X = x_i| Y = y_j)P(Y = y_j)$
+$ P(X = x_i) = \sum_{j}P(X = x_i, Y = y_j) = \sum_{j}P(X = x_i| Y = y_j)P(Y = y_j) $
 
 ### Condition
 
-$ P(a) = P(a|b)P(b) + P(a|\neg b)P(\neg b)$
+$ P(a) = P(a|b)P(b) + P(a|\neg b)P(\neg b) $
 
 ### Bayesian Network
 

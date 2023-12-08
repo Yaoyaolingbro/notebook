@@ -1,13 +1,25 @@
 # 作业要点
-这里记录着所有homework中的要点，便于小测复习！
+这里记录着所有homework中的要点，便于复习！（预习
 [TOC]
 
 
-## HW1
-1. 用递归的方法求斐波那契数列的时间复杂度
+## HW1 Algorithm
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+    本节你需要学会基础的算法时间和空间复杂度的分析。
+    === "glossary"
+    |英文|中文|
+    |:--:|:--:|
+    |complexity |复杂度 |
+<!-- prettier-ignore-end -->
+
+1. The Fibonacci number sequence ${F_N}$ is defined as: $F_0 = 0$, $F_1=1$,$F_N=F_{N−1}+F_{N−2}, N=2, 3, ....$ The time complexity of the function which calculates $F_N$ recursively is Θ(N!).
 
 <!-- prettier-ignore-start -->
 ??? info "Tips"
+    F
+
     在递归树中，每个节点表示一个递归调用，而树的深度表示递归的层数。对于斐波那契数列，每个节点会生成两个子节点，因为每个数都依赖于前两个数的和。
 
     假设我们要计算第n个斐波那契数，递归树的深度将是n。每个节点的计算时间是常数时间，因为它只涉及到简单的加法操作。
@@ -16,40 +28,101 @@
 <!-- prettier-ignore-end -->
 
 
-2. $$ P_1:T(1) = 1, T(N) = T(N/3)+1\\
-P_2:T(1) = 1, T(N) = 3T(N/3) $$
+2. $$ P_1:T(1) = 1, T(N) = T(N/3)+1\\P_2:T(1) = 1, T(N) = 3T(N/3) $$
 
 求 $P_1, P_2$ 的复杂度
 
 <!-- prettier-ignore-start -->
 ??? info "Tips"
-    O(logN) for P1, O(N) for P2
+    $O(logN)$ for P1, $O(N)$ for P2
+<!-- prettier-ignore-end -->
+
+## HW2 linked-list
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+    本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握链表的操作以及基本概念是非常有必要的。
+    === "glossary"
+    |英文|中文|
+    |:--:|:--:|
+    |complexity |复杂度 |
+<!-- prettier-ignore-end -->
+
+1. **Attention：** Linear List（线性表）的初始定义是数组。
+2. insertNode 函数可以背下来
+<!-- prettier-ignore-start -->
+??? code "code"
+    ```C
+    void insertNode(struct Node* head, int Element) {
+        // 创建新节点
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->Element = Element;
+        
+        newNode->Next = (head)->Next;
+        (head)->Next = newNode;
+    }
+    ```
+<!-- prettier-ignore-end -->
+3. 温习``Mergesort`中merge的思想
+<!-- prettier-ignore-start -->
+??? code "code"
+    ```C
+
+    #define type int
+    void Mergesort(type num[], int start, int end) {
+        if (start >= end) return;
+        int mid = start + (end-start)/2;
+        Mergesort(num, start, mid);
+        Mergesort(num, mid+1, end);
+
+        Merge(num, start, mid, end);
+    }
+
+    void Merge(int num[], int start, int mid, int end) {
+        int* temp = (int*)malloc((end-start+1)*sizeof(type));
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
+        while (i <= mid && j <= end) {
+            if (num[i] <= num[j]){
+                temp[k++] = num[i++];
+            } else {
+                temp[k++] = num[j++];
+            }
+        }
+        while (i <= mid) {
+            temp[k++] = num[i++];
+        }
+        while (j <= end) {
+            temp[k++] = num[j++];
+        }
+    }
+
+    ```
 <!-- prettier-ignore-end -->
 
 
-3. 要温习``Mergesort`中merge的思想。
+## HW3 Stack & Queue
 
-
-## HW2
-1. Linear List（线性表）的初始定义是数组。
-2. insertNode 函数可以背下来
-```C
-void insertNode(struct Node* head, int Element) {
-    // 创建新节点
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->Element = Element;
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+    本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握队列和栈。包括可以采用structue嵌套数组的方式来集成实现
     
-    newNode->Next = (head)->Next;
-    (head)->Next = newNode;
-}
-```
+    编程题：OI里将这种思想归纳为“模拟”
 
+    === "glossary"
+    |英文|中文|
+    |:--:|:--:|
+    |front |前 |
+    |rare |后 |
+<!-- prettier-ignore-end -->
 
-## HW3
 1. stack pop `ooops`有多少种方式？   
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     5
+    笔者第一次做时粗糙的认为是4种。最后分析认为还是画类似树形流程图最为靠谱
 <!-- prettier-ignore-end -->
 
 
@@ -71,7 +144,51 @@ int pop(Stack *s) {
 }
 ```
 
-## HW4
+3. Suppose that an array of size 6 is used to store a circular queue, and the values of front and rear are 0 and 4, respectively. Now after 2 dequeues and 2 enqueues, what will the values of front and rear be?
+   
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    [] Unfinished!
+    2 0
+<!-- prettier-ignore-end -->
+
+## HW4 Binary tree
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+    本节你需要学习二叉树的一些基础概念与操作。
+    
+    函数题充分展现了递归思想，编程题是对之前知识的综合使用
+
+    === "glossary"
+    |中文|英文|概念|
+    |:--:|:--:|:--:|
+    |根节点|root node|位于二叉树顶层的节点，没有父节点|
+    |叶节点|leaf node|没有子节点的节点，其两个指针均指向| 
+    |边|edge|连接两个节点的线段，即节点引用（指针）|
+    |层|level|从顶至底递增，根节点所在层为 1 |
+    |度|degree|节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2 |
+    |高度|height|从根节点到最远叶节点所经过的边的数量|
+    |深度|depth|从根节点到该节点所经过的边的数量|
+    |高度|height|从距离该节点最远的叶节点到该节点所经过的边的数量|
+<!-- prettier-ignore-end -->
+
+下面先让我们看看基本概念吧（From hello-algo）
+<!-- prettier-ignore-start -->
+??? info "二叉树基本概念"
+    === "完美二叉树 perfect BT"
+    ![](graph/pbt.png)
+
+    === "平衡二叉树 balance BT"
+    ![](graph/bbt.png)
+
+    === "完全二叉树 complete BT"
+    ![](graph/cbt.png)
+
+    ===  "完满二叉树 full BT"
+    ![](graph/fbt.png)
+<!-- prettier-ignore-end -->
+
 1. There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child.
 
 <!-- prettier-ignore-start -->
@@ -193,8 +310,8 @@ int pop(Stack *s) {
 
 ## HW11 DFS & InsertionSort
 <!-- prettier-ignore-start -->
-!!! Note "导读"
-    === "index"
+!!! Note "摘要"
+    === "Knowledge"
     [] finshed?
     1. 本节需要掌握'biconnected"([重连接](https://www.cnblogs.com/bless/archive/2008/07/30/1256875.html))相关的知识
     2. u is an articulation point iff
