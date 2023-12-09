@@ -171,20 +171,19 @@ int pop(Stack *s) {
     |高度|height|从根节点到最远叶节点所经过的边的数量|
     |深度|depth|从根节点到该节点所经过的边的数量|
     |高度|height|从距离该节点最远的叶节点到该节点所经过的边的数量|
+    |遍历|traversal| |
 <!-- prettier-ignore-end -->
+
 
 下面先让我们看看基本概念吧（From hello-algo）
 <!-- prettier-ignore-start -->
 ??? info "二叉树基本概念"
     === "完美二叉树 perfect BT"
     ![](graph/pbt.png)
-
     === "平衡二叉树 balance BT"
     ![](graph/bbt.png)
-
     === "完全二叉树 complete BT"
     ![](graph/cbt.png)
-
     ===  "完满二叉树 full BT"
     ![](graph/fbt.png)
 <!-- prettier-ignore-end -->
@@ -201,8 +200,14 @@ int pop(Stack *s) {
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     8
+    
+    通解：
+    1. 算儿子， $ 3n_3+2n_2+n_1+1=N $
+    2. 算所有， $ n_3+n_2+n_1+n_0=N $
+
+    需要注意的概念：
     结点的度（Degree）：结点的子树个数
-    树的度：树的所有结点中最大的度数
+    树的度：树的所有结点中最大的degree
 <!-- prettier-ignore-end -->
 
 3. If a general tree T is converted into a binary tree BT, then which of the following BT traversals gives the same sequence as that of the post-order traversal of T?
@@ -212,15 +217,21 @@ int pop(Stack *s) {
 ??? info "Tips"
     [普通树转二叉树](https://blog.csdn.net/best_LY/article/details/121346561)
 
+    可以这样浅显的理解：
+    1. 在所有兄弟节点间添加一条连线
+    2. 对每个节点，除了保留与第一个儿子的连线外，删除别的连线。
+    ![](https://img-blog.csdn.net/20180724230432154?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ZvcmV2ZXJfZHJlYW1z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 <!-- prettier-ignore-end -->
 
 !!! Note
     T的preorder = BT的preorder
     T的postorder = BT的inorder
 
-1. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
+4. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
 !!! Note 
-    [线索二叉树](tree.md)
+    [线索二叉树](./tree.md#实现)
+    
+    一个直观的快速解题的方法便是写出原本树的遍历结果，然后用使用左右指针与它的前后值接起来即可！
 
 
 ## HW5

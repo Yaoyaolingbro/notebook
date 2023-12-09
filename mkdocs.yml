@@ -253,6 +253,8 @@ nav:
     - CUDA:
       - Language\CUDA\index.md
       - Language\CUDA\note.md
+      - Language\CUDA\GEMM.md
+      - Language\CUDA\cutlass.md
     - Python:
       - Language\Python\index.md
       - Language\Python\fastpython.md

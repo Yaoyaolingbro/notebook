@@ -7,6 +7,8 @@ CUDA编程的经验主要来自于超算的比赛以及自己的学习。
 !!! Note "摘要"
     === "传送门"
     [Basic tutor](note.md)
+    [Cutlass](cutlass.md)
+    [GEMM](GEMM.md)
 
     === "资源"
     [一个非常不错的知乎笔记](https://zhuanlan.zhihu.com/p/597695921)
