@@ -11,5 +11,6 @@ CUDA编程的经验主要来自于超算的比赛以及自己的学习。
     [GEMM](GEMM.md)
 
     === "资源"
+    [Nvidia官网](https://developer.nvidia.com/)
     [一个非常不错的知乎笔记](https://zhuanlan.zhihu.com/p/597695921)
 <!-- prettier-ignore-end -->

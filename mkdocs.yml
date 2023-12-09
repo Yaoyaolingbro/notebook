@@ -180,6 +180,9 @@ nav:
       - ZJU_CS\DigitalDesign\Chap07.md
       - ZJU_CS\DigitalDesign\glossary.md
       - ZJU_CS\DigitalDesign\learnskill.md
+    - Discrete math:
+      - ZJU_CS\Discrete math\index.md
+      - ZJU_CS\Discrete math\note.md
 
   - Missing semester: 
     - Missing semester/index.md
