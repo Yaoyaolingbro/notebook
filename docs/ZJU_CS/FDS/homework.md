@@ -220,14 +220,14 @@ int pop(Stack *s) {
     可以这样浅显的理解：
     1. 在所有兄弟节点间添加一条连线
     2. 对每个节点，除了保留与第一个儿子的连线外，删除别的连线。
-    ![](https://img-blog.csdn.net/20180724230432154?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ZvcmV2ZXJfZHJlYW1z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+    ![](graph/nttbt.png)
 <!-- prettier-ignore-end -->
 
-!!! Note
+!!! Note "conclusion"
     T的preorder = BT的preorder
     T的postorder = BT的inorder
 
-4. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
+1. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
 !!! Note 
     [线索二叉树](./tree.md#实现)
     
@@ -241,12 +241,12 @@ int pop(Stack *s) {
 ??? info "Tips"
     F 5 could be their grandparents
 <!-- prettier-ignore-end -->
-2. 2-3?
+2. 2-3<!-- prettier-ignore-start -->
+!!! note "Question"
+    ![](graph/tree_Q1.png)
+<!-- prettier-ignore-end -->
 3. 什么是decision tree?
-
-
-
-2. A binary search tree if ood nodes, 如果我们选`i/2`，之后每次都选`i/2`；选`i/2+1`则都选`i/2+1`。
+4. A binary search tree if ood nodes, 如果我们选`i/2`，之后每次都选`i/2`；选`i/2+1`则都选`i/2+1`。
 
 
 ## HW6

@@ -235,6 +235,7 @@ nav:
     - Machine Learning:
       - AI\machine learning\index.md
       - AI\machine learning\introduction.md
+      - AI\machine learning\method.md
     - Deep learning:
       - AI\deep learning\index.md
       - AI\deep learning\dl2.md
@@ -270,6 +271,9 @@ nav:
   - Scientific research:
     - Scientific research\index.md
     - Scientific research\ode.md
+    - mathematic model:
+      - Scientific research\mathematic model\index.md
+      - Scientific research\mathematic model\mcm.md
     - Basic tutor:
       - Scientific research\basic tutor\voice synthesis.md
     - Zhaozhou:
