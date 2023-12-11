@@ -1,5 +1,8 @@
 # 摘要
-
+<!-- prettier-ignore-start -->
+!!! info "注意"
+    如果latex渲染未成功加载,请刷新网页!
+<!-- prettier-ignore-end -->
 ## Chapter 1
 |英文|中文|数学符号|
 |:--:|:--:|----|
