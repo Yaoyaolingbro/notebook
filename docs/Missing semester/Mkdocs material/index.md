@@ -103,3 +103,7 @@ markdown_extensions:
 - example
 - quote, cite
 ps：这中间所需要的小技巧有点多，我也在不断摸索，如果想要配置的同学可以按照我这个教程来写就好。
+
+### 数学公式
+如何让你的页面支持latex呢?
+[link](http://clifford.vip/%E6%89%A9%E5%B1%95%E7%9F%A5%E8%AF%86/mkdocs%E4%B9%8BLaTex%E5%85%AC%E5%BC%8F/)

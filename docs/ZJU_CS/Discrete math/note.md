@@ -42,9 +42,9 @@
 
 8. symmetric / antisymmetric: 
 
-   > R is **symmetric** $\Leftrightarrow \forall x, y \in A, (x,y)\in R \Rightarrow (y,x)\in R $   $\Leftrightarrow R^{-1} = R$
+   > R is **symmetric** $\Leftrightarrow \forall x, y \in A, (x,y)\in R \Rightarrow (y,x)\in R \Leftrightarrow R^{-1} = R$
    >
-   > R is **antisymmetric**: $\Leftrightarrow \forall x, y \in A, (x,y)\in R \quad and \quad (y,x)\in R \Rightarrow x = y $  $\Leftrightarrow R \cap R^{-1} \subseteq R_=$
+   > R is **antisymmetric**: $\Leftrightarrow \forall x, y \in A, (x,y)\in R \quad and \quad (y,x)\in R \Rightarrow x = y \Leftrightarrow R \cap R^{-1} \subseteq R_=$
    >
    > Non-symmetric $\not\Leftrightarrow$ antisymmetric (eg. $R_=$)
 
@@ -90,7 +90,7 @@
 
    > **Theorem:**  Let R be a relation on set $A$. There is a path of length n from a to b $\Leftrightarrow (a,b) \in R^n$
 
-4. **Definition**: The **connectivity relation** $R^* = \{(a,b)|\text{there is a path from a to b}\}$.$$R^* = \cup^{\infin}_{n=1} R^n$$
+4. **Definition**: The **connectivity relation** $R^* = \{(a,b)|\text{there is a path from a to b}\}$. $$R^* = \cup^{\infin}_{n=1} R^n$$
 
    > **Theorem**: The transitive closure of R :$$t(R) = R^*$$
 
