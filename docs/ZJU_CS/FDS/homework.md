@@ -6,12 +6,12 @@
 ## HW1 Algorithm
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-    === "Knowledge"
-    本节你需要学会基础的算法时间和空间复杂度的分析。
-    === "glossary"
-    |英文|中文|
-    |:--:|:--:|
-    |complexity |复杂度 |
+        === "Knowledge"
+        本节你需要学会基础的算法时间和空间复杂度的分析。
+        === "glossary"
+        |英文|中文|
+        |:--:|:--:|
+        |complexity |复杂度 |
 <!-- prettier-ignore-end -->
 
 1. The Fibonacci number sequence ${F_N}$ is defined as: $F_0 = 0$, $F_1=1$,$F_N=F_{N−1}+F_{N−2}, N=2, 3, ....$ The time complexity of the function which calculates $F_N$ recursively is Θ(N!).
@@ -40,12 +40,12 @@
 ## HW2 linked-list
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-    === "Knowledge"
-    本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握链表的操作以及基本概念是非常有必要的。
-    === "glossary"
-    |英文|中文|
-    |:--:|:--:|
-    |complexity |复杂度 |
+        === "Knowledge"
+        本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握链表的操作以及基本概念是非常有必要的。
+        === "glossary"
+        |英文|中文|
+        |:--:|:--:|
+        |complexity |复杂度 |
 <!-- prettier-ignore-end -->
 
 1. **Attention：** Linear List（线性表）的初始定义是数组。
@@ -106,16 +106,16 @@
 
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-    === "Knowledge"
-    本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握队列和栈。包括可以采用structue嵌套数组的方式来集成实现
-    
-    编程题：OI里将这种思想归纳为“模拟”
+        === "Knowledge"
+        本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握队列和栈。包括可以采用structue嵌套数组的方式来集成实现
+        
+        编程题：OI里将这种思想归纳为“模拟”
 
-    === "glossary"
-    |英文|中文|
-    |:--:|:--:|
-    |front |前 |
-    |rare |后 |
+        === "glossary"
+        |英文|中文|
+        |:--:|:--:|
+        |front |前 |
+        |rare |后 |
 <!-- prettier-ignore-end -->
 
 1. stack pop `ooops`有多少种方式？   
@@ -155,37 +155,37 @@ int pop(Stack *s) {
 ## HW4 Binary tree
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-    === "Knowledge"
-    本节你需要学习二叉树的一些基础概念与操作。
-    
-    函数题充分展现了递归思想，编程题是对之前知识的综合使用
+        === "Knowledge"
+        本节你需要学习二叉树的一些基础概念与操作。
+        
+        函数题充分展现了递归思想，编程题是对之前知识的综合使用
 
-    === "glossary"
-    |中文|英文|概念|
-    |:--:|:--:|:--:|
-    |根节点|root node|位于二叉树顶层的节点，没有父节点|
-    |叶节点|leaf node|没有子节点的节点，其两个指针均指向| 
-    |边|edge|连接两个节点的线段，即节点引用（指针）|
-    |层|level|从顶至底递增，根节点所在层为 1 |
-    |度|degree|节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2 |
-    |高度|height|从根节点到最远叶节点所经过的边的数量|
-    |深度|depth|从根节点到该节点所经过的边的数量|
-    |高度|height|从距离该节点最远的叶节点到该节点所经过的边的数量|
-    |遍历|traversal| |
+        === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        |根节点|root node|位于二叉树顶层的节点，没有父节点|
+        |叶节点|leaf node|没有子节点的节点，其两个指针均指向| 
+        |边|edge|连接两个节点的线段，即节点引用（指针）|
+        |层|level|从顶至底递增，根节点所在层为 1 |
+        |度|degree|节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2 |
+        |高度|height|从根节点到最远叶节点所经过的边的数量|
+        |深度|depth|从根节点到该节点所经过的边的数量|
+        |高度|height|从距离该节点最远的叶节点到该节点所经过的边的数量|
+        |遍历|traversal| |
 <!-- prettier-ignore-end -->
 
 
 下面先让我们看看基本概念吧（From hello-algo）
 <!-- prettier-ignore-start -->
 ??? info "二叉树基本概念"
-    === "完美二叉树 perfect BT"
-    ![](graph/pbt.png)
-    === "平衡二叉树 balance BT"
-    ![](graph/bbt.png)
-    === "完全二叉树 complete BT"
-    ![](graph/cbt.png)
-    ===  "完满二叉树 full BT"
-    ![](graph/fbt.png)
+        === "完美二叉树 perfect BT"
+        ![](graph/pbt.png)
+        === "平衡二叉树 balance BT"
+        ![](graph/bbt.png)
+        === "完全二叉树 complete BT"
+        ![](graph/cbt.png)
+        ===  "完满二叉树 full BT"
+        ![](graph/fbt.png)
 <!-- prettier-ignore-end -->
 
 1. There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child.
@@ -322,20 +322,20 @@ int pop(Stack *s) {
 ## HW11 DFS & InsertionSort
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-    === "Knowledge"
-    [] finshed?
-    1. 本节需要掌握'biconnected"([重连接](https://www.cnblogs.com/bless/archive/2008/07/30/1256875.html))相关的知识
-    2. u is an articulation point iff
-    > (1)  u is the root and has at least 2 children;  or
-    > (2)  u is not the root, and has at least 1 child such that  $Low(child) \ge Num(u)$
-    3. Euler circuit: 简单来说就是“一笔画”问题，可看[Eular path](https://discrete.openmathbooks.org/dmoi2/sec_paths.html)
-    4. 以及你需要对dfs以及排序有熟练掌握（相信学到这里应该没有不熟练的了吧hhhh
-    
-    === "glossary"
-    |英文|中文|
-    |:--:|:--:|  
-    |articulation point |关节点 |
-    |biconnected | 重联通|
+        === "Knowledge"
+        [] finshed?
+        1. 本节需要掌握'biconnected"([重连接](https://www.cnblogs.com/bless/archive/2008/07/30/1256875.html))相关的知识
+        2. u is an articulation point iff
+        > (1)  u is the root and has at least 2 children;  or
+        > (2)  u is not the root, and has at least 1 child such that  $Low(child) \ge Num(u)$
+        3. Euler circuit: 简单来说就是“一笔画”问题，可看[Eular path](https://discrete.openmathbooks.org/dmoi2/sec_paths.html)
+        4. 以及你需要对dfs以及排序有熟练掌握（相信学到这里应该没有不熟练的了吧hhhh
+        
+        === "glossary"
+        |英文|中文|
+        |:--:|:--:|  
+        |articulation point |关节点 |
+        |biconnected | 重联通|
 
 <!-- prettier-ignore-end -->
 
@@ -350,13 +350,13 @@ int pop(Stack *s) {
     
 <!-- prettier-ignore-end -->
 
-1. Apply DFS to a directed acyclic graph, and output the vertex before the end of each recursion. The output sequence will be:
+2. Apply DFS to a directed acyclic graph, and output the vertex before the end of each recursion. The output sequence will be:
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     acyclic graph -> 无环图
 <!-- prettier-ignore-end -->
 
-1. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
+3. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     Each Node has exactly 19 degrees
@@ -368,4 +368,4 @@ int pop(Stack *s) {
     Remove 1 edge, every 2 nodes will lose 1 degrees, so we lose 10 edges
 <!-- prettier-ignore-end -->
 
-1. 
+
