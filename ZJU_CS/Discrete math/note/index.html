@@ -52,6 +52,12 @@
     
       <link rel="stylesheet" href="../../../css/timeline.css">
     
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
       <link rel="stylesheet" href="../../../css/custom.css">
     
       <link rel="stylesheet" href="../../../css/card.css">
@@ -2966,8 +2972,8 @@
 </li>
 </ol>
 <blockquote>
-<p>R is <strong>symmetric</strong> $\Leftrightarrow \forall x, y \in A, (x,y)\in R \Rightarrow (y,x)\in R $   <span class="arithmatex">\(\Leftrightarrow R^{-1} = R\)</span></p>
-<p>R is <strong>antisymmetric</strong>: $\Leftrightarrow \forall x, y \in A, (x,y)\in R \quad and \quad (y,x)\in R \Rightarrow x = y $  <span class="arithmatex">\(\Leftrightarrow R \cap R^{-1} \subseteq R_=\)</span></p>
+<p>R is <strong>symmetric</strong> <span class="arithmatex">\(\Leftrightarrow \forall x, y \in A, (x,y)\in R \Rightarrow (y,x)\in R \Leftrightarrow R^{-1} = R\)</span></p>
+<p>R is <strong>antisymmetric</strong>: <span class="arithmatex">\(\Leftrightarrow \forall x, y \in A, (x,y)\in R \quad and \quad (y,x)\in R \Rightarrow x = y \Leftrightarrow R \cap R^{-1} \subseteq R_=\)</span></p>
 <p>Non-symmetric <span class="arithmatex">\(\not\Leftrightarrow\)</span> antisymmetric (eg. <span class="arithmatex">\(R_=\)</span>)</p>
 </blockquote>
 <ol start="9">
@@ -3026,7 +3032,7 @@
 <p><strong>Theorem:</strong>  Let R be a relation on set <span class="arithmatex">\(A\)</span>. There is a path of length n from a to b <span class="arithmatex">\(\Leftrightarrow (a,b) \in R^n\)</span></p>
 </blockquote>
 <ol start="4">
-<li><strong>Definition</strong>: The <strong>connectivity relation</strong> <span class="arithmatex">\(R^* = \{(a,b)|\text{there is a path from a to b}\}\)</span>.<span class="arithmatex">\(<span class="arithmatex">\(R^* = \cup^{\infin}_{n=1} R^n\)</span>\)</span></li>
+<li><strong>Definition</strong>: The <strong>connectivity relation</strong> <span class="arithmatex">\(R^* = \{(a,b)|\text{there is a path from a to b}\}\)</span>. <span class="arithmatex">\(<span class="arithmatex">\(R^* = \cup^{\infin}_{n=1} R^n\)</span>\)</span></li>
 </ol>
 <blockquote>
 <p><strong>Theorem</strong>: The transitive closure of R :<span class="arithmatex">\(<span class="arithmatex">\(t(R) = R^*\)</span>\)</span></p>
@@ -3113,7 +3119,7 @@ Can have many minimal/maximal elements, but only one least/greatest element.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月11日 15:08:57</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月11日 15:25:22</span>
       
         <br>
         Created:
@@ -3190,9 +3196,15 @@ Can have many minimal/maximal elements, but only one least/greatest element.</p>
       
         <script src="../../../js/baidu-tongji.js"></script>
       
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
