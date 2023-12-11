@@ -114,7 +114,7 @@
    > 1. If A is finite, then $|A/R| $ is also finite.
    > 2. If A has n elements, and if every $[a]_R$ has m elements, then $|A/R| = n/m$
 
-4. **Definition**: A partition $\pi$ on a set $S$ is a family of nonempty subsets of $S$ such that every element of $S$ is in exactly one of these subsets. $$\pi = \{A_1, A_2, \dots, A_n\}\\1. \cup_{k=1}^n A_k =S \\ 2. A_j \cap A_k = \emptyset \text{ for every j,k with }j \not= k, 1 < j, k < n$$
+4. **Definition**: A partition $\pi$ on a set $S$ is a family of nonempty subsets of $S$ such that every element of $S$ is in exactly one of these subsets. $$ \pi = \{A_1, A_2, \dots, A_n\}\\1. \cup_{k=1}^n A_k =S \\ 2. A_j \cap A_k = \emptyset \text{ for every j,k with }j \not= k, 1 < j, k < n$$
    > **Theorem**: Let $R$ be an equivalence relation on a set $S$. Then the equivalence of classes of $R$ form a partition of $X$. Conversely, given a partition $\{A_i|i \in I\}$ of $S$, there is an equivalence relation $R$ on $S$ such that the equivalence classes of $R$ are the sets $A_i$.
 
 ### 7.5 Partial Orderings
