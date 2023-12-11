@@ -39,10 +39,10 @@
 
 8. symmetric / antisymmetric: 
 
-   R is **symmetric** $\Leftrightarrow \forall x, y \in A, (x,y)\in R \Rightarrow (y,x)\in R $   $\Leftrightarrow R^{-1} = R$
-
-   R is **antisymmetric**: $\Leftrightarrow \forall x, y \in A, (x,y)\in R \quad and \quad (y,x)\in R \Rightarrow x = y $  $\Leftrightarrow R \cap R^{-1} \subseteq R_=$
-
+   > R is **symmetric** $\Leftrightarrow \forall x, y \in A, (x,y)\in R \Rightarrow (y,x)\in R $   $\Leftrightarrow R^{-1} = R$
+   >
+   > R is **antisymmetric**: $\Leftrightarrow \forall x, y \in A, (x,y)\in R \quad and \quad (y,x)\in R \Rightarrow x = y $  $\Leftrightarrow R \cap R^{-1} \subseteq R_=$
+   >
    > Non-symmetric $\not\Leftrightarrow$ antisymmetric (eg. $R_=$)
 
 9. R is **transitive** $\Leftrightarrow \forall x, y, z \in A((x,y)\in R \wedge(y,z) \in R) \Rightarrow (x,z)\in R$
