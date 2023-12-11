@@ -2,8 +2,9 @@
 <!-- prettier-ignore-start -->
 !!! info "摘要"
     个人认为AI算是21世纪的一个福祉了，客观来说我们有很多没有意义的文章或者文字需要编写。于此同时，AI也能成为一个非常耐心的老师指导你编程。当然学生认证的话，你可以免费使用AI编程工具Github Copilot。这里就简单介绍一下如何注册。
-    **Attention：** AI不是万能的，它只是一个工具，它的输出需要你自己去判断是否正确。你的重要代码也请不要通过copilot编写，因为它可能会泄露你的代码！
     
+    **Attention：** AI不是万能的，它只是一个工具，它的输出需要你自己去判断是否正确。你的重要代码也请不要通过copilot编写，因为它可能会泄露你的代码！
+
     - [Github Copilot](https://copilot.github.com/)
     - [Github Copilot注册知乎教程](https://zhuanlan.zhihu.com/p/618772237)
 <!-- prettier-ignore-end -->
