@@ -5,5 +5,10 @@
 
 <!-- prettier-ignore-start -->
 !!! abstract "摘要"
-    - [] [machine learning basic](../../AI/machine%20learning/method.md)
+    === "知识记录"
+        - [] [machine learning basic](../../AI/machine%20learning/method.md)
+
+    === "资源"
+        - [数据搜索](https://freegisdata.rtwilson.com/)
+        - [kaggle](https://www.kaggle.com/)
 <!-- prettier-ignore-end -->

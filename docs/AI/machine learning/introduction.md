@@ -1,8 +1,4 @@
 # 机器学习基础
-<!-- prettier-ignore-start -->
-!!! Note "导语"
-    这里我会记录一些机器学习的基本概念和入门知识。
-<!-- prettier-ignore-end -->
 
 
 

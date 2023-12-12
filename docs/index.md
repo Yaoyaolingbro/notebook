@@ -7,6 +7,11 @@
 
 感谢每一位我所遇见的浙大学长同学的帮助，以及[csdiy](https://csdiy.wiki)对我的指导。我也会根据我的学习过程把一些好的重要的网站放在我的笔记里。
 
+<!-- prettier-ignore-start -->
+!!! warning "Latex渲染问题"
+    由于某些原因（自己还没搞明白），在github上的latex渲染有时候会出现问题，大家可以重新刷新网页即可获得渲染。
+<!-- prettier-ignore-end -->
+
 !!! note "List"
     > 哈哈哈哈哈哈哈，真的意识到想做的事情好多，但……心力憔悴
 

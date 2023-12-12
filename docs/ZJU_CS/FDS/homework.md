@@ -6,9 +6,10 @@
 ## HW1 Algorithm
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-        === "Knowledge"
+    === "Knowledge"
         本节你需要学会基础的算法时间和空间复杂度的分析。
-        === "glossary"
+
+    === "glossary"
         |英文|中文|
         |:--:|:--:|
         |complexity |复杂度 |
@@ -40,9 +41,10 @@
 ## HW2 linked-list
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-        === "Knowledge"
+    === "Knowledge"
         本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握链表的操作以及基本概念是非常有必要的。
-        === "glossary"
+
+    === "glossary"
         |英文|中文|
         |:--:|:--:|
         |complexity |复杂度 |
@@ -106,12 +108,12 @@
 
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-        === "Knowledge"
+    === "Knowledge"
         本节你需要温习在之前C语言课程中对基础ADT的使用。熟练掌握队列和栈。包括可以采用structue嵌套数组的方式来集成实现
         
         编程题：OI里将这种思想归纳为“模拟”
 
-        === "glossary"
+    === "glossary"
         |英文|中文|
         |:--:|:--:|
         |front |前 |
@@ -155,12 +157,12 @@ int pop(Stack *s) {
 ## HW4 Binary tree
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-        === "Knowledge"
+    === "Knowledge"
         本节你需要学习二叉树的一些基础概念与操作。
         
         函数题充分展现了递归思想，编程题是对之前知识的综合使用
 
-        === "glossary"
+    === "glossary"
         |中文|英文|概念|
         |:--:|:--:|:--:|
         |根节点|root node|位于二叉树顶层的节点，没有父节点|
@@ -178,13 +180,13 @@ int pop(Stack *s) {
 下面先让我们看看基本概念吧（From hello-algo）
 <!-- prettier-ignore-start -->
 ??? info "二叉树基本概念"
-        === "完美二叉树 perfect BT"
+    === "完美二叉树 perfect BT"
         ![](graph/pbt.png)
-        === "平衡二叉树 balance BT"
+    === "平衡二叉树 balance BT"
         ![](graph/bbt.png)
-        === "完全二叉树 complete BT"
+    === "完全二叉树 complete BT"
         ![](graph/cbt.png)
-        ===  "完满二叉树 full BT"
+    ===  "完满二叉树 full BT"
         ![](graph/fbt.png)
 <!-- prettier-ignore-end -->
 
@@ -322,16 +324,16 @@ int pop(Stack *s) {
 ## HW11 DFS & InsertionSort
 <!-- prettier-ignore-start -->
 !!! Note "摘要"
-        === "Knowledge"
+    === "Knowledge"
         [] finshed?
         1. 本节需要掌握'biconnected"([重连接](https://www.cnblogs.com/bless/archive/2008/07/30/1256875.html))相关的知识
-        2. u is an articulation point iff
+        2. u is an articulation point if
         > (1)  u is the root and has at least 2 children;  or
         > (2)  u is not the root, and has at least 1 child such that  $Low(child) \ge Num(u)$
         3. Euler circuit: 简单来说就是“一笔画”问题，可看[Eular path](https://discrete.openmathbooks.org/dmoi2/sec_paths.html)
         4. 以及你需要对dfs以及排序有熟练掌握（相信学到这里应该没有不熟练的了吧hhhh
         
-        === "glossary"
+    === "glossary"
         |英文|中文|
         |:--:|:--:|  
         |articulation point |关节点 |
@@ -369,3 +371,69 @@ int pop(Stack *s) {
 <!-- prettier-ignore-end -->
 
 
+## HW12 sort
+<!-- prettier-ignore-start -->
+!!! note "摘要"
+    === "Knowledge"
+        本节你将学习到各种排序算法的思想以及实现。并且需要掌握各种排序算法的时间复杂度以及空间复杂度。
+
+        其中值得注意的是shell sort和heap sort的实现，以及对于quick sort的理解。
+
+<!-- prettier-ignore-end -->
+1. Shellsort的实现如下：
+<!-- prettier-ignore-start -->
+??? code "Shellsort"
+
+    ```C
+    // Shellsort
+    void Shellsort( ElementType A[ ], int N ) 
+    { 
+        int  i, j, Increment; 
+        ElementType  Tmp; 
+        for ( Increment = N / 2; Increment > 0; Increment /= 2 )  
+        /*h sequence */
+        for ( i = Increment; i < N; i++ ) { /* insertion sort */
+            Tmp = A[ i ]; 
+            for ( j = i; j >= Increment; j - = Increment ) 
+            if( Tmp < A[ j - Increment ] ) 
+                A[ j ] = A[ j - Increment ]; 
+            else 
+                break; 
+            A[ j ] = Tmp; 
+        } /* end for-I and for-Increment loops */
+    }
+    ```
+<!-- prettier-ignore-end -->
+
+2. Heapsort的实现如下：
+<!-- prettier-ignore-start -->
+??? code "Heapsort"
+
+    ```C
+    void PercDown( ElementType A[ ], int i, int N ) 
+    { 
+        int  Child; 
+        ElementType  Tmp; 
+        for ( Tmp = A[ i ]; LeftChild( i ) < N; i = Child ) { 
+            Child = LeftChild( i ); 
+            if( Child != N - 1 && A[ Child + 1 ] > A[ Child ] ) 
+                Child++; 
+            if( Tmp < A[ Child ] ) 
+                A[ i ] = A[ Child ]; 
+            else 
+                break; 
+        } 
+        A[ i ] = Tmp; 
+    } 
+
+    void Heapsort( ElementType A[ ], int N ) 
+    { 
+        int  i; 
+        for ( i = N / 2; i >= 0; i-- ) /* BuildHeap */
+            PercDown( A, i, N ); 
+        for ( i = N - 1; i > 0; i-- ) { 
+            Swap( &A[ 0 ], &A[ i ] ); /* DeleteMax */
+            PercDown( A, 0, i ); 
+        } 
+    }
+    ```
