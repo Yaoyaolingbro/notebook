@@ -907,9 +907,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#chapter_8" class="md-nav__link">
+  <a href="#chapter_8_graph" class="md-nav__link">
     <span class="md-ellipsis">
-      Chapter 8
+      Chapter 8 Graph
     </span>
   </a>
   
@@ -2875,9 +2875,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#chapter_8" class="md-nav__link">
+  <a href="#chapter_8_graph" class="md-nav__link">
     <span class="md-ellipsis">
-      Chapter 8
+      Chapter 8 Graph
     </span>
   </a>
   
@@ -3017,8 +3017,15 @@
 </ol>
 <blockquote>
 <ul>
-<li>The <strong>reflexive closure</strong> of relation R: <span class="arithmatex">\(<span class="arithmatex">\(r(R) =R \cup \Delta\)</span>\)</span>, where <span class="arithmatex">\(\Delta = \{(a,a)|a \in A\}\)</span></li>
-<li>The <strong>symmmetric closure</strong> of relation R: <span class="arithmatex">\(<span class="arithmatex">\(S(R) = R \cup R^{-1}\)</span>\)</span></li>
+<li>The <strong>reflexive closure</strong> of relation R: 
+   $$
+   r(R) =R \cup \Delta
+   $$
+   , where <span class="arithmatex">\(\Delta = \{(a,a)|a \in A\}\)</span></li>
+<li>The <strong>symmmetric closure</strong> of relation R: 
+   $$
+   S(R) = R \cup R^{-1}
+   $$</li>
 </ul>
 </blockquote>
 <ol start="3">
@@ -3028,10 +3035,16 @@
 <p><strong>Theorem:</strong>  Let R be a relation on set <span class="arithmatex">\(A\)</span>. There is a path of length n from a to b <span class="arithmatex">\(\Leftrightarrow (a,b) \in R^n\)</span></p>
 </blockquote>
 <ol start="4">
-<li><strong>Definition</strong>: The <strong>connectivity relation</strong> <span class="arithmatex">\(R^* = \{(a,b)|\text{there is a path from a to b}\}\)</span>. <span class="arithmatex">\(<span class="arithmatex">\(R^* = \cup^{\infin}_{n=1} R^n\)</span>\)</span></li>
+<li><strong>Definition</strong>: The <strong>connectivity relation</strong> <span class="arithmatex">\(R^* = \{(a,b)|\text{there is a path from a to b}\}\)</span>. 
+   $$
+   R^* = \cup^{\infin}_{n=1} R^n
+   $$</li>
 </ol>
 <blockquote>
-<p><strong>Theorem</strong>: The transitive closure of R :<span class="arithmatex">\(<span class="arithmatex">\(t(R) = R^*\)</span>\)</span></p>
+<p><strong>Theorem</strong>: The transitive closure of R :
+   $$
+   t(R) = R^*
+   $$</p>
 </blockquote>
 <ol start="5">
 <li>WARSHALL'S algorithm!</li>
@@ -3042,7 +3055,11 @@
 <p><strong>Definition</strong>: Relation <span class="arithmatex">\(R\)</span>~ : <span class="arithmatex">\(A \leftrightarrow A\)</span> is an <strong>equivalence relation</strong>, if it reflexive, symmetric and transitive.</p>
 </li>
 <li>
-<p><strong>Definition</strong>: Let <span class="arithmatex">\(R: A \leftrightarrow A\)</span> is an equivalence relation. For any <span class="arithmatex">\(a \in A\)</span>, the <strong>equivalence class</strong> of a is the set of the elements related to a. $$ [a]_R = {x\in A|(x,a) \in R}$$ . If <span class="arithmatex">\(b\in [a]_R\)</span>. b is called a representative of this equivalence class.</p>
+<p><strong>Definition</strong>: Let <span class="arithmatex">\(R: A \leftrightarrow A\)</span> is an equivalence relation. For any <span class="arithmatex">\(a \in A\)</span>, the <strong>equivalence class</strong> of a is the set of the elements related to a. 
+   $$
+   [a]_R = {x\in A|(x,a) \in R}
+   $$ . 
+   If <span class="arithmatex">\(b\in [a]_R\)</span>. b is called a representative of this equivalence class.</p>
 <blockquote>
 <p>The properties of equivalence classes are:
 1. <span class="arithmatex">\(\forall a \in A, a[R] \not ={\emptyset}\)</span>( by reflexive, <span class="arithmatex">\(a \in [a]_R\)</span> )
@@ -3052,7 +3069,10 @@
 </blockquote>
 </li>
 <li>
-<p><strong>Definition</strong>: The set of all equivalence classes of R is called the <strong>quotient set</strong> of A by R. <span class="arithmatex">\(<span class="arithmatex">\(A/R = \{[a]_R|a \in A\}\)</span>\)</span></p>
+<p><strong>Definition</strong>: The set of all equivalence classes of R is called the <strong>quotient set</strong> of A by R. 
+   $$
+   A/R = {[a]_R|a \in A}
+   $$</p>
 <blockquote>
 <p><strong>Remark:</strong>
 1. If A is finite, then $|A/R| $ is also finite.
@@ -3060,8 +3080,13 @@
 </blockquote>
 </li>
 <li>
-<p><strong>Definition</strong>: A partition <span class="arithmatex">\(\pi\)</span> on a set <span class="arithmatex">\(S\)</span> is a family of nonempty subsets of <span class="arithmatex">\(S\)</span> such that every element of <span class="arithmatex">\(S\)</span> is in exactly one of these subsets. $$ \pi = {A_1, A_2, \dots, A_n}\1. \cup_{k=1}^n A_k =S \ 2. A_j \cap A_k = \emptyset \text{ for every j,k with }j \not= k, 1 &lt; j, k &lt; n$$</p>
-<blockquote>
+<p><strong>Definition</strong>: A partition <span class="arithmatex">\(\pi\)</span> on a set <span class="arithmatex">\(S\)</span> is a family of nonempty subsets of <span class="arithmatex">\(S\)</span> such that every element of <span class="arithmatex">\(S\)</span> is in exactly one of these subsets. 
+   $$
+   \pi = {A_1, A_2, \dots, A_n}\</p>
+</li>
+<li>\cup_{k=1}^n A_k =S \ </li>
+<li>A_j \cap A_k = \emptyset \text{ for every j,k with }j \not= k, 1 &lt; j, k &lt; n
+   $$<blockquote>
 <p><strong>Theorem</strong>: Let <span class="arithmatex">\(R\)</span> be an equivalence relation on a set <span class="arithmatex">\(S\)</span>. Then the equivalence of classes of <span class="arithmatex">\(R\)</span> form a partition of <span class="arithmatex">\(X\)</span>. Conversely, given a partition <span class="arithmatex">\(\{A_i|i \in I\}\)</span> of <span class="arithmatex">\(S\)</span>, there is an equivalence relation <span class="arithmatex">\(R\)</span> on <span class="arithmatex">\(S\)</span> such that the equivalence classes of <span class="arithmatex">\(R\)</span> are the sets <span class="arithmatex">\(A_i\)</span>.</p>
 </blockquote>
 </li>
@@ -3075,7 +3100,10 @@
 <p><strong>Definition</strong>: The element a and b of s poset <span class="arithmatex">\(S\)</span> are <strong>comparable</strong> if either <span class="arithmatex">\(a \preceq b\)</span> or <span class="arithmatex">\(b \preceq a\)</span>. Otherwise, a and b are <strong>incomparable</strong>.</p>
 </li>
 <li><strong>Definition</strong>: A poset <span class="arithmatex">\(S\)</span> is a <strong>total ordering</strong> or <strong>linear ordering</strong> if every pair of elements of <span class="arithmatex">\(S\)</span> is comparable. A totaly ordered set is also called a <strong>chain</strong>.</li>
-<li><strong>Lexicograpic order</strong>: Construct a poset <span class="arithmatex">\(S\)</span> by taking the Cartesian product of two posets <span class="arithmatex">\(S_1\)</span> and <span class="arithmatex">\(S_2\)</span>. The relation <span class="arithmatex">\(\preceq\)</span> on <span class="arithmatex">\(S\)</span> is defined by <span class="arithmatex">\(<span class="arithmatex">\((a_1, a_2) \preceq (b_1, b_2) \Leftrightarrow a_1 \preceq_1 b_1 \text{ and } a_2 \preceq_2 b_2\)</span>\)</span></li>
+<li><strong>Lexicograpic order</strong>: Construct a poset <span class="arithmatex">\(S\)</span> by taking the Cartesian product of two posets <span class="arithmatex">\(S_1\)</span> and <span class="arithmatex">\(S_2\)</span>. The relation <span class="arithmatex">\(\preceq\)</span> on <span class="arithmatex">\(S\)</span> is defined by 
+   $$
+   (a_1, a_2) \preceq (b_1, b_2) \Leftrightarrow a_1 \preceq_1 b_1 \text{ and } a_2 \preceq_2 b_2
+   $$</li>
 <li>
 <p><strong>hasse diagram</strong>: A <strong>hasse diagram</strong> of a poset <span class="arithmatex">\(S\)</span> is a diagram that represents the poset <span class="arithmatex">\(S\)</span> using points and line segments. The points of the diagram are the elements of <span class="arithmatex">\(S\)</span>, and there is a line segment between <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> if <span class="arithmatex">\(a \prec b\)</span> and there is no element <span class="arithmatex">\(c\)</span> such that <span class="arithmatex">\(a \prec c \prec b\)</span>.</p>
 <blockquote>
@@ -3108,14 +3136,64 @@ Can have many minimal/maximal elements, but only one least/greatest element.</p>
 <p><strong>Definition</strong>: A poset <span class="arithmatex">\(S\)</span> is a <strong>lattice</strong> if every pair of elements of <span class="arithmatex">\(S\)</span> has a least upper bound and a greatest lower bound.</p>
 </li>
 </ol>
-<h2 id="chapter_8">Chapter 8<a class="headerlink" href="#chapter_8" title="Permanent link">#</a></h2>
+<h2 id="chapter_8_graph">Chapter 8 Graph<a class="headerlink" href="#chapter_8_graph" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p><strong>Definition</strong>: A <strong>graph</strong> <span class="arithmatex">\(G\)</span> is an ordered pair <span class="arithmatex">\((V,E)\)</span>, where <span class="arithmatex">\(V\)</span> is a finite nonempty set and <span class="arithmatex">\(E\)</span> is a set of two-element subsets of <span class="arithmatex">\(V\)</span> which is called edges.</p>
+<blockquote>
+<p>Definition: A <strong>multigraph</strong> is a graph that is permitted to have multiple edges with the same endpoints.(don't have loops)</p>
+<p>Definition: A <strong>pseudograph</strong> is a graph that is permitted to have loops.
+<strong>Sum table:</strong>
+<img alt="" src="../graph/graph_sum_table.png" /></p>
+</blockquote>
+</li>
+<li>
+<p><strong>Terminology</strong>:
+   - Two vertices u and v are <strong>adjacent</strong> or <strong>neighbors</strong> if {u,v} is an edge of G.
+   - If {u,v} is an edge of G, then u and v are <strong>incident</strong> with the edge {u,v}.
+   - The <strong>degree</strong> of a vertex v, denoted by deg(v), is the number of edges incident with v, with loops counted twice.(Pendant vertex: deg(v) = 1)</p>
+</li>
+<li>
+<p><strong>Theorem</strong>: Let <span class="arithmatex">\(G = (V,E)\)</span> be a graph with <span class="arithmatex">\(n\)</span> vertices and <span class="arithmatex">\(m\)</span> edges. Then
+   $$
+   \sum_{v \in V} deg(v) = 2m
+   $$</p>
+<blockquote>
+<p><strong>Corollary</strong>(结论): The number of vertices of odd degree in any graph is even.
+<strong>Corollary</strong>:
+ $$ \sum_{i=1}^{n}{deg^{-}{v_i}} = \sum_{i=1}^{n}{deg^{+}{v_i}} = |E|$$</p>
+</blockquote>
+</li>
+<li>
+<p>Some simple graph
+   - complete graph: <span class="arithmatex">\(K_n\)</span> is a simple graph with n vertices and exactly one edge between each pair of distinct vertices.(<span class="arithmatex">\(|E| = \frac{n(n-1)}{2}\)</span>)
+   - cycles: <span class="arithmatex">\(C_n\)</span> is a simple graph with n vertices <span class="arithmatex">\(v_1, v_2, \dots, v_n\)</span> and edges <span class="arithmatex">\(\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}\)</span>
+   - wheels: <span class="arithmatex">\(W_n\)</span> is a simple graph with n vertices <span class="arithmatex">\(v_1, v_2, \dots, v_n\)</span> and edges <span class="arithmatex">\(\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}, \{v_1, v_3\}, \{v_1, v_4\}, \dots, \{v_1, v_n\}\)</span>
+   - n-cubes: <span class="arithmatex">\(Q_n\)</span> is a simple graph with <span class="arithmatex">\(2^n\)</span> vertices <span class="arithmatex">\(v_1, v_2, \dots, v_{2^n}\)</span> and edges <span class="arithmatex">\(\{v_i, v_j\}\)</span> if and only if <span class="arithmatex">\(v_i\)</span> and <span class="arithmatex">\(v_j\)</span> differ in exactly one bit position.
+   - bipartite graph: A graph <span class="arithmatex">\(G = (V,E)\)</span> is bipartite if $$ V = V_1 \cup V_2 \ V_1 \cap V_2 = \emptyset$$ such that no edge has both endpoints in the same subset.
+   - complete bipartite graph: <span class="arithmatex">\(K_{m,n}\)</span> is a bipartite graph with <span class="arithmatex">\(m+n\)</span> vertices <span class="arithmatex">\(v_1, v_2, \dots, v_m\)</span> and <span class="arithmatex">\(u_1, u_2, \dots, u_n\)</span> and edges <span class="arithmatex">\(\{v_i, u_j\}\)</span> for all <span class="arithmatex">\(i = 1, 2, \dots, m\)</span> and <span class="arithmatex">\(j = 1, 2, \dots, n\)</span>.</p>
+</li>
+<li>
+<p>New graphs from old:
+   - subgraph: <span class="arithmatex">\(G' = (V', E')\)</span> is a subgraph of <span class="arithmatex">\(G = (V,E)\)</span> if <span class="arithmatex">\(V' \subseteq V\)</span> and <span class="arithmatex">\(E' \subseteq E\)</span>.
+   - complement: <span class="arithmatex">\(G' = (V, E')\)</span> is the complement of <span class="arithmatex">\(G = (V,E)\)</span> if <span class="arithmatex">\(E' = \{ \{u,v\} | u,v \in V, u \not= v, \{u,v\} \not\in E\}\)</span>
+   - union: <span class="arithmatex">\(G_1 = (V_1, E_1)\)</span> and <span class="arithmatex">\(G_2 = (V_2, E_2)\)</span>, then <span class="arithmatex">\(G_1 \cup G_2 = (V_1 \cup V_2, E_1 \cup E_2)\)</span>
+   - join: <span class="arithmatex">\(G_1 = (V_1, E_1)\)</span> and <span class="arithmatex">\(G_2 = (V_2, E_2)\)</span>, then <span class="arithmatex">\(G_1 \vee G_2 = (V_1 \cup V_2, E_1 \cup E_2 \cup \{ \{u,v\} | u \in V_1, v \in V_2\})\)</span></p>
+</li>
+<li>
+<p>Representing graphs:
+   - adjacency matrix: <span class="arithmatex">\(A = (a_{ij})\)</span> is a <span class="arithmatex">\(n \times n\)</span> matrix such that <span class="arithmatex">\(a_{ij} = 1\)</span> if <span class="arithmatex">\(\{v_i, v_j\} \in E\)</span> and <span class="arithmatex">\(a_{ij} = 0\)</span> otherwise.
+   - incidence matrix: <span class="arithmatex">\(B = (b_{ij})\)</span> is a <span class="arithmatex">\(n \times m\)</span> matrix such that <span class="arithmatex">\(b_{ij} = 1\)</span> if <span class="arithmatex">\(v_i\)</span> is incident with <span class="arithmatex">\(e_j\)</span> and <span class="arithmatex">\(b_{ij} = 0\)</span> otherwise.
+   - adjacency list: For each vertex <span class="arithmatex">\(v_i\)</span>, we have a list of all vertices adjacent to <span class="arithmatex">\(v_i\)</span>. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to <span class="arithmatex">\(v_i\)</span> and one for the vertices from which there is an edge to <span class="arithmatex">\(v_i\)</span>)</p>
+</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月11日 15:33:25</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月12日 22:41:49</span>
       
         <br>
         Created:
