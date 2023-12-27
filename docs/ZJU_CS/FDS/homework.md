@@ -229,34 +229,81 @@ int pop(Stack *s) {
     T的preorder = BT的preorder
     T的postorder = BT的inorder
 
-1. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
+4. Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) 
 !!! Note 
     [线索二叉树](./tree.md#实现)
     
     一个直观的快速解题的方法便是写出原本树的遍历结果，然后用使用左右指针与它的前后值接起来即可！
 
+## HW5 search tree
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+        本节你需要学习二叉树的一些基础概念与操作。
+        
+        函数题充分展现了递归思想，编程题是对之前知识的综合使用
 
-## HW5
+    === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        |根节点|root node|位于二叉树顶层的节点，没有父节点|
+        |叶节点|leaf node|没有子节点的节点，其两个指针均指向| 
+        |边|edge|连接两个节点的线段，即节点引用（指针）|
+        |层|level|从顶至底递增，根节点所在层为 1 |
+        |度|degree|节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2 |
+        |高度|height|从根节点到最远叶节点所经过的边的数量|
+        |深度|depth|从根节点到该节点所经过的边的数量|
+        |高度|height|从距离该节点最远的叶节点到该节点所经过的边的数量|
+        |遍历|traversal| |
+<!-- prettier-ignore-end -->
 1. In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent.
 
 <!-- prettier-ignore-start -->
 ??? info "Tips"
-    F 5 could be their grandparents
+    **F **
+    
+    5 could be their grandparents
 <!-- prettier-ignore-end -->
-2. 2-3<!-- prettier-ignore-start -->
-!!! note "Question"
+2. 2-3
+3. <!-- prettier-ignore-start -->
+!!! note "考察二叉树删除结点"
     ![](graph/tree_Q1.png)
 <!-- prettier-ignore-end -->
-3. 什么是decision tree?
-4. A binary search tree if ood nodes, 如果我们选`i/2`，之后每次都选`i/2`；选`i/2+1`则都选`i/2+1`。
+1. 什么是decision tree?
+2. A binary search tree if ood nodes, 如果我们选`i/2`，之后每次都选`i/2`；选`i/2+1`则都选`i/2+1`。
+3. **红黑树**
 
 
-## HW6
-1. heap两种插入方式，具体可见hello算法书
-2. 编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树
-3.  红黑树？
+## HW6 Heap
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+        本节你需要学习堆的一些基础概念与操作。个人认为本节在hello-algo中解释的是非常完全的。
 
-## HW7
+        **Notice**：编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树。
+
+    === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        
+<!-- prettier-ignore-end -->
+
+
+## HW7 Union/Find set
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+        本节你需要学习并查集的一些基础概念与操作。
+        
+        函数题充分展现了递归思想，编程题是对之前知识的综合使用
+
+    === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        |不相交集合|disjoint set| |
+        |并查集|union-find set| |
+    
+<!-- prettier-ignore-end -->
 1. In Union/Find algorithm, if Unions are done by size, the depth of any node must be no more than $N/2$ , but not $O(logN)$.
 <!-- prettier-ignore-start -->
 ??? info "Tips"
@@ -281,9 +328,24 @@ int pop(Stack *s) {
 4. A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be **reflexive** over S.
 
 ## HW8 Graph
-> 1. 图论中的degree是指与该节点所连接的边的个数
->    By contrast， 树中的degree是指子节点的个数
-1. In a connected graph, the number of edges must be equal or greater than the number of vertices minus 1.
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+        本节你需要学习图的一些基础概念与操作。
+        
+        需要注意的概念：图论中的degree是指与该节点所连接的边的个数，By contrast， 树中的degree是指子节点的个数
+
+    === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        |连通图|connected graph| |
+        |连通分量|connected component|这个概念很重要，容易误解 |
+        |拓扑序列| topological order| |
+        
+<!-- prettier-ignore-end -->
+        
+1. In a connected graph, the number of edges must **be equal** or greater than the number of vertices minus 1.
+
 2. A graph with 90 vertices and 20 edges must have at least __ connected component(s)
 
 <!-- prettier-ignore-start -->
@@ -293,6 +355,19 @@ int pop(Stack *s) {
 <!-- prettier-ignore-end -->
 
 ## HW9 Shortest_Path
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+        本节你需要掌握Dijkstra算法以及Floyd算法的思想与实现。
+        
+        需要注意的概念：图论中的degree是指与该节点所连接的边的个数，By contrast， 树中的degree是指子节点的个数
+
+    === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        
+
+<!-- prettier-ignore-end -->
 1. Let P be the shortest path from S to T. If the weight of every edge in the graph is incremented by 2, P will still be the shortest path from S to T.
 <!-- prettier-ignore-start -->
 !!! Note "key"
@@ -301,7 +376,7 @@ int pop(Stack *s) {
     Because if shortest road has 6 nodes with 12 while 2nd-shortest road has 4 nodes with 13. After every edge incremented by 2. The last shortest road is 24 while last 2nd-shortest road is 21 which means it is the current shortest road!
 <!-- prettier-ignore-end -->
 
-2. Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices. In which order that the destinations must be obtained?
+1. Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices. In which order that the destinations must be obtained?
    
 
 ## HW10 MST & Maxstream 
@@ -338,6 +413,7 @@ int pop(Stack *s) {
         |:--:|:--:|  
         |articulation point |关节点 |
         |biconnected | 重联通|
+        |acyclic graph |无环图 |
 
 <!-- prettier-ignore-end -->
 
@@ -355,10 +431,10 @@ int pop(Stack *s) {
 2. Apply DFS to a directed acyclic graph, and output the vertex before the end of each recursion. The output sequence will be:
 <!-- prettier-ignore-start -->
 ??? info "Tips"
-    acyclic graph -> 无环图
+    reversely topologically sorted
 <!-- prettier-ignore-end -->
 
-3. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
+1. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     Each Node has exactly 19 degrees
@@ -371,7 +447,7 @@ int pop(Stack *s) {
 <!-- prettier-ignore-end -->
 
 
-## HW12 sort
+## HW12 shellsort & Heapsort & Mergesort
 <!-- prettier-ignore-start -->
 !!! note "摘要"
     === "Knowledge"
@@ -437,3 +513,38 @@ int pop(Stack *s) {
         } 
     }
     ```
+<!-- prettier-ignore-end -->
+
+## HW13 QuickSort & RadixSort
+<!-- prettier-ignore-start -->
+!!! note "摘要"
+    === "Knowledge"
+        ![](graph/sort.png)
+
+    === "glossary"
+        |英文|中文|
+        |:--:|:--:|
+        |inversion |逆序对 |
+
+
+1.  If there are less than 20 inversions in an integer array, the Quick Sort will be the best method among Quick Sort, Heap Sort and Insertion Sort.
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    F
+
+    逆序对的数量越少，快排的效率越高。当逆序对的数量为0时，快排的效率最高，此时时间复杂度为O(NlogN)。当逆序对的数量为N(N-1)/2时，快排的效率最低，此时时间复杂度为O(N^2)。
+
+<!-- prettier-ignore-end -->
+
+
+## HW14 Hash
+<!-- prettier-ignore-start -->
+!!! note "摘要"
+    === "Knowledge"
+        本节你将学习hash的一些基础概念与操作。个人认为hello-algo完全涵盖了你需要理解的内容。
+
+    === "glossary"
+        |英文|中文|
+        |:--:|:--:|
+        | | |
+
