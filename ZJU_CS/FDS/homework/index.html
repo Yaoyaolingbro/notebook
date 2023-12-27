@@ -911,27 +911,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw5" class="md-nav__link">
+  <a href="#hw5_search_tree" class="md-nav__link">
     <span class="md-ellipsis">
-      HW5
+      HW5 search tree
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw6" class="md-nav__link">
+  <a href="#hw6_heap" class="md-nav__link">
     <span class="md-ellipsis">
-      HW6
+      HW6 Heap
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw7" class="md-nav__link">
+  <a href="#hw7_unionfind_set" class="md-nav__link">
     <span class="md-ellipsis">
-      HW7
+      HW7 Union/Find set
     </span>
   </a>
   
@@ -974,9 +974,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw12_sort" class="md-nav__link">
+  <a href="#hw12_shellsort_heapsort_mergesort" class="md-nav__link">
     <span class="md-ellipsis">
-      HW12 sort
+      HW12 shellsort &amp; Heapsort &amp; Mergesort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw13_quicksort_radixsort" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW13 QuickSort &amp; RadixSort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw14_hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW14 Hash
     </span>
   </a>
   
@@ -3040,27 +3058,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw5" class="md-nav__link">
+  <a href="#hw5_search_tree" class="md-nav__link">
     <span class="md-ellipsis">
-      HW5
+      HW5 search tree
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw6" class="md-nav__link">
+  <a href="#hw6_heap" class="md-nav__link">
     <span class="md-ellipsis">
-      HW6
+      HW6 Heap
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw7" class="md-nav__link">
+  <a href="#hw7_unionfind_set" class="md-nav__link">
     <span class="md-ellipsis">
-      HW7
+      HW7 Union/Find set
     </span>
   </a>
   
@@ -3103,9 +3121,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw12_sort" class="md-nav__link">
+  <a href="#hw12_shellsort_heapsort_mergesort" class="md-nav__link">
     <span class="md-ellipsis">
-      HW12 sort
+      HW12 shellsort &amp; Heapsort &amp; Mergesort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw13_quicksort_radixsort" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW13 QuickSort &amp; RadixSort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw14_hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW14 Hash
     </span>
   </a>
   
@@ -3491,7 +3527,7 @@
 <p>T的preorder = BT的preorder
 T的postorder = BT的inorder</p>
 </div>
-<ol>
+<ol start="4">
 <li>Threaded Binary Trees(一种对二叉树的优化，老师不讲但要掌握) </li>
 </ol>
 <div class="admonition note">
@@ -3499,35 +3535,172 @@ T的postorder = BT的inorder</p>
 <p><a href="../tree/#实现">线索二叉树</a></p>
 <p>一个直观的快速解题的方法便是写出原本树的遍历结果，然后用使用左右指针与它的前后值接起来即可！</p>
 </div>
-<h2 id="hw5">HW5<a class="headerlink" href="#hw5" title="Permanent link">#</a></h2>
+<h2 id="hw5_search_tree">HW5 search tree<a class="headerlink" href="#hw5_search_tree" title="Permanent link">#</a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Knowledge</label><label for="__tabbed_6_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本节你需要学习二叉树的一些基础概念与操作。</p>
+<p>函数题充分展现了递归思想，编程题是对之前知识的综合使用</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">中文</th>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">根节点</td>
+<td style="text-align: center;">root node</td>
+<td style="text-align: center;">位于二叉树顶层的节点，没有父节点</td>
+</tr>
+<tr>
+<td style="text-align: center;">叶节点</td>
+<td style="text-align: center;">leaf node</td>
+<td style="text-align: center;">没有子节点的节点，其两个指针均指向</td>
+</tr>
+<tr>
+<td style="text-align: center;">边</td>
+<td style="text-align: center;">edge</td>
+<td style="text-align: center;">连接两个节点的线段，即节点引用（指针）</td>
+</tr>
+<tr>
+<td style="text-align: center;">层</td>
+<td style="text-align: center;">level</td>
+<td style="text-align: center;">从顶至底递增，根节点所在层为 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">度</td>
+<td style="text-align: center;">degree</td>
+<td style="text-align: center;">节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2</td>
+</tr>
+<tr>
+<td style="text-align: center;">高度</td>
+<td style="text-align: center;">height</td>
+<td style="text-align: center;">从根节点到最远叶节点所经过的边的数量</td>
+</tr>
+<tr>
+<td style="text-align: center;">深度</td>
+<td style="text-align: center;">depth</td>
+<td style="text-align: center;">从根节点到该节点所经过的边的数量</td>
+</tr>
+<tr>
+<td style="text-align: center;">高度</td>
+<td style="text-align: center;">height</td>
+<td style="text-align: center;">从距离该节点最远的叶节点到该节点所经过的边的数量</td>
+</tr>
+<tr>
+<td style="text-align: center;">遍历</td>
+<td style="text-align: center;">traversal</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
 <ol>
 <li>In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent.</li>
 </ol>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>Tips</summary>
-<p>F 5 could be their grandparents</p>
+<p>**F **</p>
+<p>5 could be their grandparents</p>
 </details>
 <!-- prettier-ignore-end -->
 <ol start="2">
-<li>2-3<!-- prettier-ignore-start --></li>
+<li>2-3</li>
+<li><!-- prettier-ignore-start --></li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">Question</p>
+<p class="admonition-title">考察二叉树删除结点</p>
 <p><img alt="" src="../graph/tree_Q1.png" /></p>
 </div>
 <!-- prettier-ignore-end -->
-<ol start="3">
+<ol>
 <li>什么是decision tree?</li>
 <li>A binary search tree if ood nodes, 如果我们选<code>i/2</code>，之后每次都选<code>i/2</code>；选<code>i/2+1</code>则都选<code>i/2+1</code>。</li>
+<li><strong>红黑树</strong></li>
 </ol>
-<h2 id="hw6">HW6<a class="headerlink" href="#hw6" title="Permanent link">#</a></h2>
-<ol>
-<li>heap两种插入方式，具体可见hello算法书</li>
-<li>编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树</li>
-<li>红黑树？</li>
-</ol>
-<h2 id="hw7">HW7<a class="headerlink" href="#hw7" title="Permanent link">#</a></h2>
+<h2 id="hw6_heap">HW6 Heap<a class="headerlink" href="#hw6_heap" title="Permanent link">#</a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Knowledge</label><label for="__tabbed_7_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本节你需要学习堆的一些基础概念与操作。个人认为本节在hello-algo中解释的是非常完全的。</p>
+<p><strong>Notice</strong>：编程题有序数字串建完全二叉树可以利用中序历遍的思想来建树。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">中文</th>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+
+<h2 id="hw7_unionfind_set">HW7 Union/Find set<a class="headerlink" href="#hw7_unionfind_set" title="Permanent link">#</a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Knowledge</label><label for="__tabbed_8_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本节你需要学习并查集的一些基础概念与操作。</p>
+<p>函数题充分展现了递归思想，编程题是对之前知识的综合使用</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">中文</th>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">不相交集合</td>
+<td style="text-align: center;">disjoint set</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">并查集</td>
+<td style="text-align: center;">union-find set</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
 <ol>
 <li>In Union/Find algorithm, if Unions are done by size, the depth of any node must be no more than <span class="arithmatex">\(N/2\)</span> , but not <span class="arithmatex">\(O(logN)\)</span>.</li>
 </ol>
@@ -3563,14 +3736,56 @@ T的postorder = BT的inorder</p>
 <li>A relation R is defined on a set S. If for every element e in S, "e R e" is always true, then R is said to be <strong>reflexive</strong> over S.</li>
 </ol>
 <h2 id="hw8_graph">HW8 Graph<a class="headerlink" href="#hw8_graph" title="Permanent link">#</a></h2>
-<blockquote>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Knowledge</label><label for="__tabbed_9_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本节你需要学习图的一些基础概念与操作。</p>
+<p>需要注意的概念：图论中的degree是指与该节点所连接的边的个数，By contrast， 树中的degree是指子节点的个数</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">中文</th>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">连通图</td>
+<td style="text-align: center;">connected graph</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">连通分量</td>
+<td style="text-align: center;">connected component</td>
+<td style="text-align: center;">这个概念很重要，容易误解</td>
+</tr>
+<tr>
+<td style="text-align: center;">拓扑序列</td>
+<td style="text-align: center;">topological order</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+
 <ol>
-<li>图论中的degree是指与该节点所连接的边的个数
-   By contrast， 树中的degree是指子节点的个数</li>
-<li>In a connected graph, the number of edges must be equal or greater than the number of vertices minus 1.</li>
-<li>A graph with 90 vertices and 20 edges must have at least __ connected component(s)</li>
+<li>
+<p>In a connected graph, the number of edges must <strong>be equal</strong> or greater than the number of vertices minus 1.</p>
+</li>
+<li>
+<p>A graph with 90 vertices and 20 edges must have at least __ connected component(s)</p>
+</li>
 </ol>
-</blockquote>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>Tips</summary>
@@ -3579,6 +3794,37 @@ T的postorder = BT的inorder</p>
 <!-- prettier-ignore-end -->
 
 <h2 id="hw9_shortest_path">HW9 Shortest_Path<a class="headerlink" href="#hw9_shortest_path" title="Permanent link">#</a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Knowledge</label><label for="__tabbed_10_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本节你需要掌握Dijkstra算法以及Floyd算法的思想与实现。</p>
+<p>需要注意的概念：图论中的degree是指与该节点所连接的边的个数，By contrast， 树中的degree是指子节点的个数</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">中文</th>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
 <ol>
 <li>Let P be the shortest path from S to T. If the weight of every edge in the graph is incremented by 2, P will still be the shortest path from S to T.</li>
 </ol>
@@ -3590,7 +3836,7 @@ T的postorder = BT的inorder</p>
 </div>
 <!-- prettier-ignore-end -->
 
-<ol start="2">
+<ol>
 <li>Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices. In which order that the destinations must be obtained?</li>
 </ol>
 <h2 id="hw10_mst_maxstream">HW10 MST &amp; Maxstream<a class="headerlink" href="#hw10_mst_maxstream" title="Permanent link">#</a></h2>
@@ -3621,7 +3867,7 @@ Exit if it is connected.</p>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">摘要</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Knowledge</label><label for="__tabbed_6_2">glossary</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Knowledge</label><label for="__tabbed_11_2">glossary</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>[] finshed?
@@ -3651,6 +3897,10 @@ Exit if it is connected.</p>
 <td style="text-align: center;">biconnected</td>
 <td style="text-align: center;">重联通</td>
 </tr>
+<tr>
+<td style="text-align: center;">acyclic graph</td>
+<td style="text-align: center;">无环图</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3676,11 +3926,11 @@ Exit if it is connected.</p>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>Tips</summary>
-<p>acyclic graph -&gt; 无环图</p>
+<p>reversely topologically sorted</p>
 </details>
 <!-- prettier-ignore-end -->
 
-<ol start="3">
+<ol>
 <li>Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?</li>
 </ol>
 <!-- prettier-ignore-start -->
@@ -3699,11 +3949,11 @@ Exit if it is connected.</p>
 </details>
 <!-- prettier-ignore-end -->
 
-<h2 id="hw12_sort">HW12 sort<a class="headerlink" href="#hw12_sort" title="Permanent link">#</a></h2>
+<h2 id="hw12_shellsort_heapsort_mergesort">HW12 shellsort &amp; Heapsort &amp; Mergesort<a class="headerlink" href="#hw12_shellsort_heapsort_mergesort" title="Permanent link">#</a></h2>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">摘要</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Knowledge</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Knowledge</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>本节你将学习到各种排序算法的思想以及实现。并且需要掌握各种排序算法的时间复杂度以及空间复杂度。</p>
@@ -3774,13 +4024,82 @@ Exit if it is connected.</p>
 <a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">}</span>
 </code></pre></div>
 </details>
+<!-- prettier-ignore-end -->
+
+<h2 id="hw13_quicksort_radixsort">HW13 QuickSort &amp; RadixSort<a class="headerlink" href="#hw13_quicksort_radixsort" title="Permanent link">#</a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Knowledge</label><label for="__tabbed_13_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="../graph/sort.png" /></p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">inversion</td>
+<td style="text-align: center;">逆序对</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<ol>
+<li>If there are less than 20 inversions in an integer array, the Quick Sort will be the best method among Quick Sort, Heap Sort and Insertion Sort.</li>
+</ol>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p>F</p>
+<p>逆序对的数量越少，快排的效率越高。当逆序对的数量为0时，快排的效率最高，此时时间复杂度为O(NlogN)。当逆序对的数量为N(N-1)/2时，快排的效率最低，此时时间复杂度为O(N^2)。</p>
+</details>
+<!-- prettier-ignore-end -->
+
+<h2 id="hw14_hash">HW14 Hash<a class="headerlink" href="#hw14_hash" title="Permanent link">#</a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">摘要</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Knowledge</label><label for="__tabbed_14_2">glossary</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本节你将学习hash的一些基础概念与操作。个人认为hello-algo完全涵盖了你需要理解的内容。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">英文</th>
+<th style="text-align: center;">中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月12日 22:41:49</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月27日 11:11:11</span>
       
         <br>
         Created:

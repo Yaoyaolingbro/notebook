@@ -923,14 +923,53 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="7-1 Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory_organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-2_ram" class="md-nav__link">
+  <a href="#random-access_memory_ram" class="md-nav__link">
     <span class="md-ellipsis">
-      7-2 RAM
+      random-access memory (RAM)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="random-access memory (RAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    <span class="md-ellipsis">
+      SRAM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2920,14 +2959,53 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="7-1 Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory_organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-2_ram" class="md-nav__link">
+  <a href="#random-access_memory_ram" class="md-nav__link">
     <span class="md-ellipsis">
-      7-2 RAM
+      random-access memory (RAM)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="random-access memory (RAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    <span class="md-ellipsis">
+      SRAM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2965,48 +3043,59 @@
 </ul>
 </div>
 <h2 id="7-1_memory">7-1 Memory<a class="headerlink" href="#7-1_memory" title="Permanent link">#</a></h2>
+<p><strong>Defination</strong>: Two types of memories are used in various parts of a computer: random-access memory (RAM) and read-only memory (ROM). RAM accepts new information for storage to be available later for use. The process of storing new information in memory is referred to as a memory write operation. The process of transferring the stored information out of memory is referred to as a memory read operation. RAM can perform both the write and the read operations, whereas ROM, as introduced in Section 6-8, performs only read operations. RAM sizes may range from hundreds to billions of bits.</p>
 <blockquote>
-<p>Two types of memories are used in various parts of a computer: random-access memory (RAM) and read-only memory (ROM). RAM accepts new information for storage to be available later for use. The process of storing new information in memory is referred to as a memory write operation. The process of transferring the stored information out of memory is referred to as a memory read operation. RAM can perform both the write and the read operations, whereas ROM, as introduced in Section 6-8, performs only read operations. RAM sizes may range from hundreds to billions of bits.</p>
 <p>Memory is a collection of binary storage cells together with associated circuits needed to transfer information into and out of the cells.</p>
 </blockquote>
-<h2 id="7-2_ram">7-2 RAM<a class="headerlink" href="#7-2_ram" title="Permanent link">#</a></h2>
-<blockquote>
-<p>Memory cells can be accessed to transfer information to or from any desired location, with the access taking the same time regardless of the location, hence the name random-access memory. In contrast,serial memory, such as is exhibited by a hard drive, takes different lengths of time to access information, depending on where the desired location is relative to the current physical position of the disk.</p>
-</blockquote>
-<p><code>word</code>: </p>
-<blockquote>
-<p>A word is an entity of bits that moves in and out of memory as a unit—a group of 1s and 0s that represents a number, an instruction, one or more alphanumeric characters, or other binary-coded information.</p>
-<p>A group of eight bits is called a byte. </p>
-<p>Most computer memories use words that are multiples of eight bits in length. Thus, a 16-bit word contains two bytes, and a 32-bit word is made up of four bytes. <strong>The capacity of a memory</strong> unit is usually stated as the total number of bytes that it can store.</p>
-<p>Communication between a memory and its environment is achieved through <strong>data input and output lines, address selection lines, and control lines</strong> that specify the direction of transfer of information.</p>
-<p>Computer memory varies greatly in size. It is customary to refer to the number of words (or bytes) in memory with one of the letters K (kilo), M (mega), or G (giga). K is equal to 2^10, M to 2^20, and G to 2^30.</p>
-<p>A word in memory is selected by its binary address. When a word is read or written, the memory operates on all 16 bits as a single unit.</p>
-<p>The 1K * 16 memory of the figure has 10 bits in the address and 16 bits in each word. The number of address bits needed in memory is dependent on the total number of words that can be stored and is independent of the number of bits in each word. The number of bits in the address for a word is determined from the relationship 2^k &gt;= m, where m is the total number of words and k is the minimum number of address bits satisfying the relationship.</p>
-<p>The two operations that a random-access memory can perform are write and read. A write is a transfer into memory of a new word to be stored. A read is a transfer of a copy of a stored word out of memory.</p>
-<p>The steps that must be taken for a write are as follows:</p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>word相关</summary>
 <ol>
-<li>Apply the binary address of the desired word to the address lines.</li>
-<li>Apply the data bits that must be stored in memory to the data input lines.</li>
-<li>Activate the Write input.</li>
+<li>A word is an entity of bits that moves in and out of memory as a unit—a group of 1s and 0s that represents a number, an instruction, one or more alphanumeric characters, or other binary-coded information.</li>
+<li>A group of eight bits is called a byte. </li>
+<li>Most computer memories use words that are multiples of eight bits in length. Thus, a 16-bit word contains two bytes, and a 32-bit word is made up of four bytes. <strong>The capacity of a memory</strong> unit is usually stated as the total number of bytes that it can store.</li>
+<li>Communication between a memory and its environment is achieved through <strong>data input and output lines, address selection lines, and control lines</strong> that specify the direction of transfer of information.</li>
+<li>Computer memory varies greatly in size. It is customary to refer to the number of words (or bytes) in memory with one of the letters K (kilo), M (mega), or G (giga). K is equal to 2^10, M to 2^20, and G to 2^30.</li>
 </ol>
-<p>The memory unit will then take the bits from the data input lines and store them in the word specified by the address lines.The steps that must be taken for a read are as follows:</p>
-<ol>
-<li>Apply the binary address of the desired word to the address lines.</li>
-<li>Activate the Read input.</li>
-</ol>
-<p>The memory will then take the bits from the word that has been selected by the address and apply them to the data output lines. The contents of the selected word are not changed by reading them.</p>
-</blockquote>
-<p>...</p>
+</details>
+<!-- prettier-ignore-end -->
+
+<h3 id="memory_organization">Memory Organization<a class="headerlink" href="#memory_organization" title="Permanent link">#</a></h3>
+<p>The memory is organized as an array of storage cells, each of which is capable of storing one bit of information. The cells are arranged in rows and columns. The intersection of a row and a column is called a memory address. The number of rows and columns determines the capacity of the memory. 
+<img alt="memory organization" src="../img/memory_organization.png" /></p>
+<h3 id="memory_operations">Memory Operations<a class="headerlink" href="#memory_operations" title="Permanent link">#</a></h3>
+<p>The memory is accessed by specifying the address of the desired word. The address is applied to the memory address input lines. The memory then selects the addressed word and transfers it to the memory output lines. The memory is also capable of accepting a word from the memory input lines and storing it in the addressed word location. The memory is controlled by a set of control lines that specify the direction of transfer of information.</p>
 <blockquote>
-<p>To avoid destroying data in other memory words, it is important that this change occur after the signals on the address lines have become fixed at the desired values. </p>
+<p>Pay attention to the <strong>order</strong> of reading and writing</p>
 </blockquote>
+<p>Read:
+- 将有效的地址放到address input lines上。
+- 将read control line置为1。
+- 等待读出的数据稳定，将数据从memory output lines读出。
+<img alt="read" src="../img/readData.png" /></p>
+<p>Write:
+- 将有效的地址放到address input lines上。将写入的数据放到data input lines上。
+- 激活写入控制。
+<img alt="write" src="../img/writeTiming.png" /></p>
+<blockquote>
+<p>Data⼀定要在0-1前保持⼀段时间来建⽴并且0-1后维持⼀段时间才能正确写⼊.</p>
+</blockquote>
+<h2 id="random-access_memory_ram">random-access memory (RAM)<a class="headerlink" href="#random-access_memory_ram" title="Permanent link">#</a></h2>
+<p>RAM分为两种：static RAM (SRAM) and dynamic RAM (DRAM)。SRAM是静态的，DRAM是动态的。SRAM的速度比DRAM快，但是DRAM的容量比SRAM大。SRAM的单元是由flip-flop构成的，DRAM的单元是由capacitor和transistor构成的。（每隔一段时间需要refresh）</p>
+<blockquote>
+<p>还分挥发与非挥发</p>
+</blockquote>
+<h3 id="sram">SRAM<a class="headerlink" href="#sram" title="Permanent link">#</a></h3>
+<p><img alt="SRAM" src="../img/SRAM.png" />
+- SRAM的单元是由flip-flop构成的，每个单元需要6个transistor。因此SRAM的面积比DRAM大，但是速度快，不需要refresh。
+- Logic diagram如下：<img alt="" src="../img/SRAM_diagram.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年9月27日 10:52:36</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月27日 11:11:11</span>
       
         <br>
         Created:
