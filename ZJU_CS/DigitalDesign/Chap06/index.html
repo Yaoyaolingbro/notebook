@@ -3486,20 +3486,18 @@
 <p>但是我们发现，如图的寄存器在每个时钟都允许载入，换句话来说每个时钟周期都会改变为输入。但是我们希望即使我们不管它它也能保持之前的值，主要有两个方案。</p>
 <div class="admonition tip">
 <p class="admonition-title">方案</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">plan A</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">plan A</label><label for="__tabbed_1_2">plan B</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
+<div class="tabbed-block">
 <p>其中一个做法是需要选择性的让它跟随时钟脉冲切换状态。做法就是将 Control 信号修改为 <span class="arithmatex">\(C = \overline{Load} + Clock\)</span>，如此而来，当 <span class="arithmatex">\(Load = 0\)</span> 时，始终有 <span class="arithmatex">\(C = 0\)</span>，脉冲消失，寄存器无法被载入。如下图，这种技术叫 <strong>门控时钟(clock gating)</strong>。</p>
 <p><img alt="" src="../img/96.png" /></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">plan B</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
 </div>
-</div>
+<div class="tabbed-block">
 <p>另外一个做法是，在不希望它修改的时候，不断将它的输入载入，也就是保持不变。我们可以通过一个 <code>MUX</code> 来实现这个功能，用 <code>EN</code> 使能端来选择是载入新值还是保持之前的值，如下图。</p>
 <p><img alt="" src="../img/97.png" /></p>
+</div>
+</div>
+</div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">clock skew</p>
@@ -3986,7 +3984,7 @@ K_1 : R2 \leftarrow R1
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月5日 08:55:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月5日 14:31:18</span>
       
         <br>
         Created:
