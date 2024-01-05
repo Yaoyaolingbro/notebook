@@ -3688,7 +3688,7 @@ K_1 : R2 \leftarrow R1
 </div>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
-<p>对于如上出现的形式如：<span class="arithmatex">\(condition: reg \leftarrow options one regs\)</span> 的表达式，<code>:</code> 左侧出现的 <code>+</code> 表示或，右侧的则表示加（“乘”也是这样）！</p>
+<p>对于如上出现的形式如：<span class="arithmatex">\(condition: reg \leftarrow options one regs\)</span> 的表达式，<code>:</code> 左侧出现的 <code>+</code> 表示<strong>或</strong>，右侧的则表示加（“乘”也是这样）！</p>
 </div>
 <p>相对应的，加减法的实现可以通过加减法器实现，乘法可以用 <strong><a href="#位移">位移</a></strong> 操作实现，而除法相对复杂。</p>
 <div class="admonition note">
@@ -3870,7 +3870,7 @@ K_1 : R2 \leftarrow R1
 <p>代码意义上的位移一般指的是一个双目操作，即可以指定位移多少位，这个参数被称为 <strong>位移量(Shift Amount)</strong>。</p>
 <p>但在硬件层面的实现上，这个多少“位”只能通过循环和已经实现的、<strong>有限种</strong> 确定位移量的位移实现，在我们提到的实现中，指的就是我们硬件只实现「一位位移」，并通过循环实现「任意位位移」，而这个“循环”，就是在时钟周期下，<code>FF</code> 不断继承上一个 <code>FF</code> 的值来实现的。</p>
 <p>而并行与串行实现无非是体现这个特征的两种实现方法而已。</p>
-<details class="- tip">
+<details class="tip">
 <summary>关于并行和串行</summary>
 <p>这是一个题外话，我暂时不知道放哪里，刚好这里提到了就在这里说了。</p>
 <p>实际上，虽然看起来并行的效率会比串行高很多，但是实际上很多高速传输设备或协议用的都是串行。这是因为，并行单次传输线路多，线路之间的距离小，干扰大，所以相对来说正常工作所下对频率的要求更高；而串行由于可以使用更高的频率工作，所以在某些情况下效率更高。</p>
@@ -3984,7 +3984,7 @@ K_1 : R2 \leftarrow R1
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月5日 14:31:18</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月5日 23:34:57</span>
       
         <br>
         Created:
