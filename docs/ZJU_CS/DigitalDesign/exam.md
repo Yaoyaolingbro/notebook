@@ -1,6 +1,6 @@
 # 历年卷梳理
 ## 18-19
-1. 二进制的补码（Complement）和反码（Inverse Code）的概念及其计算方法。
+1. 二进制的补码（Complement）和反码（Inverse Code）的概念及其计算方法。(1's complement, 2's complement)
 2. The **setup time** of a flip-flop is the minimum amount of time that an input must remain stable before an active clock transition.
 3. The complement of a flip-flop.
 4. The gate input cost.
