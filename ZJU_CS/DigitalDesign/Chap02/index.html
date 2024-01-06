@@ -698,6 +698,8 @@
       
         
       
+        
+      
     
     
     
@@ -1119,9 +1121,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#universal_gate" class="md-nav__link">
     <span class="md-ellipsis">
-      经典门
+      Universal Gate
     </span>
   </a>
   
@@ -1258,6 +1260,27 @@
   
   <span class="md-ellipsis">
     词汇表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    历年卷梳理
   </span>
   
 
@@ -3524,9 +3547,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#universal_gate" class="md-nav__link">
     <span class="md-ellipsis">
-      经典门
+      Universal Gate
     </span>
   </a>
   
@@ -3612,7 +3635,7 @@
 <li><a href="#_25">经典组合电路</a><ul>
 <li><a href="#_26">三态门</a></li>
 <li><a href="#_27">复杂门</a></li>
-<li><a href="#_28">经典门</a></li>
+<li><a href="#universal_gate">Universal Gate</a></li>
 </ul>
 </li>
 </ul>
@@ -3966,13 +3989,14 @@ Its characteristic property is that it represents exactly one combination of bin
 <div class="admonition note">
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">题面</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>请分别写出如下真值表中 <span class="arithmatex">\(F\)</span> 和 <span class="arithmatex">\(\overline{F}\)</span> 的 SOM 和 POM。
+<img alt="" src="../img/13.png" /></p>
 </div>
 </div>
 </div>
-<p>​        请分别写出如下真值表中 <span class="arithmatex">\(F\)</span> 和 <span class="arithmatex">\(\overline{F}\)</span> 的 SOM 和 POM。
-        <img alt="" src="../img/13.png" />
-​    === "答案"
+</div>
+<p>​    === "答案"
 ​        答案：
         $$
                 \begin{aligned}
@@ -4065,9 +4089,9 @@ Its characteristic property is that it represents exactly one combination of bin
 </div>
 </div>
 <p>​    === "答案"
-   - <span class="arithmatex">\(L = 6\)</span>；  <br />
-   - <span class="arithmatex">\(G= 8\)</span>；  <br />
-   - <span class="arithmatex">\(GN = 11\)</span>；    </p>
+        - <span class="arithmatex">\(L = 6\)</span>；  <br />
+        - <span class="arithmatex">\(G= 8\)</span>；  <br />
+        - <span class="arithmatex">\(GN = 11\)</span>；    </p>
 <div class="admonition note">
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">题面</label><label for="__tabbed_4_2">答案</label></div>
 <div class="tabbed-content">
@@ -4307,27 +4331,34 @@ Its characteristic property is that it represents exactly one combination of bin
 </div>
 <hr />
 <h4 id="_24">蕴含项、主蕴含项与基本主蕴含项<a class="headerlink" href="#_24" title="Permanent link">#</a></h4>
-<p><strong>蕴含项(implicant)</strong> 分为 <strong>主蕴含项(prime implicant)</strong> 和 <strong>基本主蕴含项(essential prime implicant)</strong>
+<p><strong>蕴含项(implicant)</strong> 分为 <strong>主蕴含项(prime implicant)</strong> 和 <strong>质主蕴含项(essential prime implicant)</strong>
 （有时也被称为维块）。
 <img alt="" src="../img/implicant.png" /></p>
 <ul>
 <li>在卡诺图中，一个蕴含项就是任意一个包含 <span class="arithmatex">\(2^n\)</span> 个 <code>1</code> 的单元；</li>
-<li>而主蕴含项则是在卡诺图中的 <strong>极大</strong> 蕴含项；<ul>
+<li>而主蕴含项则是在卡诺图中的 <strong>极大</strong> 蕴含项（不可能被更大的矩形圈包含）；<ul>
 <li>对于存在 Dont'cares 的 K-map，如果我们关注的是 <code>1</code>，那我们积极地将他们当作 <code>1</code> 来处理，反之亦然；</li>
 <li><strong>注意：</strong> 单独的 <code>X</code> 不会被认为是主蕴含项；</li>
 </ul>
 </li>
-<li>基本主蕴含项是包含 只被它(基本主蕴含项)覆盖的 <code>1</code> 的主蕴含项；</li>
+<li>质主蕴含项是包含 只被它(质主蕴含项)覆盖的 <code>1</code> 的主蕴含项；（这个稍微品读下即可）</li>
 </ul>
-<p><img alt="" src="../img/27.png" /></p>
 <blockquote>
+<p>嘿嘿，是不是看完还是看不懂（doge），我也是，所以不如直接看个b站<a href="https://www.bilibili.com/video/BV14k4y1L7gx/?spm_id_from=333.337.search-card.all.click">视频</a></p>
+</blockquote>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">例如</p>
+<p><img alt="" src="../img/27.png" /></p>
 <p>如图，左侧的两个主蕴含项因为包括了 ⓵ 和 ⓶ 这两个唯一的 <code>1</code>，所以是基本主蕴含项；</p>
 <p>而右侧的蕴含项则是一个冗余的蕴含项；</p>
-</blockquote>
-<p><strong>Warning：</strong> <font color ="purple">对于任意函数，主蕴含项一定存在，但是基本主蕴含项不一定存在。</font></p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p><strong>Warning：</strong> <font color ="purple">对于任意函数，主蕴含项一定存在，但是质主蕴含项不一定存在。</font></p>
 <div class="admonition tip">
 <p class="admonition-title">🤔</p>
-<p>正因为有基本主蕴含项的存在，对于一个任意函数，优化的多解结果总有一部分是不变的（只不过没有基本主蕴含项的时候这部分为零）。</p>
+<p>正因为有质主蕴含项的存在，对于一个任意函数，优化的多解结果总有一部分是不变的（只不过没有质主蕴含项的时候这部分为零）。</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">麦克拉奎因算法</p>
@@ -4367,7 +4398,7 @@ Its characteristic property is that it represents exactly one combination of bin
 <p>通过一些基本门组合出来的门，它们的表示方法大致如下：</p>
 <p><img alt="" src="../img/29.png" />
 <img alt="" src="../img/30.png" /></p>
-<h3 id="_28">经典门<a class="headerlink" href="#_28" title="Permanent link">#</a></h3>
+<h3 id="universal_gate">Universal Gate<a class="headerlink" href="#universal_gate" title="Permanent link">#</a></h3>
 <blockquote>
 <p>我们不得不提 <span class="arithmatex">\(NAND\)</span> 门是自然搭建速度最快的门。</p>
 </blockquote>
@@ -4379,7 +4410,7 @@ Its characteristic property is that it represents exactly one combination of bin
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月27日 11:11:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月6日 17:51:08</span>
       
         <br>
         Created:
