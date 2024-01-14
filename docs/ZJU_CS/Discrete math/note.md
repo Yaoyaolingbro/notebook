@@ -1,18 +1,135 @@
-# 摘要
+# 离散知识点梳理
 <!-- prettier-ignore-start -->
-!!! info "注意"
-    如果latex渲染未成功加载,请刷新网页!
+!!! abstract "摘要"
+   === "注意"
+      如果latex渲染未成功加载,请刷新网页!
+
+   === "目录"
+      [TOC]
 <!-- prettier-ignore-end -->
+
 ## Chapter 1
-|英文|中文|数学符号|
-|:--:|:--:|----|
-|disjunction|并|$\cup$|
-| conjunction | 交 | $\cap$ |
-| lemma | 引理 |  |
+<!-- prettier-ignore-start -->
+??? note "glossary"
+   |英文|中文|数学符号或含义|
+   |:--:|:--:|----|
+   |proposition|命题| $p,q,r$|
+   |negation|否（命题）| $\neg$|
+   |disjunction|并|$\cup$|
+   |conjunction | 交 | $\cap$ |
+   |implication | 蕴含 | $\rightarrow$ |
+   |equivalence | 等价 | $\Leftrightarrow$ |
+   |tautology | 恒真式 |  |
+   |contradiction | 矛盾式 |  |
+   |contingence | 可能式 |  |
+   |axiom | 公理 | true without proof |
+   |theorem | 定理 | can be shown to be true |
+   |lemma | 引理 | small theorem |
+   |corollary | 推论 |  |
+   |conjecture | 猜想 |  |
+<!-- prettier-ignore-end -->
 
 
+### Propositional Logic
+1. Proposition must be statements.
+2. Disjunction and conjunction.
+3. Implication:$p \rightarrow q$ means that: 
+   - if p then q
+   - p implies q
+   - p only if q
+   - q is necessary for p
+   - p is sufficient for q
+   - if q whenever p
+   > Truth table （**Notice**: $p \rightarrow q$ is **false** only when $p$ is **true** and $q$ is **false**.）
+   > p - hypothesis or premise
+   > q - conclusion or consequence
+   > |p|q|$p \rightarrow q$|
+   > |:--:|:--:|:--:|
+   > |T|T|T|
+   > |T|F|F|
+   > |F|T|T|
+   > |F|F|T| 
+<!-- prettier-ignore-start -->
+??? question "题目"
+   "You can not ride the roller coaster if you are under 4 feet tall unless you are older than 16 years old."
+   - p: you can ride the roller coaster
+   - q: you are under 4 feet tall
+   - r: you are older than 16 years old
+   - $(q\wedge \neg r) \rightarrow \neg q$
+<!-- prettier-ignore-end -->
 
+4. Biconditional: $p \leftrightarrow q$ means that:
+   - p if and only if q
+   - p is necessary and sufficient for q
+   - p implies q and q implies p
+   > Truth table(same to XOR)
+   > |p|q|$p \leftrightarrow q$|
+   > |:--:|:--:|:--:|
+   > |T|T|T|
+   > |T|F|F|
+   > |F|T|F|
+   > |F|F|T|
 
+5. We need to notice the priority of the operators.
+   - $\neg$ has the highest priority.
+   - $\wedge$ has higher priority than $\vee$.
+   - $\vee$ has higher priority than $\rightarrow$ and $\leftrightarrow$.
+   - $\rightarrow$ and $\leftrightarrow$ have the lowest priority.
+
+<!-- prettier-ignore-start -->
+??? info "小测"
+   可能会考你 another logical operators, such as Sheffer stroke, Peirce arrow, NAND, NOR, XOR, XNOR.
+
+   Must be functionally complete, which means that any logical expression can be expressed by using only the operator.
+<!-- prettier-ignore-end -->
+
+6. Tautology, Contradiction and Contingency.
+7. Logical equivalence: Formulae A and B are called logical equivalence if $A \leftrightarrow B$ is a tautology.
+   - Example: $\neg p \vee q$ and $p \rightarrow q$ are logically equivalent.
+   - Example: $p \rightarrow q$ and $\neg q \rightarrow \neg p$ are logically equivalent.
+   - Example: $p \leftrightarrow q$ and $(p \rightarrow q) \wedge (q \rightarrow p)$ are $(\neg p \vee q) \wedge (\neg q \vee p)$ are logically equivalent.
+   
+> 这里几乎同概统和数逻
+
+8. There are two types of normal forms in proposition calculus.
+   - disjunctive normal form(DNF):$p \vee q \vee \neg r$
+   - conjunctive normal form(CNF):$(p \vee q \vee \neg r) \wedge (p \vee \neg q \vee r)$
+
+9. Deductive reasoning: A conclusion is deduced from a set of premises by means of logical steps.
+<!-- prettier-ignore-start -->
+??? info "How to solve"
+    1. if conclusion in form of $p \rightarrow q$, then we can convert the original proposition into $p_1 \wedge p_2 \wedge \dots \wedge p_n \Rightarrow q$.
+    2. Another important proof technique is **proof by contradiction**. We assume that the conclusion is false and then show that this assumption leads to a contradiction.
+    3. To construct proofs using resolution as the only rule of inference, the hypothesis and the conclusion must be expressed as clauses.
+<!-- prettier-ignore-end -->
+
+### Predicate and Quantifier
+1. Predicate: A predicate is a statement involving one or more variables that becomes a proposition when values are substituted for the variables.
+   - Example: $P(x): x^2 - 5x + 6 = 0$ is a predicate.
+   - Example: $Q(x): x^2 - 5x + 6 > 0$ is a predicate.
+   - Example: $R(x,y): x + y = 0$ is a predicate.
+2. Quantifier: A quantifier is a symbol that indicates the generality of the open sentence.
+   - Universal quantifier: $\forall$ means "for all" or "for every".
+   - Existential quantifier: $\exists$ means "there exists" or "there is at least one".
+   - Example: $\forall x P(x)$ is a proposition.
+   - Example: $\exists x P(x)$ is a proposition.
+
+3. Banding variables
+   > **Remark:** The order of the quantifiers is important.
+   > $\forall x (P(x) \rightarrow \exists y Q(x,y))$ is not logically equivalent to $\exists y (\forall x (P(x) \rightarrow Q(x,y)))$.
+
+<!-- prettier-ignore-start -->
+!!! info "some important equivalent predicate Formula"
+   - De Morgan's laws:
+     - $\neg (\forall x P(x)) \equiv \exists x (\neg P(x))$
+     - $\neg (\exists x P(x)) \equiv \forall x (\neg P(x))$
+   - Quantifier -- **handle with care!**  
+       - $\forall x (p(x) \wedge q(x)) \equiv (\forall x p(x)) \wedge (\forall x q(x))$
+       - $\exists x (p(x) \vee q(x)) \equiv (\exists x p(x)) \vee (\exists x q(x))$
+   - But:
+     - $\forall x (p(x) \vee q(x)) \Leftarrow (\forall x p(x)) \vee (\forall x q(x))$
+     - $\exists x (p(x) \wedge q(x)) \Rightarrow (\exists x p(x)) \wedge (\exists x q(x))$
+<!-- prettier-ignore-end -->
 
 
 
@@ -135,12 +252,12 @@
    > 2. If A has n elements, and if every $[a]_R$ has m elements, then $|A/R| = n/m$
 
 4. **Definition**: A partition $\pi$ on a set $S$ is a family of nonempty subsets of $S$ such that every element of $S$ is in exactly one of these subsets. 
-   $$
+$$
    \pi = \{A_1, A_2, \dots, A_n\}\\
    1. \cup_{k=1}^n A_k =S \\ 
    2. A_j \cap A_k = \emptyset \text{ for every j,k with }j \not= k, 1 < j, k < n
-   $$
-   > **Theorem**: Let $R$ be an equivalence relation on a set $S$. Then the equivalence of classes of $R$ form a partition of $X$. Conversely, given a partition $\{A_i|i \in I\}$ of $S$, there is an equivalence relation $R$ on $S$ such that the equivalence classes of $R$ are the sets $A_i$.
+$$
+> **Theorem**: Let $R$ be an equivalence relation on a set $S$. Then the equivalence of classes of $R$ form a partition of $X$. Conversely, given a partition $\{A_i|i \in I\}$ of $S$, there is an equivalence relation $R$ on $S$ such that the equivalence classes of $R$ are the sets $A_i$.
 
 ### 7.5 Partial Orderings
 1. **Definition**: A relation $R_{\preceq}$ on a set $S$ ($S \leftrightarrow S$) is a **partial ordering** if it is reflexive, antisymmetric and transitive.
@@ -212,3 +329,47 @@
    - adjacency matrix: $A = (a_{ij})$ is a $n \times n$ matrix such that $a_{ij} = 1$ if $\{v_i, v_j\} \in E$ and $a_{ij} = 0$ otherwise.
    - incidence matrix: $B = (b_{ij})$ is a $n \times m$ matrix such that $b_{ij} = 1$ if $v_i$ is incident with $e_j$ and $b_{ij} = 0$ otherwise.
    - adjacency list: For each vertex $v_i$, we have a list of all vertices adjacent to $v_i$. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to $v_i$ and one for the vertices from which there is an edge to $v_i$)
+
+
+
+
+
+
+## Chapter 9 Trees
+本章和fds学习的内容基本相似。
+<!-- prettier-ignore-start -->
+??? note "glosssary"
+   |英文|中文|数学符号或含义|
+   |:--:|:--:|----|
+   |ancestor|祖先|  |
+   |descendant|后代|  |
+   |siblings|兄弟|  |
+<!-- prettier-ignore-end -->
+
+### 9.1 Introduction to Trees
+1. **Definition**: A **tree** is a connected undirected graph with no cycles.(simple circuit)
+2. **Definition**: A **forest** is a undirected graph with no cycles.
+3. **m-ary tree**: A tree in which every internal vertex has no more than m children.
+4. **full m-ary tree**: A m-ary tree in which every internal vertex has exactly m children.(which has i **internal vertices**)
+   > Attributes:
+   > 1. contains $n = mi + 1$ vertices
+   > 2. contains $l = [(m-1)n +1]/m$ leaves.
+   > 3. height $h \ge [log_m^l]$, if full and balanced, $h = [log_m^l]$
+5. **ordered rooted tree**: A rooted tree in which the children of each internal vertex are ordered.
+
+### 9.2 applications of trees
+1. **balanced tree**: A tree is balanced if all its leaves are at h or h-1 level.
+2. **prefix code**: can be represented using a binary tree in which no codeword is a prefix of another codeword.(Huffman code)
+3. **decision tree**: A decision tree is a rooted tree in which each internal vertex corresponds to a decision, with a subtree for each possible outcome of the decision.
+4. **tree traversal**: preorder, inorder, postorder.
+
+### 9.3 Spanning Trees
+1. **Definition**: A **spanning tree** of a connected graph $G$ is a subgraph of $G$ that is a tree containing every vertex of $G$.
+2. minimum spanning tree: A spanning tree of a weighted graph $G$ with weight function $w$ is a spanning tree with minimum weight.
+   > Kruskal's algorithm:
+   > 1. Sort the edges of $G$ in increasing order of weight.
+   > 2. Add the edges to $T$ in increasing order of weight, unless doing so would create a cycle.
+   > Prim's algorithm:
+   > 1. Choose a vertex $v$ to start the tree.
+   > 2. Add the edge of least weight incident with $v$ to the tree.
+   > 3. Repeat step 2 until all vertices are in the tree.

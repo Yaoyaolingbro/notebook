@@ -210,6 +210,12 @@ $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简�
 
 ---
 
+<!-- prettier-ignore-start -->
+!!! warning "注意"
+    起初我在看修佬笔记的时候，认为他这里是有些“冗长”或者说大费篇章的，但期末最后一次考前梳理的时候发现，自己一直没有搞清最小项的本质是什么。
+
+    建议读者第一次读只需建立一个直观感觉，之后可以再回来看一看追加说明，这样会对理解非常有帮助。
+<!-- prettier-ignore-end -->
 ### 最小项之和 SOM
 > 这里我们不得不提及原作者对这部分的解释有些过于冗长了，但我认为这部分的解释是非常有趣和具有启发意义的。
 
@@ -224,7 +230,7 @@ $XY+\overline{X}Z+YZ=XY+\overline{X}Z+(X+\overline{X})YZ$，那后面就很简�
 
 我们使用符号 $m_{idx}$ 来表示变量组合 $idx$ 是一个最小项，其中 $idx$ 表示描述的那一项在真值表的序号，同时这个下标的二进制也能反映出字面量的组合。
 
-例如，在 🌰 中，output 为 `1` 的项有：`010` `100` `101` `111` 这四项，那么我们需要挑出来的最小项表达就分别是 $m_{2}=\overline{X}Y\overline{Z}, \; m_{4}=X\overline{Y}\overline{Z}, \; m_{5}=X\overline{Y}Z, \; m_{7}=XYZ$，这些变量表达式都是当且仅当变量组合为对应项时才会取 `1` 的表达式，可以认为，这写表达式唯一表达了这些真值表中的 `1`。
+例如，在 🌰 中，output 为 `1` 的项有：`010` `100` `101` `111` 这四项，那么我们需要挑出来的最小项表达就分别是 $m_{2}=\overline{X}Y\overline{Z}, \; m_{4}=X\overline{Y}\overline{Z}, \; m_{5}=X\overline{Y}Z, \; m_{7}=XYZ$，这些变量表达式都是当且仅当**变量组合为对应项时才会取 `1` 的表达式**，可以认为，这些表达式唯一表达了这些真值表中的 `1`。
 
 ???+ tip "追加说明（简单，但是建议看一看）"
     > 或许您觉得最小项的得到非常的自然且简单，我建议您也尝试着看一看追加说明，因为这对理解最大项挺有帮助的。
@@ -369,11 +375,14 @@ $$
 
 !!! note ""
     === "题面"
+
         请分别写出如下真值表中 $F$ 和 $\overline{F}$ 的 SOM 和 POM。
         ![](img/13.png)
 
 ​    === "答案"
+
 ​        答案：
+
         $$
                 \begin{aligned}
                     F(X,Y,Z)
@@ -392,7 +401,8 @@ $$
                     & = (X+Y+Z)(X+\overline{Y}+Z)(\overline{X}+Y+\overline{Z})(\overline{X}+\overline{Y}+\overline{Z})
                 \end{array}
         $$
-    ​    于是我们发现一件很有意思的事情，$F$ 的 SOM 的下标与 $\overline{F}$ 的 POM 的下标是一样的；当然对于 $F$ 的 POM 和 $\overline{F}$ 的 SOM 也是一样的。这又双印证了对称性。
+
+于是我们发现一件很有意思的事情，$F$ 的 SOM 的下标与 $\overline{F}$ 的 POM 的下标是一样的；当然对于 $F$ 的 POM 和 $\overline{F}$ 的 SOM 也是一样的。这又双印证了对称性。
 
 
 
@@ -457,7 +467,7 @@ $$
 - 即$G=9$；
 
 <!-- prettier-ignore-start -->
-!!!  "Conclusion"
+!!! abstract "Conclusion"
     总而言之我们不妨按照括号一层一层层级往上走数即可。
 <!-- prettier-ignore-end -->
 
