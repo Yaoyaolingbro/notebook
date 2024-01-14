@@ -1286,6 +1286,8 @@
       
         
       
+        
+      
     
     
     
@@ -3659,10 +3661,11 @@ B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 <p>计算一个电路的延迟时，有两方面需要考虑，一方面是电路自身所导致的一个固定延迟，另外一方面则是由于不同的负载导致的额外延迟。</p>
 <p><img alt="" src="../img/40.png" /></p>
 <!-- prettier-ignore-start -->
-<p>!!!  ""
-    在这个例子中，0.07 为固定延迟，0.021 为一个标准负载带来的延迟系数，SL(4.5 here) 则是标准化的负载量。</p>
-<div class="highlight"><pre><span></span><code>而具体的表达式，会在 Cell Library 里写。
-</code></pre></div>
+<div class="admonition attention">
+<p class="admonition-title">注</p>
+<p>在这个例子中，0.07 为固定延迟，0.021 为一个标准负载带来的延迟系数，SL(4.5 here) 则是标准化的负载量。</p>
+<p>而具体的表达式，会在 Cell Library 里写。</p>
+</div>
 <!-- prettier-ignore-end -->
 <hr />
 <h4 id="_8">延迟带来的问题<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
@@ -3729,6 +3732,9 @@ B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 <!-- prettier-ignore-end -->
 <hr />
 <h3 id="_14">基本功能块<a class="headerlink" href="#_14" title="Permanent link">#</a></h3>
+<blockquote>
+<p>这里我们更推荐通过瓜豪学长的<a href="https://guahao31.github.io/2023_DD/">实验文档</a>来学习。</p>
+</blockquote>
 <ul>
 <li>译码器(Decoder)</li>
 <li>
@@ -3756,10 +3762,11 @@ B ==>|"变换"| E["合适的表达式"] ===>|"工艺映射"| D
 </blockquote>
 <div class="admonition summary">
 <p class="admonition-title">优先编码器</p>
-<p>=== 定义
-    优先编码器能够实现优先级函数，它不要求输入是 one-hot 的，而是总是关注有效输入中优先级最高的那一个。即比如当优先级最高的那一位是 <code>1</code> 时，其它所有优先级不如它的位置的值都是我们不关心的内容了。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">例子 中断(interrupt)判优器</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">定义</label><label for="__tabbed_2_2">例子 中断(interrupt)判优器</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<p>优先编码器能够实现优先级函数，它不要求输入是 one-hot 的，而是总是关注有效输入中优先级最高的那一个。即比如当优先级最高的那一位是 <code>1</code> 时，其它所有优先级不如它的位置的值都是我们不关心的内容了。</p>
+</div>
 <div class="tabbed-block">
 <p>优先编码器的一种应用就是中断判优器。</p>
 <p><img alt="" src="../img/48.png" /></p>
@@ -3895,7 +3902,7 @@ C = XY + Z(X\oplus Y)
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月6日 17:51:08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月14日 23:33:41</span>
       
         <br>
         Created:

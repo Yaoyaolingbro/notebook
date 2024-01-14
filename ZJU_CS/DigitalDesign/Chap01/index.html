@@ -1118,6 +1118,8 @@
       
         
       
+        
+      
     
     
     
@@ -3418,7 +3420,8 @@ k \;\;\mathrm{XOR}\;\; (k&gt;&gt;1)
 <p><img alt="" src="../img/6.png" /></p>
 <p>在信号传输过程中，可能由于环境干扰等原因，出现各种信号抖动，所以为了保证数据的可信度，我们需要一个错误检测机制。</p>
 <p>一种常见的方法是 <strong>冗余(Redundancy)</strong>，即加入一些额外的信息用以校验。</p>
-<div  class="mermaid">graph TD
+<div  class="mermaid">
+graph TD
 A[Error Detection Techniques]
 B[Single Parity Check]
 C[Cyclic Redundancy Check]
@@ -3427,11 +3430,9 @@ D[Check Sum]
 A-->B
 A-->C
 A-->D
+
 </div>
 <p>其中一种做法是引入 <strong>奇偶校验位(Parity Bit)</strong>。它分为 <strong>奇校验(Odd Parity)</strong> 和 <strong>偶校验(Even Parity)</strong>。分别通过引入额外的一位（<strong>加在最后</strong>），来保证整个信息串中 <code>1</code> 的数量是奇数/偶数。</p>
-<ul>
-<li>比如，如果我们采用偶校验，原始信息为 <code>1101</code>，其中有 3 个 <code>1</code>，这时我们在后面再加上一个 <code>1</code>，保证了整个信息串中有偶数个 <code>1</code>；或者如果原始信息为 <code>1001</code>，其中有 2 个 <code>1</code>，这时我们则在后面加一个 <code>0</code>。此时，如果传输过程中出现了问题，那么 <code>1</code> 的数量很可能变成了一个奇数，此时我们就知道，这个信息是不对的。</li>
-</ul>
 <blockquote>
 <p>用人话将，就是在数字后面补0/1来使数字满足奇数个或者偶数个1，以此来检验信息是否正确。</p>
 </blockquote>
@@ -3441,7 +3442,7 @@ A-->D
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年11月16日 19:30:38</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月14日 23:33:41</span>
       
         <br>
         Created:

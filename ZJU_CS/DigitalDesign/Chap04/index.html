@@ -1235,6 +1235,8 @@
       
         
       
+        
+      
     
     
     
@@ -3487,11 +3489,13 @@
 <p>需要注意的一点是，D 触发器没有「保持」态。如果要使 D 触发器保持，可以使时钟脉冲失效或通过 <code>MUX</code> 将输出接到输入实现。其中前者不太常用，因为受门控的时钟脉冲进入触发器时有延迟，即 <strong>时钟偏移(clock skew)</strong></p>
 <hr />
 <h3 id="jk">JK 触发器<a class="headerlink" href="#jk" title="Permanent link">#</a></h3>
-<p>JK触发器的状态转换规则如下：
-- 当J=1，K=0时，触发器将置位（Q=1）；
-- 当J=0，K=1时，触发器将复位（Q=0）；
-- 当J=1，K=1时，触发器将切换状态（如果之前是置位状态，则变为复位状态；如果之前是复位状态，则变为置位状态）；
-- 当J=0，K=0时，触发器保持原状态不变</p>
+<p>JK触发器的状态转换规则如下：</p>
+<ul>
+<li>当J=1，K=0时，触发器将置位（Q=1）；</li>
+<li>当J=0，K=1时，触发器将复位（Q=0）；</li>
+<li>当J=1，K=1时，触发器将切换状态（如果之前是置位状态，则变为复位状态；如果之前是复位状态，则变为置位状态）；</li>
+<li>当J=0，K=0时，触发器保持原状态不变</li>
+</ul>
 <h3 id="t">T 触发器<a class="headerlink" href="#t" title="Permanent link">#</a></h3>
 <p><span class="arithmatex">\(Q_{n+1} = \overline{Q_n}T + Q_n\overline{T} = Q_n \oplus T\)</span></p>
 <h3 id="_2">标准图形符号<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
@@ -3818,7 +3822,7 @@ t_{h}（Hold Time）：这是指在时钟信号作用下，使得触发器的输
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月6日 17:51:08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月14日 23:33:41</span>
       
         <br>
         Created:
