@@ -941,6 +941,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Chapter 8 Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic_introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic introduction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2996,6 +3011,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Chapter 8 Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic_introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic introduction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3440,6 +3470,7 @@ Can have many minimal/maximal elements, but only one least/greatest element.</p>
 </li>
 </ol>
 <h2 id="chapter_8_graph">Chapter 8 Graph<a class="headerlink" href="#chapter_8_graph" title="Permanent link">#</a></h2>
+<h3 id="basic_introduction">Basic introduction<a class="headerlink" href="#basic_introduction" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p><strong>Definition</strong>: A <strong>graph</strong> <span class="arithmatex">\(G\)</span> is an ordered pair <span class="arithmatex">\((V,E)\)</span>, where <span class="arithmatex">\(V\)</span> is a finite nonempty set and <span class="arithmatex">\(E\)</span> is a set of two-element subsets of <span class="arithmatex">\(V\)</span> which is called edges.</p>
@@ -3468,27 +3499,31 @@ Can have many minimal/maximal elements, but only one least/greatest element.</p>
 </blockquote>
 </li>
 <li>
-<p>Some simple graph
-   - complete graph: <span class="arithmatex">\(K_n\)</span> is a simple graph with n vertices and exactly one edge between each pair of distinct vertices.(<span class="arithmatex">\(|E| = \frac{n(n-1)}{2}\)</span>)
-   - cycles: <span class="arithmatex">\(C_n\)</span> is a simple graph with n vertices <span class="arithmatex">\(v_1, v_2, \dots, v_n\)</span> and edges <span class="arithmatex">\(\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}\)</span>
-   - wheels: <span class="arithmatex">\(W_n\)</span> is a simple graph with n vertices <span class="arithmatex">\(v_1, v_2, \dots, v_n\)</span> and edges <span class="arithmatex">\(\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}, \{v_1, v_3\}, \{v_1, v_4\}, \dots, \{v_1, v_n\}\)</span>
-   - n-cubes: <span class="arithmatex">\(Q_n\)</span> is a simple graph with <span class="arithmatex">\(2^n\)</span> vertices <span class="arithmatex">\(v_1, v_2, \dots, v_{2^n}\)</span> and edges <span class="arithmatex">\(\{v_i, v_j\}\)</span> if and only if <span class="arithmatex">\(v_i\)</span> and <span class="arithmatex">\(v_j\)</span> differ in exactly one bit position.
-   - bipartite graph: A graph <span class="arithmatex">\(G = (V,E)\)</span> is bipartite if $$ V = V_1 \cup V_2 \ V_1 \cap V_2 = \emptyset$$ such that no edge has both endpoints in the same subset.
-   - complete bipartite graph: <span class="arithmatex">\(K_{m,n}\)</span> is a bipartite graph with <span class="arithmatex">\(m+n\)</span> vertices <span class="arithmatex">\(v_1, v_2, \dots, v_m\)</span> and <span class="arithmatex">\(u_1, u_2, \dots, u_n\)</span> and edges <span class="arithmatex">\(\{v_i, u_j\}\)</span> for all <span class="arithmatex">\(i = 1, 2, \dots, m\)</span> and <span class="arithmatex">\(j = 1, 2, \dots, n\)</span>.</p>
+<p>Some simple graph:</p>
 </li>
-<li>
-<p>New graphs from old:
-   - subgraph: <span class="arithmatex">\(G' = (V', E')\)</span> is a subgraph of <span class="arithmatex">\(G = (V,E)\)</span> if <span class="arithmatex">\(V' \subseteq V\)</span> and <span class="arithmatex">\(E' \subseteq E\)</span>.
-   - complement: <span class="arithmatex">\(G' = (V, E')\)</span> is the complement of <span class="arithmatex">\(G = (V,E)\)</span> if <span class="arithmatex">\(E' = \{ \{u,v\} | u,v \in V, u \not= v, \{u,v\} \not\in E\}\)</span>
-   - union: <span class="arithmatex">\(G_1 = (V_1, E_1)\)</span> and <span class="arithmatex">\(G_2 = (V_2, E_2)\)</span>, then <span class="arithmatex">\(G_1 \cup G_2 = (V_1 \cup V_2, E_1 \cup E_2)\)</span>
-   - join: <span class="arithmatex">\(G_1 = (V_1, E_1)\)</span> and <span class="arithmatex">\(G_2 = (V_2, E_2)\)</span>, then <span class="arithmatex">\(G_1 \vee G_2 = (V_1 \cup V_2, E_1 \cup E_2 \cup \{ \{u,v\} | u \in V_1, v \in V_2\})\)</span></p>
-</li>
-<li>
-<p>Representing graphs:
+</ol>
+<ul>
+<li>complete graph: <span class="arithmatex">\(K_n\)</span> is a simple graph with n vertices and exactly one edge between each pair of distinct vertices.(<span class="arithmatex">\(|E| = \frac{n(n-1)}{2}\)</span>)</li>
+<li>cycles: <span class="arithmatex">\(C_n\)</span> is a simple graph with n vertices <span class="arithmatex">\(v_1, v_2, \dots, v_n\)</span> and edges <span class="arithmatex">\(\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}\)</span></li>
+<li>wheels: <span class="arithmatex">\(W_n\)</span> is a simple graph with n vertices <span class="arithmatex">\(v_1, v_2, \dots, v_n\)</span> and edges <span class="arithmatex">\(\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}, \{v_1, v_3\}, \{v_1, v_4\}, \dots, \{v_1, v_n\}\)</span></li>
+<li>n-cubes: <span class="arithmatex">\(Q_n\)</span> is a simple graph with <span class="arithmatex">\(2^n\)</span> vertices <span class="arithmatex">\(v_1, v_2, \dots, v_{2^n}\)</span> and edges <span class="arithmatex">\(\{v_i, v_j\}\)</span> if and only if <span class="arithmatex">\(v_i\)</span> and <span class="arithmatex">\(v_j\)</span> differ in exactly one bit position.</li>
+<li>bipartite graph: A graph <span class="arithmatex">\(G = (V,E)\)</span> is bipartite if $$ V = V_1 \cup V_2 \ V_1 \cap V_2 = \emptyset$$ such that no edge has both endpoints in the same subset.</li>
+<li>complete bipartite graph: <span class="arithmatex">\(K_{m,n}\)</span> is a bipartite graph with <span class="arithmatex">\(m+n\)</span> vertices <span class="arithmatex">\(v_1, v_2, \dots, v_m\)</span> and <span class="arithmatex">\(u_1, u_2, \dots, u_n\)</span> and edges <span class="arithmatex">\(\{v_i, u_j\}\)</span> for all <span class="arithmatex">\(i = 1, 2, \dots, m\)</span> and <span class="arithmatex">\(j = 1, 2, \dots, n\)</span>.</li>
+</ul>
+<ol start="5">
+<li>New graphs from old:</li>
+</ol>
+<ul>
+<li>subgraph: <span class="arithmatex">\(G' = (V', E')\)</span> is a subgraph of <span class="arithmatex">\(G = (V,E)\)</span> if <span class="arithmatex">\(V' \subseteq V\)</span> and <span class="arithmatex">\(E' \subseteq E\)</span>.</li>
+<li>complement: <span class="arithmatex">\(G' = (V, E')\)</span> is the complement of <span class="arithmatex">\(G = (V,E)\)</span> if <span class="arithmatex">\(E' = \{ \{u,v\} | u,v \in V, u \not= v, \{u,v\} \not\in E\}\)</span></li>
+<li>union: <span class="arithmatex">\(G_1 = (V_1, E_1)\)</span> and <span class="arithmatex">\(G_2 = (V_2, E_2)\)</span>, then <span class="arithmatex">\(G_1 \cup G_2 = (V_1 \cup V_2, E_1 \cup E_2)\)</span></li>
+<li>join: <span class="arithmatex">\(G_1 = (V_1, E_1)\)</span> and <span class="arithmatex">\(G_2 = (V_2, E_2)\)</span>, then <span class="arithmatex">\(G_1 \vee G_2 = (V_1 \cup V_2, E_1 \cup E_2 \cup \{ \{u,v\} | u \in V_1, v \in V_2\})\)</span></li>
+</ul>
+<ol start="6">
+<li>Representing graphs:
    - adjacency matrix: <span class="arithmatex">\(A = (a_{ij})\)</span> is a <span class="arithmatex">\(n \times n\)</span> matrix such that <span class="arithmatex">\(a_{ij} = 1\)</span> if <span class="arithmatex">\(\{v_i, v_j\} \in E\)</span> and <span class="arithmatex">\(a_{ij} = 0\)</span> otherwise.
    - incidence matrix: <span class="arithmatex">\(B = (b_{ij})\)</span> is a <span class="arithmatex">\(n \times m\)</span> matrix such that <span class="arithmatex">\(b_{ij} = 1\)</span> if <span class="arithmatex">\(v_i\)</span> is incident with <span class="arithmatex">\(e_j\)</span> and <span class="arithmatex">\(b_{ij} = 0\)</span> otherwise.
-   - adjacency list: For each vertex <span class="arithmatex">\(v_i\)</span>, we have a list of all vertices adjacent to <span class="arithmatex">\(v_i\)</span>. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to <span class="arithmatex">\(v_i\)</span> and one for the vertices from which there is an edge to <span class="arithmatex">\(v_i\)</span>)</p>
-</li>
+   - adjacency list: For each vertex <span class="arithmatex">\(v_i\)</span>, we have a list of all vertices adjacent to <span class="arithmatex">\(v_i\)</span>. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to <span class="arithmatex">\(v_i\)</span> and one for the vertices from which there is an edge to <span class="arithmatex">\(v_i\)</span>)</li>
 </ol>
 <h2 id="chapter_9_trees">Chapter 9 Trees<a class="headerlink" href="#chapter_9_trees" title="Permanent link">#</a></h2>
 <p>本章和fds学习的内容基本相似。</p>
@@ -3565,7 +3600,7 @@ Prim's algorithm:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月16日 00:02:59</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月16日 00:14:34</span>
       
         <br>
         Created:
