@@ -365,6 +365,7 @@ int pop(Stack *s) {
     === "glossary"
         |中文|英文|概念|
         |:--:|:--:|:--:|
+        | | | |
         
 
 <!-- prettier-ignore-end -->
@@ -380,8 +381,18 @@ int pop(Stack *s) {
    
 
 ## HW10 MST & Maxstream 
-> [x] Finished
-> 本次作业，你需要对最小生成树（minimum spanning tree）的两个算法清晰的记忆，关于最大流应当学会计算。
+<!-- prettier-ignore-start -->
+!!! Note "摘要"
+    === "Knowledge"
+        本次作业，你需要对最小生成树（minimum spanning tree）的两个算法清晰的记忆，关于最大流应当学会计算。
+
+    === "glossary"
+        |中文|英文|概念|
+        |:--:|:--:|:--:|
+        | | | |
+
+<!-- prettier-ignore-end -->
+
 1. The minimum spanning tree of any weighted graph ____
 <!-- prettier-ignore-start -->
 ??? info "Tips"
@@ -434,7 +445,7 @@ int pop(Stack *s) {
     reversely topologically sorted
 <!-- prettier-ignore-end -->
 
-1. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
+3. Graph G is an undirected completed graph of 20 nodes. Is there an Euler circuit in G? If not, in order to have an Euler circuit, what is the minimum number of edges which should be removed from G?
 <!-- prettier-ignore-start -->
 ??? info "Tips"
     Each Node has exactly 19 degrees
@@ -548,3 +559,4 @@ int pop(Stack *s) {
         |:--:|:--:|
         | | |
 
+1. 基本概念题：<img alt="20240115120311.png" src="graph/20240115120311.png">
