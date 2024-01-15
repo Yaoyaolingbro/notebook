@@ -992,9 +992,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw14_hash" class="md-nav__link">
+  <a href="#hw1415_hash" class="md-nav__link">
     <span class="md-ellipsis">
-      HW14 Hash
+      HW14&amp;15 Hash
     </span>
   </a>
   
@@ -3143,9 +3143,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hw14_hash" class="md-nav__link">
+  <a href="#hw1415_hash" class="md-nav__link">
     <span class="md-ellipsis">
-      HW14 Hash
+      HW14&amp;15 Hash
     </span>
   </a>
   
@@ -4098,7 +4098,7 @@ Exit if it is connected.</p>
 </details>
 <!-- prettier-ignore-end -->
 
-<h2 id="hw14_hash">HW14 Hash<a class="headerlink" href="#hw14_hash" title="Permanent link">#</a></h2>
+<h2 id="hw1415_hash">HW14&amp;15 Hash<a class="headerlink" href="#hw1415_hash" title="Permanent link">#</a></h2>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">摘要</p>
@@ -4127,7 +4127,30 @@ Exit if it is connected.</p>
 </div>
 </div>
 <ol>
-<li>基本概念题：<img alt="20240115120311.png" src="graph/20240115120311.png"></li>
+<li>
+<p>这个题有点争议，按照道理来讲平均查找时间复杂度是O(1),如果有冲突的话可能会退化到O(N)
+<img alt="20240115120311.png" src="graph/20240115120311.png"></p>
+</li>
+<li>
+<p>Which of the following statements about HASH is true?</p>
+</li>
+</ol>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>The answer is D</summary>
+<p>A.the expected number of probes for insertions is greater than that for successful searches in linear probing method</p>
+<p>B.if the table size is prime and the table is at least half empty, a new element can always be inserted with quadratic probing</p>
+<p>C.in separate chaining method, if duplicate elements are allowed in the list, insertions are generally quicker than deletions</p>
+<p>D. all of the above</p>
+</details>
+<!-- prettier-ignore-end -->
+
+<ol start="3">
+<li>Hash quadratic probing 会在index的<span class="arithmatex">\(\pm pow(i,2)\)</span>的位置检查。</li>
+<li>答案是B
+   <img alt="20240115153152.png" src="graph/20240115153152.png"></li>
+<li>答案是C
+   <img alt="20240115153217.png" src="graph/20240115153217.png"></li>
 </ol>
 
   <hr>
@@ -4135,7 +4158,7 @@ Exit if it is connected.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月15日 12:04:31</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月15日 15:33:00</span>
       
         <br>
         Created:
