@@ -1,6 +1,14 @@
 # 作业要点
 这里记录着所有homework中的要点，便于复习！（预习
-[TOC]
+
+<!-- prettier-ignore-start -->
+!!! abstract "目录"
+    === "info"
+        如若latex公式无法显示，请重新刷新界面即可。
+    
+    === "index"
+        [TOC]
+<!-- prettier-ignore-end -->
 
 
 ## HW1 Algorithm
@@ -165,6 +173,7 @@ int pop(Stack *s) {
     === "glossary"
         |中文|英文|概念|
         |:--:|:--:|:--:|
+        |树|tree|A tree is a connected acyclic undirected graph（**DAG not**）|
         |根节点|root node|位于二叉树顶层的节点，没有父节点|
         |叶节点|leaf node|没有子节点的节点，其两个指针均指向| 
         |边|edge|连接两个节点的线段，即节点引用（指针）|
@@ -179,7 +188,7 @@ int pop(Stack *s) {
 
 下面先让我们看看基本概念吧（From hello-algo）
 <!-- prettier-ignore-start -->
-??? info "二叉树基本概念"
+!!! info "二叉树基本概念"
     === "完美二叉树 perfect BT"
         ![](graph/pbt.png)
     === "平衡二叉树 balance BT"
@@ -200,10 +209,10 @@ int pop(Stack *s) {
 2. Given a tree of degree 3. Suppose that there are 3 nodes of degree 2 and 2 nodes of degree 3. Then the number of leaf nodes must be ____.
 
 <!-- prettier-ignore-start -->
-??? info "Tips"
+!!! info "做题技巧"
     8
     
-    通解：
+    **通解：**
     1. 算儿子， $ 3n_3+2n_2+n_1+1=N $
     2. 算所有， $ n_3+n_2+n_1+n_0=N $
 
@@ -246,15 +255,7 @@ int pop(Stack *s) {
     === "glossary"
         |中文|英文|概念|
         |:--:|:--:|:--:|
-        |根节点|root node|位于二叉树顶层的节点，没有父节点|
-        |叶节点|leaf node|没有子节点的节点，其两个指针均指向| 
-        |边|edge|连接两个节点的线段，即节点引用（指针）|
-        |层|level|从顶至底递增，根节点所在层为 1 |
-        |度|degree|节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2 |
-        |高度|height|从根节点到最远叶节点所经过的边的数量|
-        |深度|depth|从根节点到该节点所经过的边的数量|
-        |高度|height|从距离该节点最远的叶节点到该节点所经过的边的数量|
-        |遍历|traversal| |
+        | | | |
 <!-- prettier-ignore-end -->
 1. In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent.
 

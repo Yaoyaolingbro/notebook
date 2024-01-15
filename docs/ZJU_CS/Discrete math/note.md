@@ -1,10 +1,10 @@
 # 离散知识点梳理
 <!-- prettier-ignore-start -->
 !!! abstract "摘要"
-   === "注意"
+   === "注意"   
       如果latex渲染未成功加载,请刷新网页!
 
-   === "目录"
+   === "目录"   
       [TOC]
 <!-- prettier-ignore-end -->
 
@@ -80,6 +80,8 @@
 ??? info "小测"
    可能会考你 another logical operators, such as Sheffer stroke, Peirce arrow, NAND, NOR, XOR, XNOR.
 
+   Sheffer stroke: $p \uparrow q \equiv \neg (p \wedge q)$
+   Peirce arrow: $p \downarrow q \equiv \neg (p \vee q)$
    Must be functionally complete, which means that any logical expression can be expressed by using only the operator.
 <!-- prettier-ignore-end -->
 
