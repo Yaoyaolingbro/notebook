@@ -10,23 +10,28 @@
 
 ## Chapter 1
 <!-- prettier-ignore-start -->
-??? note "glossary"
-   |英文|中文|数学符号或含义|
-   |:--:|:--:|----|
-   |proposition|命题| $p,q,r$|
-   |negation|否（命题）| $\neg$|
-   |disjunction|并|$\cup$|
-   |conjunction | 交 | $\cap$ |
-   |implication | 蕴含 | $\rightarrow$ |
-   |equivalence | 等价 | $\Leftrightarrow$ |
-   |tautology | 恒真式 |  |
-   |contradiction | 矛盾式 |  |
-   |contingence | 可能式 |  |
-   |axiom | 公理 | true without proof |
-   |theorem | 定理 | can be shown to be true |
-   |lemma | 引理 | small theorem |
-   |corollary | 推论 |  |
-   |conjecture | 猜想 |  |
+<!-- prettier-ignore-start -->
+!!! abstract "摘要"
+   === "本章要点"   
+      
+
+   === "glossary"
+      |英文|中文|数学符号或含义|
+      |:--:|:--:|----|
+      |proposition|命题| $p,q,r$|
+      |negation|否（命题）| $\neg$|
+      |disjunction|并|$\cup$|
+      |conjunction | 交 | $\cap$ |
+      |implication | 蕴含 | $\rightarrow$ |
+      |equivalence | 等价 | $\Leftrightarrow$ |
+      |tautology | 恒真式 |  |
+      |contradiction | 矛盾式 |  |
+      |contingence | 可能式 |  |
+      |axiom | 公理 | true without proof |
+      |theorem | 定理 | can be shown to be true |
+      |lemma | 引理 | small theorem |
+      |corollary | 推论 |  |
+      |conjecture | 猜想 |  |
 <!-- prettier-ignore-end -->
 
 
@@ -51,7 +56,8 @@
    > |F|F|T| 
 <!-- prettier-ignore-start -->
 ??? question "题目"
-   "You can not ride the roller coaster if you are under 4 feet tall unless you are older than 16 years old."
+
+   sentence："You can not ride the roller coaster if you are under 4 feet tall unless you are older than 16 years old."
    - p: you can ride the roller coaster
    - q: you are under 4 feet tall
    - r: you are older than 16 years old
@@ -78,6 +84,7 @@
 
 <!-- prettier-ignore-start -->
 ??? info "小测"
+
    可能会考你 another logical operators, such as Sheffer stroke, Peirce arrow, NAND, NOR, XOR, XNOR.
 
    Sheffer stroke: $p \uparrow q \equiv \neg (p \wedge q)$
@@ -100,6 +107,7 @@
 9. Deductive reasoning: A conclusion is deduced from a set of premises by means of logical steps.
 <!-- prettier-ignore-start -->
 ??? info "How to solve"
+
     1. if conclusion in form of $p \rightarrow q$, then we can convert the original proposition into $p_1 \wedge p_2 \wedge \dots \wedge p_n \Rightarrow q$.
     2. Another important proof technique is **proof by contradiction**. We assume that the conclusion is false and then show that this assumption leads to a contradiction.
     3. To construct proofs using resolution as the only rule of inference, the hypothesis and the conclusion must be expressed as clauses.
@@ -122,6 +130,7 @@
 
 <!-- prettier-ignore-start -->
 !!! info "some important equivalent predicate Formula"
+
    - De Morgan's laws:
      - $\neg (\forall x P(x)) \equiv \exists x (\neg P(x))$
      - $\neg (\exists x P(x)) \equiv \forall x (\neg P(x))$
