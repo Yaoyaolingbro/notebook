@@ -548,7 +548,7 @@ int pop(Stack *s) {
 <!-- prettier-ignore-end -->
 
 
-## HW14 Hash
+## HW14&15 Hash
 <!-- prettier-ignore-start -->
 !!! note "摘要"
     === "Knowledge"
@@ -559,4 +559,25 @@ int pop(Stack *s) {
         |:--:|:--:|
         | | |
 
-1. 基本概念题：<img alt="20240115120311.png" src="graph/20240115120311.png">
+1. 这个题有点争议，按照道理来讲平均查找时间复杂度是O(1),如果有冲突的话可能会退化到O(N)
+<img alt="20240115120311.png" src="graph/20240115120311.png">
+
+2. Which of the following statements about HASH is true?
+
+<!-- prettier-ignore-start -->
+??? info "The answer is D"
+    A.the expected number of probes for insertions is greater than that for successful searches in linear probing method
+
+    B.if the table size is prime and the table is at least half empty, a new element can always be inserted with quadratic probing
+
+    C.in separate chaining method, if duplicate elements are allowed in the list, insertions are generally quicker than deletions
+
+    D. all of the above
+<!-- prettier-ignore-end -->
+
+3. Hash quadratic probing 会在index的$\pm pow(i,2)$的位置检查。
+4. 答案是B
+   <img alt="20240115153152.png" src="graph/20240115153152.png">
+5. 答案是C
+   <img alt="20240115153217.png" src="graph/20240115153217.png">
+
