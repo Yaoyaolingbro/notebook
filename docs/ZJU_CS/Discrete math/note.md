@@ -1,27 +1,27 @@
 # 离散知识点梳理
 <!-- prettier-ignore-start -->
-!!! abstract "摘要"
-   === "注意"   
-      如果latex渲染未成功加载,请刷新网页!
-
-   === "目录"   
+!!! abstract "目录"
+   === "info"
+      如若latex公式无法显示，请重新刷新界面即可。
+    
+   === "index"
       [TOC]
 <!-- prettier-ignore-end -->
 
-## Chapter 1
+## Chapter 1 Logic and Proofs
 <!-- prettier-ignore-start -->
 <!-- prettier-ignore-start -->
 !!! abstract "摘要"
-   === "本章要点"   
-      
+    === "本章要点"   
+       本章主要是逻辑表达式以及quantifier的一些概念，以及一些证明方法的介绍。
 
    === "glossary"
       |英文|中文|数学符号或含义|
       |:--:|:--:|----|
       |proposition|命题| $p,q,r$|
       |negation|否（命题）| $\neg$|
-      |disjunction|并|$\cup$|
-      |conjunction | 交 | $\cap$ |
+      |disjunction|并|$\vee$|
+      |conjunction | 交 | $\wedge$ |
       |implication | 蕴含 | $\rightarrow$ |
       |equivalence | 等价 | $\Leftrightarrow$ |
       |tautology | 恒真式 |  |
@@ -31,7 +31,7 @@
       |theorem | 定理 | can be shown to be true |
       |lemma | 引理 | small theorem |
       |corollary | 推论 |  |
-      |conjecture | 猜想 |  |
+      |conjecture | 猜想 |  |达以及推导（注意quantifier）
 <!-- prettier-ignore-end -->
 
 
@@ -39,52 +39,51 @@
 1. Proposition must be statements.
 2. Disjunction and conjunction.
 3. Implication:$p \rightarrow q$ means that: 
-   - if p then q
-   - p implies q
-   - p only if q
-   - q is necessary for p
-   - p is sufficient for q
-   - if q whenever p
-   > Truth table （**Notice**: $p \rightarrow q$ is **false** only when $p$ is **true** and $q$ is **false**.）
-   > p - hypothesis or premise
-   > q - conclusion or consequence
-   > |p|q|$p \rightarrow q$|
-   > |:--:|:--:|:--:|
-   > |T|T|T|
-   > |T|F|F|
-   > |F|T|T|
-   > |F|F|T| 
+    - if p then q
+    - p implies q
+    - p only if q
+    - q is necessary for p
+    - p is sufficient for q
+    - if q whenever p
+> Truth table （**Notice**: $p \rightarrow q$ is **false** only when $p$ is **true** and $q$ is **false**.）
+> p - hypothesis or premise
+> q - conclusion or consequence
+> |p|q|$p \rightarrow q$|
+> |:--:|:--:|:--:|
+> |T|T|T|
+> |T|F|F|
+> |F|T|T|
+> |F|F|T| 
 <!-- prettier-ignore-start -->
 ??? question "题目"
+    sentence："You can not ride the roller coaster if you are under 4 feet tall unless you are older than 16 years old."
 
-   sentence："You can not ride the roller coaster if you are under 4 feet tall unless you are older than 16 years old."
-   - p: you can ride the roller coaster
-   - q: you are under 4 feet tall
-   - r: you are older than 16 years old
-   - $(q\wedge \neg r) \rightarrow \neg q$
+    - p: you can ride the roller coaster
+    - q: you are under 4 feet tall
+    - r: you are older than 16 years old
+    - $(q\wedge \neg r) \rightarrow \neg q$
 <!-- prettier-ignore-end -->
 
-4. Biconditional: $p \leftrightarrow q$ means that:
-   - p if and only if q
-   - p is necessary and sufficient for q
-   - p implies q and q implies p
-   > Truth table(same to XOR)
-   > |p|q|$p \leftrightarrow q$|
-   > |:--:|:--:|:--:|
-   > |T|T|T|
-   > |T|F|F|
-   > |F|T|F|
-   > |F|F|T|
+1. Biconditional: $p \leftrightarrow q$ means that:
+   1. p if and only if q
+   2. p is necessary and sufficient for q
+   3. p implies q and q implies p
+> Truth table(same to XOR)
+> |p|q|$p \leftrightarrow q$|
+> |:--:|:--:|:--:|
+> |T|T|T|
+> |T|F|F|
+> |F|T|F|
+> |F|F|T|
 
-5. We need to notice the priority of the operators.
-   - $\neg$ has the highest priority.
-   - $\wedge$ has higher priority than $\vee$.
-   - $\vee$ has higher priority than $\rightarrow$ and $\leftrightarrow$.
-   - $\rightarrow$ and $\leftrightarrow$ have the lowest priority.
+2. We need to notice the priority of the operators.
+   1. $\neg$ has the highest priority.
+   2. $\wedge$ has higher priority than $\vee$.
+   3. $\vee$ has higher priority than $\rightarrow$ and $\leftrightarrow$.
+   4. $\rightarrow$ and $\leftrightarrow$ have the lowest priority.
 
 <!-- prettier-ignore-start -->
 ??? info "小测"
-
    可能会考你 another logical operators, such as Sheffer stroke, Peirce arrow, NAND, NOR, XOR, XNOR.
 
    Sheffer stroke: $p \uparrow q \equiv \neg (p \wedge q)$
@@ -100,29 +99,28 @@
    
 > 这里几乎同概统和数逻
 
-8. There are two types of normal forms in proposition calculus.
-   - disjunctive normal form(DNF):$p \vee q \vee \neg r$
-   - conjunctive normal form(CNF):$(p \vee q \vee \neg r) \wedge (p \vee \neg q \vee r)$
+1. There are two types of normal forms in proposition calculus.
+   1. disjunctive normal form(DNF):$p \vee q \vee \neg r$
+   2. conjunctive normal form(CNF):$(p \vee q \vee \neg r) \wedge (p \vee \neg q \vee r)$
 
-9. Deductive reasoning: A conclusion is deduced from a set of premises by means of logical steps.
+2. Deductive reasoning: A conclusion is deduced from a set of premises by means of logical steps.
 <!-- prettier-ignore-start -->
 ??? info "How to solve"
-
-    1. if conclusion in form of $p \rightarrow q$, then we can convert the original proposition into $p_1 \wedge p_2 \wedge \dots \wedge p_n \Rightarrow q$.
-    2. Another important proof technique is **proof by contradiction**. We assume that the conclusion is false and then show that this assumption leads to a contradiction.
-    3. To construct proofs using resolution as the only rule of inference, the hypothesis and the conclusion must be expressed as clauses.
+   1. if conclusion in form of $p \rightarrow q$, then we can convert the original proposition into $p_1 \wedge p_2 \wedge \dots \wedge p_n \Rightarrow q$.
+   2. Another important proof technique is **proof by contradiction**. We assume that the conclusion is false and then show that this assumption leads to a contradiction.
+   3. To construct proofs using resolution as the only rule of inference, the hypothesis and the conclusion must be expressed as clauses.
 <!-- prettier-ignore-end -->
 
 ### Predicate and Quantifier
 1. Predicate: A predicate is a statement involving one or more variables that becomes a proposition when values are substituted for the variables.
-   - Example: $P(x): x^2 - 5x + 6 = 0$ is a predicate.
-   - Example: $Q(x): x^2 - 5x + 6 > 0$ is a predicate.
-   - Example: $R(x,y): x + y = 0$ is a predicate.
+> Example: $P(x): x^2 - 5x + 6 = 0$ is a predicate.
+> Example: $Q(x): x^2 - 5x + 6 > 0$ is a predicate.
+> Example: $R(x,y): x + y = 0$ is a predicate.
 2. Quantifier: A quantifier is a symbol that indicates the generality of the open sentence.
-   - Universal quantifier: $\forall$ means "for all" or "for every".
-   - Existential quantifier: $\exists$ means "there exists" or "there is at least one".
-   - Example: $\forall x P(x)$ is a proposition.
-   - Example: $\exists x P(x)$ is a proposition.
+   1. Universal quantifier: $\forall$ means "for all" or "for every".
+   2. Existential quantifier: $\exists$ means "there exists" or "there is at least one".
+   3. Example: $\forall x P(x)$ is a proposition.
+   4. Example: $\exists x P(x)$ is a proposition.
 
 3. Banding variables
    > **Remark:** The order of the quantifiers is important.
@@ -130,7 +128,6 @@
 
 <!-- prettier-ignore-start -->
 !!! info "some important equivalent predicate Formula"
-
    - De Morgan's laws:
      - $\neg (\forall x P(x)) \equiv \exists x (\neg P(x))$
      - $\neg (\exists x P(x)) \equiv \forall x (\neg P(x))$
@@ -142,6 +139,21 @@
      - $\exists x (p(x) \wedge q(x)) \Rightarrow (\exists x p(x)) \wedge (\exists x q(x))$
 <!-- prettier-ignore-end -->
 
+## Chapter 2 Basic Structures: Sets & Functions
+1. 区分$\in$ & $\subset$
+2. Set operation: union:$\cup$ Intersection$\cap$
+   > If $A \cap B = \emptyset$, then $A$ and $B$ are **disjoint**.
+3. Difference: $A - B = \{x | x \in A \wedge x \notin B\}$
+4. Complement: $\bar{A} = U - A$
+5. Symmetric Difference: $A \oplus B = (A - B) \cup (B - A)$
+<img alt="20240116135329.png" src="graph/20240116135329.png">
+<!-- prettier-ignore-start -->
+!!! note "The power Set"
+    **Definition**: The **power set** of a set $A$, denoted by $P(A)$ or $2^S$, is the set of all subsets of $A$.
+    $$2^S = \{T | T \subseteq S\}$$
+
+
+<!-- prettier-ignore-end -->
 
 
 
@@ -303,7 +315,7 @@ $$
 
 ## Chapter 8 Graph
 
-### Basic introduction
+### 8.1 Basic introduction
 
 1. **Definition**: A **graph** $G$ is an ordered pair $(V,E)$, where $V$ is a finite nonempty set and $E$ is a set of two-element subsets of $V$ which is called edges.
    > Definition: A **multigraph** is a graph that is permitted to have multiple edges with the same endpoints.(don't have loops)
@@ -330,6 +342,7 @@ $$
    - complete graph: $K_n$ is a simple graph with n vertices and exactly one edge between each pair of distinct vertices.($|E| = \frac{n(n-1)}{2}$)
    - cycles: $C_n$ is a simple graph with n vertices $v_1, v_2, \dots, v_n$ and edges $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}$
    - wheels: $W_n$ is a simple graph with n vertices $v_1, v_2, \dots, v_n$ and edges $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}, \{v_1, v_3\}, \{v_1, v_4\}, \dots, \{v_1, v_n\}$
+   <img alt="20240116003815.png" src="graph/20240116003815.png">
    - n-cubes: $Q_n$ is a simple graph with $2^n$ vertices $v_1, v_2, \dots, v_{2^n}$ and edges $\{v_i, v_j\}$ if and only if $v_i$ and $v_j$ differ in exactly one bit position.
    - bipartite graph: A graph $G = (V,E)$ is bipartite if $$ V = V_1 \cup V_2 \\ V_1 \cap V_2 = \emptyset$$ such that no edge has both endpoints in the same subset.
    - complete bipartite graph: $K_{m,n}$ is a bipartite graph with $m+n$ vertices $v_1, v_2, \dots, v_m$ and $u_1, u_2, \dots, u_n$ and edges $\{v_i, u_j\}$ for all $i = 1, 2, \dots, m$ and $j = 1, 2, \dots, n$.
@@ -341,15 +354,34 @@ $$
    - union: $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$, then $G_1 \cup G_2 = (V_1 \cup V_2, E_1 \cup E_2)$
    - join: $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$, then $G_1 \vee G_2 = (V_1 \cup V_2, E_1 \cup E_2 \cup \{ \{u,v\} | u \in V_1, v \in V_2\})$
 
-6. Representing graphs:
-   - adjacency matrix: $A = (a_{ij})$ is a $n \times n$ matrix such that $a_{ij} = 1$ if $\{v_i, v_j\} \in E$ and $a_{ij} = 0$ otherwise.
-   - incidence matrix: $B = (b_{ij})$ is a $n \times m$ matrix such that $b_{ij} = 1$ if $v_i$ is incident with $e_j$ and $b_{ij} = 0$ otherwise.
-   - adjacency list: For each vertex $v_i$, we have a list of all vertices adjacent to $v_i$. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to $v_i$ and one for the vertices from which there is an edge to $v_i$)
+### 8.2 Representing graphs:
+1. **adjacency matrix**: $A = (a_{ij})$ is a $n \times n$ matrix such that $a_{ij} = 1$ if $\{v_i, v_j\} \in E$ and $a_{ij} = 0$ otherwise.
+2. **incidence matrix**: $B = (b_{ij})$ is a $n \times m$ matrix such that $b_{ij} = 1$ if $v_i$ is incident with $e_j$ and $b_{ij} = 0$ otherwise.
+<img alt="20240116004559.png" src="graph/20240116004559.png">
+3. **adjacency list**: For each vertex $v_i$, we have a list of all vertices adjacent to $v_i$. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to $v_i$ and one for the vertices from which there is an edge to $v_i$)
+
+### 8.3 Connection
+1. A path or circuit is simple if it does not contain a repeated edge.
+2. <img alt="20240116012051.png" src="graph/20240116012051.png">
+3. Counting paths between vertices: The number of paths of length n from vertex $v_i$ to vertex $v_j$ in a graph G is the $(i,j)$ entry of the matrix $A^n$.
+
+### 8.4 Euler and Hamilton Paths
+1. **Definition**: A **Euler path** in a graph G is a simple path that contains every edge of G. A **Euler circuit** is a simple circuit that contains every edge of G.
+2. <img alt="20240116012810.png" src="graph/20240116012810.png">
+3. Euler path judge.
+<img alt="20240116012959.png" src="graph/20240116012959.png">
+
+1. **Definition**: A **Hamilton path** in a graph G is a simple path that contains every vertex of G.$V = \{v_1, v_2, \dots, v_n\}$, then $v_1, v_2, \dots, v_n$ is a Hamilton path if and only if $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}$ are edges of G.
+> **Remark**: A Hamilton circuit in a graph G is a simple circuit that contains every vertex of G.
 
 
+### 8.5 Planar Graphs
+1. **Definition**: A graph is **planar** if it can be drawn in the plane without any edges crossing.
+2. **Theorem**: Euler Formula -> Let $G = (V,E)$ be a connected planar graph with $n$ vertices, $m$ edges and $r$ regions. Then $n - m + r = 2$.
+> <img alt="20240116015018.png" src="graph/20240116015018.png">
+> <img alt="20240116015111.png" src="graph/20240116015111.png">
 
-
-
+### 8.6 Coloring Graphs
 
 ## Chapter 9 Trees
 本章和fds学习的内容基本相似。
