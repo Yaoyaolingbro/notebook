@@ -561,7 +561,7 @@ int pop(Stack *s) {
         | | |
 
 1. 这个题有点争议，按照道理来讲平均查找时间复杂度是O(1),如果有冲突的话可能会退化到O(N)
-<img alt="20240115120311.png" src="graph/20240115120311.png">
+![20240115120311.png](graph/20240115120311.png)
 
 2. Which of the following statements about HASH is true?
 
@@ -578,7 +578,7 @@ int pop(Stack *s) {
 
 3. Hash quadratic probing 会在index的$\pm pow(i,2)$的位置检查。
 4. 答案是B
-   <img alt="20240115153152.png" src="graph/20240115153152.png">
+   ![20240115153152.png](graph/20240115153152.png)
 5. 答案是C
-   <img alt="20240115153217.png" src="graph/20240115153217.png">
+   ![20240115153217.png](graph/20240115153217.png)
 

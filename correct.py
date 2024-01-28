@@ -35,3 +35,29 @@
 #         if filename.endswith('.md'):
 #             file_path = os.path.join(foldername, filename)
 #             replace_in_file(file_path, old_str, new_str)
+
+# 替换图片格式
+import os
+import re
+
+# 定义docs文件夹路径
+folder_path = 'docs'
+
+# 遍历文件夹
+for root, dirs, files in os.walk(folder_path):
+    for file in files:
+        if file.endswith(".md"):
+            file_path = os.path.join(root, file)
+            with open(file_path, 'r') as f:
+                content = f.read()
+                # 使用正则表达式匹配图片标签
+                img_tags = re.findall(r'<img alt="([^"]+)" src="([^"]+)">', content)
+                for alt, src in img_tags:
+                    # 生成Markdown图片语法
+                    markdown_img = f'![{alt}]({src})'
+                    # 替换原始图片标签
+                    content = content.replace(f'<img alt="{alt}" src="{src}">', markdown_img)
+            with open(file_path, 'w') as f:
+                # 写入替换后的内容
+                f.write(content)
+

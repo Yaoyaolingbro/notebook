@@ -146,7 +146,7 @@
 3. Difference: $A - B = \{x | x \in A \wedge x \notin B\}$
 4. Complement: $\bar{A} = U - A$
 5. Symmetric Difference: $A \oplus B = (A - B) \cup (B - A)$
-<img alt="20240116135329.png" src="graph/20240116135329.png">
+![20240116135329.png](graph/20240116135329.png)
 <!-- prettier-ignore-start -->
 !!! note "The power Set"
     **Definition**: The **power set** of a set $A$, denoted by $P(A)$ or $2^S$, is the set of all subsets of $A$.
@@ -342,7 +342,7 @@ $$
    - complete graph: $K_n$ is a simple graph with n vertices and exactly one edge between each pair of distinct vertices.($|E| = \frac{n(n-1)}{2}$)
    - cycles: $C_n$ is a simple graph with n vertices $v_1, v_2, \dots, v_n$ and edges $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}$
    - wheels: $W_n$ is a simple graph with n vertices $v_1, v_2, \dots, v_n$ and edges $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}, \{v_1, v_3\}, \{v_1, v_4\}, \dots, \{v_1, v_n\}$
-   <img alt="20240116003815.png" src="graph/20240116003815.png">
+   ![20240116003815.png](graph/20240116003815.png)
    - n-cubes: $Q_n$ is a simple graph with $2^n$ vertices $v_1, v_2, \dots, v_{2^n}$ and edges $\{v_i, v_j\}$ if and only if $v_i$ and $v_j$ differ in exactly one bit position.
    - bipartite graph: A graph $G = (V,E)$ is bipartite if $$ V = V_1 \cup V_2 \\ V_1 \cap V_2 = \emptyset$$ such that no edge has both endpoints in the same subset.
    - complete bipartite graph: $K_{m,n}$ is a bipartite graph with $m+n$ vertices $v_1, v_2, \dots, v_m$ and $u_1, u_2, \dots, u_n$ and edges $\{v_i, u_j\}$ for all $i = 1, 2, \dots, m$ and $j = 1, 2, \dots, n$.
@@ -357,19 +357,19 @@ $$
 ### 8.2 Representing graphs:
 1. **adjacency matrix**: $A = (a_{ij})$ is a $n \times n$ matrix such that $a_{ij} = 1$ if $\{v_i, v_j\} \in E$ and $a_{ij} = 0$ otherwise.
 2. **incidence matrix**: $B = (b_{ij})$ is a $n \times m$ matrix such that $b_{ij} = 1$ if $v_i$ is incident with $e_j$ and $b_{ij} = 0$ otherwise.
-<img alt="20240116004559.png" src="graph/20240116004559.png">
+![20240116004559.png](graph/20240116004559.png)
 3. **adjacency list**: For each vertex $v_i$, we have a list of all vertices adjacent to $v_i$. (for directed graph, we have two lists for each vertex, one for the vertices adjacent to $v_i$ and one for the vertices from which there is an edge to $v_i$)
 
 ### 8.3 Connection
 1. A path or circuit is simple if it does not contain a repeated edge.
-2. <img alt="20240116012051.png" src="graph/20240116012051.png">
+2. ![20240116012051.png](graph/20240116012051.png)
 3. Counting paths between vertices: The number of paths of length n from vertex $v_i$ to vertex $v_j$ in a graph G is the $(i,j)$ entry of the matrix $A^n$.
 
 ### 8.4 Euler and Hamilton Paths
 1. **Definition**: A **Euler path** in a graph G is a simple path that contains every edge of G. A **Euler circuit** is a simple circuit that contains every edge of G.
-2. <img alt="20240116012810.png" src="graph/20240116012810.png">
+2. ![20240116012810.png](graph/20240116012810.png)
 3. Euler path judge.
-<img alt="20240116012959.png" src="graph/20240116012959.png">
+![20240116012959.png](graph/20240116012959.png)
 
 1. **Definition**: A **Hamilton path** in a graph G is a simple path that contains every vertex of G.$V = \{v_1, v_2, \dots, v_n\}$, then $v_1, v_2, \dots, v_n$ is a Hamilton path if and only if $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}$ are edges of G.
 > **Remark**: A Hamilton circuit in a graph G is a simple circuit that contains every vertex of G.
@@ -378,8 +378,8 @@ $$
 ### 8.5 Planar Graphs
 1. **Definition**: A graph is **planar** if it can be drawn in the plane without any edges crossing.
 2. **Theorem**: Euler Formula -> Let $G = (V,E)$ be a connected planar graph with $n$ vertices, $m$ edges and $r$ regions. Then $n - m + r = 2$.
-> <img alt="20240116015018.png" src="graph/20240116015018.png">
-> <img alt="20240116015111.png" src="graph/20240116015111.png">
+> ![20240116015018.png](graph/20240116015018.png)
+> ![20240116015111.png](graph/20240116015111.png)
 
 ### 8.6 Coloring Graphs
 
