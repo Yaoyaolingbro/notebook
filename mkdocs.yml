@@ -12,7 +12,7 @@ theme:
     - navigation.tabs
     # - navigation.sections
     - navigation.prune
-    - navigation.instant
+    # - navigation.instant
     - navigation.tracking
     - navigation.indexes
     #　- navigation.expand
@@ -156,41 +156,41 @@ nav:
         - ZJU_CS/HPC/homework/lab4.md
         - ZJU_CS/HPC/homework/lab5.md
     - FDS:
-      - ZJU_CS\FDS\index.md
-      - ZJU_CS\FDS\algorithm.md
-      - ZJU_CS\FDS\graph.md
-      - ZJU_CS\FDS\hash.md
-      - ZJU_CS\FDS\heap.md
-      - ZJU_CS\FDS\set.md
-      - ZJU_CS\FDS\sort.md
-      - ZJU_CS\FDS\tree.md
-      - ZJU_CS\FDS\homework.md
-      - ZJU_CS\FDS\exam.md
+      - ZJU_CS/FDS/index.md
+      - ZJU_CS/FDS/algorithm.md
+      - ZJU_CS/FDS/graph.md
+      - ZJU_CS/FDS/hash.md
+      - ZJU_CS/FDS/heap.md
+      - ZJU_CS/FDS/set.md
+      - ZJU_CS/FDS/sort.md
+      - ZJU_CS/FDS/tree.md
+      - ZJU_CS/FDS/homework.md
+      - ZJU_CS/FDS/exam.md
     - Digital desin:
-      - ZJU_CS\DigitalDesign\index.md
-      - ZJU_CS\DigitalDesign\Chap01.md
-      - ZJU_CS\DigitalDesign\Chap02.md
-      - ZJU_CS\DigitalDesign\Chap03.md
-      - ZJU_CS\DigitalDesign\Chap04.md
-      - ZJU_CS\DigitalDesign\Chap05.md
-      - ZJU_CS\DigitalDesign\Chap06.md
-      - ZJU_CS\DigitalDesign\Chap07.md
-      - ZJU_CS\DigitalDesign\glossary.md
-      - ZJU_CS\DigitalDesign\exam.md
-      - ZJU_CS\DigitalDesign\learnskill.md
+      - ZJU_CS/DigitalDesign/index.md
+      - ZJU_CS/DigitalDesign/Chap01.md
+      - ZJU_CS/DigitalDesign/Chap02.md
+      - ZJU_CS/DigitalDesign/Chap03.md
+      - ZJU_CS/DigitalDesign/Chap04.md
+      - ZJU_CS/DigitalDesign/Chap05.md
+      - ZJU_CS/DigitalDesign/Chap06.md
+      - ZJU_CS/DigitalDesign/Chap07.md
+      - ZJU_CS/DigitalDesign/glossary.md
+      - ZJU_CS/DigitalDesign/exam.md
+      - ZJU_CS/DigitalDesign/learnskill.md
     - Discrete math:
-      - ZJU_CS\Discrete math\index.md
-      - ZJU_CS\Discrete math\note.md
-      - ZJU_CS\Discrete math\exam.md
+      - ZJU_CS/Discrete math/index.md
+      - ZJU_CS/Discrete math/note.md
+      - ZJU_CS/Discrete math/exam.md
 
   - Missing semester: 
     - Missing semester/index.md
     - Missing semester/toolbox.md
     - Missing semester/copilot.md
     - Git: 
-      - Missing semester/Git/index.md
-      - Missing semester/Git/fastGit.md
-      - Missing semester/Git/note.md
+      - Missing semester/git/index.md
+      - Missing semester/git/fastGit.md
+      - Missing semester/git/note.md
     - Markdown: 
       - Missing semester/Markdown/index.md
     - Linux: 
@@ -209,8 +209,8 @@ nav:
     - Mkdocs material:
       - Missing semester/Mkdocs material/index.md
     - Zotero:
-      - Missing semester\Zotero\index.md
-      - Missing semester\Zotero\use.md
+      - Missing semester/Zotero/index.md
+      - Missing semester/Zotero/use.md
 
   - Online CS Courses:
     - 计算机科学导论: 
@@ -225,73 +225,73 @@ nav:
       - Online CS Courses/CS50 AI/index.md
       - Online CS Courses/CS50 AI/note.md
     - CS61B:
-      - Online CS Courses\CS61B\index.md
-      - Online CS Courses\CS61B\note.md
+      - Online CS Courses/CS61B/index.md
+      - Online CS Courses/CS61B/note.md
     - CS106X:
-      - Online CS Courses\CS106X\index.md
+      - Online CS Courses/CS106X/index.md
 
   - AI:
     - AI/index.md
     - Machine Learning:
-      - AI\machine learning\index.md
-      - AI\machine learning\introduction.md
-      - AI\machine learning\method.md
+      - AI/machine learning/index.md
+      - AI/machine learning/introduction.md
+      - AI/machine learning/method.md
     - Deep learning:
-      - AI\deep learning\index.md
-      - AI\deep learning\dl2.md
-      - AI\deep learning\flow.md
+      - AI/deep learning/index.md
+      - AI/deep learning/dl2.md
+      - AI/deep learning/flow.md
     - 经典模型:
-      - AI\Model\index.md
-      - AI\Model\cnn.md
-      - AI\Model\rnn.md
-      - AI\Model\transformer.md
+      - AI/Model/index.md
+      - AI/Model/cnn.md
+      - AI/Model/rnn.md
+      - AI/Model/transformer.md
     - Pytorch:
-      - AI\Pytorch\index.md
-      - AI\Pytorch\note.md
+      - AI/Pytorch/index.md
+      - AI/Pytorch/note.md
   
   - Language:
     - C:
-      - Language\Advanced C Language\index.md
+      - Language/Advanced C Language/index.md
     - C++:
-      - Language\C++\index.md
+      - Language/C++/index.md
     - CUDA:
-      - Language\CUDA\index.md
-      - Language\CUDA\note.md
-      - Language\CUDA\GEMM.md
-      - Language\CUDA\cutlass.md
+      - Language/CUDA/index.md
+      - Language/CUDA/note.md
+      - Language/CUDA/GEMM.md
+      - Language/CUDA/cutlass.md
     - Python:
-      - Language\Python\index.md
-      - Language\Python\fastpython.md
-      - Language\Python\skill.md
-      - Language\Python\enviroment.md
+      - Language/Python/index.md
+      - Language/Python/fastpython.md
+      - Language/Python/skill.md
+      - Language/Python/enviroment.md
     - Verilog:
-      - Language\Verilog\index.md
+      - Language/Verilog/index.md
     
   
   - Scientific research:
-    - Scientific research\index.md
-    - Scientific research\ode.md
+    - Scientific research/index.md
+    - Scientific research/ode.md
     - mathematic model:
-      - Scientific research\mathematic model\index.md
-      - Scientific research\mathematic model\mcm.md
+      - Scientific research/mathematic model/index.md
+      - Scientific research/mathematic model/mcm.md
     - Basic tutor:
-      - Scientific research\basic tutor\voice synthesis.md
+      - Scientific research/basic tutor/voice synthesis.md
     - Zhaozhou:
-      - Scientific research\Zz\index.md
+      - Scientific research/Zz/index.md
       - 23 NIPS:
-        - Scientific research\Zz\23NIPS\index.md
-        - Scientific research\Zz\23NIPS\note.md
+        - Scientific research/Zz/23NIPS/index.md
+        - Scientific research/Zz/23NIPS/note.md
 
   - Spark in life:
-    - spark in life\index.md
+    - spark in life/index.md
     - College life:
-      - spark in life\college life\competition.md
-      - spark in life\college life\freshman.md
-      - spark in life\college life\second year.md
+      - spark in life/college life/competition.md
+      - spark in life/college life/freshman.md
+      - spark in life/college life/second year.md
     - Skill:
-      - spark in life\skills\cook.md
-      - spark in life\skills\driver license.md
-      - spark in life\skills\kickboxing.md
-      - spark in life\skills\virtual location.md
+      - spark in life/skills/cook.md
+      - spark in life/skills/driver license.md
+      - spark in life/skills/kickboxing.md
+      - spark in life/skills/virtual location.md
     - Travel:
-      - spark in life\travel\GuiZhou.md
+      - spark in life/travel/GuiZhou.md

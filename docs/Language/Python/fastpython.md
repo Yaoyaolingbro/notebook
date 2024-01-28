@@ -6,7 +6,7 @@
 
 ### 判断语句
 
-![](graph\Snipaste_2023-08-07_11-06-24.png)
+![](graph/Snipaste_2023-08-07_11-06-24.png)
 
 and 或者 or，后面用冒号，tab分层，`elif`
 
@@ -79,7 +79,7 @@ nums[len(nums):] = [11]
 
 ### Tuple元组
 
-![](graph\Snipaste_2023-08-07_19-59-14.png)
+![](graph/Snipaste_2023-08-07_19-59-14.png)
 
 ```python
 for prez,year in presidents:
@@ -90,13 +90,13 @@ for prez,year in presidents:
 
 ### Dictionary
 
-![](graph\Snipaste_2023-08-07_20-07-58.png)
+![](graph/Snipaste_2023-08-07_20-07-58.png)
 
 
 
 ### Function
 
-![](graph\Snipaste_2023-08-07_20-22-32.png)
+![](graph/Snipaste_2023-08-07_20-22-32.png)
 
 ```python
 def square(x):
@@ -107,7 +107,7 @@ def square(x):
 
 ### Object
 
-![](graph\Snipaste_2023-08-07_20-28-44.png)
+![](graph/Snipaste_2023-08-07_20-28-44.png)
 
 It's similar to c++.
 

@@ -18,7 +18,7 @@ Verilog是一种硬件编程语言，可以拓写到FPGA上去运行。
 
 一般的设计思路如下图：
 
-<img src="graph\Snipaste_2023-09-20_10-34-14.png" style="zoom:50%;" />
+<img src="graph/Snipaste_2023-09-20_10-34-14.png" style="zoom:50%;" />
 
 ### 标识符
 

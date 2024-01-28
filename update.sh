@@ -5,7 +5,7 @@ path="F:\Note of computer"
 #先进入项目当中
  
 cd $path
- 
+
 echo "####### 进入自己的项目 #######"
  
 ls

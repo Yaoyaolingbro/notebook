@@ -13,7 +13,7 @@
 ## The goals of CS106L
 1. Learn what features are out there in c++ and why they exist.
 2. Become comfortable with reading c++ documents.
-3. Become familiar with the design philosophy of modern c++.![](F:\Note of computer\docs\home\CS106L\graph\Snipaste_2023-06-30_17-18-10.png)
+3. Become familiar with the design philosophy of modern c++.![](F:\Note of computer\docs\home\CS106L\graph/Snipaste_2023-06-30_17-18-10.png)
 
 
 

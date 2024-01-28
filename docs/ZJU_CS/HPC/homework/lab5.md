@@ -58,15 +58,15 @@ Adam 优化器会比SGD效率高很多，准确率也会高很多
 
 大约需要30s左右GPU占用达到峰值，大约维持在1098Mib。
 
-![](graph\Snipaste_2023-08-22_19-53-57.png)
+![](graph/Snipaste_2023-08-22_19-53-57.png)
 
 #### Tensorboard
 
 使用`ssh -L 16006:127.0.0.1:6006 dzz@clusters.zju.edu.cn -p 80`，但是在**H248**上使用tensorboard，然后再在本地访问 http://127.0.0.1:16006/，既可以看到页面。
 
-![](graph\Snipaste_2023-08-22_22-18-24.png)
+![](graph/Snipaste_2023-08-22_22-18-24.png)
 
-![](graph\Snipaste_2023-08-22_22-18-49.png)
+![](graph/Snipaste_2023-08-22_22-18-49.png)
 
 ```shell
 [Epoch 1, Batch 200] loss: 0.681
@@ -143,7 +143,7 @@ class MyGELUFunction(Function):
 
 **实验结果：**
 
-![](graph\Snipaste_2023-08-26_09-59-19.png)
+![](graph/Snipaste_2023-08-26_09-59-19.png)
 
 由于浮点精度的问题，该误差可以忽略不记了。（已打印grad张量比较过）
 
@@ -172,9 +172,9 @@ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m){
 }
 ```
 
-![](graph\Snipaste_2023-08-26_17-08-02.png)
+![](graph/Snipaste_2023-08-26_17-08-02.png)
 
-![](graph\Snipaste_2023-08-26_17-01-11.png)
+![](graph/Snipaste_2023-08-26_17-01-11.png)
 
 
 
@@ -182,19 +182,19 @@ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m){
 
 通过在基准代码上编写，实验基本结果如下（loss高的吓人）
 
-![](graph\Snipaste_2023-08-26_12-35-51.png)
+![](graph/Snipaste_2023-08-26_12-35-51.png)
 
 ### 多卡训练
 
 当我使用lightning重构多卡训练模型后![]()，由于未知原因（？可能是0显卡未启用)导致训练时间明显变慢了
 
-![](graph\Snipaste_2023-08-29_10-10-41.png)
+![](graph/Snipaste_2023-08-29_10-10-41.png)
 
-![](graph\Snipaste_2023-08-29_09-45-35.png)
+![](graph/Snipaste_2023-08-29_09-45-35.png)
 
 ### 混合精度
 
-![](graph\Snipaste_2023-08-29_10-22-26.png)
+![](graph/Snipaste_2023-08-29_10-22-26.png)
 
 根据编译器的提示，我们更改代码：
 
@@ -204,7 +204,7 @@ if __name__ == '__main__':
     main()
 ```
 
-![](graph\Snipaste_2023-08-29_10-50-59.png)
+![](graph/Snipaste_2023-08-29_10-50-59.png)
 
 
 

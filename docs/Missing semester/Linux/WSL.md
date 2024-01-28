@@ -10,7 +10,7 @@
 
 如果你是win10以上的话，`WSL2`现在配置了GUI。(你可以一些matplotlib画图之类的)
 
-![](graph\GUI.png)
+![](graph/GUI.png)
 
 
 

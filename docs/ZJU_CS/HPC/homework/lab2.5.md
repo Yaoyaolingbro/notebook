@@ -105,15 +105,15 @@ for (int n = 0; n < 20; ++n)
 
 #### SIMD的汇编
 
-![](graph\Snipaste_2023-07-10_13-25-41.png)
+![](graph/Snipaste_2023-07-10_13-25-41.png)
 
-![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph\Snipaste_2023-07-10_13-26-45.png)
+![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph/Snipaste_2023-07-10_13-26-45.png)
 
 
 
 #### 普通的汇编
 
-![](graph\Snipaste_2023-07-10_13-27-01.png)
+![](graph/Snipaste_2023-07-10_13-27-01.png)
 
 
 
@@ -121,7 +121,7 @@ for (int n = 0; n < 20; ++n)
 
 我们不难看到他的处理也已经有SIMD（如：`vmovss`、`vaddss`）等的优化了
 
-![](graph\Snipaste_2023-07-10_13-35-23.png)
+![](graph/Snipaste_2023-07-10_13-35-23.png)
 
 
 
@@ -129,7 +129,7 @@ for (int n = 0; n < 20; ++n)
 
 ps:记得添加`gcc`的编译选项，否则可能不通过!
 
-![](graph\Snipaste_2023-07-09_13-26-16.png)
+![](graph/Snipaste_2023-07-09_13-26-16.png)
 
 **结论：**最后的加速比将近2.
 
@@ -141,11 +141,11 @@ ps:记得添加`gcc`的编译选项，否则可能不通过!
 
 通过手写SIMD的分装函数实现汇编上的优化。在学习的过程中我还看到，现代编译器都十分智能，我们甚至可以通过例如像：`GCC`编译器：使用`-O3`选项启用所有优化，并使用`-ftree-vectorize`选项启用自动向量化。（如下图）当然有的时候可能因为分支复杂的原因无法进行优化，我们也可以添加**编译指导语句**例如：`\#pragma omp parallel for reduction(+:sum) private(x)`来提示编译器帮我们优化
 
-![](graph\Snipaste_2023-07-10_13-37-47.png)
+![](graph/Snipaste_2023-07-10_13-37-47.png)
 
 实际自动优化的加速比已经非常接近手动优化的了：
 
-![](graph\Snipaste_2023-07-10_13-41-17.png)
+![](graph/Snipaste_2023-07-10_13-41-17.png)
 
 此外，这些封装函数的底层实现还是改变汇编语言。这当然得益于现代计算机高速发展使得cpu上能实现更多的指令加速工作。向量化的思想以及这个函数的整体构造，其实跟我们在`CUDA`编程课上分配threads去完成加法工作一样十分相似。包括一些MPI的设计结构也是如此。通过向量化（亦或是封装统一处理的思想）来实现high performance！
 

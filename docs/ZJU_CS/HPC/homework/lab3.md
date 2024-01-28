@@ -119,7 +119,7 @@ __global__ void MultipleCudaKernel(const double *__restrict__ a,
 
 ### AdderCudaKernel
 
-![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph\Snipaste_2023-07-23_21-06-03.png)
+![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph/Snipaste_2023-07-23_21-06-03.png)
 
 第一个是常规的**AdderCudaKernel**的测试，第二个是使用共享内存的测试时间，由于每次测试具有随机以及不稳定性，针对这种情况我分析可能是`__syncthreads()；`导致停顿的时间。
 
@@ -137,9 +137,9 @@ __global__ void MultipleCudaKernel(const double *__restrict__ a,
 
 ### 测试结果
 
-![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph\Snipaste_2023-07-23_21-08-27.png)
+![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph/Snipaste_2023-07-23_21-08-27.png)
 
-![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph\Snipaste_2023-07-23_21-58-40.png)
+![](F:\Note of computer\docs\ZJU_CS\超算\homework\graph/Snipaste_2023-07-23_21-58-40.png)
 
 故加速比为**0.94818**
 
@@ -209,6 +209,6 @@ __global__ void MultipleCudaKernel(const double *__restrict__ a,
 }
 ```
 
-![](graph\Snipaste_2023-08-02_15-43-20.png)
+![](graph/Snipaste_2023-08-02_15-43-20.png)
 
 **结论：**通过tensor core的计算，我们能很大程度上避免冲突并且加速计算。通过printf大法我看出我的计算结果与正确的计算结果相差了大约4倍左右，但不太理解自己错在了哪里？如果可以的话希望超算队的学长可以帮忙指出。

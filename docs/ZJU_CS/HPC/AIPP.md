@@ -67,15 +67,15 @@ int main (void){
 
 在上面的示例程序中，我们将信息通过`printf & sprintf`来传递。通过MPI_Send来发送MPI_Recv来接受。
 
-![](graph\Snipaste_2023-07-04_21-09-26.png)
+![](graph/Snipaste_2023-07-04_21-09-26.png)
 
-![](graph\Snipaste_2023-07-04_21-48-39.png)
+![](graph/Snipaste_2023-07-04_21-48-39.png)
 
 值得注意的是size要加上'\0'。**Data type could make the program portable.**
 
 （还有两个函数是MPI_Isend和MPI_IRecv）
 
-![](graph\Snipaste_2023-07-04_21-12-32.png)
+![](graph/Snipaste_2023-07-04_21-12-32.png)
 
 注意：
 
@@ -98,15 +98,15 @@ int main (void){
 
 * 我们需要每条接受语句有相应的发送语句匹配，防止进程悬挂。
 
-![](graph\Snipaste_2023-07-04_21-46-21.png)
+![](graph/Snipaste_2023-07-04_21-46-21.png)
 
-![](graph\Snipaste_2023-07-04_21-48-39.png)
+![](graph/Snipaste_2023-07-04_21-48-39.png)
 
 * also have a function `MPI_Probe`is like a mpi receive.
 
 * unblocking IO 会使编程变复杂。
 
-![](graph\Snipaste_2023-07-04_22-24-28.png)
+![](graph/Snipaste_2023-07-04_22-24-28.png)
 
 
 
@@ -131,7 +131,7 @@ MPI_Reduce(local _x, sum, N, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD)
 
 
 
-![](graph\Snipaste_2023-07-04_22-08-22.png)
+![](graph/Snipaste_2023-07-04_22-08-22.png)
 
 > 小结：我们不难注意到点对点通信和集合通信的不同。他们都有些特点：必须有匹配的集合通信函数；传递的参数必须“相容？”；忠告就是不建议将同一块缓冲区作为输入和输出同时调用！
 

@@ -72,7 +72,7 @@
 
 2. **双线性插值**：如下图，相信能够很快的理解其中的意思
 
-<img src="graph\Snipaste_2023-07-10_10-38-54.png" style="zoom:67%;" />
+<img src="graph/Snipaste_2023-07-10_10-38-54.png" style="zoom:67%;" />
 
 
 
@@ -142,7 +142,7 @@ def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 我们可以看到**加速比**：近乎34倍，可见向量化计算的好处！
 
-![](graph\Snipaste_2023-07-10_10-21-06.png)
+![](graph/Snipaste_2023-07-10_10-21-06.png)
 
 ## Discussion
 

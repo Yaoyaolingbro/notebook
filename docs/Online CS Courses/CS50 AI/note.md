@@ -29,7 +29,7 @@
 
 a data structure that keeps track of
 
-![](graph\Snipaste_2023-08-04_11-13-22.png)
+![](graph/Snipaste_2023-08-04_11-13-22.png)
 
 to avoid the mistakes, we need add the node to explored set.
 
@@ -43,7 +43,7 @@ Heuristic function? leads **Greedy Best-First Search.**
 
 However, the Greedy Best-First Search is not always best for finding the shortest way. The A* Search generates.
 
-![](graph\Snipaste_2023-08-04_16-48-54.png)
+![](graph/Snipaste_2023-08-04_16-48-54.png)
 
 
 
@@ -51,7 +51,7 @@ However, the Greedy Best-First Search is not always best for finding the shortes
 
 ###　Adversarial Search （tic-tac-toe 井字棋）
 
-![](graph\Snipaste_2023-08-05_11-12-30.png)
+![](graph/Snipaste_2023-08-05_11-12-30.png)
 
  
 
@@ -75,7 +75,7 @@ assertion断言
 
 five logical connectives:
 
-![](graph\Snipaste_2023-08-06_15-27-01.png) 
+![](graph/Snipaste_2023-08-06_15-27-01.png) 
 
 > implication: only P is true and Q is false ,the result is false.
 >
@@ -91,9 +91,9 @@ If we wonder whether a logic is right, we can check it in all model.
 
 Game Clue
 
-![](graph\Snipaste_2023-08-07_10-42-52.png)
+![](graph/Snipaste_2023-08-07_10-42-52.png)
 
-![](graph\Snipaste_2023-08-07_10-43-28.png)
+![](graph/Snipaste_2023-08-07_10-43-28.png)
 
 
 
@@ -107,9 +107,9 @@ Negative: $P(\neg a) = 1 - P(a)$
 
 Marginalization:$P(a) = P(a,b) + P(a,\neg b)$
 
-![](graph\Snipaste_2023-08-07_21-24-32.png)
+![](graph/Snipaste_2023-08-07_21-24-32.png)
 
-![](graph\Snipaste_2023-08-07_21-24-32.png)
+![](graph/Snipaste_2023-08-07_21-24-32.png)
 
 calculate solution：$$P(a|b) =\frac{P(a \land b)}{P(b)}$$
 
@@ -139,15 +139,15 @@ data structure that represents the dependencies among random variable
 
 
 
-![](graph\Snipaste_2023-08-08_15-34-32.png)
+![](graph/Snipaste_2023-08-08_15-34-32.png)
 
 ### Markov
 
-![](graph\Snipaste_2023-08-08_16-19-44.png)
+![](graph/Snipaste_2023-08-08_16-19-44.png)
 
-![](graph\Snipaste_2023-08-20_11-57-52.png)
+![](graph/Snipaste_2023-08-20_11-57-52.png)
 
-![](graph\Snipaste_2023-08-20_12-42-24.png)
+![](graph/Snipaste_2023-08-20_12-42-24.png)
 
 
 
@@ -159,17 +159,17 @@ $h(x_1, x_2)= w_0 + w_1 x_1 + w_2 x_2$
 
 weight 1 & 2, and bias $w_0$
 
-![](graph\Snipaste_2023-08-21_10-33-00.png)
+![](graph/Snipaste_2023-08-21_10-33-00.png)
 
-![](graph\Snipaste_2023-08-21_10-32-50.png)
+![](graph/Snipaste_2023-08-21_10-32-50.png)
 
-![](graph\Snipaste_2023-08-21_10-34-12.png)
+![](graph/Snipaste_2023-08-21_10-34-12.png)
 
 
 
 ### Gradient Descent
 
-![](graph\Snipaste_2023-08-21_11-07-37.png)
+![](graph/Snipaste_2023-08-21_11-07-37.png)
 
 Stochastic(随机) Gradient Descent: **One data point**
 
@@ -179,23 +179,23 @@ Mini-Batch: **One small batch** .
 
 ### Perceptron（感知机）
 
-![](graph\Snipaste_2023-08-21_11-55-31.png)
+![](graph/Snipaste_2023-08-21_11-55-31.png)
 
 
 
 ### Overfitting
 
-![](graph\Snipaste_2023-08-21_12-26-14.png)
+![](graph/Snipaste_2023-08-21_12-26-14.png)
 
 
 
 ### Computer Vision & CNN
 
-![](graph\Snipaste_2023-08-21_18-35-08.png)
+![](graph/Snipaste_2023-08-21_18-35-08.png)
 
 > max pooling always be used.
 
-![](graph\Snipaste_2023-08-21_18-36-07.png)
+![](graph/Snipaste_2023-08-21_18-36-07.png)
 
 more resilient & robust
 

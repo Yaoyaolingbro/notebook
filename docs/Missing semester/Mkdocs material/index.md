@@ -8,7 +8,7 @@
 1. 其次你需要安装pip，详情请看[教程](https://zhuanlan.zhihu.com/p/38603105)
 1. 此外你需要安装[git](https://git-scm.com/download/win)(选择64-bits的standalone版本，直接一路next即可)
 
-![](graph\Snipaste_2023-08-10_23-20-31.png)
+![](graph/Snipaste_2023-08-10_23-20-31.png)
 
 4. 你需要一个[Github](https://github.com/)账号
 5. 最好下载一个Vscode[教程](https://blog.csdn.net/qq_30640671/article/details/109704940)
@@ -20,11 +20,11 @@
 ##  使用
 
 1. 首先你需要建立一个Github上的远程仓库，可以具体看我另外一个快速上手远程仓库[教程](https://yaoyaolingbro.github.io/notebook/Missing%20semester/Git/fast_git/#githubrepository)
-2. 此外，你需要学习markdown的语法，详情请看我的[记录](https://yaoyaolingbro.github.io/notebook/Missing%20semester/Markdown/)（如果想要插入图片,请在文件夹下建立一个graph文件夹，并在markdown文件中使用相对路径）![](graph\Snipaste_2023-08-10_23-29-01.png)
+2. 此外，你需要学习markdown的语法，详情请看我的[记录](https://yaoyaolingbro.github.io/notebook/Missing%20semester/Markdown/)（如果想要插入图片,请在文件夹下建立一个graph文件夹，并在markdown文件中使用相对路径）![](graph/Snipaste_2023-08-10_23-29-01.png)
 
 
 
-3. 请在命令行上使用`mkdocs new`, 会自动生成一个docs文件夹，site文件夹以及一个mkdocs.yml![](graph\Snipaste_2023-08-10_23-31-59.png)
+3. 请在命令行上使用`mkdocs new`, 会自动生成一个docs文件夹，site文件夹以及一个mkdocs.yml![](graph/Snipaste_2023-08-10_23-31-59.png)
 
 
 

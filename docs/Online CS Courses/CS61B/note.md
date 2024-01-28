@@ -2,13 +2,13 @@
 
 ## Lecture 1 Introduction
 
-![](graph\Snipaste_2023-10-02_10-51-53.png)
+![](graph/Snipaste_2023-10-02_10-51-53.png)
 
-![](graph\Snipaste_2023-10-02_10-57-56.png)
+![](graph/Snipaste_2023-10-02_10-57-56.png)
 
-![](graph\Snipaste_2023-10-02_11-23-28.png)
+![](graph/Snipaste_2023-10-02_11-23-28.png)
 
-![](graph\Snipaste_2023-10-02_11-33-02.png)
+![](graph/Snipaste_2023-10-02_11-33-02.png)
 
 
 
@@ -19,10 +19,10 @@
 1. I totally think java is truly similar to C, so I just write down some important or easily mistakes .
 2. Note that `^` in Java is the “XOR” operator, not the exponentiation operation. That is, `2 ^ 10` is valid code, but it will return `8`, not `1024`.
 3. Java like python in sow the string.
-4. ![](graph\Snipaste_2023-10-02_11-50-13.png)
+4. ![](graph/Snipaste_2023-10-02_11-50-13.png)
 5.  If a type starts with a capital letter, it is likely a reference type.
-6. ![](graph\Snipaste_2023-10-02_11-58-43.png)
-7. ![](graph\Snipaste_2023-10-02_12-00-09.png)
+6. ![](graph/Snipaste_2023-10-02_11-58-43.png)
+7. ![](graph/Snipaste_2023-10-02_12-00-09.png)
 8. 关于List、Set和Dictionary的部分我放到后面学习，因为自己对这个的框架搭建的还不够完善，class是个值得好好学习的地方。
 9. 
 
@@ -32,11 +32,11 @@
 
 ### Class
 
-![](graph\Snipaste_2023-10-02_13-24-29.png)
+![](graph/Snipaste_2023-10-02_13-24-29.png)
 
 A class serves as a template for its instance.
 
-![](graph\Snipaste_2023-10-02_13-29-02.png)
+![](graph/Snipaste_2023-10-02_13-29-02.png)
 
 ```python
 # 下面这段代码值得好好理解
@@ -71,7 +71,7 @@ Peon, I work
 'Peon, I work'
 ```
 
-![](graph\Snipaste_2023-10-02_15-43-44.png)
+![](graph/Snipaste_2023-10-02_15-43-44.png)
 
 
 
@@ -88,9 +88,9 @@ class customer:
 # 当我们对jim的interests单独做更改时更改，否则倘若我们更改customer.interest的值，jim.interest的值会随之改变。
 ```
 
-![](graph\Snipaste_2023-10-02_23-07-26.png)
+![](graph/Snipaste_2023-10-02_23-07-26.png)
 
-<img src="graph\Snipaste_2023-10-02_23-19-01.png" style="zoom:67%;" />
+<img src="graph/Snipaste_2023-10-02_23-19-01.png" style="zoom:67%;" />
 
 关于多个类继承的问题在CS61A中讲的是非常浅的，根据GPT的回答如下：
 
@@ -116,7 +116,7 @@ Link(5, Link(4, Link(3, Link_empty)))
 
 ### Tree
 
-![](graph\Snipaste_2023-10-03_11-19-17.png)
+![](graph/Snipaste_2023-10-03_11-19-17.png)
 
 
 
