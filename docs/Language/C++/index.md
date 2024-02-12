@@ -8,4 +8,4 @@
 
 [Hacking Cpp](https://hackingcpp.com/)
 
-[Cpp Guideline](https://github.com/isocpp/CppCoreGuidelines)
+[Cpp Guideline](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-introduction)
