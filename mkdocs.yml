@@ -200,6 +200,7 @@ nav:
       - Missing semester/Linux/WSL.md
       - Missing semester/Linux/advanced Linux.md
       - Missing semester/Linux/vim.md
+      - Missing semester/Linux/tmux.md
     - Docker:
       - Missing semester/Docker/index.md
     - Ladder:
@@ -254,6 +255,7 @@ nav:
       - Language/Advanced C Language/index.md
     - C++:
       - Language/C++/index.md
+      - Language/C++/stl.md
     - CUDA:
       - Language/CUDA/index.md
       - Language/CUDA/note.md
