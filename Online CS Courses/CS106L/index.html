@@ -1021,6 +1021,8 @@
       
         
       
+        
+      
     
     
     
@@ -2044,6 +2046,8 @@
           
         
       
+        
+      
     
     
     
@@ -2721,6 +2725,51 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#lec5_class" class="md-nav__link">
+    <span class="md-ellipsis">
+      lec5 Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lec6_template_class" class="md-nav__link">
+    <span class="md-ellipsis">
+      lec6 Template class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lec7_template_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      lec7 template function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lec8_function_and_lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      lec8 function and lambda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lec9_operator_overloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      lec9 Operator Overloading
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2767,8 +2816,161 @@ clog: used for non-critical event logging</p>
 <li>
 <p>getline
    <img alt="20240212190451.png" src="graph/20240212190451.png" /></p>
+<blockquote>
+<p>注意getline函数的使用，最好不要和cin混用，否则会出现问题。</p>
+</blockquote>
 </li>
 </ol>
+<h3 id="lec5_class">lec5 Class<a class="headerlink" href="#lec5_class" title="Permanent link">#</a></h3>
+<ol>
+<li>How to write .h and .cpp file</li>
+<li>To make alias
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nl">Private</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="c1">/// An example of type aliasing</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="k">using</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</code></pre></div></li>
+<li>How to use <code>this</code> pointer
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Person::set_name</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">   </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>
+<p>Container adapters：例如queue中的deque和list
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>virtual 关键词 用于声明虚函数。虚函数是在基类中使用 virtual 关键字声明的成员函数，它可以在派生类中被重写（覆盖）。：
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Base::show() called&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">};</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Derived::show() called&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">};</span>
+</code></pre></div></p>
+</li>
+</ol>
+<p>而如果使用纯虚函数，那么每个基类使用都一定要重写这个函数，否则会报错。
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div></p>
+<p>一段示例代码：<img alt="20240213121100.png" src="graph/20240213121100.png" /></p>
+<blockquote>
+<p>请注意constructor变量名的命名技巧，这样可以避免和成员变量重名。</p>
+</blockquote>
+<h3 id="lec6_template_class">lec6 Template class<a class="headerlink" href="#lec6_template_class" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>为什么要使用模板类？
+   - 代码复用
+   - 类型安全
+   - 性能优化
+   <img alt="20240214122415.png" src="graph/20240214122415.png" /></p>
+</li>
+<li>
+<p>在.h文件中必须包含.h和.cpp文件
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;source.cpp&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>const 的使用
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">stringify</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Student</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">){</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">getAge</span><span class="p">())</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">   </span><span class="s">&quot; years old.&quot;</span><span class="w"> </span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</code></pre></div>
+   由于编译器并不知道<code>getName()</code>&amp;<code>getAge()</code>函数是否会改变s的值，所以我们需要在函数后面加上const关键词。
+   <img alt="20240214123015.png" src="graph/20240214123015.png" />
+   <img alt="20240215123620.png" src="graph/20240215123620.png" /></p>
+</li>
+<li>
+<p>throw exception
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Student::setAge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Age cannot be negative&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">   </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div>
+   <img alt="20240214123521.png" src="graph/20240214123521.png" /></p>
+</li>
+<li>
+<p>const_cast 使用技巧
+   <img alt="20240214124329.png" src="graph/20240214124329.png" /></p>
+</li>
+</ol>
+<h3 id="lec7_template_function">lec7 template function<a class="headerlink" href="#lec7_template_function" title="Permanent link">#</a></h3>
+<ol>
+<li>An example
+   <img alt="20240215171554.png" src="graph/20240215171554.png" /></li>
+<li>Constraints and concepts
+   <img alt="20240215171655.png" src="graph/20240215171655.png" /></li>
+</ol>
+<details class="note">
+<summary>Complex Reference</summary>
+</details>
+<p><img alt="20240215172834.png" src="graph/20240215172834.png" />
+3. 使用template可以更有效率：
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">unsigned1</span><span class="o">&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Factorial</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">   </span><span class="k">enum</span><span class="w"> </span><span class="nc">value</span><span class="w"> </span><span class="o">=</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Factorial</span><span class="o">&lt;</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">};</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">template</span><span class="o">&lt;&gt;</span><span class="c1">// template class &quot;specializationstruct </span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">Factorial</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">{</span><span class="k">enum</span><span class="w"> </span><span class="nc">fvalue</span><span class="o">=</span><span class="mi">1</span><span class="p">};</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">Factorial</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="c1">//prints 3628800, but run duringcompile time!</span>
+</code></pre></div>
+4. constexpr: 用于在编译时计算值
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="lec8_function_and_lambda">lec8 function and lambda<a class="headerlink" href="#lec8_function_and_lambda" title="Permanent link">#</a></h3>
+<ol>
+<li>function pointer
+   <img alt="20240215185034.png" src="graph/20240215185034.png" /></li>
+<li>lambda expression
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">is_greater_than_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">limit</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">};</span>
+</code></pre></div>
+   <img alt="20240215201405.png" src="graph/20240215201405.png" /></li>
+<li>Functor
+   <img alt="20240215201553.png" src="graph/20240215201553.png" /></li>
+<li>virtual function: can be overrided by derived class
+   <img alt="20240215201834.png" src="graph/20240215201834.png" /></li>
+<li>The STL implements tons of cool algorithms that we
+can use without rewriting them! </li>
+</ol>
+<h3 id="lec9_operator_overloading">lec9 Operator Overloading<a class="headerlink" href="#lec9_operator_overloading" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>fraction example： <a href="https://replit.com/@havenw/simplefraction">https://replit.com/@havenw/simplefraction</a>
+<img alt="20240215214558.png" src="graph/20240215214558.png" />
+<img alt="20240215214612.png" src="graph/20240215214612.png" /></p>
+</li>
+<li>
+<p>friend关键词可以让一个函数访问类的私有成员，它有助于实现重载运算符，但请注意他会<strong>破坏封装性</strong>。
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Fraction</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">   </span><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Fraction</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">);</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">};</span>
+</code></pre></div>
+   <img alt="20240215215212.png" src="graph/20240215215212.png" /></p>
+</li>
+</ol>
+<blockquote>
+<p><img alt="20240215215819.png" src="graph/20240215215819.png" /></p>
+</blockquote>
 
 
 
@@ -2791,7 +2993,7 @@ clog: used for non-critical event logging</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月12日 20:33:37</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月16日 11:47:38</span>
   </span>
 
     
