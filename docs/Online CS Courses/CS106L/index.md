@@ -162,3 +162,74 @@ can use without rewriting them!
 
 
 > ![20240215215819.png](graph/20240215215819.png)
+
+
+### lec10 Special Member Function
+Class has three main part: the constructor and destructor, member variables, and functions.
+
+Totaly, there are 6 special member functions:
+- Default constructor
+- Copy constructor
+- Copy assignment operator
+- Move constructor
+- Move assignment operator
+- Destructor
+
+The compiler will generate these functions for you if you don't define them yourself. However, if you define any of these functions, the compiler will not generate the others for you.
+
+Example:![20240216180008.png](graph/20240216180008.png)
+
+1. 浅拷贝和深拷贝
+   ```cpp
+   #include <iostream>
+
+   class ShallowCopyExample {
+   private:
+      int* data;
+
+   public:
+      // 浅拷贝的构造函数
+      ShallowCopyExample(const ShallowCopyExample& other) {
+         data = other.data;  // 只是复制指针，而不是复制指针指向的数据
+      }
+
+      // 深拷贝的构造函数
+      DeepCopyExample(const DeepCopyExample& other) {
+         data = new int(*other.data);  // 分配新的内存，并复制数据
+      }
+
+      // 析构函数
+      ~ShallowCopyExample() {
+         delete data;  // 释放动态分配的内存
+      }
+   };
+
+   int main() {
+      ShallowCopyExample original;
+      ShallowCopyExample shallowCopy = original;  // 浅拷贝
+
+      DeepCopyExample deepCopy = original;  // 深拷贝
+
+      return 0;
+   }
+   ```
+<!-- prettier-ignore-start -->
+!!! warning "attention"
+   If you have to define a destructor, copy constructor, or copy assignment operator, you should define all three!
+   - Needing one signifies you’re handling certain resources manually.
+   - We then should handle the creation, assignment, use, and destruction of those resources ourselves!
+   ![20240216185815.png](graph/20240216185815.png)
+<!-- prettier-ignore-end -->
+
+### lec RAII & smart pointer
+1. 一段代码中存在许多种可能的code path， 我们需要留意是否会造成内存泄漏。
+   ｜ ｜ Acquire ｜ Release｜
+   ｜Heap Memory | new | delete|
+   | Files | open | close|
+   | Locks | try_lock | unlock|
+   | Socket | socket | close |
+2. **Exception:**
+   ![20240217145946.png](graph/20240217145946.png)
+
+3. Unique_pointer: can not be copied.
+   ![20240217150836.png](graph/20240217150836.png)

@@ -182,6 +182,16 @@ nav:
       - ZJU_CS/Discrete math/index.md
       - ZJU_CS/Discrete math/note.md
       - ZJU_CS/Discrete math/exam.md
+    - OOP:
+      - ZJU_CS/oop/index.md
+      - ZJU_CS/oop/exam.md
+    - ADS:
+      - ZJU_CS/ADS/index.md
+      - ZJU_CS/ADS/homework.md
+      - ZJU_CS/ADS/note.md
+    - Database:
+      - ZJU_CS/Database/index.md
+      - ZJU_CS/Database/note.md
 
   - Missing semester: 
     - Missing semester/index.md
@@ -297,3 +307,4 @@ nav:
       - spark in life/skills/virtual location.md
     - Travel:
       - spark in life/travel/GuiZhou.md
+      - spark in life/travel/chongqing.md
