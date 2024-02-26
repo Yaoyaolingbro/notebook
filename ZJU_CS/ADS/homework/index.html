@@ -1,0 +1,4210 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yaoyaoling">
+      
+      
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/homework/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../note/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>ADS Homework Review - Yaoyaolingbro's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="../../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/more_changelog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-KJB4RXSKZG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-KJB4RXSKZG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-KJB4RXSKZG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ads_homework_review" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Yaoyaolingbro&#39;s notebook" class="md-header__button md-logo" aria-label="Yaoyaolingbro's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Yaoyaolingbro's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ADS Homework Review
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU_CS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Missing%20semester/" class="md-tabs__link">
+          
+  
+    
+  
+  Missing semester
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-tabs__link">
+          
+  
+    
+  
+  Online CS Courses
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/" class="md-tabs__link">
+          
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Language/Advanced%20C%20Language/" class="md-tabs__link">
+          
+  
+    
+  
+  Language
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Scientific%20research/" class="md-tabs__link">
+          
+  
+    
+  
+  Scientific research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../spark%20in%20life/" class="md-tabs__link">
+          
+  
+    
+  
+  Spark in life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Yaoyaolingbro&#39;s notebook" class="md-nav__button md-logo" aria-label="Yaoyaolingbro's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Yaoyaolingbro's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ZJU_CS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../HPC/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../FDS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    FDS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../DigitalDesign/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Digital desin
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Discrete%20math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Discrete math
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../oop/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    OOP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ADS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            ADS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ADS Homework Review
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ADS Homework Review
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hw1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw10
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw11
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw12
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw14
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw15
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Database/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Missing%20semester/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Missing semester
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Missing semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/toolbox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工具箱（一些好用的网站or分享）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/git/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Markdown/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Markdown
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Docker/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Ladder/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Ladder
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Latex/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Latex
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Mkdocs%20material/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Mkdocs material
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Zotero/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zotero
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Online CS Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Online CS Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机科学导论
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CSAPP/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CSAPP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106L/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106L
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS50%20AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS50 AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS61B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS61B
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106X/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AI/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/machine%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/deep%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Deep learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/Model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    经典模型
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/Pytorch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Language
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Advanced%20C%20Language/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/C%2B%2B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/CUDA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CUDA
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Python/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Verilog/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Verilog
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Scientific%20research/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Scientific research
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Scientific research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/ode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/mathematic%20model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    mathematic model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Basic tutor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/Zz/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zhaozhou
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spark%20in%20life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Spark in life
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Spark in life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/college%20life/competition/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    College life
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/skills/cook/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/travel/GuiZhou/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Travel
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hw1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw10
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw11
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw12
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw14
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hw15
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="ads_homework_review">ADS Homework Review<a class="headerlink" href="#ads_homework_review" title="Permanent link">#</a></h1>
+<div class="admonition info">
+<p class="admonition-title">PTA homework of ZJU <em>Advanced Data Structure and Algorithm</em>, 2022 Spring &amp; Summer.</p>
+</div>
+<h2 id="hw1">Hw1<a class="headerlink" href="#hw1" title="Permanent link">#</a></h2>
+<p><strong>Q2-1.</strong> If the depth of an AVL tree is 6 (the depth of an empty tree is defined to be -1), then the minimum possible number of nodes in this tree is:</p>
+<p>A. 13</p>
+<p>B. 17</p>
+<p>C. 20</p>
+<p>D. 33</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。</p>
+<div class="arithmatex">\[
+n_h=h_{h-1}+h_{n-2}+1
+\]</div>
+<table>
+<thead>
+<tr>
+<th>depth</th>
+<th>-1</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodes</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>7</td>
+<td>12</td>
+<td>20</td>
+<td>33</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><strong>Q2-2.</strong> Insert 2, 1, 4, 5, 9, 3, 6, 7 into an initially empty AVL tree. Which one of the following statements is FALSE?</p>
+<p>A. 4 is the root</p>
+<p>B. 3 and 7 are siblings</p>
+<p>C. 2 and 6 are siblings</p>
+<p>D. 9 is the parent of 7</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。最终结果如下图。</p>
+<p><div style="text-align:center;">
+    <img src="./graph/ads_hw_1.3.png" alt="1.3" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+<p>如果搞不清过程，可以利用一下 <a href="https://www.cs.usfca.edu/~galles/visualization/AVLtree.html">AVL 树模拟</a>。</p>
+</details>
+<p><strong>Q2-3.</strong> For the result of accessing the keys 3, 9, 1, 5 in order in the splay tree in the following figure, which one of the following statements is FALSE?</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_1.1.jpg" alt="1.1" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. 5 is the root</p>
+<p>B. 1 and 9 are siblings</p>
+<p>C. 6 and 10 are siblings</p>
+<p>D. 3 is the parent of 4</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。最终结果如下图</p>
+<p><div style="text-align:center;">
+<img src="./graph/ads_hw_1.4.png" alt="1.4" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+</details>
+<p><strong>Q2-4.</strong> When doing amortized analysis, which one of the following statements is FALSE?</p>
+<p>A. Aggregate analysis shows that for all <span class="arithmatex">\(n\)</span>, a sequence of <span class="arithmatex">\(n\)</span> operations takes worst-case time <span class="arithmatex">\(T(n)\)</span> in total. Then the amortized cost per operation is therefore <span class="arithmatex">\(T(n)/n\)</span></p>
+<p>B. For potential method, a good potential function should always assume its maximum at the start of the sequence</p>
+<p>C. For accounting method, when an operation's amortized cost exceeds its actual cost, we save the difference as credit to pay for later operations whose amortized cost is less than their actual cost</p>
+<p>D. The difference between aggregate analysis and accounting method is that the later one assumes that the amortized costs of the operations may differ from each other</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。B应该是minimum。</p>
+</details>
+<p><strong>Q2-5.</strong> Consider the following buffer management problem. Initially the buffer size (the number of blocks) is one. Each block can accommodate exactly one item. As soon as a new item arrives, check if there is an available block. If yes, put the item into the block, induced a cost of one. Otherwise, the buffer size is doubled, and then the item is able to put into. Moreover, the old items have to be moved into the new buffer so it costs <span class="arithmatex">\(k+1\)</span> to make this insertion, where <span class="arithmatex">\(k\)</span> is the number of old items. Clearly, if there are <span class="arithmatex">\(N\)</span> items, the worst-case cost for one insertion can be <span class="arithmatex">\(\Omega(N)\)</span>. To show that the average cost is <span class="arithmatex">\(O(1)\)</span>, let us turn to the amortized analysis. To simplify the problem, assume that the buffer is full after all the <span class="arithmatex">\(N\)</span> items are placed. Which of the following potential functions works?</p>
+<p>A. The number of items currently in the buffer</p>
+<p>B. The opposite number of items currently in the buffer</p>
+<p>C. The number of available blocks currently in the buffer</p>
+<p>D. The opposite number of available blocks in the buffer</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。如下图。</p>
+<p><div style="text-align:center;">
+<img src="./graph/ads_hw_1.2.png" alt="1.2" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+</details>
+<h2 id="hw2">Hw2<a class="headerlink" href="#hw2" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> A 2-3 tree with 3 nonleaf nodes must have 18 keys at most. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。必然一根两中间，2<em>3</em>3=18。</p>
+</details>
+<p><strong>Q2-1</strong> In the red-black tree that results after successively inserting the keys 41; 38; 31; 12; 19; 8 into an initially empty red-black tree, which one of the following statements is FALSE?</p>
+<p>A. 38 is the root</p>
+<p>B. 19 and 41 are siblings, and they are both red</p>
+<p>C. 12 and 31 are siblings, and they are both black</p>
+<p>D. 8 is red</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。最终结果如下图。</p>
+<p><div style="text-align:center;">
+<img src="./graph/ads_hw_2.2.png" alt="2.2" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+<p>如果搞不清过程，可以利用一下 <a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html">RB 树模拟</a>。</p>
+</details>
+<p><strong>Q2-2.</strong> After deleting 15 from the red-black tree given in the figure, which one of the following statements must be FALSE?</p>
+<div style="text-align:center;">
+<img src="./graph/ads_hw_2.1.jpg" alt="2.1" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. 11 is the parent of 17, and 11 is black</p>
+<p>B. 17 is the parent of 11, and 11 is red</p>
+<p>C. 11 is the parent of 17, and 11 is red</p>
+<p>D. 17 is the parent of 11, and 17 is black</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。可能 11 顶上去，则 11 为黑、17 为红。</p>
+<p>也可能 17 顶上去，则 17 为黑、11 为红。</p>
+</details>
+<p><strong>Q2-3.</strong> Insert 3, 1, 4, 5, 9, 2, 6, 8, 7, 0 into an initially empty 2-3 tree (with splitting). Which one of the following statements is FALSE?</p>
+<p>A. 7 and 8 are in the same node</p>
+<p>B. the parent of the node containing 5 has 3 children</p>
+<p>C. the first key stored in the root is 6</p>
+<p>D. there are 5 leaf nodes</p>
+<details class="general">
+<summary>Answer</summary>
+<p>A。最终结果如下图</p>
+<p><div style="text-align:center;">
+<img src="./graph/ads_hw_2.3.png" alt="2.3" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+<p>如果搞不清过程，不建议使用对应网站的 B+ 树模拟，它那里的 B+ 树的定义似乎和 ads 有所不同（采用的可能是数据库的定义）。</p>
+</details>
+<p><strong>Q2-4.</strong> After deleting 9 from the 2-3 tree given in the figure, which one of the following statements is FALSE?</p>
+<div style="text-align:center;">
+<img src="./graph/ads_hw_2.5.jpg" alt="2.5" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. the root is full</p>
+<p>B. the second key stored in the root is 6</p>
+<p>C. 6 and 8 are in the same node</p>
+<p>D. 6 and 5 are in the same node</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。最终结果如下图。</p>
+<p><div style="text-align:center;">
+<img src="./graph/ads_hw_2.4.png" alt="2.4" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+</details>
+<p><strong>Q2-5.</strong> Which of the following statements concerning a B+ tree of order <span class="arithmatex">\(M\)</span> is TRUE?</p>
+<p>A. the root always has between 2 and <span class="arithmatex">\(M\)</span> children</p>
+<p>B. not all leaves are at the same depth</p>
+<p>C. leaves and nonleaf nodes have some key values in common</p>
+<p>D. all nonleaf nodes have between <span class="arithmatex">\(\lceil M/2\rceil\)</span> and <span class="arithmatex">\(M\)</span> children</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。A，考虑根为叶。B，所有叶必然同深。D，考虑根。</p>
+</details>
+<h2 id="hw3">Hw3<a class="headerlink" href="#hw3" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> In distributed indexing, document-partitioned strategy is to store on each node all the documents that contain the terms in a certain range. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。这是 term-partitioned 策略。</p>
+</details>
+<p><strong>Q1-2.</strong> When evaluating the performance of data retrieval, it is important to measure the relevancy of the answer set. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。召回率和整个答案集的相关性无关。</p>
+</details>
+<p><strong>Q1-3.</strong> Precision is more important than recall when evaluating the explosive detection in airport security. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。安全至上，尽量都发现。</p>
+</details>
+<p><strong>Q1-4.</strong> While accessing a term by hashing in an inverted file index, range searches are expensive. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+</details>
+<p><strong>Q2-1.</strong> When measuring the relevancy of the answer set, if the precision is high but the recall is low, it means that:</p>
+<p>A. most of the relevant documents are retrieved, but too many irrelevant documents are returned as well</p>
+<p>B. most of the retrieved documents are relevant, but still a lot of relevant documents are missed</p>
+<p>C. most of the relevant documents are retrieved, but the benchmark set is not large enough</p>
+<p>D. most of the retrieved documents are relevant, but the benchmark set is not large enough</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+</details>
+<p><strong>Q2-2.</strong> Which of the following is NOT concerned for measuring a search engine?</p>
+<p>A. How fast does it index</p>
+<p>B. How fast does it search</p>
+<p>C. How friendly is the interface</p>
+<p>D. How relevant is the answer set</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。理工科钢铁直男不需要考虑用户用着舒服不舒服，单刀直入看效果。</p>
+</details>
+<p><strong>Q2-3</strong> There are 28000 documents in the database. The statistic data for one query are shown in the following table. The recall is: __</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Relevant</th>
+<th>Irrelevant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retrieved</td>
+<td>4000</td>
+<td>12000</td>
+</tr>
+<tr>
+<td>Not Retrieved</td>
+<td>8000</td>
+<td>4000</td>
+</tr>
+</tbody>
+</table>
+<p>A. 14%</p>
+<p>B. 25%</p>
+<p>C. 33%</p>
+<p>D. 50%</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。</p>
+<div class="arithmatex">\[
+    recall = 4000 / (4000+8000) = 33\%
+\]</div>
+</details>
+<h2 id="hw4">Hw4<a class="headerlink" href="#hw4" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> The result of inserting keys <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(2^k-1\)</span> for any <span class="arithmatex">\(k&gt;4\)</span> in order into an initially empty skew heap is always a full binary tree. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+</details>
+<p><strong>Q1-2.</strong> The right path of a skew heap can be arbitrarily long. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。skew heap 只有轻结点受类似 leftist heap 的限制。</p>
+<p>相对而言，leftist heap 就不能这么任意了，它受 <span class="arithmatex">\(\log N\)</span> 限制。</p>
+</details>
+<p><strong>Q2-1.</strong> The right path of a skew heap can be arbitrarily long.</p>
+<div style="text-align:center;">
+<img src="./graph/ads_hw_4.1.jpg" alt="4.1" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. 2 is the root with 11 being its right child</p>
+<p>B. the depths of 9 and 12 are the same</p>
+<p>C. 21 is the deepest node with 11 being its parent</p>
+<p>D. the null path length of 4 is less than that of 2</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。都是2，如下图</p>
+<p><div style="text-align:center;">
+    <img src="./graph/ads_hw_4.3.png" alt="4.3" style="margin: 0 auto; zoom: 60%;"/>
+</div></p>
+</details>
+<p><strong>Q2-2.</strong> We can perform BuildHeap for leftist heaps by considering each element as a one-node leftist heap, placing all these heaps on a queue, and performing the following step: Until only one heap is on the queue,， dequeue two heaps, merge them, and enqueue the result. Which one of the following statements is FALSE?</p>
+<p>A. in the <span class="arithmatex">\(k\)</span>-th run, <span class="arithmatex">\(\lceil N/2k\rceil\)</span> leftist heaps are formed, each contains <span class="arithmatex">\(2k\)</span>
+ nodes</p>
+<p>B. the worst case is when <span class="arithmatex">\(N=2K\)</span> for some integer <span class="arithmatex">\(K\)</span></p>
+<p>C. the time complexity <span class="arithmatex">\(T(N)=O( \frac N 2 \log 2^0 - \frac {N} {2^2}\log 2^1\frac{N}{2^3}\log 2^2 + \cdots + \frac {N} {2^K}\log 2^{K-1})\)</span>  for some integer K so that <span class="arithmatex">\(N=2K\)</span></p>
+<p>D. the worst case time complexity of this algorithm is <span class="arithmatex">\(\Theta(N\log N)\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。根据 C，可得 <span class="arithmatex">\(T=O(N)\)</span>。</p>
+</details>
+<p><strong>Q2-3.</strong> Insert keys 1 to 15 in order into an initially empty skew heap. Which one of the following statements is FALSE?</p>
+<p>A. the resulting tree is a complete binary tree</p>
+<p>B. there are 6 leaf nodes</p>
+<p>C. 6 is the left child of 2</p>
+<p>D. 11 is the right child of 7</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。有 8 个叶结点。如下图
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_4.4.png" alt="4.4" style="margin: 0 auto; zoom: 60%;"/>
+</div></p>
+</details>
+<p><strong>Q2-4.</strong> Merge the two skew heaps in the following figure. Which one of the following statements is FALSE?</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_4.2.jpg" alt="4.2" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. 15 is the right child of 8</p>
+<p>B. 14 is the right child of 6</p>
+<p>C. 1 is the root</p>
+<p>D. 9 is the right child of 3</p>
+<details class="general">
+<summary>Answer</summary>
+<p>A。15 是 8 的左子结点。如下图</p>
+<p><div style="text-align:center;">
+    <img src="./graph/ads_hw_4.5.png" alt="4.5" style="margin: 0 auto; zoom: 60%;"/>
+</div></p>
+</details>
+<h2 id="hw5">Hw5<a class="headerlink" href="#hw5" title="Permanent link">#</a></h2>
+<p><strong>Q2-1.</strong> Which of the following binomial trees can represent a binomial queue of size 42?</p>
+<p>A. <span class="arithmatex">\(B_0B_1B_2B_3B_4B_5\)</span></p>
+<p>B. <span class="arithmatex">\(B_1B_3B_5\)</span></p>
+<p>C. <span class="arithmatex">\(B_1B_5\)</span></p>
+<p>D. <span class="arithmatex">\(B_2B_4\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。<span class="arithmatex">\(2^1+2^3+2^3=2+8+32=42\)</span></p>
+</details>
+<p><strong>Q2-2.</strong> For a binomial queue, __ takes a constant time on average.</p>
+<p>A. merging</p>
+<p>B. find-max</p>
+<p>C. delete-min</p>
+<p>D. insertion</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。均摊都常数时间了，平均肯定是常数时间。</p>
+<p>find-max 比较难操作，find-min 也是常数时间。</p>
+<p>merge 和 delete-min 都是 <span class="arithmatex">\(O(\log N)\)</span>。</p>
+</details>
+<p><strong>Q2-3.</strong> Merge the two binomial queues in the following figure. Which one of the following statements must be FALSE?</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_5.1.jpg" alt="5.1" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. there are two binomial trees after merging, which are <span class="arithmatex">\(B_2\)</span> and <span class="arithmatex">\(B_4\)</span></p>
+<p>B. 13 and 15 are the children of 4</p>
+<p>C. if 23 is a child of 2, then 12 must be another child of 2</p>
+<p>D. if 4 is a child of 2, then 23 must be another child of 2</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。4 如果是 2 的子结点，说明 23 对应子树保持为 <span class="arithmatex">\(B_2\)</span>，不参与 merge。</p>
+</details>
+<p><strong>Q2-4.</strong> Delete the minimum number from the given binomial queues in the following figure. Which one of the following statements must be FALSE?</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_5.2.jpg" alt="5.2" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. there are two binomial trees after deletion, which are <span class="arithmatex">\(B_1\)</span> and <span class="arithmatex">\(B_2\)</span></p>
+<p>B. 11 and 15 can be the children of 4</p>
+<p>C. 29 can never be the root of any resulting binomial tree</p>
+<p>D. if 29 is a child of 4, then 15 must be the root of <span class="arithmatex">\(B_1\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。29-55 可以自成 <span class="arithmatex">\(B_1\)</span>，不参与 merge。</p>
+</details>
+<h2 id="hw6">Hw6<a class="headerlink" href="#hw6" title="Permanent link">#</a></h2>
+<p><strong>Q2-1.</strong> In the Tic-tac-toe game, a "goodness" function of a position is defined as 
+<span class="arithmatex">\(f(P)=W_{computer}-W_{human}\)</span>, where <span class="arithmatex">\(W\)</span> is the number of potential wins at position <span class="arithmatex">\(P\)</span>.</p>
+<p>In the following figure, <span class="arithmatex">\(O\)</span> represents the computer and <span class="arithmatex">\(X\)</span> the human. What is the goodness of the position of the figure?</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_6.1.jpg" alt="6.1" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. -1</p>
+<p>B. 0</p>
+<p>C. 4</p>
+<p>D. 5</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。=3-3=0</p>
+</details>
+<p><strong>Q2-2.</strong> Given the following game tree, which node is the first one to be pruned with <span class="arithmatex">\(\alpha-\beta\)</span> pruning algorithm?</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_6.2.png" alt="6.2" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>A. a</p>
+<p>B. b</p>
+<p>C. c</p>
+<p>D. d</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。搜索到 b 等于 86 时，根据祖结点是 68，min 的策略，c 结点不需要继续搜索了，即 <span class="arithmatex">\(\beta\)</span> 剪枝。</p>
+</details>
+<h2 id="hw7">Hw7<a class="headerlink" href="#hw7" title="Permanent link">#</a></h2>
+<p><strong>Q2-1.</strong> When solving a problem with input size <span class="arithmatex">\(N\)</span> by divide and conquer, if at each stage the problem is divided into 8 sub-problems of equal size <span class="arithmatex">\(N/3\)</span>, and the conquer step takes <span class="arithmatex">\(O(N^2\log N)\)</span> to form the solution from the sub-solutions, then the overall time complexity is __. </p>
+<p>A. <span class="arithmatex">\(O(N^2\log N)\)</span></p>
+<p>B. <span class="arithmatex">\(O(N^2\log^2N)\)</span></p>
+<p>C. <span class="arithmatex">\(O(N^3\log N)\)</span></p>
+<p>D. <span class="arithmatex">\(O(N^{\log8/\log3})\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>A。</p>
+<div class="arithmatex">\[
+    T(N)=8T(N/3)+O(N^2\log N)
+\]</div>
+<p>则 <span class="arithmatex">\(N^{\log_ba}=N^{\log_38}&lt;N^2&lt;N^2\log N\)</span>(量级上)。</p>
+</details>
+<p><strong>Q2-2.</strong> To solve a problem with input size <span class="arithmatex">\(N\)</span> by divide and conquer algorithm, among the following methods, __ is the worst. </p>
+<p>A. divide into 2 sub-problems of equal complexity 
+<span class="arithmatex">\(N/3\)</span> and conquer in <span class="arithmatex">\(O(N)\)</span></p>
+<p>B. divide into 2 sub-problems of equal complexity 
+<span class="arithmatex">\(N/3\)</span> and conquer in <span class="arithmatex">\(O(NlogN)\)</span></p>
+<p>C. divide into 3 sub-problems of equal complexity 
+<span class="arithmatex">\(N/2\)</span> and conquer in <span class="arithmatex">\(O(N)\)</span></p>
+<p>D. divide into 3 sub-problems of equal complexity
+<span class="arithmatex">\(N/3\)</span> and conquer in <span class="arithmatex">\(O(NlogN)\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。</p>
+<p>A，<span class="arithmatex">\(T(N)=2T(N/3)+O(N)\)</span>，则 <span class="arithmatex">\(N^{\log_ba}=N^{\log_32}&lt;N\)</span>，<span class="arithmatex">\(T=O(N)\)</span>。</p>
+<p>B，<span class="arithmatex">\(T(N)=2T(N/3)+O(N\log N)\)</span>，则 <span class="arithmatex">\(N^{\log_ba}=N^{\log_32}&lt;N&lt;N\log N\)</span>，<span class="arithmatex">\(T=O(N\log N)\)</span>。</p>
+<p>C，<span class="arithmatex">\(T(N)=3T(N/2)+O(N)\)</span>，则 <span class="arithmatex">\(N^{\log_ba}=N^{\log_23}&gt;N\)</span>，<span class="arithmatex">\(T=O(N^{\log_23})\)</span>。</p>
+<p>D，<span class="arithmatex">\(T(N)=3T(N/3)+O(N\log N)\)</span>，则 <span class="arithmatex">\(N^{\log_ba}=N\)</span>，<span class="arithmatex">\(T=O(N\log^2 N)\)</span>。</p>
+</details>
+<p><strong>Q2-3.</strong> 3-way-mergesort : Suppose instead of dividing in two halves at each step of the mergesort, we divide into three one thirds, sort each part, and finally combine all of them using a three-way-merge. What is the overall time complexity of this algorithm ?</p>
+<p>A. <span class="arithmatex">\(O(n(\log^2 n))\)</span></p>
+<p>B. <span class="arithmatex">\(O(n^2\log n)\)</span></p>
+<p>C. <span class="arithmatex">\(O(n\log n)\)</span></p>
+<p>D. <span class="arithmatex">\(O(n)\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+<p><span class="arithmatex">\(T(N)=3T(N/3)+O(N)\)</span>，故 <span class="arithmatex">\(O(N\log N)\)</span></p>
+</details>
+<p><strong>Q2-4.</strong> Which one of the following is the lowest upper bound of <span class="arithmatex">\(T(n)\)</span> for the following recursion <span class="arithmatex">\(T(n)=2T(\sqrt{n})+\log n\)</span>?</p>
+<p>A. <span class="arithmatex">\(O(\log n\log\log n)\)</span></p>
+<p>B. <span class="arithmatex">\(O(log^2 n)\)</span></p>
+<p>C. <span class="arithmatex">\(O(n\log n)\)</span></p>
+<p>D. <span class="arithmatex">\(O(n^2)\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>A。</p>
+<div class="arithmatex">\[
+T(n)=2T( \sqrt{n})+\log n=2^kT(n^{1/2^k})+(k+1)\log n
+\]</div>
+<p>令 <span class="arithmatex">\(n^{1/2^k}=2\)</span>，可得 <span class="arithmatex">\(k=\log\log n\)</span>。则可得</p>
+<div class="arithmatex">\[
+T(n)=O((k+1)\log n)=O(\log n\log\log n)
+\]</div>
+</details>
+<h2 id="hw8">Hw8<a class="headerlink" href="#hw8" title="Permanent link">#</a></h2>
+<p><strong>Q2-1.</strong> Rod-cutting Problem: Given a rod of total length <span class="arithmatex">\(N\)</span> inches and a table of selling prices <span class="arithmatex">\(P_L\)</span> for lengths <span class="arithmatex">\(L=1,2,⋯,M\)</span>. You are asked to find the maximum revenue <span class="arithmatex">\(R_N\)</span> obtainable by cutting up the rod and selling the pieces. For example, based on the following table of prices, if we are to sell an 8-inch rod, the optimal solution is to cut it into two pieces of lengths 2 and 6, which produces revenue  <span class="arithmatex">\(R_8=P_2+P_6=5+17=22\)</span>. And if we are to sell a 3-inch rod, the best way is not to cut it at all.</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_8.1.png" alt="8.1" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<p>Which one of the following statements is FALSE?</p>
+<p>A. This problem can be solved by dynamic programming</p>
+<p>B. The time complexity of this algorithm is <span class="arithmatex">\(O(N^2)\)</span></p>
+<p>C. If <span class="arithmatex">\(N\leqslant M\)</span>, we have <span class="arithmatex">\(R_N=\max\{P_N,
+\max\limits_{1\leqslant i&lt;N}\{R_i+R_{N-i}\}\}\)</span></p>
+<p>D. If <span class="arithmatex">\(N&gt;M\)</span>, we have <span class="arithmatex">\(R_N=\max\limits_{1\leqslant i&lt;N}\{R_i+R_{N-M}\}\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。</p>
+<p>D，<span class="arithmatex">\(R_N=\max\limits_{1\leqslant i&lt;N}\{R_i+R_{N-i}\}\)</span>。</p>
+</details>
+<p><strong>Q2-2.</strong> In dynamic programming, we derive a recurrence relation for the solution to one subproblem in terms of solutions to other subproblems. To turn this relation into a bottom up dynamic programming algorithm, we need an order to fill in the solution cells in a table, such that all needed subproblems are solved before solving a subproblem. Among the following relations, which one is impossible to be computed?</p>
+<p>A. <span class="arithmatex">\(A(i,j)=\min(A(i−1,j),A(i,j−1),A(i−1,j−1))\)</span></p>
+<p>B. <span class="arithmatex">\(A(i,j)=F(A(\min(i, j)−1,\min(i, j)−1),A(\max(i,j)−1,\max(i,j)−1))\)</span></p>
+<p>C. <span class="arithmatex">\(A(i,j)=F(A(i,j−1),A(i−1,j−1),A(i−1,j+1))\)</span></p>
+<p>D. <span class="arithmatex">\(A(i,j)=F(A(i−2,j−2),A(i+2,j+2))\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。ABC 按照 i 和 j 的增序算即可。D 按增序也不对，降序也不对。</p>
+</details>
+<p><strong>Q2-3.</strong> Given a recurrence equation <span class="arithmatex">\(f_{i,j,k}=f_{i,j+1,k}+\min\limits_{0\leqslant l\leqslant k} \{f_{i-1,j,l}+w_{j,l}\}\)</span>. To solve this equation in an iterative way, we cannot fill up a table as follows:</p>
+<p>A. for k in 0 to n: for i in 0 to n: for j in n to 0</p>
+<p>B. for i in 0 to n: for j in 0 to n: for k in 0 to n</p>
+<p>C. for i in 0 to n: for j in n to 0: for k in n to 0</p>
+<p>D. for i in 0 to n: for j in n to 0: for k in 0 to n</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+<p><span class="arithmatex">\(j\)</span> 不能增序算，因为 <span class="arithmatex">\(f_{i,j,k}\)</span> 依赖于 <span class="arithmatex">\(f_{i,j+1,k}\)</span>。</p>
+</details>
+<h2 id="hw9">Hw9<a class="headerlink" href="#hw9" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> Let <span class="arithmatex">\(S\)</span> be the set of activities in Activity Selection Problem. Then the earliest finish activity <span class="arithmatex">\(a_m\)</span> must be included in all the maximum-size subset of mutually compatible activities of <span class="arithmatex">\(S\)</span>. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。最优解不一定是贪婪最优解。</p>
+</details>
+<p><strong>Q1-2.</strong> Greedy algorithm works only if the local optimum is equal to the global optimum. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。即最优子结构前提。</p>
+</details>
+<h2 id="hw10">Hw10<a class="headerlink" href="#hw10" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> If <span class="arithmatex">\(L_1\leq_p L_2\)</span> and <span class="arithmatex">\(L_2\in NP\)</span>, then <span class="arithmatex">\(L_1\in NP\)</span>. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+<p>这里的 <span class="arithmatex">\(\leq_p\)</span> 可以认为是难度对比，其实是 <span class="arithmatex">\(L_1\)</span> 可以多项式规约至 <span class="arithmatex">\(L_2\)</span>。</p>
+<p><span class="arithmatex">\(L_2\in NP\)</span>，那么 <span class="arithmatex">\(L_2\)</span> 可以在非确定性图灵机上多项式时间解决，<span class="arithmatex">\(L_1\)</span> 可以先多项式时间规约为<span class="arithmatex">\(L_2\)</span>，然后再解决 <span class="arithmatex">\(L_2\)</span>。</p>
+<p>所以 <span class="arithmatex">\(L_1\)</span> 也能够在非确定性图灵机上多项式时间解决，即 <span class="arithmatex">\(L_1\in NP\)</span>。</p>
+</details>
+<p><strong>Q1-2.</strong> All NP-complete problems are NP problems. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。NPC 问题是 NP 问题的一种。</p>
+</details>
+<p><strong>Q1-3.</strong> All the languages can be decided by a non-deterministic machine. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。忽略了不可判定问题。</p>
+</details>
+<p><strong>Q1-4.</strong> All NP problems can be solved in polynomial time in a non-deterministic machine. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。NP 问题的定义。</p>
+</details>
+<p><strong>Q1-5.</strong> If a problem can be solved by dynamic programming, it must be solved in polynomial time. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。比如背包问题，其实不算 P 类。</p>
+</details>
+<p><strong>Q2-1.</strong> Among the following problems, __ is NOT an NP-complete problem.</p>
+<p>A. Vertex cover problem</p>
+<p>B. Hamiltonian cycle problem</p>
+<p>C. Halting problem</p>
+<p>D. Satisfiability problem</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。</p>
+<p>C 是不可判定问题。D 是最早发现的 NPC 问题。</p>
+<p>A 顶点覆盖、B 哈密顿回路也都是 NPC 问题。</p>
+</details>
+<p><strong>Q2-2.</strong> Suppose <span class="arithmatex">\(Q\)</span> is a problem in <span class="arithmatex">\(NP\)</span>, but not necessarily NP-complete. 
+Which of the following is FALSE?</p>
+<p>A. A polynomial-time algorithm for SAT 
+would sufficiently imply a polynomial-time algorithm for <span class="arithmatex">\(Q\)</span>.</p>
+<p>B. A polynomial-time algorithm for <span class="arithmatex">\(Q\)</span> would sufficiently imply a polynomial-time algorithm for SAT.</p>
+<p>C. If <span class="arithmatex">\(Q\notin P\)</span>, then <span class="arithmatex">\(P\neq NP\)</span>.</p>
+<p>D. If <span class="arithmatex">\(Q\)</span> is NP-hard, then <span class="arithmatex">\(Q\)</span> is NP-complete.</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+<p>A，某个 NPC=P，则全体 NP=P。</p>
+<p>B，如果 Q 不是 NPC 问题就不会有这样的性质。</p>
+<p>C，一个 NP 不是 P，则 NP≠P。</p>
+<p>D，NP-hard 且 NP 就确定了 NPC。</p>
+</details>
+<h2 id="hw11">Hw11<a class="headerlink" href="#hw11" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> Suppose ALG is an <span class="arithmatex">\(\alpha\)</span>-approximation algorithm for an optimization problem <span class="arithmatex">\(\prod\)</span> whose approximation ratio is tight. Then for every <span class="arithmatex">\(\varepsilon&gt;0\)</span> there is no <span class="arithmatex">\((\alpha−\varepsilon)\)</span>-approximation algorithm for <span class="arithmatex">\(\prod\)</span> unless P = NP. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p>对于一种算法而言，近似比为 <span class="arithmatex">\(\alpha\)</span> ，那么 <span class="arithmatex">\(\forall \beta &gt; \alpha\)</span> ，都可以说 <span class="arithmatex">\(\beta\)</span> 是其近似比。如果 <span class="arithmatex">\(\alpha\)</span> 是 tight 的，则 <span class="arithmatex">\(\alpha\)</span> 是一个下确界。</p>
+<p>但这都只是对这一种算法的分析，一个 tight 的近似比只能说明你对这种算法的分析到位了，而不能说明这个问题没有更好的算法。这里完全是两码事。</p>
+</details>
+<p><strong>Q1-2.</strong> As we know there is a 2-approximation algorithm for the Vertex Cover problem. Then we must be able to obtain a 2-approximation algorithm for the Clique problem, since the Clique problem can be polynomially reduced to the Vertex Cover problem. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p>首先，确实有 Clique problem <span class="arithmatex">\(\leq_p\)</span> Vertex Cover problem，Vertex Cover problem 也确实有 2-approximation 算法，但是这两个 problem 衡量 Cost 的标准是不一样的。</p>
+<p>在 Vertex Cover problem 中的 2-近似算法得到的解，在 Clique problem 约化成的 Vertex Cover problem 中得到的解虽然符合 Vertex Cover problem 的 Cost 标准下的 2-近似，却并不一定符合 Clique problem 标准下的 2-近似。</p>
+<p>回顾团问题 (Clique problem) 的描述：寻找最大完全子图，那么寻找到的完全子图中顶点数 (<span class="arithmatex">\(C_1\)</span>) 越多越好。</p>
+<p>回顾顶点覆盖问题 (Vertex Cover problem) 的描述：寻找最小规模的顶点覆盖，那么寻找到的顶点覆盖中顶点数 (<span class="arithmatex">\(C_2\)</span>) 越少越好。</p>
+<p>回顾约化方法：</p>
+<div class="arithmatex">\[
+|\text{max clique of }G|=K\iff
+|\text{max vertex cover of }\overline{G}|=|V|-K
+\]</div>
+<p>设 Vertex Cover problem 的 2-近似算法得到的顶点覆盖规模为 <span class="arithmatex">\(T\)</span>，最优规模为 <span class="arithmatex">\(T^*\)</span>，则</p>
+<div class="arithmatex">\[
+\rho_2=\frac{C_2}{C_2^*}=\frac{T}{T^*}=2,\quad
+\rho_1=\frac{C_1^*}{C_1}=\frac{|V|-T^*}{|V|-T}=1+\frac{1}{\dfrac{|V|}{T^*}-2}
+\]</div>
+<p>可见 <span class="arithmatex">\(\rho_1\)</span> 是不可控的。</p>
+</details>
+<p><strong>Q2-1.</strong> For the bin-packing problem: let <span class="arithmatex">\(S=\sum_iS_i\)</span>.
+Which of the following statements is FALSE?</p>
+<p>A. The number of bins used by the next-fit heuristic is never more than <span class="arithmatex">\(\lceil 2S\rceil\)</span></p>
+<p>B. The number of bins used by the first-fit heuristic is never more than <span class="arithmatex">\(\lceil 2S\rceil\)</span></p>
+<p>C. The next-fit heuristic leaves at most one bin less than half full</p>
+<p>D. The first-fit heuristic leaves at most one bin less than half full</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。</p>
+<p>设 next-fit 算法最终生成 <span class="arithmatex">\(2M\)</span> 或 <span class="arithmatex">\(2M+1\)</span> 个 bin，则</p>
+<div class="arithmatex">\[
+S = \sum_{i=1}^{2M\text{ or }2M+1}S(B_i)
+\geqslant \sum_{i=1}^M[S(B_{2i-1})+S(B_{2i})]
+&gt; \sum_{i=1}^M1=M
+\]</div>
+<p>因此有 <span class="arithmatex">\(2S&gt;2M \Rightarrow \lceil 2S\rceil \geqslant 2M+1\)</span>，因此 A 正确。</p>
+<p>first-fit(1.7-approximation) 优于 next-fit(2-approximation)，因此 B 也正确。</p>
+<p>对于 D，如果存在两个少于半满的 bin，那么在产生第二个少于半满的 bin 时，不可能在对前面 bins 的扫描中找不到放不进去的 bin（第一个少于半满的 bin 肯定能放进去），因此最多只有一个少于半满的bin ，D 正确。</p>
+<p>对于 C，两个少于半满的 bin 只要不是相邻出现就是可能的，因此 C 错误。</p>
+</details>
+<p><strong>Q2-2.</strong> To approximate a maximum spanning tree <span class="arithmatex">\(T\)</span> 
+of an undirected graph <span class="arithmatex">\(G=(V,E)\)</span> with distinct edge weights <span class="arithmatex">\(w(u,v)\)</span> on each edge <span class="arithmatex">\((u,v)\in E\)</span>, let's denote the set of maximum-weight edges incident on each vertex by <span class="arithmatex">\(S\)</span>. Also let <span class="arithmatex">\(w(E')=\sum _{(u,v)\in E}w(u,v)\)</span> for any edge set <span class="arithmatex">\(E'\)</span>.
+Which of the following statements is TRUE?</p>
+<p>A. <span class="arithmatex">\(S=T\)</span> for any graph <span class="arithmatex">\(G\)</span></p>
+<p>B. <span class="arithmatex">\(S\neq T\)</span> for any graph <span class="arithmatex">\(G\)</span></p>
+<p>C. <span class="arithmatex">\(w(T)\geqslant w(S)/2\)</span> for any graph <span class="arithmatex">\(G\)</span></p>
+<p>D. None of the above</p>
+<details class="general">
+<summary>Answer</summary>
+<p><div style="text-align:center;">
+    <img src="./graph/ads_hw_11.1.png" alt="11.1" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+</details>
+<h2 id="hw12">Hw12<a class="headerlink" href="#hw12" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> For the graph given in the following figure, if we start from deleting the black vertex, then local search can always find the minimum vertex cover. (T/F)</p>
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_12.5.jpg" alt="12.5" style="margin: 0 auto; zoom: 80%;"/>
+</div>
+
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+</details>
+<p><strong>Q1-2.</strong> We are given a set of sites <span class="arithmatex">\(S=\{s_{1}, s_{2}, \cdots, s_{n}\}\)</span> in the plane, and we want to choose a set of <span class="arithmatex">\(k\)</span> centers <span class="arithmatex">\(C=\{c_{1}, c_{2}, \cdots, c_{k}\}\)</span> so that the maximum distance from a site to the nearest center is minimized. Here <span class="arithmatex">\(c_{i}\)</span> can be an arbitrary point in the plane.</p>
+<p>A local search algorithm arbitrarily choose <span class="arithmatex">\(k\)</span> points in the plane to be the centers, then</p>
+<ul>
+<li>
+<p>(1) divide <span class="arithmatex">\(S\)</span> into <span class="arithmatex">\(k\)</span> sets, where <span class="arithmatex">\(S_{i}\)</span> is the set of all sites for which <span class="arithmatex">\(c_{i}\)</span> is the nearest center; and</p>
+</li>
+<li>
+<p>(2) for each <span class="arithmatex">\(S_{i}\)</span>, compute the central position as a new center for all the sites in <span class="arithmatex">\(S_{i}\)</span>.</p>
+</li>
+</ul>
+<p>If steps (1) and (2) cause the covering radius to strictly decrease, we perform another iteration, otherwise the algorithm stops.</p>
+<p>When the above local search algorithm terminates, the covering radius of its solution is at most 2 times the optimal covering radius. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p>给出反例如下图所示。其中有</p>
+<div class="arithmatex">\[
+\begin{gathered}
+    A(-1, \frac{\sqrt{3}}{2}),\quad
+    B(1, \frac{\sqrt{3}}{2}),\quad
+    C(-1, -\frac{\sqrt{3}}{2}),\quad
+    D(1, -\frac{\sqrt{3}}{2})
+    \\
+    E(-3, 2\sqrt{3}),\quad
+    F(3, 2\sqrt{3}),\quad
+    G(0, 2\sqrt{3}+\sqrt{7}),\quad
+    H(0,0.000001),\quad
+    I(0,-0.000001)
+\end{gathered}
+\]</div>
+<p>都是需要被覆盖的点。</p>
+<div class="arithmatex">\[
+c_1(-1, 0),\quad
+c_2(0, 0),\quad
+c_3(1, 0),\quad
+c_4(0, 2\sqrt{3}+\sqrt{7}),\quad
+\]</div>
+<p><span class="arithmatex">\(c_1\)</span>, <span class="arithmatex">\(c_3\)</span> 半径为 <span class="arithmatex">\(\frac{\sqrt{3}}{2}\)</span>, <span class="arithmatex">\(c_2\)</span> 半径为 <span class="arithmatex">\(0.0001\)</span>, <span class="arithmatex">\(c_4\)</span> 半径为 <span class="arithmatex">\(4\)</span>。这样得到的解就是 Local Search 的一个可能解，覆盖半径为 <span class="arithmatex">\(4\)</span>。</p>
+<p>然而，如果取</p>
+<div class="arithmatex">\[
+c_1'(-2, \frac{5\sqrt{3}}{4}),\quad
+c_2'(0, 0),\quad
+c_3'(2, \frac{5\sqrt{3}}{4}),\quad
+c_4'(0, 2\sqrt{3}+\sqrt{7}+4),\quad
+\]</div>
+<p><span class="arithmatex">\(c_1\)</span>, <span class="arithmatex">\(c_3\)</span> 半径为 <span class="arithmatex">\(\frac{\sqrt{41}}{4}\)</span>, <span class="arithmatex">\(c_2\)</span> 半径为 <span class="arithmatex">\(\frac{\sqrt{7}}{2}\)</span>, <span class="arithmatex">\(c_4\)</span> 半径为 <span class="arithmatex">\(0.0001\)</span>。这样得到的解覆盖半径为 <span class="arithmatex">\(\frac{\sqrt{41}}{4}&lt;2\)</span>。</p>
+<p>因此虽然不确定最优解是什么，但是最优解一定比上面的 Local Search 的解的二分之一更小.</p>
+<p>下图中，绿色圆圈表示 Local Search，蓝色圆圈表示给出的一个比 Local Search 的 <span class="arithmatex">\(1/2\)</span> 更小的解。
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_12.1.png" alt="12.1" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+</details>
+<p><strong>Q2-1.</strong> Spanning Tree Problem: Given an undirected graph <span class="arithmatex">\(G=(V, E)\)</span>, where <span class="arithmatex">\(|V|=n\)</span> and <span class="arithmatex">\(|E|=m\)</span>. Let <span class="arithmatex">\(F\)</span> be the set of all spanning trees of <span class="arithmatex">\(G\)</span>. Define <span class="arithmatex">\(d(u)\)</span> to be the degree of a vertex <span class="arithmatex">\(u \in V\)</span>. Define <span class="arithmatex">\(w(e)\)</span> to be the weight of an edge <span class="arithmatex">\(e \in E\)</span>.</p>
+<p>We have the following three variants of spanning tree problems:</p>
+<ul>
+<li>
+<p>(1) Max Leaf Spanning Tree: find a spanning tree <span class="arithmatex">\(T \in F\)</span> with a maximum number of leaves.</p>
+</li>
+<li>
+<p>(2) Minimum Spanning Tree: find a spanning tree <span class="arithmatex">\(T \in F\)</span> with a minimum total weight of all the edges in <span class="arithmatex">\(T\)</span>.</p>
+</li>
+<li>
+<p>(3) Minimum Degree Spanning Tree: find a spanning tree <span class="arithmatex">\(T \in F\)</span> such that its maximum degree of all the vertices is the smallest.</p>
+</li>
+</ul>
+<p>For a pair of edges <span class="arithmatex">\(\left(e, e^{\prime}\right)\)</span> where <span class="arithmatex">\(e \in T\)</span> and <span class="arithmatex">\(e^{\prime} \in(G-T)\)</span> such that <span class="arithmatex">\(e\)</span> belongs to the unique cycle of <span class="arithmatex">\(T \cup e^{\prime}\)</span>, we define edge-swap <span class="arithmatex">\(\left(e, e^{\prime}\right)\)</span> to be <span class="arithmatex">\((T-e) \cup e^{\prime}\)</span>.</p>
+<p>Here is a local search algorithm:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>T = any spanning tree in F_i
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>while (there is an edge-swap (e, e&#39;) which reduces Cost(T)) {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    T = T - e + e&#39;;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>}
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>return T;
+</code></pre></div>
+<p>Here <span class="arithmatex">\(\operatorname{cost}(T)\)</span> is the number of leaves in <span class="arithmatex">\(T\)</span> in Max Leaf Spanning Tree; or is the total weight of <span class="arithmatex">\(T\)</span> in Minimum Spanning Tree; or else is the minimum degree of <span class="arithmatex">\(T\)</span> in Minimum Degree Spanning Tree.</p>
+<p>Which of the following statements is TRUE?</p>
+<p>A. The local search always return an optimal solution for Max Leaf Spanning Tree</p>
+<p>B. The local search always return an optimal solution for Minimum Spanning Tree</p>
+<p>C. The local search always return an optimal solution for Minimum Degree Spanning Tree</p>
+<p>D. For neither of the problems that this local search always return an optimal solution</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+<p>最小生成树的 Prim 算法是局部性的, 但是却是正确的, 猜想最小生成树的局部最优就是全局最优。事实上这个结论确实是正确的，这个证明比较难，读者可以考虑势能函数等方法。</p>
+<p>对于其他两种，寻找其反例。</p>
+<p>对于Max Leaf Spanning Tree，寻找反例如下:
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_12.2.png" alt="12.2" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+<p>对于Minimum Degree Spanning Tree，同样的原图(Original)，寻找反例如下:
+<div style="text-align:center;">
+    <img src="./graph/ads_hw_12.3.png" alt="12.3" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+<p>究其本质，最小生成树如果有更好的选择一定能交换，因为进行的正是边交换，直接影响的就是树的整体权值。另外两种树的性质则与顶点相关，不能直接影响，所以就寄了。</p>
+</details>
+<p><strong>Q2-2.</strong> There are <span class="arithmatex">\(n\)</span> jobs, and each job <span class="arithmatex">\(j\)</span> has a processing time <span class="arithmatex">\(t_{j}\)</span>. We will use a local search algorithm to partition the jobs into two groups A and B, where set A is assigned to machine <span class="arithmatex">\(M_{1}\)</span> and set <span class="arithmatex">\(\mathrm{B}\)</span> to <span class="arithmatex">\(M_{2}\)</span>. The time needed to process all of the jobs on the two machines is <span class="arithmatex">\(T_{1}=\sum_{j \in A} t_{j}, T_{2}=\sum_{j \in B} t_{j}\)</span>. The problem is to minimize <span class="arithmatex">\(\left|T_{1}-T_{2}\right|\)</span>.</p>
+<p>Local search: Start by assigning jobs <span class="arithmatex">\(1, \ldots, n / 2\)</span> to <span class="arithmatex">\(M_{1}\)</span>, and the rest to <span class="arithmatex">\(M_{2}\)</span>.</p>
+<p>The local moves are to move a single job from one machine to the other, and we only move a job if the move decreases the absolute difference in the processing times. Which of the following statement is true?</p>
+<p>A. The problem is NP-hard and the local search algorithm will not terminate.</p>
+<p>B. When there are many candidate jobs that can be moved to reduce the absolute difference, if we always move the job <span class="arithmatex">\(j\)</span> with maximum <span class="arithmatex">\(t_j\)</span>
+, then the local search terminates in at most <span class="arithmatex">\(n\)</span> moves.</p>
+<p>C. The local search algorithm always returns an optimal solution.</p>
+<p>D. The local search algorithm always returns a local solution with <span class="arithmatex">\(\frac{1}{2}T_1\leqslant T\leqslant 2T_1\)</span>.</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+<p>A，每次都减小，肯定会减无可减，那么一定会终止。NP-hard猜想应该是的，一共有<span class="arithmatex">\(2^n\)</span>种状态。</p>
+<p>B，一项被移到另一侧之后肯定不会再被移回来，因此最多移<span class="arithmatex">\(n\)</span>次。</p>
+<p>C，考虑<span class="arithmatex">\(\{10,11,12,12,13,14\}=\{10,11,13\}+\{12,12,14\}\)</span>，可知无法移动了，但是显然最优解是<span class="arithmatex">\(\{11,12,13\}+\{10,12,14\}\)</span>。</p>
+<p>D，考虑<span class="arithmatex">\(\{1,2,100\}=\{1,2\}+\{100\}\)</span>。</p>
+</details>
+<p><strong>Q2-3.</strong> Max-cut problem: Given an undirected graph <span class="arithmatex">\(G=(V, E)\)</span> with positive integer edge weights <span class="arithmatex">\(w_{e}\)</span>, find a node partition <span class="arithmatex">\((A, B)\)</span> such that <span class="arithmatex">\(w(A, B)\)</span>, the total weight of edges crossing the cut, is maximized. Let us define <span class="arithmatex">\(S^{\prime}\)</span> be the neighbor of <span class="arithmatex">\(S\)</span> such that <span class="arithmatex">\(S^{\prime}\)</span> can be obtained from <span class="arithmatex">\(S\)</span> by moving one node from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(B\)</span>, or one from <span class="arithmatex">\(B\)</span> to <span class="arithmatex">\(A\)</span>. only choose a node which, when flipped, increases the cut value by at least <span class="arithmatex">\(w(A, B) /|V|\)</span>. Then which of the following is true?</p>
+<p>A. Upon the termination of the algorithm, the algorithm returns a cut <span class="arithmatex">\((A,B)\)</span> so that <span class="arithmatex">\(2.5w(A,B)\geqslant w(A^∗, b^*)\)</span>, 
+where <span class="arithmatex">\((A^∗ ,B^∗)\)</span> is an optimal partition.</p>
+<p>B. The algorithm terminates after at most <span class="arithmatex">\(O(\log|V|\log W)\)</span> flips, where <span class="arithmatex">\(W\)</span> is the total weight of edges.</p>
+<p>C. Upon the termination of the algorithm, the algorithm returns a cut <span class="arithmatex">\((A,B)\)</span> so that <span class="arithmatex">\(2w(A,B)\geqslant w(A^∗, b^*)\)</span>.</p>
+<p>D. The algorithm terminates after at most <span class="arithmatex">\(O(|V|^2)\)</span> flips.</p>
+<details class="general">
+<summary>Answer</summary>
+<p><div style="text-align:center;">
+    <img src="./graph/ads_hw_12.4.png" alt="12.4" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+</details>
+<h2 id="hw13">Hw13<a class="headerlink" href="#hw13" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> Let <span class="arithmatex">\(a=\left(a_{1}, a_{2}, \ldots, a_{i}, \ldots, a_{j}, \ldots, a_{n}\right)\)</span> denote the list of elements we want to sort. In the quicksort algorithm, if the pivot is selected uniformly at random. Then any two elements get compared at most once and the probability of <span class="arithmatex">\(a_{i}\)</span> and <span class="arithmatex">\(a_{j}\)</span> being compared is <span class="arithmatex">\(2 /(j-i+1)\)</span> for <span class="arithmatex">\(j&gt;i\)</span>, given that <span class="arithmatex">\(a_{i}\)</span> or <span class="arithmatex">\(a_{j}\)</span> is selected as the pivot. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p>举反例如下：{3, 4, 1, 2, }。如果第一次选pivot选中3或者2，那么1和4会被分开，不会被比较。</p>
+<p>如果第一次就选中1或4，它们才会被比较。因此它们被比较的概率是&frac12;。按照 <span class="arithmatex">\(\dfrac{2}{j-i+1}\)</span> 计算，应该是1。</p>
+<p>事实上，如果是已经被排序好的，这就是对的。</p>
+</details>
+<p><strong>Q2-1.</strong> Given a linked list containg <span class="arithmatex">\(N\)</span> nodes. 
+Our task is to remove all the nodes. 
+At each step, we randomly choose one node in the current list, 
+then delete the selected node together with all the nodes after it.
+Here we assume that each time we choose one node uniformly among all the remaining nodes. 
+What is the expected number of steps to remove all the nodes?</p>
+<p>A.<span class="arithmatex">\(\Theta (\log N)\)</span></p>
+<p>B.<span class="arithmatex">\(N/e\)</span></p>
+<p>C.<span class="arithmatex">\(N/2\)</span></p>
+<p>D.<span class="arithmatex">\(\sqrt{N}\)</span></p>
+<details class="general">
+<summary>Answer</summary>
+<p>A。</p>
+<p>关键是得到递推式</p>
+<div class="arithmatex">\[
+a_n = \frac{1}{N}\sum_{i=1}^{N-1}a_i+1
+\]</div>
+<p>直接代入 B,C，显然不对。事实上，可以看到这种递推式只可能出有理数，D 很可能出无理数，也不对。</p>
+<p>然而，很轻松就可以通过强归纳法判断 <span class="arithmatex">\(a_n=O(\log N)\)</span>。(<span class="arithmatex">\(\Omega\)</span>没有试过，应该也可以。)</p>
+<div class="arithmatex">\[
+a_n = \frac{1}{N}\sum_{i=1}^{N-1}a_i+1
+\leqslant \frac{C}{N}\log\left(2N\prod_{i=1}^{N-1}i\right)
+\leqslant C\log N
+\]</div>
+<p>这里的第二个不等号并不那么严格，不过 <span class="arithmatex">\(N\)</span> 足够大的时候一定是严格的。</p>
+</details>
+<p><strong>Q2-2.</strong> Use The Online Hiring Algorithm ( hire only once ). Assume that the quality input <span class="arithmatex">\(C[ ]\)</span> is uniformly random.</p>
+<p>When <span class="arithmatex">\(N = 271\)</span> and <span class="arithmatex">\(k = 90\)</span>, the probability of hiring the Nth candidate is __.</p>
+<details class="general">
+<summary>Answer</summary>
+<p>&#8531;。要求前 270 人中最好的落在前 90 人中。</p>
+<p>也可以分前 271 人中最好的在哪里进行讨论，即</p>
+<div class="arithmatex">\[
+\frac{1}{N}\cdot \frac{k}{N-1} + \frac{k}{N} = \frac{1}{3}
+\]</div>
+</details>
+<h2 id="hw14">Hw14<a class="headerlink" href="#hw14" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> While comparing a serial algorithm with its parallel counterpart, we just concentrate on reducing the work load. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p>除了 work load <span class="arithmatex">\(W(n)\)</span> 之外，减少 worst-case running time<span class="arithmatex">\(T(n)\)</span> 也是所关注的。（甚至这才是主要目标）</p>
+</details>
+<p><strong>Q1-2.</strong> To evaluate the Prefix-Sums of a sequence of 16 numbers by the parallel algorithm with Balanced Binary Trees, C(4,1) is found before C(2,2). (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+<p>本应该是 T，因为先计算 B()，B() 是自底向上计算的；后计算 C()，C() 是自顶向下计算的。</p>
+<p>因此 C(4, 1) 显然应该在 C(2, 2) 之前计算。然而 PTA 的答案库里认为它是 F，未来可能被修改。</p>
+</details>
+<p><strong>Q1-3.</strong> To evaluate the sum of a sequence of 16 numbers by the parallel algorithm with Balanced Binary Trees, B(1,6) is found before B(2,1). (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。B() 自底向上计算。</p>
+</details>
+<p><strong>Q1-4.</strong> In order to solve the maximum finding problem by a parallel algorithm with <span class="arithmatex">\(T(n)=O(1)\)</span> , we need work load <span class="arithmatex">\(W(n)=\Omega(n^2)\)</span> in return. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p><span class="arithmatex">\(W(n)=\Omega(n^2)\)</span> 的断言说最小也是 <span class="arithmatex">\(O(n^2)\)</span>，然而这只是最基础的得到的结果。</p>
+<p>采用 Random Sampling，就可以在 <span class="arithmatex">\(W(n)=O(n)\)</span> 下得到结果。</p>
+</details>
+<p><strong>Q1-5.</strong> To solve the Maximum Finding problem with parallel Random Sampling method, O(n) processors are required to get T(n)=O(1) and W(n)=O(n) with very high probability. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+</details>
+<h2 id="hw15">Hw15<a class="headerlink" href="#hw15" title="Permanent link">#</a></h2>
+<p><strong>Q1-1.</strong> To merge 55 runs using 3 tapes for a 2-way merge, the original distribution (34, 21) is better than (27, 28). (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。按 Fibonacci 数分割最好。</p>
+</details>
+<p><strong>Q1-2.</strong> If only one tape drive is available to perform the external sorting, then the tape access time for any algorithm will be <span class="arithmatex">\(\Omega(N^2)\)</span> (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。考虑寻道时间从 <span class="arithmatex">\(\Omega(1)\)</span> 上升到 <span class="arithmatex">\(\Omega(n)\)</span>。</p>
+</details>
+<p><strong>Q1-3.</strong> In external sorting, a <span class="arithmatex">\(k\)</span>-way merging is usually used in order to reduce the number of passes and we will take the <span class="arithmatex">\(k\)</span> as large as possible as long as we have enough amount of tapes. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>F。</p>
+<p>适当增大 <span class="arithmatex">\(k\)</span>，由于 pass 数减少，可以减少 I/O。但 <span class="arithmatex">\(k\)</span> 过大时，硬件错误率上升，反而是不划算的。（我个人认为情况还更复杂，可能还有 cost，传输延迟这些问题）</p>
+<p>另外，<span class="arithmatex">\(k\)</span> 过大时，input buffer 的需求也会很大，memory 容量一定时，buffer size 就会减小，适配的 disk 上的 block size 划分也会减小，导致 seek time 上升，也是不划算的。</p>
+</details>
+<p><strong>Q1-4.</strong> In general, for a 3-way merge we need 6 input buffers and 2 output buffers for parallel operations. (T/F)</p>
+<details class="general">
+<summary>Answer</summary>
+<p>T。</p>
+<p>In general, for a <span class="arithmatex">\(k\)</span>-way merge we need <span class="arithmatex">\(2k\)</span> input buffers and 2 output buffers for parallel operations in external sorting.</p>
+</details>
+<p><strong>Q2-1.</strong> Given 100,000,000 records of 256 bytes each, and the size of the internal memory is 128MB. If simple 2-way merges are used, how many passes do we have to do?</p>
+<p>A. 10</p>
+<p>B. 9</p>
+<p>C. 8</p>
+<p>D. 7</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。</p>
+<p>block size <span class="arithmatex">\(=128\times 2^{20}/256=2^{19}\)</span>，</p>
+<p>则 number of passes <span class="arithmatex">\(= 1+\lceil \log_2(10^8/2^{19}) \rceil=9\)</span></p>
+</details>
+<p><strong>Q2-2.</strong> In external sorting, suppose we have 5 runs of lengths 2, 8, 9, 5, and 3, respectively. Which of the following merging orders can obtain the minimum merge time?</p>
+<p>A. merge runs of lengths 2 and 3 to obtain Run#1; merge Run#1 with the one of length 5 to obtain Run#2; merge Run#2 with the one of length 8 to obtain Run#3; merge Run#3 with the one of length 9</p>
+<p>B. merge runs of lengths 2 and 3 to obtain Run#1; merge Run#1 with the one of length 5 to obtain Run#2; merge runs of lengths 8 and 9 to obtain Run#3; merge Run#2 and Run#3</p>
+<p>C. merge runs of lengths 2 and 3 to obtain Run#1; merge runs of lengths 5 and 8 to obtain Run#2; merge Run#1 and Run#2 to obtain Run#3; merge Run#3 with the one of length 9</p>
+<p>D. merge runs of lengths 2 and 3 to obtain Run#1; merge runs of lengths 5 and 8 to obtain Run#2; merge Run#2 with the one of length 9 to obtain Run#3; merge Run#1 and Run#3</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。即构建 Huffman 树，构建的结果就是 B。</p>
+</details>
+<p><strong>Q2-3.</strong> In external sorting, in order to reduce the number of passes, minimizing the initial number of runs (i.e. generating longer runs ) is a good idea. Suppose the input record keys are (25, 74, 56, 34, 21, 11, 29, 80, 38, 53) and the internal memery can hold only 3 records, the minimum number of initial runs obtained by replacement selection is__ 。</p>
+<p>A. 1</p>
+<p>B. 2</p>
+<p>C. 3</p>
+<p>D. 4</p>
+<details class="general">
+<summary>Answer</summary>
+<p>B。通过 replacement selection 可以得到：</p>
+<div class="arithmatex">\[
+\begin{matrix}
+    25 &amp; 34 &amp; 56 &amp; 74\\
+    11 &amp; 21 &amp; 29 &amp; 38 &amp; 53 &amp; 80
+\end{matrix}
+\]</div>
+</details>
+<p><strong>Q2-4.</strong> Suppose we have the internal memory that ca### n handle 12 numbers at a time, and the following two runs on the tapes:</p>
+<p><strong>Run 1</strong>: 1, 3, 5, 7, 8, 9, 10, 12</p>
+<p><strong>Run 2</strong>: 2, 4, 6, 15, 20, 25, 30, 32</p>
+<p>Use 2-way merge with 4 input buffers and 2 output buffers for parallel operations. Which of the following three operations are NOT done in parallel?</p>
+<p>A. 1 and 2 are written onto the third tape; 3 and 4 are merged into an output buffer; 6 and 15 are read into an input buffer</p>
+<p>B. 3 and 4 are written onto the third tape; 5 and 6 are merged into an output buffer; 8 and 9 are read into an input buffer</p>
+<p>C. 5 and 6 are written onto the third tape; 7 and 8 are merged into an output buffer; 20 and 25 are read into an input buffer</p>
+<p>D. 7 and 8 are written onto the third tape; 9 and 15 are merged into an output buffer; 10 and 12 are read into an input buffer</p>
+<details class="general">
+<summary>Answer</summary>
+<p>D。如下图：</p>
+<p><div style="text-align:center;">
+    <img src="./graph/ads_hw_15.1.png" alt="15.1" style="margin: 0 auto; zoom: 80%;"/>
+</div></p>
+<p>D 选项强行想要 parallel ，因此没有管正在读入的 10, 12，直接基于现有 3 个 buffer 块 merge ，因此进行了错误的 merge(9, 15)。事实上这一步无法 parallel ，必须等待 10, 12 读完之后才能进行正确的 merge(9, 10)。</p>
+</details>
+<p><strong>Q2-5.</strong> Suppose that the replacement selection is applied to generate longer runs with a priority queue of size 4. Given the sequence of numbers { 9, 75, 17, 12, 88, 91, 25, 22, 35, 41, 58, 96, 15 }. Which of the following gives the second output run?</p>
+<p>A. 22 35 88 91</p>
+<p>B. 22 35 41 58 88 91 96</p>
+<p>C. 22 35 41 58 96</p>
+<p>D. 22 35 41 58</p>
+<details class="general">
+<summary>Answer</summary>
+<p>C。通过 replacement selection 可以得到：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>9  12 17 25 75 88 91
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>22 35 41 58 96
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>15
+</code></pre></div></p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月26日 14:17:58</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月26日 14:17:58</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Yaoyaolingbro/notebook/home" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+        <script src="../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
