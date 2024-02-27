@@ -1,0 +1,3310 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yaoyaoling">
+      
+      
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/computer_organization/5_cache/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>5 Cache - Yaoyaolingbro's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="../../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/more_changelog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-KJB4RXSKZG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-KJB4RXSKZG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-KJB4RXSKZG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5_cache" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Yaoyaolingbro&#39;s notebook" class="md-header__button md-logo" aria-label="Yaoyaolingbro's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Yaoyaolingbro's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5 Cache
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU_CS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Missing%20semester/" class="md-tabs__link">
+          
+  
+    
+  
+  Missing semester
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-tabs__link">
+          
+  
+    
+  
+  Online CS Courses
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/" class="md-tabs__link">
+          
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Language/Advanced%20C%20Language/" class="md-tabs__link">
+          
+  
+    
+  
+  Language
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Scientific%20research/" class="md-tabs__link">
+          
+  
+    
+  
+  Scientific research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../spark%20in%20life/" class="md-tabs__link">
+          
+  
+    
+  
+  Spark in life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Yaoyaolingbro&#39;s notebook" class="md-nav__button md-logo" aria-label="Yaoyaolingbro's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Yaoyaolingbro's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ZJU_CS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../HPC/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../FDS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    FDS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../DigitalDesign/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Digital desin
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Discrete%20math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Discrete math
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../oop/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    OOP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ADS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    ADS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Database/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Missing%20semester/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Missing semester
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Missing semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/toolbox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工具箱（一些好用的网站or分享）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/git/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Markdown/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Markdown
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Docker/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Ladder/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Ladder
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Latex/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Latex
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Mkdocs%20material/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Mkdocs material
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Zotero/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zotero
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Online CS Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Online CS Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机科学导论
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CSAPP/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CSAPP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106L/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106L
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS50%20AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS50 AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS61B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS61B
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106X/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AI/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/machine%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/deep%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Deep learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/Model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    经典模型
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/Pytorch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Language
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Advanced%20C%20Language/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/C%2B%2B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/CUDA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CUDA
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Python/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Verilog/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Verilog
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Scientific%20research/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Scientific research
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Scientific research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/ode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/mathematic%20model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    mathematic model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Basic tutor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/Zz/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zhaozhou
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spark%20in%20life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Spark in life
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Spark in life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/college%20life/competition/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    College life
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/skills/cook/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/travel/GuiZhou/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Travel
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51_memory_hierarchy_introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Memory Hierarchy Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52_the_basics_of_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 The basics of Cache
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 The basics of Cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531_direct_mapped_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Direct Mapped Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532_handling_cache_hits_misses" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2 Handling Cache Hits &amp; Misses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3 其他定位方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53_measuring_cache_performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Measuring Cache Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54_virtual_machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Virtual Machines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55_virtual_memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Virtual Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Virtual Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.1 虚拟内存技术
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.2 如何完成映射呢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.3 页表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.4 用多级页表解决页表过大的问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555_tlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.5 使用 TLB 加快地址转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#556_memory_protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.6 Memory Protection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56_the_three_cs_cache_miss" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 The Three Cs | 对 cache miss 的归类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57_using_fsm_to_control_a_simple_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Using FSM to Control a Simple Cache
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="5_cache">5 Cache<a class="headerlink" href="#5_cache" title="Permanent link">#</a></h1>
+<h2 id="51_memory_hierarchy_introduction">5.1 Memory Hierarchy Introduction<a class="headerlink" href="#51_memory_hierarchy_introduction" title="Permanent link">#</a></h2>
+<p>众所周知，指令和数据都需要在 memory 里才能访问。而访问 memory 比较慢。</p>
+<p>关注到程序对 memory 的访问有如下特点：</p>
+<ul>
+<li><strong>Temporal locality</strong>, 时间局部性，即近期访问的项目很有可能会在短时间内再次被访问。例如循环中的指令、induction variables (循环中用来计数的变量) 等</li>
+<li><strong>Spatial locality</strong>, 空间局部性，即近期访问项目附近的项目也有可能会在短时间内再次被访问。例如连续的指令执行，或者数组变量等</li>
+</ul>
+<p>因此，结构化的 memory 被设计出来。近期访问到的内存单元和它附近的内容被复制一份放在离 CPU 更近、访问更快，但也更小的 <strong>cache</strong> 中，从而利用上述局部性加速访问。</p>
+<p><center><img alt="image.png" src="../../../assets/1652692160527-7606f530-5481-4d42-8ed2-c4df690c9bf4.png" /></center></p>
+<p>我们称复制的单位是 <strong>block</strong> 或者 <strong>line</strong>，它通常是 2 的若干次方个 word 那么大（一个 word 是 4 Byte）。</p>
+<p>如果我们希望访问的内存单元 (即，它所在的 block) 恰好在 cache 中（之前某一次被搬上来了），我们称之为一次 <strong>hit</strong>，这时我们只需要从中读出来就可以了。判断是否 hit，以及读出来的时间称为 <strong>hit time</strong>。</p>
+<p>如果并不存在，称为一次 <strong>miss</strong>。当 cache miss 时，我们需要先将内容所在的 block 从 memory 拿到 cache，然后再将内容读到处理器；这个过程花的时间成为 <strong>miss penalty</strong>。</p>
+<p>对应的有 hit / miss rate (也称 ratio) 的概念，不再赘述。</p>
+<h2 id="52_the_basics_of_cache">5.2 The basics of Cache<a class="headerlink" href="#52_the_basics_of_cache" title="Permanent link">#</a></h2>
+<p>下面我们来具体考虑 cache 怎么实现。主要需要讨论的问题是：如何知道一个 block 是否在 cache 里？以及如果知道它在的话，如何找到它？</p>
+<h3 id="531_direct_mapped_cache">5.3.1 Direct Mapped Cache<a class="headerlink" href="#531_direct_mapped_cache" title="Permanent link">#</a></h3>
+<p><center><img alt="image.png" src="../../../assets/1652692837568-a910a2a5-d2ff-4251-8dfb-447508ca670c.png" /></center></p>
+<p>如上图所示，内存有 32 个 block，其编号 (block address) 分别为 00000 到 11111；cache 有 8 个 block。Direct mapped cache 这种方式直接按 block address 的后 3 位确定它应该放在 cache 的哪个 block 里。</p>
+<p>即，图上灰色的 block 的编号末 3 位都是 001，所以就应该放在 cache 中编号为 001 的灰色 block 里；橙色同理。</p>
+<p>为什么是三位呢？很简单，因为 cache 有 8 个 block 的话，其对应的就是 3 位二进制数。我们把这个决定映射关系的末几位称为 <strong>index</strong>。同理，如果 cache 有 64 个 block 的话，index 就是 6 位。Cache 的 block 数始终是 2 的幂次方。</p>
+<p>那么我们如何确定放在 cache 中编号为 001 的位置的 block 究竟是 00001，还是 01001，还是其他的哪个 block 呢？我们可以通过在 cache 中额外存放这个 block 的 block address 来知道这个问题。</p>
+<p>当然，实际上我们只需要存放这个 block address 的前若干位，因为后面的几位已经通过 index 来确定了。例如图上的例子中，10001 存在 index 为 001 的 cache block 中，只需要额外存开头的 10 即可。我们把用来判定某个 cache block 中到底存的是哪个 memory block 的这几位称为 <strong>tag</strong>。</p>
+<p>下一个问题是，如何确定 cache 中的这个 block 是否有效呢？也就是说，任何时候这个 block 中总有一个值，但是假设这个值是启动的时候自带的，那么访问它就会发生错误，因为它实际上并不是对应的 memory block 的值。因此，我们引入一个 <strong>valid bit</strong> 来表示这个 block 是否有效；初始值为 0 表示无效，当有一次将 memory 的一个 block 拿进来之后就将其置为 1。</p>
+<p>也就是说，cache hit 当且仅当 valid bit 是 1 而且 tag 是一致的。</p>
+<p>我们在内存中的地址都是以字节为单位的，而上面我们讨论的 block address 都是以 block 为单位的，这两者之间有什么样的关系呢？非常简单，由于一个 block 总是 2 的若干次方个 word 那么大， 而每个 word 是 4 Byte，因此每个 block 的 byte 数也是 2 的若干次方。因此，我们只需要去掉 byte address 的后几位，就可以获得它的 block address 了。这样相邻的 2 的若干次方个 byte 就会聚合成一个 block 了，因为它们的 byte address 的前若干位，即 block address，是相同的。</p>
+<p>也就是说，我们将 byte address 分为 2 个部分：block address 和 byte offset，即所在 block 的编号以及在 block 中的偏移量 (in byte)；而 block address 又分为了两个部分，即 tag 和 index。即：</p>
+<p><center><img alt="image.png" src="../../../assets/1652751935229-d2221dfa-a158-4842-9cb6-7bcb51479bec.png" /></center></p>
+<p>而在 cache 中，我们存储以下信息：</p>
+<p><center><img alt="image.png" src="../../../assets/1652752079856-f08cb589-5068-4524-90b6-23c7a3f1b7df.png" /></center></p>
+<p>即，每个 cache block 有一个 index，当出现一次 miss 后从内存中拿所需内存覆盖到对应的 index 条目上的 data 字段，将 tag 设为 block address 的前几位，将 valid bit 设为 1。</p>
+<details class="example" open="open">
+<summary>例 5.1 Direct Mapped Cache 的填充和替换</summary>
+<p>下面是一个具体的例子：</p>
+<p><center><img alt="image.png" src="../../../assets/1652752776370-d0133a42-a292-4d62-b055-001d5d601a10.png" /></center></p>
+</details>
+<details class="example" open="open">
+<summary>例 5.2 Direct Mapped Cache 的位数计算和连线方式</summary>
+<p>又例如，对于一个 64 位地址的机器，cache 的大小为 1024 个 block，一个 block 有 1 个 word，即 4 个 byte，那么 index 的位数就是 <span class="arithmatex">\(\log_2 1024 = 10\)</span>，byte offset 的位数就是 <span class="arithmatex">\(\log_2 4 = 2\)</span>，因此 tag 的位数就是 <span class="arithmatex">\(64 - 10 - 2 = 52\)</span>；另外一个 block 的大小是 4 个 byte，即 32 位，因此一个 cache 的条目的位数就是 valid bit 1 位 + tag 52 位 + word 32 位 = 85 位。</p>
+<p>（index 并不需要在这里被计算，因为 index 之于 cache 就像 address 之于 main memory 一样，是直接用来访问的）</p>
+<p>亦即：</p>
+<p><center><img alt="image.png" src="../../../assets/1652752904223-cd18cbdd-7d9b-45f6-9dfc-4543a5951094.png" /></center></p>
+<p>当然，如我们之前所说，一个 block 有可能包含多个 word，而每次实际上只会访问出一个 word。因此这时我们还需要在 block 中选择对应的 word，这时候我们就可以将 byte offset 进一步细分成表示 block 中某个 word 的 <strong>block offset</strong>（为什么不叫 word offset 呢？），以及表示 word 中某个 byte 的 <strong>byte offset</strong>：</p>
+<p><center><img alt="image.png" src="../../../assets/1652765206172-56e8e84c-5e9c-41d4-ae02-6a0dfca2399c.png" /></center></p>
+<p>即，对这个图中的情形，地址是 32 位的，一个 block 有 16 个 word，有 256 个 cache entry。因此 byte offset 的位数是 <span class="arithmatex">\(\log_2 4 = 2\)</span>，block offset 的位数是 <span class="arithmatex">\(\log_2 16 = 4\)</span>，index 的位数是 <span class="arithmatex">\(\log_2 256 = 8\)</span>，tag 的位数是 <span class="arithmatex">\(32-8-4-2=18\)</span>，一个 cache entry 的长度是 valid bit 1 位 + tag 18 位 + data 16 word * 4 byte/word * 8 bit/byte = 531 位。</p>
+</details>
+<details class="example" open="open">
+<summary>例 5.3 Direct Mapped Cache 的位数计算</summary>
+<p>再例如：</p>
+<p><center><img alt="image.png" src="../../../assets/1652753397820-7f30a36f-aab7-41b1-bbbf-89c151253a49.png" /></center></p>
+</details>
+<h3 id="532_handling_cache_hits_misses">5.3.2 Handling Cache Hits &amp; Misses<a class="headerlink" href="#532_handling_cache_hits_misses" title="Permanent link">#</a></h3>
+<p>显然，读和写的时候发生 cache miss 的处理方式是不一样的；另外读也有读数据和读指令之分（指令 cache 和数据 cache 通常是分离的）。我们分别对其进行讨论：</p>
+<ul>
+<li><strong>Read</strong><ul>
+<li><strong>Hit</strong><ul>
+<li>直接从 cache 里读就好了</li>
+</ul>
+</li>
+<li><strong>Miss</strong><ul>
+<li><strong>Data cache miss</strong><ul>
+<li>从 memory 里把对应的 block 拿到 cache，然后读取对应的内容。</li>
+</ul>
+</li>
+<li><strong>Instruction cache miss</strong><ul>
+<li>暂停 CPU 运行，从 memory 里把对应的 block 拿到 cache，从第一个 step 开始重新运行当前这条指令。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Write</strong><ul>
+<li><strong>Hit</strong> 有两种可以选的方式：<ul>
+<li><strong>write-through</strong>，即每次写数据时，既写在 cache，也写在 main memory。这样的好处是 cache 和 main memory 总是一致的，但是这样很慢。<ul>
+<li>一个改进是引入一个 <strong>write buffer</strong>，即当需要写 main memory 的时候不是立即去写，而是加入到这个队列中，找机会写进去；此时 CPU 就可以继续运行了。当然，当 write buffer 满了的时候，也需要暂停处理器来做写入 main memory 的工作，直到 buffer 中有空闲的 entry。因此，如果 main memory 的写入速率低于 CPU 产生写操作的速率，多大的缓冲都无济于事。</li>
+</ul>
+</li>
+<li><strong>write-back</strong>，只将修改的内容写在 cache 里，等到这个 block 要被覆盖掉的时候将其写回内存。这种情况需要一个额外的 <strong>dirty bit</strong> 来记录这个 cache block 是否被更改过，从而直到被覆盖前是否需要被写回内存。由于对同一个 block 通常会有多次写入，因此这种方式消耗的总带宽是更小的。</li>
+</ul>
+</li>
+<li><strong>Miss</strong> 同样有两种方式：<ul>
+<li><strong>write allocate</strong>，即像 read miss 一样先把 block 拿到 cache 里再写入。</li>
+<li><strong>write around</strong> (or <strong>no write allocate</strong>)，考虑到既然本来就要去一次 main memory，不如直接在里面写了，就不再拿到 cache 里了。</li>
+<li>write-back 只能使用 write allocate；一般来说，write-through 使用 write around，其原因是明显的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="533">5.3.3 其他定位方式<a class="headerlink" href="#533" title="Permanent link">#</a></h3>
+<p>在 5.3.1 中，我们讨论了最简单的映射方式，即直接映射：对于任一给定的 block address，有且仅有一个 cache block 可供它存放。实际上，还有一些其他的映射方式。</p>
+<p><strong>Fully associative</strong>，简单来说就是 block can go anywhere in cache。这种方式的好处是可以降低 miss rate，坏处是每次需要跟所有 block 比较是否 hit：</p>
+<p><center><img alt="image.png" src="../../../assets/1652756194622-6e4626af-f977-45b0-86dc-7cbfcef52bfd.png" /></center></p>
+<p>这种情况下，我们需要额外讨论替换时采用什么样的策略；即：替换哪一块。通常有三种策略：</p>
+<ul>
+<li><strong>Random replacement</strong>，随机挑选一个幸运 block 覆盖掉（需要一个随机数生成器）</li>
+<li><strong>LRU, Least Recently Used</strong>，选择上一次使用时间距离现在最远的那个 block 覆盖掉（需要一些额外的位用来记录信息，具体实现没有讲）</li>
+<li><strong>FIFO, First In First Out</strong>，选择进入时间最早的 block 覆盖掉（同样需要一些额外的位记录信息，同样没讲具体实现）</li>
+</ul>
+<p>介于 direct mapping 和 fully associative 之间的是 set associative，即每个 block 仍然会根据其 address 确定其可以存放的 cache block，但是可以放的地方并不是一个，而是一组。即：</p>
+<p><center><img alt="image.png" src="../../../assets/1652756607490-1017df1c-5566-4e2a-a28b-116f0e333638.png" /></center></p>
+<p>最右边是一个 2-way set-associative 的例子，每个地址对应 cache 中的一组，在这里一组有两个 cache block。因此在访问时也需要分别比较这两个 block 是否 hit。在替换时也需要决定替换哪一块，也可以使用前述的三个策略中的一个实现。</p>
+<p>相似地，一个 4-way set-associative 的访问中判断 hit 和获取 data 的连线如下：</p>
+<p><center><img alt="image.png" src="../../../assets/1652757530348-328003df-17fe-47b0-826f-7c7f283d4811.png" /></center></p>
+<p>所以，事实上，direct mapping 和 fully associative 其实都是 set associative 的特例：direct mapping 其实就是 1-way set associative，而 fully associative 就是 n-way set associative，其中 n 是 cache block 的个数；我们称一组的大小为 <strong>associativity</strong>，那么这两种方法的 associativity 就分别是 1 和 n。</p>
+<p>显然，在查看所需 block 是否在 cache 中时，需要访问的 cache block 个数就等于 associativity，即：</p>
+<p><center><img alt="image.png" src="../../../assets/1652757375415-3eaa40f0-fcf9-4005-a401-8892a22d6867.png" /></center></p>
+<details class="example" open="open">
+<summary>例 5.4 Set associative 的位数计算</summary>
+<p>已知 Cache size is 4K Block, Block size is 4 words, Physical address is 32bits，求 direct-mapped, 2-way associative, 4-way associative, fully associative 时 tag 和 index 的位数。</p>
+<p>即求 associativity 为 1, 2, 4 和 4096 时 tag 和 index 的位数。</p>
+<p>我们知道，在 direct-mapped 中 index 是用来确定 memory block 放在哪个 cache block 中的，那么在 set-associative 中，index 就是用来确定放在哪个 set 中的。因此，index 的位数就对应着 set 的个数，即：</p>
+<div class="arithmatex">\[\text{index}_\# = \log_2(\text{set}_\#) = \log_2\frac{\text{cache block}_\#}{\text{associativity}}\]</div>
+<p>因此 associativity 为 1, 2, 4, 4096 时，index 的位数分别是 12, 11, 10, 0。</p>
+<p>由于 block size 为 4 words，即 16 Bytes，因此 byte offset 需要 4 位（或者，具体地说，block offset 2 位，byte offset 2 位）。所以剩下的都是 tag 了，因此 tag 的位数分别是 16, 17, 18, 28。</p>
+</details>
+<details class="example" open="open">
+<summary>18 - 19 Final</summary>
+<p><center><img alt="image.png" src="../../../assets/1655057793599-cf6a859a-8c2d-4ebc-8e7a-97569ae0fa53.png" /></center></p>
+<p><center><img alt="image.png" src="../../../assets/1655057800314-657b2aba-4f32-41f4-829a-507806fc4afd.png" /></center></p>
+<details class="info">
+<summary>答案</summary>
+<p><center><img alt="image.png" src="../../../assets/1655057824454-acd8b498-375e-461d-9c9e-1225e8dae46b.png" /></center></p>
+</details>
+</details>
+<h2 id="53_measuring_cache_performance">5.3 Measuring Cache Performance<a class="headerlink" href="#53_measuring_cache_performance" title="Permanent link">#</a></h2>
+<p>再说吧</p>
+<h2 id="54_virtual_machines">5.4 Virtual Machines<a class="headerlink" href="#54_virtual_machines" title="Permanent link">#</a></h2>
+<p>先不学了</p>
+<h2 id="55_virtual_memory">5.5 Virtual Memory<a class="headerlink" href="#55_virtual_memory" title="Permanent link">#</a></h2>
+<h3 id="551">5.5.1 虚拟内存技术<a class="headerlink" href="#551" title="Permanent link">#</a></h3>
+<p>计组把 main memory 描述为 secondary storage (即 disk) 的 "cache"。或者，反过来说，我们把那些在 main memory 里放不下的内容存到 disk 里（这样更能符合我们熟悉的“可执行文件必须加载到内存才能运行”的一贯认知）。这种技术称为 <strong>virtual memory</strong>。</p>
+<p>虚拟内存技术可以让多个程序之间高效、安全地共享内存，同时允许单个程序使用超过内存容量的内存（正如虽然 CPU 取数据时是从 cache 中取的，但是它能访问到的数据的数目比 cache 的容量要大）。在远古时期，很多程序因为需要使用过大的内存而无法被运行；但现在由于虚拟内存技术的广泛使用，这些程序都不成问题了。</p>
+<p>如下图所示，实际上的 main memory（我们称之为 <strong>物理内存, physical memory</strong>）中的地址称为 <strong>物理地址, physical addresses</strong>；而我们给每一个程序内部使用到的内存另外编一套地址，称为 <strong>虚拟地址, virtual addresses</strong>；虚拟内存技术负责了这两个地址之间的转换 (<strong>address translation</strong>，我们稍后再讨论转换的方式)：</p>
+<p><center><img alt="image.png" src="../../../assets/1653214940649-4eef3e3d-058d-4c77-b2e5-82a20bf1ed46.png" /></center></p>
+<p>从这张图中我们也可以很容易地看出“虚拟内存技术可以允许单个程序访问超过物理内存大小限制的内存”的原因，即有一些内存可以被临时地存放在磁盘上，到被访问的时候再被放到 physical memory 中，就像 cache 做的那样。</p>
+<p>从这张图中，我们还可以注意到 physical memory 的存放并没有分组的概念，即用 cache 的术语来说，main memory 是 fully-associative 的。</p>
+<p>虚拟存储的技术和 cache 的原理是一样的，但是一些术语的名字并不相同。对应于 cache 中的 block / line，虚拟存储的内存单元称为 <strong>page</strong>，当我们要访问的 page 不在主存中而是在磁盘里，也就是 miss，我们称之为一次 <strong>page fault</strong>。</p>
+<details class="info">
+<summary>Info</summary>
+<p>在一些地方，virtual page 称为 page，physical page 称为 <strong>帧, frame</strong>；我们的课本并未采用这种称呼。但无论如何，在看到单独出现的 <em>page</em> 时，应当参考上下文判断它是 virtual 还是 physical。</p>
+<p>在一些地方，virtual address 也被称为 logical address。</p>
+</details>
+<h3 id="552">5.5.2 如何完成映射呢<a class="headerlink" href="#552" title="Permanent link">#</a></h3>
+<p>首先我们要考虑的一个问题就是，一个 page 应该有多大。我们知道，访问磁盘相比于访问内存是非常慢的（相差大约十万倍），这个主要时延来自于磁盘转到正确的位置上的时间花费；所以我们希望一次读进来多一点从而来分摊这个访问时间。典型的 page 大小从 4KiB ~ 64KiB 不等。</p>
+<p>下面我们考虑映射关系。我们不妨假设一个 page 的大小是 4KiB，那么其页内的偏移 <strong>page offset</strong> 就需要 12 位来表示；那么物理地址中除去后 12 位以外前面的部分就表征着它是属于哪一页的，我们称之为 <strong>physical page number</strong>。</p>
+<details class="info">
+<summary>Info</summary>
+<p>如我们之前所说，memory 作为 disk 的 "cache" 是 fully-associative 的，因此 physical page number 其实就是 cache 中的 "tag"，而 page offset 就是 cache 中的 "byte offset"，fully-associative 的 cache 并没有 index 这一字段。</p>
+</details>
+<p><center><img alt="image.png" src="../../../assets/1653273502100-3bc83b47-f1e3-45c6-93a2-d96a1b080554.png" /></center></p>
+<p>为什么要使用 fully-associative 的存储方式呢？我们在 cache 中讨论过，这种方式的好处是失效率低，坏处是查询难度大。但是我们也讨论到了，page fault 的开销是非常大的，因此比较低的 page fault 的概率相对于额外的查询来说是非常划算的。</p>
+<p>同样，由于读写磁盘是非常慢的，write through 的策略并不合适，因此在 virtual memory 的技术中，我们采取 write back 的方式。</p>
+<p>而 virtual address 的形式与之类似，由若干位 page number 和若干位 page offset 组成。</p>
+<p>我们之前提到，我们有一种方式可以找到 virtual page 对应的 physical page，因此当我们要访问一个虚拟地址时，将其 virtual page number 通过这种 translation 转换为 physical page number（这种 translation 也会负责 page fault 的处理并给出正确的转换），而 page offset 表示的是在一页内的偏移，保持不变即可。这样我们就获得了这个 virtual address 对应的 physical address，也就是它在实际的 main memory 中存储的位置。如下图所示：</p>
+<p><center><img alt="image.png" src="../../../assets/1653274122638-cbffd0c2-1397-4a3a-83a8-67c57004505b.png" /></center></p>
+<p>同时也可以看出，virtual page number 的位数比 physical 的多；这也是显然的，因为我们引入虚拟内存的一个重要原因就是为了使用比 main memory 更大的内存。</p>
+<details class="info">
+<summary>Info</summary>
+<p>如果我们把 translation 看成一个函数（事实上，我们之后可以看到，这种 translation 确实符合函数的定义），那么事实上 virtual page number 到 physical page number 的转换是 direct mapped 的，因为我们从一个 virtual page number 可以确切地找到 <strong>一个</strong> physical page number，而不是在一组中再去寻找。因此，virtual page number 实际上对应了 cache 中的 "index"，tag 并不需要。</p>
+<p>所以说，我们认为 virtual address 之于 physical address 是 direct mapped 的，virtual page number 对应 cache 中的 index，page offset 对应 byte offset；而 physical address 之于 secondary storage 是 fully associative 的，physical page number 对应 cache 中的 tag，page offset 对应 byte offset。</p>
+<p>（但是实际上，我个人并不认同把 virtual memory 和 cache 类比起来。）</p>
+</details>
+<h3 id="553">5.5.3 页表<a class="headerlink" href="#553" title="Permanent link">#</a></h3>
+<p>我们下面讨论这种 translation 的具体方案。之前也提到，fully-associative 的一个重要问题就是如何去定位某一项；这里我们引入 <strong>page table</strong> 这种结构，它被存放在 main memory 中，每个程序（实际上是进程，但是写课本的人好像现在并不想引入这个概念）都有一个自己的 page table；同时硬件上有一个 <strong>page table register</strong> 保存当前进程这个页表的地址。</p>
+<p>使用页表时，我们根据 virtual page number 找到对应 <strong>page table entry, PTE</strong> 在 page table 中的偏移，然后与 page table register 相加得到对应 entry 的 physical address，从中读取对应的 entry。其实就是说，page table 就是一个数组， <code>page_table[i]</code> 表示第 <code>i</code> 个 virtual page 对应的 physical page number。</p>
+<p>如下图所示，每个 entry 中包含了一个 valid bit 和 physical page number。如果 valid bit = 1，那么转换完成；否则触发了 page fault，handle 之后再进行转换。</p>
+<p><center><img alt="image.png" src="../../../assets/1653274939462-abfe7f29-a821-469c-b76c-df2efb82a791.png" /></center></p>
+<p>Page fault 会引发一个 exception，由操作系统接管控制，处理完之后再将控制交还给进程。操作系统要做的事情是在 secondary storage 中找到这一 page，将其放到 main memory 里（可能需要与当前主存中的某个 page 交换），然后更新 page table。</p>
+<p>操作系统在创建进程时在 disk (或者 flash memory) 上创建一个虚拟地址空间那么大的空间，以便上述的交换；这个空间称为 <strong>交换区, swap space</strong>。下面的问题是操作系统如何在 swap space 中找到需要的 page。</p>
+<p>我们可以看到，如果 page table entry 的 valid bit 为 0，那么后面的 physical page number 是没有用到的。我们可以利用这个字段存储对应 page 被交换到了 disk 的哪个位置；或者另外开辟一个索引结构，在其中记录每个 virtual page number 对应的 disk 位置。作为前者的一个例子，请看下图：</p>
+<p><center><img alt="image.png" src="../../../assets/1653277209068-e7036fd9-6841-400e-96e2-d2f97013a4ba.png" /></center></p>
+<p>操作系统还会跟踪哪些进程和虚拟地址正在使用哪个物理页，因为操作系统需要让交换引发后续 page fault 的次数尽可能少。操作系统会使用我们之前提到的 <strong>LRU, Least Recently Used</strong> 的策略处理交换。</p>
+<p>LRU 的代价有点太大了，毕竟如果使用 LRU 的话需要遍历整个 main memory。因此，很多操作系统引入了 <strong>reference bit</strong> (或者称为 <strong>use bit</strong>) 来近似地实现 LRU。当一个 page 被访问时这个 bit 被置为 1；操作系统定期将 reference bit 清零。因此，在需要交换时，只需要找一个 reference bit 为 0 的就可以说明它在这段时间内没有被访问过。</p>
+<p>如我们之前所说，virtual memory 使用 write back 的策略，因此还需要一个 dirty bit。</p>
+<h3 id="554">5.5.4 用多级页表解决页表过大的问题<a class="headerlink" href="#554" title="Permanent link">#</a></h3>
+<p>我们不妨关注一下 page table 有多大。在我们之前的例子中，virtual address 有 48 bit，每个 page 的大小为 4KiB，所以 page table entry 的数目是 
+<span class="arithmatex">\(\cfrac{2^{48} \text{ B}}{4\text{ KiB}} = \cfrac{2^{48}}{4\times 2^{10}} = 2^{36}\)</span>；而 RISC-V 每个表项有 8 Byte，所以 page table 的总大小来到了 <span class="arithmatex">\(2^{39}\text{ B} = 0.5 \text{TiB}\)</span>，这是极其不合理的；尤其是每个进程都有一个 page table 的前提下。</p>
+<p>我们可以通过多级页表的方式解决这个问题。</p>
+<p>如我们之前所述，页表是一个数组，  <code>page_table[i]</code>  中存储的是 page number 为 i 的 page 所对应的 frame number。考虑我们的逻辑地址结构：</p>
+<p><center><img alt="image.png" src="../../../assets/1607247135113-1998902c-c1c0-4d78-8d21-99766857be7e.png" /></center></p>
+<p>这样的逻辑地址结构需要一个存储 2p 个元素的 page table，即需要这么大的连续内存，这是非常大的消耗。我们考虑将 p 再分为 p1 和 p2 ：</p>
+<p><center><img alt="image.png" src="../../../assets/1608315590109-e84d3ab8-0a2d-4e6a-becd-d10f57d45f2f.png" /></center></p>
+<p><center><img alt="image.png" src="../../../assets/1608315596044-0e1ba30c-ca5d-4f3a-ae2f-f792f992a1b1.png" /></center></p>
+<p>我们使用一个两级页表，  <code>outer_page_table[i]</code>  中存储的是 p1 为 i 的 inner page table，即 <code>inner_page_table[i][]</code>  的基地址；而  <code>inner_page_table[i][j]</code>  中存储的就是 p1 为 i，p2 为 j 的 page 对应的 frame number，即 page number 为 p1p2 （没有分割时的 p）对应的 frame number。</p>
+<p>这里，我们称 p1 为 <strong>page directory number</strong> ，p2 为 <strong>page table number</strong>，d 为 <strong>page offset</strong>。</p>
+<p><center><img alt="image.png" src="../../../assets/1608316895578-0d32183b-93b0-44a1-805d-c96b47b0f3b0.png" /></center></p>
+<p>考虑这样做的好处：hierarchical paging 其实就是对页表的分页（page the page table）。因此，它避免了 page table 必须处在连续内存的问题，这一问题在 <em>p</em> 比较大时尤其严重。</p>
+<p>另外，这样做在一般情况下可以节省空间。我们之前提到，页表不一定会全部使用；并且由于逻辑地址是连续的，因此用到的页表项也是连续的，都排在页表的头部。因此如果我们采用了二级页表，那么许多排在后面的 inner page table 将完全为空；此时我们可以直接不给这些 inner page table 分配空间，即我们只分配最大的 p1 那么多个 inner page table。这样我们可以节省很多空间。即使在最差的情况下，所有页表都被使用了，我们的页表所用的总条目数也只有 <span class="arithmatex">\(2^{p_1}+2^{p_1}\cdot 2^{p_2} = 2^{p_1} + 2^{p_1 + p_2}\)</span> 个，只比单级页表结构多了 <span class="arithmatex">\(2^{p_1}\)</span>，是完全可以接受的。</p>
+<p>类似地，我们可以设计更多级的页表。例如，64 位的逻辑地址空间使用二级页表就是不够的，否则它的页表就会长成这样：</p>
+<p><center><img alt="image.png" src="../../../assets/1608317288073-c745144b-ee16-43e2-b38b-56b32797856b.png" /></center></p>
+<p>这样 outer page 就会超级大。我们可以 page the outer page：</p>
+<p><center><img alt="image.png" src="../../../assets/1608360619753-f1b1e4b2-e278-40ba-ab7d-47133aa06989.png" /></center></p>
+<p>这样，我们就建立了一个三级页表。</p>
+<p>实际上，我们不必使用全部的 64 位，即我们不需要一个 64 位那么巨大的 virtual address space。AMD-64 支持 48-bit 的虚拟地址，ARM64 支持 39-bit 和 48-bit 的虚拟地址空间：</p>
+<p><center><img alt="image.png" src="../../../assets/1608360842899-bab5d705-9051-4802-a36e-514d9977a7c5.png" /></center></p>
+<h3 id="555_tlb">5.5.5 使用 TLB 加快地址转换<a class="headerlink" href="#555_tlb" title="Permanent link">#</a></h3>
+<p>我们之前提到，使用页表时，我们根据 virtual page number 找到对应 page table entry 在 page table 中的偏移，然后与 page table register 相加得到对应 entry 的 physical address，从中读取对应的 entry。但是这种方法的效率存在问题。要访问 virtual address 对应的 physical address，我们首先要根据 page table register 和 page number 来找到页表在内存的位置，并在其中得到 page 对应的 frame number，这需要一次内存访问；然后我们根据 frame number 和 page offset 算出真实的 physical address，并访问对应的字节内容。即，访问一个字节需要两次内存访问，这会加倍原本的内存访问的时间，这是难以接受的。</p>
+<p>这个问题的解决方法用到一个专用的高速查找硬件 cache，这里称它为 <strong>translation look-aside buffer (TLB)</strong>。它实际上就是 page table 的专用 cache（它真的是 cache；page table 并不是 cache，只是像 cache），其 associativity 的设计可以根据实际情况决定。</p>
+<p>下图是一个 fully-associative 的 TLB 的例子；由于是 fully-associative，并不需要 index：</p>
+<p><center><img alt="image.png" src="../../../assets/1653281003134-b3440528-694f-4c30-8289-c05f06bde0a3.png" /></center></p>
+<p>当 TLB miss 的时候，处理器去 page table 查找对应的项；如果发现对应项是 valid 的，那么就把他拿到 TLB 里（此时被替换掉的 TLB entry 的 dirty bit 如果是 1，也要写会 page table）；否则就会触发一个 page fault，然后在做上述的事。</p>
+<p><center><img alt="image.png" src="../../../assets/1653281383373-c6779ed4-1765-4bd5-9be9-f57c2e5ebd3c.png" /></center></p>
+<h3 id="556_memory_protection">5.5.6 Memory Protection<a class="headerlink" href="#556_memory_protection" title="Permanent link">#</a></h3>
+<p>暂时不想学QWQ</p>
+<h2 id="56_the_three_cs_cache_miss">5.6 The Three Cs | 对 cache miss 的归类<a class="headerlink" href="#56_the_three_cs_cache_miss" title="Permanent link">#</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>此处内容存疑</p>
+</div>
+<ul>
+<li>Compulsory misses / Cold-start misses：对一个块第一次访问时引发的 miss</li>
+<li>Capacity misses：在 fully-associative cache 中，某个块虽然访问过，但是由于容量不够被换出去了，再访问时就 miss 了</li>
+<li>Conflict misses / Collision misses：在 set-associative 或 direct-mapped cache 中，某个块虽然访问过，但是由于这个组里的容量不够被换出去了，再访问时就 miss 了</li>
+</ul>
+<h2 id="57_using_fsm_to_control_a_simple_cache">5.7 Using FSM to Control a Simple Cache<a class="headerlink" href="#57_using_fsm_to_control_a_simple_cache" title="Permanent link">#</a></h2>
+<p>FSM，Finite State Machine，有限状态自动机；其实就是根据当前状态和输入转换状态的东西。这里根据当前的状态以及发生的事件转换状态，并给出一些控制信号的输出：</p>
+<p><center><img alt="image.png" src="../../../assets/1653286348338-6817d850-727d-4644-b0ee-b4b0e3f90861.png" /></center></p>
+<p><center><img alt="image.png" src="../../../assets/1653286361901-d528850a-0cfa-42d6-81ec-67f2455d231d.png" /></center></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:05:54</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:05:54</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Yaoyaolingbro/notebook/home" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+        <script src="../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
