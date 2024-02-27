@@ -29,9 +29,7 @@
 
 如果要在多个用户之间共享数据，系统必须提供**并发控制**(concurrency control)机制，以避免可能的异常(anomalous)结果。
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.1.png" alt="db_review_1.1" style="zoom:67%;" />
-</div>
+![db_review_1.1](./graph/db_review_1.1.png){: style="display:block;margin:auto;width:67%;"}
 
 数据库-数据库管理系统DBMS-数据库应用程序的层次结构
 
@@ -72,9 +70,7 @@
 
 #### 数据库三层模型
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.2.png" alt="db_review_1.2" style="zoom:67%;" />
-</div>
+![db_review_1.2](./graph/db_review_1.2.png){: style="display:block;margin:auto;width:67%;"}
 
 数据库可以分为视图层、逻辑层和物理层。分别由视图/逻辑映射、逻辑/物理映射进行变换。
 
@@ -179,9 +175,7 @@ ER模型与规范化理论(Normalization Theory)
 
 #### Database Users
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.4.png" alt="db_review_1.4" style="zoom:67%;" />
-</div>
+![db_review_1.4](./graph/db_review_1.4.png){: style="display:block;margin:auto;width:67%;"}
 
 Naive users：只与数据库应用程序交互(use interfaces)
 
@@ -202,9 +196,7 @@ DBA(Database Administrator)：DBMS, administration tools
   - 充当与用户的联络人**Acting as liaison with users**
   - 监控性能和响应需求变化-性能调整**Monitoring performance and responding to changes in requirements - Performance Tuning**
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.5.png" alt="db_review_1.5" style="zoom:67%;" />
-</div>
+![db_review_1.5](./graph/db_review_1.5.png){: style="display:block;margin:auto;width:67%;"}
 
 ### 9. History of Database Systems
 
@@ -439,17 +431,11 @@ create index (name) on r(A)
   <img src="./graph/db_review_5.3.png" alt="db_review_5.3"  />
 </div>
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_5.4.png" alt="db_review_5.4" />
-</div>
+![db_review_5.4](./graph/db_review_5.4.png){: style="display:block;margin:auto;"}
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_5.5.png" alt="db_review_5.5" />
-</div>
+![db_review_5.5](./graph/db_review_5.5.png){: style="display:block;margin:auto;"}
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_5.6.png" alt="db_review_5.6" />
-</div>
+![db_review_5.6](./graph/db_review_5.6.png){: style="display:block;margin:auto;"}
 
 ### 3. Trigger
 
@@ -459,25 +445,17 @@ create index (name) on r(A)
 - referencing new/old row/table as
 - for each statement/row
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_5.7.png" alt="db_review_5.7" />
-</div>
+![db_review_5.7](./graph/db_review_5.7.png){: style="display:block;margin:auto;"}
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_5.8.png" alt="db_review_5.8" />
-</div>
+![db_review_5.8](./graph/db_review_5.8.png){: style="display:block;margin:auto;"}
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_5.9.png" alt="db_review_5.9" />
-</div>
+![db_review_5.9](./graph/db_review_5.9.png){: style="display:block;margin:auto;"}
 
 ## Chap6: Entity-Relationship Model
 
 ### 1. DB Design Process
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_6.1.png" alt="db_review_6.1" style="zoom:67%;" />
-</div>
+![db_review_6.1](./graph/db_review_6.1.png){: style="display:block;margin:auto;width:67%;"}
 
 - avoid：**redundancy** and **incompleteness**
 

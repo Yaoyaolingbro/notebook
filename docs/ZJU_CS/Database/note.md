@@ -42,9 +42,7 @@
 
 如果要在多个用户之间共享数据，系统必须提供**并发控制**(concurrency control)机制，以避免可能的异常(anomalous)结果。
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.1.png" alt="db_review_1.1" style="zoom:67%;" />
-</div>
+![db_review_1.1](./graph/db_review_1.1.png){: style="display:block;margin:auto;width:67%;"}
 
 数据库-数据库管理系统DBMS-数据库应用程序的层次结构
 
@@ -85,9 +83,7 @@
 
 #### 数据库三层模型
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.2.png" alt="db_review_1.2" style="zoom:67%;" />
-</div>
+![db_review_1.2](./graph/db_review_1.2.png){: style="display:block;margin:auto;width:67%;"}
 
 数据库可以分为视图层、逻辑层和物理层。分别由视图/逻辑映射、逻辑/物理映射进行变换。
 
@@ -180,9 +176,8 @@ ER模型与规范化理论(Normalization Theory)
     - DML编译器执行**查询优化**，即从各种备选方案中选择成本最低的评估计划。
   - 查询评估引擎 **Query evaluation engine**——执行DML编译器生成的底层指令。
   - Parsing and translation - Optimization - Evaluation
-  <div style="text-align:center;">-  
-    <img src="./graph/db_review_1.3.png" alt="db_review_1.3" style="zoom:67%;" />
-  </div>
+  ![](./graph/db_review_1.3.png)
+  
 - **transaction management** component事务管理
   - 事务**transaction**：在数据库应用程序中执行单个逻辑功能的操作集合。
   - 恢复管理器**Recover Manager**：确保数据库在出现故障时仍保持一致（consistent）状态。故障包括系统故障(system failures)（电源故障power failure, 操作系统崩溃OS crashes等）和事务故障(transaction failures)。
@@ -192,9 +187,7 @@ ER模型与规范化理论(Normalization Theory)
 
 #### Database Users
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.4.png" alt="db_review_1.4" style="zoom:67%;" />
-</div>
+![db_review_1.4](./graph/db_review_1.4.png){: style="display:block;margin:auto;width:67%;"}
 
 Naive users：只与数据库应用程序交互(use interfaces)
 
@@ -215,9 +208,7 @@ DBA(Database Administrator)：DBMS, administration tools
   - 充当与用户的联络人**Acting as liaison with users**
   - 监控性能和响应需求变化-性能调整**Monitoring performance and responding to changes in requirements - Performance Tuning**
 
-<div style="text-align:center;">
-  <img src="./graph/db_review_1.5.png" alt="db_review_1.5" style="zoom:67%;" />
-</div>
+![db_review_1.5](./graph/db_review_1.5.png){: style="display:block;margin:auto;width:67%;"}
 
 ### 9. History of Database Systems
 
