@@ -243,7 +243,8 @@ $$
 
 - MIPS: Millions of Instructions Per Seconds
 
-$$
+$$  
+
 \begin{aligned}
 MIPS 
 &= \frac{\text{\#Instructions}}{\text{Execution time} \times 10^6} \\
@@ -257,6 +258,7 @@ MIPS
 &= \frac{\text{Clock rate}}{\text{CPI} \times 10^6}
     
 \end{aligned}
+
 $$
 
 ### 内存

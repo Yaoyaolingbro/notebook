@@ -1,4 +1,4 @@
-site_name: Yaoyaolingbro's notebook
+site_name: Yaoyaoling's notebook
 site_url: https://yaoyaolingbro.github.io/notebook
 site_author: yaoyaoling
 
@@ -101,6 +101,7 @@ plugins:
   - changelog
   - search:
       lang: zh
+  - mermaid2
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
