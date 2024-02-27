@@ -2918,7 +2918,7 @@
 <p>在一些 architecture 中，word 的起始地址必须是 word 大小的整倍数，dword 也一样，这种要求称为 <strong>alignment restriction</strong>。RISC-V 允许不对齐的寻址，但是效率会低。</p>
 <p>RISC-V 使用 <strong>little endian</strong> 小端编址。也就是说，当我们从 0x1000 这个地址读出一个 dword 时，我们读到的实际上是 0x1000~0x1007 这 8 个字节，并将 0x1000 存入寄存器低位，0x1007 存入高位。</p>
 <p><center>
-    <img alt="" src="../2023-05-06_19-21-08.png" />
+    <img alt="" src="../graph/2023-05-06_19-21-08.png" />
 </center></p>
 <blockquote>
 <p>一个记忆方法是，如果你将地址横着写，即从左到右递增，那么对于大端来说是比较自然的，但是对于小端来说会比较不自然。以上面的 <code>0A0B0C0D</code> 为例子，大端为从低地址到高地址是 <code>0A</code> <code>0B</code> <code>0C</code> <code>0D</code>，而小端从低到高地址则是 <code>0D</code> <code>0C</code> <code>0B</code> <code>0A</code>。</p>
@@ -3015,7 +3015,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:05:54</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:19:50</span>
   </span>
 
     

@@ -3040,7 +3040,7 @@
 </blockquote>
 <p>在数字逻辑设计这门课程中，我们学过 AND, OR, XOR 这些 gates，以及 inverter 和 mux 这些东西，我们尝试用这些东西攒一个 ALU 出来。在这一节中，我们希望 ALU 具有加法、减法、与运算、或运算和比较的能力。</p>
 <p>我们先考虑 1 bit ALU 的构造。我们学习过 1 bit <a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap03/#%E5%8D%8A%E5%8A%A0%E5%99%A8--%E5%85%A8%E5%8A%A0%E5%99%A8">Full Adder</a> 的构造：
-<center><img alt="image.png" src="../../../assets/1654415057128-ba0032a0-c3b5-49a4-8a7a-43abcb692357.png" width="300" /> <img alt="" src="../2023-03-04-01-24-35.png" width="200" /></center></p>
+<center><img alt="image.png" src="../../../assets/1654415057128-ba0032a0-c3b5-49a4-8a7a-43abcb692357.png" width="300" /> <img alt="" src="../graph/2023-03-04-01-24-35.png" width="200" /></center></p>
 <p>上左图是全加器的具体构造，右图是我们将其进行封装后的表示方式。</p>
 <p>我们结合一个 mux，就可以构造一个支持与、或以及加法运算的 1 bit ALU：
 <center><img alt="image.png" src="../../../assets/1654415145349-fd034b21-25ff-4a16-95f1-a0d964750b9b.png" width="300" /></center></p>
@@ -3050,7 +3050,7 @@
 <p><center><img alt="image.png" src="../../../assets/1654415317462-1a651623-9b94-4957-9f1d-e7c18a33af84.png" width="300" /></center></p>
 <p>其中 <code>Binvert</code> 用来指明是否需要将结果取反；在计算减法时，我们将 <code>Binvert</code> 设为 <code>1</code> ，然后将 <code>CarryIn</code> 也设为 <code>1</code> ， <code>Operation</code> 设为 <code>2</code> ，这样我们的结果就是 <span class="arithmatex">\(a + \bar b + 1\)</span>。</p>
 <p><code>NOR</code> 运算： <code>a NOR b = NOT(a OR b) = (NOT a) AND (NOT b)</code> ，因此 <code>NOR</code> 运算可以这样实现：</p>
-<p><center><img alt="image.png" src="../../../assets/1654416483714-328ce497-05f0-4a7c-bb5d-5dd9bb6f585e.png" width="300" /> <img alt="" src="../2023-03-04-01-25-30.png" width="200" /></center></p>
+<p><center><img alt="image.png" src="../../../assets/1654416483714-328ce497-05f0-4a7c-bb5d-5dd9bb6f585e.png" width="300" /> <img alt="" src="../graph/2023-03-04-01-25-30.png" width="200" /></center></p>
 <p>上右图是我们目前的 1 bit ALU 的抽象结构。</p>
 <h3 id="313_64-bit_alu">3.1.3 串联得到 64-bit ALU！<a class="headerlink" href="#313_64-bit_alu" title="Permanent link">#</a></h3>
 <p>有了 1 bit 的 ALU，我们就可以构造出 RISC-V 所需的 64 bits 的 ALU 了：</p>
@@ -3068,7 +3068,7 @@
 <p>所以可以看到，上图中，除了 ALU0 的 <code>Less</code> 来自 ALU63 的 <code>Set</code> 外，其他 ALU 的 <code>Less</code> 都是 <code>0</code> 。</p>
 <p>结合上述讨论，上图中 ALU0 ~ ALU62 的结构如下第一张图所示，ALU63 的结构如下第二张图所示：</p>
 <p><center><img alt="image.png" src="../../../assets/1654430550957-7cc66c76-4fce-415a-bcc7-a43c0eac8bc1.png" width="500" /></center></p>
-<p><center><img alt="" src="../2023-03-04-01-26-02.png" width="500" /></center></p>
+<p><center><img alt="" src="../graph/2023-03-04-01-26-02.png" width="500" /></center></p>
 <p>（注：第二张图中的 Overflow Detection 被复杂化了，实际上可以通过 <code>CarryIn</code> 和 <code>CarryOut</code> 的异或完成的。）</p>
 <p>可以看到， <code>Operation</code> 增加了 <code>3</code> 的取值，这个取值表示进行 <code>slt</code> 操作。</p>
 <h3 id="314">3.1.4 一点优化！<a class="headerlink" href="#314" title="Permanent link">#</a></h3>
@@ -3077,7 +3077,7 @@
 <p>结合上述两个思路，我们形成了最终的 64-bit ALU！</p>
 <p><center><img alt="image.png" src="../../../assets/1654431118686-b635a01f-1dbd-41b0-89a3-bddec064c1dc.png" width="500" /></center></p>
 <p>对于这样的一个 ALU，我们需要 4 bits 的 control lines，分别是 <code>Ainvert</code> ,  <code>Bnegate</code> 和 <code>Operation</code> (2 bits)。ALU 的符号和 control lines 的含义如下：</p>
-<p><center><img alt="image.png" src="../../../assets/1654432159980-cad11a29-2d85-414a-964b-113491b93193.png" width="150" /> <img alt="" src="../2023-03-04-01-28-12.png" width="300" /></center></p>
+<p><center><img alt="image.png" src="../../../assets/1654432159980-cad11a29-2d85-414a-964b-113491b93193.png" width="150" /> <img alt="" src="../graph/2023-03-04-01-28-12.png" width="300" /></center></p>
 <h3 id="315">3.1.5 更快的加法<a class="headerlink" href="#315" title="Permanent link">#</a></h3>
 <p>上面的 64 位加法的实现方式是通过 1 位加法器串联实现的，这种方式势必需要等待前一个加法器算出结果后才能算后一个的。这种多位加法器的实现称为行波加法器 <strong>Ripple Carry Adder, RCA</strong>。显然，这种实现方式比较慢。</p>
 <p>那么，如何加速呢？</p>
@@ -3106,7 +3106,7 @@
 <p>换句话来说，所谓的乘法实际上是根据 Multiplier 的 0/1 来选择是否要将 Multiplicand 的对应位移结果加到 Product 上。</p>
 <p>64 bits 乘法器的硬件实现大致如下：</p>
 <p><center>
-    <img alt="" src="../2023-05-05_20-24-52.png" />
+    <img alt="" src="../graph/2023-05-05_20-24-52.png" />
 </center></p>
 <p>简单做解释，一共进行 64 次：</p>
 <ol>
@@ -3119,7 +3119,7 @@
 <h3 id="v2">V2<a class="headerlink" href="#v2" title="Permanent link">#</a></h3>
 <p>可以发现，V1 中做了大量的 128 位加法，但是实际上被加过去的 Multiplicand 有效内容只有 64 位。V2 正是解决了这个问题。</p>
 <p><center>
-    <img alt="" src="../2023-05-05_20-31-01.png" />
+    <img alt="" src="../graph/2023-05-05_20-31-01.png" />
 </center></p>
 <p>它将 Multiplicand 寄存器换为了 64 位，而将位移操作转移到了 Product 寄存器中进行。这里最重要的一点就是，64 位加法只影响 Product 寄存器左侧的 64 位，而之后的右移操作则是 128 位。这样，虽然最低位的结果一开始会被放在 Product 寄存器的第 65 位里，但是在经过 64 次右移之后，它就出现在第一位了。于是，所有的 128 位加法都被 64 位加法替代，实现了加速。</p>
 <p>其流程大概是，一共进行 64 次：</p>
@@ -3135,7 +3135,7 @@
 <p>V3 正是抓住了这个点，直接将 Multiplier 存在了 Product 的低 64 位中。当我们从中取出最低位并经过一次判断后，这一位就不重要了，而恰好 Product 需要右移，就将这一位消除，方便我们下一次从最低位拿出下一个比特！</p>
 <p>那么这么做的好处在哪里呢？首先，少了一个寄存器，节省了空间；其次，原本需要 Multiplier 寄存器和 Product 寄存器都做右移，现在只需要 Product 寄存器右移即可，减少了一个 64 位右移操作。</p>
 <p><center>
-    <img alt="" src="../2023-05-05_20-39-57.png" />
+    <img alt="" src="../graph/2023-05-05_20-39-57.png" />
 </center></p>
 <p>其流程大概是，一共进行 64 次：</p>
 <ol>
@@ -3159,17 +3159,17 @@
 <details class="tip">
 <summary>xyx's img</summary>
 <p><center>
-    <img alt="" src="../2023-05-05_20-54-20.png" />
+    <img alt="" src="../graph/2023-05-05_20-54-20.png" />
 </center></p>
 </details>
 <p>在我看来，Booth's Algorithm 的主要思想在于，减少乘数中“<code>1</code>”的数量。具体来说，在我们原先的乘法策略中，每当乘数中有一位 <code>1</code> 时，都会需要一个加法（将位移后的被乘数累加到结果中）。但是，如果乘数中有较长的一串 <code>1</code> 时，我们可以将它转化为一个大数字减一个小数，如：<code>00111100 = 01000000 - 00000100</code>，此时 4 个 <code>1</code> 变为 2 个 <code>1</code>，我们就可以减少做加法的次数。这也是为什么 xyx 说有点像差分了。</p>
 <p><center>
-    <img alt="" src="../2023-06-23_13-29-37.png" />
+    <img alt="" src="../graph/2023-06-23_13-29-37.png" />
 </center></p>
 <p>那么在实际执行过程中，Booth's Algorithm 主要遵循两位比特的模式进行操作。</p>
 <p><center>
-    <img alt="" src="../2023-06-23_13-38-32.png" />
-    <img alt="" src="../2023-06-23_13-46-15.png" />
+    <img alt="" src="../graph/2023-06-23_13-38-32.png" />
+    <img alt="" src="../graph/2023-06-23_13-46-15.png" />
 </center></p>
 <blockquote>
 <p>对于上面这张图的理解，稍微做一些解释。它实际上的表示是挪用了 V3 的乘法器。product 一列代表的是 product 寄存器，左一半一开始置 0，右一半一开始存放的是乘数，而上面提到的将被乘数加减累计到结果中的操作，也是对于左半部分来说的（<strong>换句话来说就是用 V3 做 Booth's</strong>）。需要提醒的是，在 Booth's Algorithm 中，两位识别是从第一位开始的，此时第一位作为两位中的高位，低位为 0，而后在下一轮中第一位作为低位，第二位作为高位，以此类推。</p>
@@ -3248,7 +3248,7 @@
 <li>Rounding: 将 Fraction 部分舍入到正确位数；舍入结果可能还需要规格化，此时回到步骤 3 继续运行</li>
 </ol>
 <p><center><img alt="image.png" src="../../../assets/1654493922562-098d36c8-cd64-4671-ac6b-a83f882e095a.png" width="400" /></center></p>
-<p><center><img alt="" src="../2023-01-02-02-15-27.png" /></center></p>
+<p><center><img alt="" src="../graph/2023-01-02-02-15-27.png" /></center></p>
 <h3 id="343">3.4.3 浮点乘法<a class="headerlink" href="#343" title="Permanent link">#</a></h3>
 <p>分别处理符号位、exponent 和 fraction：</p>
 <ul>
@@ -3266,7 +3266,7 @@
 <p><center><img alt="" src="../../../assets/1654504454500-4ae127de-3333-4b4e-8b88-e44f5d83f7ed.png" width="600" /></center></p>
 <p>Round to nearest even 只对 0.5 有效，别的都和四舍五入一样</p>
 <p>一般的浮点数后面还会有 2 bits，分别称为 guard 和 round，其主要目的是让计算结果的舍入更加的精确： </p>
-<p><center><img alt="image.png" src="../../../assets/1654504509244-6c97c446-da50-48cb-b778-7217e04fa622.png" width="128" /> <img alt="" src="../2023-03-04-01-29-53.png" width="172" /></center></p>
+<p><center><img alt="image.png" src="../../../assets/1654504509244-6c97c446-da50-48cb-b778-7217e04fa622.png" width="128" /> <img alt="" src="../graph/2023-03-04-01-29-53.png" width="172" /></center></p>
 <p>事实上加法只需要用到 guard，但是对于乘法，如果存在前导 0，需要将结果左移，这时候 round bit 就成了有效位，能避免精度的损失。</p>
 <p>另外还有一个位叫 sticky bit，其定义是：只要 round 右边出现过非零位，就将 sticky 置 1，这一点可以用在加法的右移中，可以记住是否有 1 被移出，从而能够实现 "round to nearest even"。</p>
 <p><code>units in the last place(ulp)</code>: The number of bits in error in the leas t significant bits of the significant between the actual number and the number that can be represented.</p>
@@ -3292,7 +3292,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:05:54</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:19:50</span>
   </span>
 
     
