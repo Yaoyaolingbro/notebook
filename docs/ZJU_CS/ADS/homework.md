@@ -1,6 +1,6 @@
 # ADS Homework Review
 
-!!! info "PTA homework of ZJU *Advanced Data Structure and Algorithm*, 2022 Spring & Summer."
+!!! info "PTA homework of ZJU *Advanced Data Structure and Algorithm*, 2024 Spring & Summer."
 
 ## Hw1
 
@@ -39,7 +39,7 @@ D. 9 is the parent of 7
     B。最终结果如下图。
     
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_1.3.png" alt="1.3" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_1.3.png" alt="1.3" style="margin: 0 auto; zoom: 80%;"/>
     </div>
     
     如果搞不清过程，可以利用一下 [AVL 树模拟](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)。
@@ -47,7 +47,7 @@ D. 9 is the parent of 7
 **Q2-3.** For the result of accessing the keys 3, 9, 1, 5 in order in the splay tree in the following figure, which one of the following statements is FALSE?
 
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_1.1.jpg" alt="1.1" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_1.1.jpg" alt="1.1" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. 5 is the root
@@ -62,7 +62,7 @@ D. 3 is the parent of 4
     D。最终结果如下图
 
     <div style="text-align:center;">
-    <img src="./graph/ads_hw_1.4.png" alt="1.4" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_1.4.png" alt="1.4" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
 **Q2-4.** When doing amortized analysis, which one of the following statements is FALSE?
@@ -92,7 +92,7 @@ D. The opposite number of available blocks in the buffer
     D。如下图。
 
     <div style="text-align:center;">
-    <img src="./graph/ads_hw_1.2.png" alt="1.2" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_1.2.png" alt="1.2" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
 ## Hw2
@@ -116,7 +116,7 @@ D. 8 is red
     B。最终结果如下图。
     
     <div style="text-align:center;">
-    <img src="./graph/ads_hw_2.2.png" alt="2.2" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_2.2.png" alt="2.2" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
     如果搞不清过程，可以利用一下 [RB 树模拟](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)。
@@ -124,7 +124,7 @@ D. 8 is red
 **Q2-2.** After deleting 15 from the red-black tree given in the figure, which one of the following statements must be FALSE?
 
 <div style="text-align:center;">
-<img src="./graph/ads_hw_2.1.jpg" alt="2.1" style="margin: 0 auto; zoom: 80%;"/>
+<img src="graph/ads_hw_2.1.jpg" alt="2.1" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. 11 is the parent of 17, and 11 is black
@@ -154,7 +154,7 @@ D. there are 5 leaf nodes
     A。最终结果如下图
 
     <div style="text-align:center;">
-    <img src="./graph/ads_hw_2.3.png" alt="2.3" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_2.3.png" alt="2.3" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
     如果搞不清过程，不建议使用对应网站的 B+ 树模拟，它那里的 B+ 树的定义似乎和 ads 有所不同（采用的可能是数据库的定义）。
@@ -162,7 +162,7 @@ D. there are 5 leaf nodes
 **Q2-4.** After deleting 9 from the 2-3 tree given in the figure, which one of the following statements is FALSE?
 
 <div style="text-align:center;">
-<img src="./graph/ads_hw_2.5.jpg" alt="2.5" style="margin: 0 auto; zoom: 80%;"/>
+<img src="graph/ads_hw_2.5.jpg" alt="2.5" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. the root is full
@@ -177,7 +177,7 @@ D. 6 and 5 are in the same node
     D。最终结果如下图。
     
     <div style="text-align:center;">
-    <img src="./graph/ads_hw_2.4.png" alt="2.4" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_2.4.png" alt="2.4" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
 **Q2-5.** Which of the following statements concerning a B+ tree of order $M$ is TRUE?
@@ -278,7 +278,7 @@ D. 50%
 **Q2-1.** The right path of a skew heap can be arbitrarily long.
 
 <div style="text-align:center;">
-<img src="./graph/ads_hw_4.1.jpg" alt="4.1" style="margin: 0 auto; zoom: 80%;"/>
+<img src="graph/ads_hw_4.1.jpg" alt="4.1" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. 2 is the root with 11 being its right child
@@ -293,7 +293,7 @@ D. the null path length of 4 is less than that of 2
     D。都是2，如下图
 
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_4.3.png" alt="4.3" style="margin: 0 auto; zoom: 60%;"/>
+        <img src="graph/ads_hw_4.3.png" alt="4.3" style="margin: 0 auto; zoom: 60%;"/>
     </div>
 
 **Q2-2.** We can perform BuildHeap for leftist heaps by considering each element as a one-node leftist heap, placing all these heaps on a queue, and performing the following step: Until only one heap is on the queue,， dequeue two heaps, merge them, and enqueue the result. Which one of the following statements is FALSE?
@@ -323,13 +323,13 @@ D. 11 is the right child of 7
 ??? general "Answer"
     B。有 8 个叶结点。如下图
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_4.4.png" alt="4.4" style="margin: 0 auto; zoom: 60%;"/>
+        <img src="graph/ads_hw_4.4.png" alt="4.4" style="margin: 0 auto; zoom: 60%;"/>
     </div>
 
 **Q2-4.** Merge the two skew heaps in the following figure. Which one of the following statements is FALSE?
 
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_4.2.jpg" alt="4.2" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_4.2.jpg" alt="4.2" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. 15 is the right child of 8
@@ -344,7 +344,7 @@ D. 9 is the right child of 3
     A。15 是 8 的左子结点。如下图
 
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_4.5.png" alt="4.5" style="margin: 0 auto; zoom: 60%;"/>
+        <img src="graph/ads_hw_4.5.png" alt="4.5" style="margin: 0 auto; zoom: 60%;"/>
     </div>
 
 ## Hw5
@@ -381,7 +381,7 @@ D. insertion
 
 **Q2-3.** Merge the two binomial queues in the following figure. Which one of the following statements must be FALSE?
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_5.1.jpg" alt="5.1" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_5.1.jpg" alt="5.1" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. there are two binomial trees after merging, which are $B_2$ and $B_4$
@@ -397,7 +397,7 @@ D. if 4 is a child of 2, then 23 must be another child of 2
 
 **Q2-4.** Delete the minimum number from the given binomial queues in the following figure. Which one of the following statements must be FALSE?
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_5.2.jpg" alt="5.2" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_5.2.jpg" alt="5.2" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. there are two binomial trees after deletion, which are $B_1$ and $B_2$
@@ -419,7 +419,7 @@ $f(P)=W_{computer}-W_{human}$, where $W$ is the number of potential wins at posi
 In the following figure, $O$ represents the computer and $X$ the human. What is the goodness of the position of the figure?
 
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_6.1.jpg" alt="6.1" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_6.1.jpg" alt="6.1" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. -1
@@ -436,7 +436,7 @@ D. 5
 **Q2-2.** Given the following game tree, which node is the first one to be pruned with $\alpha-\beta$ pruning algorithm?
 
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_6.2.png" alt="6.2" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_6.2.png" alt="6.2" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 A. a
@@ -539,7 +539,7 @@ D. $O(n^2)$
 **Q2-1.** Rod-cutting Problem: Given a rod of total length $N$ inches and a table of selling prices $P_L$ for lengths $L=1,2,⋯,M$. You are asked to find the maximum revenue $R_N$ obtainable by cutting up the rod and selling the pieces. For example, based on the following table of prices, if we are to sell an 8-inch rod, the optimal solution is to cut it into two pieces of lengths 2 and 6, which produces revenue  $R_8=P_2+P_6=5+17=22$. And if we are to sell a 3-inch rod, the best way is not to cut it at all.
 
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_8.1.png" alt="8.1" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_8.1.png" alt="8.1" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 Which one of the following statements is FALSE?
@@ -755,14 +755,14 @@ D. None of the above
 
 ??? general "Answer"
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_11.1.png" alt="11.1" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_11.1.png" alt="11.1" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
 ## Hw12
 
 **Q1-1.** For the graph given in the following figure, if we start from deleting the black vertex, then local search can always find the minimum vertex cover. (T/F)
 <div style="text-align:center;">
-    <img src="./graph/ads_hw_12.5.jpg" alt="12.5" style="margin: 0 auto; zoom: 80%;"/>
+    <img src="graph/ads_hw_12.5.jpg" alt="12.5" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 ??? general "Answer"
@@ -826,7 +826,7 @@ When the above local search algorithm terminates, the covering radius of its sol
 
     下图中，绿色圆圈表示 Local Search，蓝色圆圈表示给出的一个比 Local Search 的 $1/2$ 更小的解。
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_12.1.png" alt="12.1" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_12.1.png" alt="12.1" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
 **Q2-1.** Spanning Tree Problem: Given an undirected graph $G=(V, E)$, where $|V|=n$ and $|E|=m$. Let $F$ be the set of all spanning trees of $G$. Define $d(u)$ to be the degree of a vertex $u \in V$. Define $w(e)$ to be the weight of an edge $e \in E$.
@@ -872,12 +872,12 @@ D. For neither of the problems that this local search always return an optimal s
 
     对于Max Leaf Spanning Tree，寻找反例如下:
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_12.2.png" alt="12.2" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_12.2.png" alt="12.2" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
     对于Minimum Degree Spanning Tree，同样的原图(Original)，寻找反例如下:
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_12.3.png" alt="12.3" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_12.3.png" alt="12.3" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
     究其本质，最小生成树如果有更好的选择一定能交换，因为进行的正是边交换，直接影响的就是树的整体权值。另外两种树的性质则与顶点相关，不能直接影响，所以就寄了。
@@ -921,7 +921,7 @@ D. The algorithm terminates after at most $O(|V|^2)$ flips.
 
 ??? general "Answer"
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_12.4.png" alt="12.4" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_12.4.png" alt="12.4" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
 ## Hw13
@@ -1121,7 +1121,7 @@ D. 7 and 8 are written onto the third tape; 9 and 15 are merged into an output b
     D。如下图：
 
     <div style="text-align:center;">
-        <img src="./graph/ads_hw_15.1.png" alt="15.1" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="graph/ads_hw_15.1.png" alt="15.1" style="margin: 0 auto; zoom: 80%;"/>
     </div>
 
     D 选项强行想要 parallel ，因此没有管正在读入的 10, 12，直接基于现有 3 个 buffer 块 merge ，因此进行了错误的 merge(9, 15)。事实上这一步无法 parallel ，必须等待 10, 12 读完之后才能进行正确的 merge(9, 10)。

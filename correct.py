@@ -27,8 +27,8 @@ def replace_in_file(file_path, old_str, new_str):
 
 # 遍历docs文件夹下的所有markdown文件
 docs_folder = 'docs'
-old_str = '../imgs/ads/'
-new_str = './graph/'
+old_str = '"./graph/'
+new_str = '"graph/'
 
 for foldername, subfolders, filenames in os.walk(docs_folder):
     for filename in filenames:
