@@ -192,6 +192,15 @@ nav:
     - Database:
       - ZJU_CS/Database/index.md
       - ZJU_CS/Database/note.md
+    - Computer Organazation:
+      - ZJU_CS/computer_organization/index.md
+      - ZJU_CS/computer_organization/1_prelude.md
+      - ZJU_CS/computer_organization/2_instructions.md
+      - ZJU_CS/computer_organization/3_arithmetic.md
+      - ZJU_CS/computer_organization/4_processor.md
+      - ZJU_CS/computer_organization/5_cache.md
+      - ZJU_CS/computer_organization/6_IO.md
+      - ZJU_CS/computer_organization/历年卷.md
 
   - Missing semester: 
     - Missing semester/index.md
