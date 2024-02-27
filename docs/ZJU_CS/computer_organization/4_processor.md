@@ -250,7 +250,7 @@ Hazards 指的是阻止下一个指令在下一个时钟周期完成的一些情
 还有一种办法是对指令进行等价换序，让某些指令尽量晚一点执行，以避免数据竞争。这种方法叫 code scheduling。
 
 <center>
-    ![](2023-06-24_11-44-24.png)
+    ![](./graph/2023-06-24_11-44-24.png)
 </center>
 
 ### 4.2.4 Control Hazards / Branch Hazards

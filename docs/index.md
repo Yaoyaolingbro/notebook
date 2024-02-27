@@ -18,9 +18,9 @@
     - [ ] CUDA 和 CuTe
     - [ ] 论文阅读以及部分科研体验
     - [ ] ZJUCST(浙江大学超算队) ASC
-    - [ ] 23fall 朋辈辅学（更新于missing semmester中）
-    - [ ] 数逻、fds作业梳理、离散重头来过hhh
-    - [ ] Python 查漏补缺
+    - [ ] 大二下学期的课程学习
+    - [ ] cs106l
+    - [ ] python进阶？例如pytorch库的学习等
 
 附：倘若文档中的latex渲染未成功加载，重新刷新网页即可。
 

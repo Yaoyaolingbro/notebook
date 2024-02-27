@@ -22,7 +22,7 @@
 在数字逻辑设计这门课程中，我们学过 AND, OR, XOR 这些 gates，以及 inverter 和 mux 这些东西，我们尝试用这些东西攒一个 ALU 出来。在这一节中，我们希望 ALU 具有加法、减法、与运算、或运算和比较的能力。
 
 我们先考虑 1 bit ALU 的构造。我们学习过 1 bit [Full Adder](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap03/#%E5%8D%8A%E5%8A%A0%E5%99%A8--%E5%85%A8%E5%8A%A0%E5%99%A8) 的构造：
-<center>![image.png](../../../assets/1654415057128-ba0032a0-c3b5-49a4-8a7a-43abcb692357.png){width=300} ![](2023-03-04-01-24-35.png){width=200}</center>
+<center>![image.png](../../../assets/1654415057128-ba0032a0-c3b5-49a4-8a7a-43abcb692357.png){width=300} ![](./graph/2023-03-04-01-24-35.png){width=200}</center>
 
 
 
@@ -43,7 +43,7 @@
 
 `NOR` 运算： `a NOR b = NOT(a OR b) = (NOT a) AND (NOT b)` ，因此 `NOR` 运算可以这样实现：
 
-<center>![image.png](../../../assets/1654416483714-328ce497-05f0-4a7c-bb5d-5dd9bb6f585e.png){width=300} ![](2023-03-04-01-25-30.png){width=200}</center>
+<center>![image.png](../../../assets/1654416483714-328ce497-05f0-4a7c-bb5d-5dd9bb6f585e.png){width=300} ![](./graph/2023-03-04-01-25-30.png){width=200}</center>
 
 上右图是我们目前的 1 bit ALU 的抽象结构。
 
@@ -73,7 +73,7 @@
 
 <center>![image.png](../../../assets/1654430550957-7cc66c76-4fce-415a-bcc7-a43c0eac8bc1.png){width=500}</center>
 
-<center>![](2023-03-04-01-26-02.png){width=500}</center>
+<center>![](./graph/2023-03-04-01-26-02.png){width=500}</center>
 
 （注：第二张图中的 Overflow Detection 被复杂化了，实际上可以通过 `CarryIn` 和 `CarryOut` 的异或完成的。）
 
@@ -91,7 +91,7 @@
 
 对于这样的一个 ALU，我们需要 4 bits 的 control lines，分别是 `Ainvert` ,  `Bnegate` 和 `Operation` (2 bits)。ALU 的符号和 control lines 的含义如下：
 
-<center>![image.png](../../../assets/1654432159980-cad11a29-2d85-414a-964b-113491b93193.png){width=150} ![](2023-03-04-01-28-12.png){width=300}</center>
+<center>![image.png](../../../assets/1654432159980-cad11a29-2d85-414a-964b-113491b93193.png){width=150} ![](./graph/2023-03-04-01-28-12.png){width=300}</center>
 
 
 ### 3.1.5 更快的加法
@@ -148,7 +148,7 @@
 64 bits 乘法器的硬件实现大致如下：
 
 <center>
-    ![](2023-05-05_20-24-52.png)
+    ![](./graph/2023-05-05_20-24-52.png)
 </center>
 
 简单做解释，一共进行 64 次：
@@ -164,7 +164,7 @@
 可以发现，V1 中做了大量的 128 位加法，但是实际上被加过去的 Multiplicand 有效内容只有 64 位。V2 正是解决了这个问题。
 
 <center>
-    ![](2023-05-05_20-31-01.png)
+    ![](./graph/2023-05-05_20-31-01.png)
 </center>
 
 它将 Multiplicand 寄存器换为了 64 位，而将位移操作转移到了 Product 寄存器中进行。这里最重要的一点就是，64 位加法只影响 Product 寄存器左侧的 64 位，而之后的右移操作则是 128 位。这样，虽然最低位的结果一开始会被放在 Product 寄存器的第 65 位里，但是在经过 64 次右移之后，它就出现在第一位了。于是，所有的 128 位加法都被 64 位加法替代，实现了加速。
@@ -185,7 +185,7 @@ V3 正是抓住了这个点，直接将 Multiplier 存在了 Product 的低 64 �
 那么这么做的好处在哪里呢？首先，少了一个寄存器，节省了空间；其次，原本需要 Multiplier 寄存器和 Product 寄存器都做右移，现在只需要 Product 寄存器右移即可，减少了一个 64 位右移操作。
 
 <center>
-    ![](2023-05-05_20-39-57.png)
+    ![](./graph/2023-05-05_20-39-57.png)
 </center>
 
 其流程大概是，一共进行 64 次：
@@ -212,20 +212,20 @@ V3 正是抓住了这个点，直接将 Multiplier 存在了 Product 的低 64 �
 
 ??? tip "xyx's img"
     <center>
-        ![](2023-05-05_20-54-20.png)
+        ![](./graph/2023-05-05_20-54-20.png)
     </center>
 
 在我看来，Booth's Algorithm 的主要思想在于，减少乘数中“`1`”的数量。具体来说，在我们原先的乘法策略中，每当乘数中有一位 `1` 时，都会需要一个加法（将位移后的被乘数累加到结果中）。但是，如果乘数中有较长的一串 `1` 时，我们可以将它转化为一个大数字减一个小数，如：`00111100 = 01000000 - 00000100`，此时 4 个 `1` 变为 2 个 `1`，我们就可以减少做加法的次数。这也是为什么 xyx 说有点像差分了。
 
 <center>
-    ![](2023-06-23_13-29-37.png)
+    ![](./graph/2023-06-23_13-29-37.png)
 </center>
 
 那么在实际执行过程中，Booth's Algorithm 主要遵循两位比特的模式进行操作。
 
 <center>
-    ![](2023-06-23_13-38-32.png)
-    ![](2023-06-23_13-46-15.png)
+    ![](./graph/2023-06-23_13-38-32.png)
+    ![](./graph/2023-06-23_13-46-15.png)
 </center>
 
 > 对于上面这张图的理解，稍微做一些解释。它实际上的表示是挪用了 V3 的乘法器。product 一列代表的是 product 寄存器，左一半一开始置 0，右一半一开始存放的是乘数，而上面提到的将被乘数加减累计到结果中的操作，也是对于左半部分来说的（**换句话来说就是用 V3 做 Booth's**）。需要提醒的是，在 Booth's Algorithm 中，两位识别是从第一位开始的，此时第一位作为两位中的高位，低位为 0，而后在下一轮中第一位作为低位，第二位作为高位，以此类推。
@@ -317,7 +317,7 @@ $$(-1)^S\cdot (1 + \text{fraction}) \cdot 2 ^ {\text{exponent} - \text{bias}}$$
 
 <center>![image.png](../../../assets/1654493922562-098d36c8-cd64-4671-ac6b-a83f882e095a.png){width=400}</center>
 
-<center>![](2023-01-02-02-15-27.png)</center>
+<center>![](./graph/2023-01-02-02-15-27.png)</center>
 
 ### 3.4.3 浮点乘法
 分别处理符号位、exponent 和 fraction：
@@ -345,7 +345,7 @@ Round to nearest even 只对 0.5 有效，别的都和四舍五入一样
 
 一般的浮点数后面还会有 2 bits，分别称为 guard 和 round，其主要目的是让计算结果的舍入更加的精确： 
 
-<center>![image.png](../../../assets/1654504509244-6c97c446-da50-48cb-b778-7217e04fa622.png){width=128} ![](2023-03-04-01-29-53.png){width=172}</center>
+<center>![image.png](../../../assets/1654504509244-6c97c446-da50-48cb-b778-7217e04fa622.png){width=128} ![](./graph/2023-03-04-01-29-53.png){width=172}</center>
 
 事实上加法只需要用到 guard，但是对于乘法，如果存在前导 0，需要将结果左移，这时候 round bit 就成了有效位，能避免精度的损失。
 
