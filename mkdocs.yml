@@ -185,7 +185,8 @@ nav:
       - ZJU_CS/Discrete math/exam.md
     - OOP:
       - ZJU_CS/oop/index.md
-      - ZJU_CS/oop/exam.md
+      - ZJU_CS/oop/mid-review.md
+      - ZJU_CS/oop/final-review.md
     - ADS:
       - ZJU_CS/ADS/index.md
       - ZJU_CS/ADS/homework.md
@@ -288,6 +289,12 @@ nav:
       - Language/Python/enviroment.md
     - Verilog:
       - Language/Verilog/index.md
+
+  - English:
+    - English/index.md
+    - research:
+      - English/research/index.md
+      - English/research/note.md
     
   
   - Scientific research:
