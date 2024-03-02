@@ -38,17 +38,12 @@ D. 9 is the parent of 7
 ??? general "Answer"
     B。最终结果如下图。
     
-    <div style="text-align:center;">
-        <img src="graph/ads_hw_1.3.png" alt="1.3" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2.2](graph/ads_hw_1.3.png)
     
     如果搞不清过程，可以利用一下 [AVL 树模拟](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)。
 
 **Q2-3.** For the result of accessing the keys 3, 9, 1, 5 in order in the splay tree in the following figure, which one of the following statements is FALSE?
-
-<div style="text-align:center;">
-    <img src="graph/ads_hw_1.1.jpg" alt="1.1" style="margin: 0 auto; zoom: 80%;"/>
-</div>
+![2.3](graph/ads_hw_1.1.jpg)
 
 A. 5 is the root
 
@@ -61,9 +56,7 @@ D. 3 is the parent of 4
 ??? general "Answer"
     D。最终结果如下图
 
-    <div style="text-align:center;">
-    <img src="graph/ads_hw_1.4.png" alt="1.4" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2.3](graph/ads_hw_1.4.png)
 
 **Q2-4.** When doing amortized analysis, which one of the following statements is FALSE?
 
@@ -91,9 +84,7 @@ D. The opposite number of available blocks in the buffer
 ??? general "Answer"
     D。如下图。
 
-    <div style="text-align:center;">
-    <img src="graph/ads_hw_1.2.png" alt="1.2" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2.5](graph/ads_hw_1.2.jpg)
 
 ## Hw2
 

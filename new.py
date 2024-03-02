@@ -3,7 +3,7 @@ import re
 
 def convert_html_to_markdown(html_string):
     # 使用正则表达式匹配 HTML 图片标签
-    pattern = r'<div style="text-align:center;">\s*<img src="([^"]+)" alt="([^"]+)" style="margin: 0 auto; zoom: 80%;" />\s*</div>'
+    pattern = r'<img src="([^"]+)" alt="([^"]+)" style="margin: 0 auto; zoom: 80%;" />'
     matches = re.finditer(pattern, html_string)
 
     # 将匹配到的 HTML 图片标签转换为 Markdown 语法
