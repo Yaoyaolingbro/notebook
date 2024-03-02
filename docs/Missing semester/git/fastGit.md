@@ -11,7 +11,7 @@
 ps：任何东西一定都是以官方文档为准。我的记录只能用作参考。此外命令行上的提示或者`--help`也是个好东西哟！！！
 
 * 首先我们需要建立自己本地的`SSH`的密钥。
-`ssh-keygen -t rsa -C "youremail@example.com"`
+`ssh-keygen -t ed25519 -C "youremail@example.com"`
   后面的 your_email@youremail.com 改为你在 Github 上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。
   成功的话会在` ~/ `或者`C:/user`下生成 .ssh 文件夹，进去，打开 id_rsa.pub，复制里面的 key。
 
