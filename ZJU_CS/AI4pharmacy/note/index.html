@@ -914,6 +914,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3018,6 +3022,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#week2" class="md-nav__link">
+    <span class="md-ellipsis">
+      week2 文献检索
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="week2 文献检索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      测序与组学相关的数据库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      化学与活性相关的数据库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      药学相关的数据库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      检索实践
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3044,6 +3099,64 @@
 <li>功能组学研究（缩小范围）（方法不完善）</li>
 <li>疗效药物确证（模式不清楚）</li>
 </ul>
+<h2 id="week2">week2 文献检索<a class="headerlink" href="#week2" title="Permanent link">#</a></h2>
+<h3 id="_3">测序与组学相关的数据库<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/">NCBI</a>:National Center for Biotechnology Information.</li>
+<li><a href="https://www.ebi.ac.uk/">EMBL-EBI</a>:European Bioinformatics Institute.</li>
+<li><a href="https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga">TCGA</a>:The Cancer Genome Atlas.</li>
+</ul>
+<h3 id="_4">化学与活性相关的数据库<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>:PubChem is the world's largest collection of freely accessible chemical information.</li>
+<li><a href="https://www.ebi.ac.uk/chembl/">ChEMBL</a>:ChEMBL is a manually curated database of bioactive molecules with drug-like properties.</li>
+<li><a href="http://zinc.docking.org/">ZINC</a>:ZINC is a free database of commercially-available compounds for virtual screening.</li>
+<li><a href="https://www.bindingdb.org/rwd/bind/index.jsp">Binding database</a>:BindingDB is a public, web-accessible database of measured binding affinities, focusing chiefly on the interactions of protein considered to be drug-targets with small, drug-like molecules.</li>
+</ul>
+<h3 id="_5">药学相关的数据库<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://www.drugbank.ca/">DrugBank</a>:DrugBank is a comprehensive, freely accessible, online database containing information on drugs and drug targets.</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/33045737/">INTEDE</a>:INTEDE is a database of integrative target and disease evidence.</li>
+<li><a href="https://www.pharmgkb.org/">PharmGKB</a>:PharmGKB is a resource that provides information about the impact of human genetic variation on drug responses.</li>
+<li><a href="http://db.idrblab.net/ttd/">TTD</a>:Therapeutic Target Database.</li>
+<li><a href="http://varidt.idrblab.net/">VARIDT</a>:VARIDT is a database of genomic variations related to drug responses.</li>
+</ul>
+<h3 id="_6">检索实践<a class="headerlink" href="#_6" title="Permanent link">#</a></h3>
+<ol>
+<li>检索肺癌(TCGA-LUAD project)中体细胞突变频率最高的10个基因(genes)和10个突变类型(mutations)
+<img alt="20240307192206.png" src="../graph/20240307192206.png" /></li>
+</ol>
+<p>进入网页<a href="https://portal.gdc.cancer.gov/">CGC Data Portal</a>，上方提示进入新版。此后看到analysis，提示指导你进入Exploration界面：
+<img alt="20240307193946.png" src="../graph/20240307193946.png" />
+<img alt="20240307194001.png" src="../graph/20240307194001.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="20240307194301.png" src="../graph/20240307194301.png" /></td>
+<td><img alt="20240307194313.png" src="../graph/20240307194313.png" /></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>在CHEMBL中，挖掘下述化合物的生物活性信息（靶标、针对靶标的活性数值等）
+<img alt="20240307192150.png" src="../graph/20240307192150.png" /></li>
+</ol>
+<p>首先在<a href="https://www.ebi.ac.uk/chembl/">ChEMBL</a>中搜索栏界面下我们可以看到advanced search，点击进入后发现需要你绘制化合物的结构。</p>
+<p>这里我想到是否存在基于图像识别的方式自动来绘制化合物的工具，上网搜索后你会发现<a href="https://www.stonemind.org/">stoneMind</a>，这是一个基于图像识别的化合物结构绘制工具。</p>
+<p><img alt="20240308144400.png" src="../graph/20240308144400.png" /></p>
+<p><strong>Tips：</strong> 将复制的内容直接粘贴在绘图框中，网站会自动识别！！！ 根据本人亲测，由于mol会包含更多的信息，会比smiles结构更加准确。</p>
+<p>之后你便会看到如下界面，在右边侧边栏查看你想寻找的信息。
+<img alt="20240308145158.png" src="../graph/20240308145158.png" /></p>
+<p>而对于CHEMBL2105717来说，我们点击下图左边第一个表格，进去后则能看到详细信息。
+<img alt="20240308165457.png" src="../graph/20240308165457.png" /></p>
+<p>具体信息如下：（学CS的属实是看不太懂）
+<img alt="20240308165629.png" src="../graph/20240308165629.png" /></p>
 
 
 
@@ -3066,7 +3179,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月2日 23:52:46</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月9日 19:18:55</span>
   </span>
 
     
