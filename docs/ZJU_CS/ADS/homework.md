@@ -106,17 +106,13 @@ D. 8 is red
 ??? general "Answer"
     B。最终结果如下图。
     
-    <div style="text-align:center;">
-    <img src="graph/ads_hw_2.2.png" alt="2.2" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2.1](graph/ads_hw_2.2.png)
 
     如果搞不清过程，可以利用一下 [RB 树模拟](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)。
 
 **Q2-2.** After deleting 15 from the red-black tree given in the figure, which one of the following statements must be FALSE?
 
-<div style="text-align:center;">
-<img src="graph/ads_hw_2.1.jpg" alt="2.1" style="margin: 0 auto; zoom: 80%;"/>
-</div>
+![2.2](graph/ads_hw_2.1.jpg)
 
 A. 11 is the parent of 17, and 11 is black
 
@@ -144,17 +140,13 @@ D. there are 5 leaf nodes
 ??? general "Answer"
     A。最终结果如下图
 
-    <div style="text-align:center;">
-    <img src="graph/ads_hw_2.3.png" alt="2.3" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2.3](graph/ads_hw_2.3.png)
 
     如果搞不清过程，不建议使用对应网站的 B+ 树模拟，它那里的 B+ 树的定义似乎和 ads 有所不同（采用的可能是数据库的定义）。
 
 **Q2-4.** After deleting 9 from the 2-3 tree given in the figure, which one of the following statements is FALSE?
 
-<div style="text-align:center;">
-<img src="graph/ads_hw_2.5.jpg" alt="2.5" style="margin: 0 auto; zoom: 80%;"/>
-</div>
+![2.4](graph/ads_hw_2.5.jpg)
 
 A. the root is full
 
@@ -167,9 +159,7 @@ D. 6 and 5 are in the same node
 ??? general "Answer"
     D。最终结果如下图。
     
-    <div style="text-align:center;">
-    <img src="graph/ads_hw_2.4.png" alt="2.4" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2.4](graph/ads_hw_2.4.png)
 
 **Q2-5.** Which of the following statements concerning a B+ tree of order $M$ is TRUE?
 

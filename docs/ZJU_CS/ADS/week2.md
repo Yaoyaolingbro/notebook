@@ -12,6 +12,8 @@
     
     Wikipedia: https://en.wikipedia.org/wiki/Red%E2%80%93black_tree
 
+    Linux源码：https://elixir.bootlin.com/linux/latest/source/lib/rbtree.c
+
 ---
 
 ### 概念
@@ -330,6 +332,10 @@
     OI Wiki: https://oi-wiki.org/ds/bplus-tree/
     
     Wiki: https://en.wikipedia.org/wiki/B%2B_tree
+
+    Presentation: https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html
+
+    Code: https://www.cnblogs.com/JayL-zxl/p/14304178.html
 
 ---
 

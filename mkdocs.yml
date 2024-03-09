@@ -194,7 +194,9 @@ nav:
       - ZJU_CS/ADS/week2.md
     - Database:
       - ZJU_CS/Database/index.md
-      - ZJU_CS/Database/note.md
+      - ZJU_CS/Database/sql.md
+      - ZJU_CS/Database/week1.md
+      - ZJU_CS/Database/week2.md
     - Computer Organazation:
       - ZJU_CS/computer_organization/index.md
       - ZJU_CS/computer_organization/1_prelude.md

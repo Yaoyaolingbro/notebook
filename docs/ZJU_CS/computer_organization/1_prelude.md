@@ -70,6 +70,12 @@ A --->|"Compiler"| B --->|"Assembler"| C
 
 - 高级语言的出现体现了“抽象”的思想；
 
+<!-- prettier-ignore-start -->
+???+ warning "来看看C的一个编译运行过程吧"
+    ![20240305112736.png](graph/20240305112736.png)
+    ![20240305112807.png](graph/20240305112807.png)
+<!-- prettier-ignore-end -->
+
 ---
 
 ## 1.3 Components of a computer
@@ -165,70 +171,71 @@ $$
 $$
 
 ??? note "练习"
-    === "题面"
-        编译器可能提供两种代码序列，每一个序列都包含 A、B、C 三种类型的指令，每种指令的 CPI 如下表所示。
+    === "Question1"
+        === "题面"
+            编译器可能提供两种代码序列，每一个序列都包含 A、B、C 三种类型的指令，每种指令的 CPI 如下表所示。
 
-        |     |  A  |  B  |  C  |   
-        |:---:|:---:|:---:|:---:|
-        | CPI |  1  |  2  |  3  |
-        |Instruction count \@ seq 1|  2  |  1  |  2  |
-        |Instruction count \@ seq 2|  4  |  1  |  1  |
+            |     |  A  |  B  |  C  |   
+            |:---:|:---:|:---:|:---:|
+            | CPI |  1  |  2  |  3  |
+            |Instruction count \@ seq 1|  2  |  1  |  2  |
+            |Instruction count \@ seq 2|  4  |  1  |  1  |
 
-        1. 哪一个 seq 执行了最多的指令？
-        2. 哪一个 seq 更快？
-        3. 每一个 seq 的 CPI 是多少？
+            1. 哪一个 seq 执行了最多的指令？
+            2. 哪一个 seq 更快？
+            3. 每一个 seq 的 CPI 是多少？
 
-    === "答案"
+        === "答案"
 
-        1.弱智题，加起来就行。
+            1.弱智题，加起来就行。
 
-        $$
-        \begin{aligned}
-            \text{instruction count @ seq 1} = 2 + 1 + 2 = 5 \\
-            \text{instruction count @ seq 2} = 4 + 1 + 1 = 6
-        \end{aligned}
-        $$
+            $$
+            \begin{aligned}
+                \text{instruction count @ seq 1} = 2 + 1 + 2 = 5 \\
+                \text{instruction count @ seq 2} = 4 + 1 + 1 = 6
+            \end{aligned}
+            $$
 
-        所以 2 多。
+            所以 2 多。
 
-        2.由于产生差异的地方是编译器，所以我们默认时钟周期相同，所以比较 CPU time 等效于比较 clock cycles。
+            2.由于产生差异的地方是编译器，所以我们默认时钟周期相同，所以比较 CPU time 等效于比较 clock cycles。
 
-        $$
-        \begin{aligned}
-            \text{clock cycles @ seq 1} = 2 \times 1 + 1 \times 2 + 2 \times 3 = 10 \\
-            \text{clock cycles @ seq 2} = 4 \times 1 + 1 \times 2 + 1 \times 3 = 9
-        \end{aligned}
-        $$
+            $$
+            \begin{aligned}
+                \text{clock cycles @ seq 1} = 2 \times 1 + 1 \times 2 + 2 \times 3 = 10 \\
+                \text{clock cycles @ seq 2} = 4 \times 1 + 1 \times 2 + 1 \times 3 = 9
+            \end{aligned}
+            $$
 
-        所以 2 快。
+            所以 2 快。
 
-        3.seq 的 CPI 就是 seq 的 clock cycles 除以 seq 的 instruction count：
+            3.seq 的 CPI 就是 seq 的 clock cycles 除以 seq 的 instruction count：
 
-        $$
-        \begin{aligned}
-              \text{CPI @ seq 1} = \frac{10}{5} = 2 \\
-              \text{CPI @ seq 2} = \frac{9}{6} = 1.5
-        \end{aligned}
-        $$
+            $$
+            \begin{aligned}
+                \text{CPI @ seq 1} = \frac{10}{5} = 2 \\
+                \text{CPI @ seq 2} = \frac{9}{6} = 1.5
+            \end{aligned}
+            $$
 
-??? note "练习"
-    === "题面"
-        A given application written in Java runs 15 seconds on a desktop processor. A new  Java compiler is released that requires only 0.6 as many instructions as the old  compiler. Unfortunately, it increases the CPI by 1.1. How fast can we expect the application to run using this new compiler? Pick the right answer from the three  choices below:
+    === "Question2"
+        === "题面"
+            A given application written in Java runs 15 seconds on a desktop processor. A new  Java compiler is released that requires only 0.6 as many instructions as the old  compiler. Unfortunately, it increases the CPI by 1.1. How fast can we expect the application to run using this new compiler? Pick the right answer from the three  choices below:
 
-        1. $\frac{15\times 0.6}{1.1} = 8.2 sec$;
-        2. $15\times 0.6\times 1.1 = 9.9 sec$;
-        3. $\frac{15\times 1.1}{0.6} = 27.5 sec$;
-        
-    === "答案"
-        已知公式：
+            1. $\frac{15\times 0.6}{1.1} = 8.2 sec$;
+            2. $15\times 0.6\times 1.1 = 9.9 sec$;
+            3. $\frac{15\times 1.1}{0.6} = 27.5 sec$;
+            
+        === "答案"
+            已知公式：
 
-        $$
-        \begin{aligned}
-            \text{CPU time} &= \text{CPI} * \text{instruction count} * \text{clock cycle time}
-        \end{aligned}
-        $$
+            $$
+            \begin{aligned}
+                \text{CPU time} &= \text{CPI} * \text{instruction count} * \text{clock cycle time}
+            \end{aligned}
+            $$
 
-        现在 CPI 变成 1.1 倍，instruction count 变成 0.6 倍，所以应该选 2。
+            现在 CPI 变成 1.1 倍，instruction count 变成 0.6 倍，所以应该选 2。
         
 
 ---

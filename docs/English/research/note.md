@@ -40,4 +40,7 @@
 5. ask other person
 
 
+# Week2
+本周学习如何使用webofscience进行文献检索，如何使用antconc进行文本分析。
+
 
