@@ -1,0 +1,1990 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="yaoyaoling" name="author"/>
+<link href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/Lec01/" rel="canonical"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
+<title>Lecture 1 | AVL Trees &amp; Splay Trees - Yaoyaoling's notebook</title>
+<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../css/timeline.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css" rel="stylesheet"/>
+<link href="../../../css/custom.css" rel="stylesheet"/>
+<link href="../../../css/card.css" rel="stylesheet"/>
+<link href="../../../css/tasklist.css" rel="stylesheet"/>
+<link href="../../../css/flink.css" rel="stylesheet"/>
+<link href="../../../css/more_changelog.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-KJB4RXSKZG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-KJB4RXSKZG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-KJB4RXSKZG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="deep-purple" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#lecture_1_avl_trees_splay_trees">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Yaoyaoling's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Yaoyaoling's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Yaoyaoling's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Lecture 1 | AVL Trees &amp; Splay Trees
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-purple" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-purple" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  ZJU_CS
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Missing%20semester/">
+          
+  
+    
+  
+  Missing semester
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/">
+          
+  
+    
+  
+  Online CS Courses
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../AI/">
+          
+  
+    
+  
+  AI
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Language/Advanced%20C%20Language/">
+          
+  
+    
+  
+  Language
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../English/">
+          
+  
+    
+  
+  English
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Scientific%20research/">
+          
+  
+    
+  
+  Scientific research
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../spark%20in%20life/">
+          
+  
+    
+  
+  Spark in life
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Yaoyaoling's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Yaoyaoling's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Yaoyaoling's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    ZJU_CS
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../HPC/">
+<span class="md-ellipsis">
+    HPC
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../FDS/">
+<span class="md-ellipsis">
+    FDS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../DigitalDesign/">
+<span class="md-ellipsis">
+    Digital desin
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../Discrete%20math/">
+<span class="md-ellipsis">
+    Discrete math
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../oop/">
+<span class="md-ellipsis">
+    OOP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    ADS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../Database/">
+<span class="md-ellipsis">
+    Database
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../computer_organization/">
+<span class="md-ellipsis">
+    Computer Organazation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Missing%20semester/">
+<span class="md-ellipsis">
+    Missing semester
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Missing semester
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Missing%20semester/toolbox/">
+<span class="md-ellipsis">
+    工具箱（一些好用的网站or分享）
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Missing%20semester/copilot/">
+<span class="md-ellipsis">
+    Github Copilot
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/git/">
+<span class="md-ellipsis">
+    Git
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Markdown/">
+<span class="md-ellipsis">
+    Markdown
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Linux/">
+<span class="md-ellipsis">
+    Linux
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Docker/">
+<span class="md-ellipsis">
+    Docker
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Ladder/">
+<span class="md-ellipsis">
+    Ladder
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Latex/">
+<span class="md-ellipsis">
+    Latex
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Mkdocs%20material/">
+<span class="md-ellipsis">
+    Mkdocs material
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Zotero/">
+<span class="md-ellipsis">
+    Zotero
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    Online CS Courses
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Online CS Courses
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/">
+<span class="md-ellipsis">
+    计算机科学导论
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CSAPP/">
+<span class="md-ellipsis">
+    CSAPP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS106L/">
+<span class="md-ellipsis">
+    CS106L
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS50%20AI/">
+<span class="md-ellipsis">
+    CS50 AI
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS61B/">
+<span class="md-ellipsis">
+    CS61B
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS106X/">
+<span class="md-ellipsis">
+    CS106X
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../AI/">
+<span class="md-ellipsis">
+    AI
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/machine%20learning/">
+<span class="md-ellipsis">
+    Machine Learning
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/deep%20learning/">
+<span class="md-ellipsis">
+    Deep learning
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/Model/">
+<span class="md-ellipsis">
+    经典模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/Pytorch/">
+<span class="md-ellipsis">
+    Pytorch
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    Language
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/Advanced%20C%20Language/">
+<span class="md-ellipsis">
+    C
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/C%2B%2B/">
+<span class="md-ellipsis">
+    C++
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/CUDA/">
+<span class="md-ellipsis">
+    CUDA
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/Python/">
+<span class="md-ellipsis">
+    Python
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/Verilog/">
+<span class="md-ellipsis">
+    Verilog
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../English/">
+<span class="md-ellipsis">
+    English
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../English/research/">
+<span class="md-ellipsis">
+    research
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Scientific%20research/">
+<span class="md-ellipsis">
+    Scientific research
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            Scientific research
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Scientific%20research/ode/">
+<span class="md-ellipsis">
+    Ode
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Scientific%20research/mathematic%20model/">
+<span class="md-ellipsis">
+    mathematic model
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/">
+<span class="md-ellipsis">
+    Basic tutor
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Scientific%20research/Zz/">
+<span class="md-ellipsis">
+    Zhaozhou
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../spark%20in%20life/">
+<span class="md-ellipsis">
+    Spark in life
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            Spark in life
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../spark%20in%20life/college%20life/competition/">
+<span class="md-ellipsis">
+    College life
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../spark%20in%20life/skills/cook/">
+<span class="md-ellipsis">
+    Skill
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../spark%20in%20life/travel/GuiZhou/">
+<span class="md-ellipsis">
+    Travel
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avl">
+<span class="md-ellipsis">
+      AVL 树
+    </span>
+</a>
+<nav aria-label="AVL 树" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      概念
+    </span>
+</a>
+<nav aria-label="概念" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avl_1">
+<span class="md-ellipsis">
+      AVL 树
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      视角
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      操作
+    </span>
+</a>
+<nav aria-label="操作" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ll_rr">
+<span class="md-ellipsis">
+      LL &amp; RR
+    </span>
+</a>
+<nav aria-label="LL &amp; RR" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      “旋转”视角
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      “换根”视角
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lr_rl">
+<span class="md-ellipsis">
+      LR &amp; RL
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      其他问题
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#splay">
+<span class="md-ellipsis">
+      Splay 树
+    </span>
+</a>
+<nav aria-label="Splay 树" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      基本操作
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      对点操作
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      摊还分析
+    </span>
+</a>
+<nav aria-label="摊还分析" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zig">
+<span class="md-ellipsis">
+      zig
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zig-zag">
+<span class="md-ellipsis">
+      zig-zag
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zig-zig">
+<span class="md-ellipsis">
+      zig-zig
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      结论
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="lecture_1_avl_trees_splay_trees">Lecture 1 | AVL Trees &amp; Splay Trees<a class="headerlink" href="#lecture_1_avl_trees_splay_trees" title="Permanent link">#</a></h1>
+<div class="admonition info">
+<p class="admonition-title">说明</p>
+<p>原先安排在这一章节的摊还分析现在被迁移到了这个地方：<a href="./Ex01.md">Topic 1 | Amortized Analysis</a>。</p>
+<div class="admonition tip">
+<p class="admonition-title">阅读技巧</p>
+<p>因为没法在这里用代码写动画，所以我用 <a href="https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/?h=%3D%3D%3D#tabbed">Tab</a> 模拟了一下动画帧，可以手动切换这些标签来动态观察。一般这种内容的 Tab 标题都会是 <code>Frame {}</code>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Frame 1</label><label for="__tabbed_1_2">Frame 2</label><label for="__tabbed_1_3">Frame 3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Like</p>
+</div>
+<div class="tabbed-block">
+<p>Like this</p>
+</div>
+<div class="tabbed-block">
+<p>Like this!</p>
+</div>
+</div>
+</input></input></input></div>
+</div>
+</div>
+<h2 id="avl">AVL 树<a class="headerlink" href="#avl" title="Permanent link">#</a></h2>
+<h3 id="_1">概念<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">link</p>
+<p>OI Wiki: <a href="https://oi-wiki.org/ds/avl/">https://oi-wiki.org/ds/avl/</a></p>
+</div>
+<p>我们知道，对于一棵二叉搜索树，其对点的操作代价为 <span class="arithmatex">\(O(\log n)\)</span>。然而在最坏情况下，它会退化成 <span class="arithmatex">\(O(n)\)</span>，例如这是一棵只有左孩子树的链型二叉树，那么操作这里唯一的叶孩子节点就是 <span class="arithmatex">\(O(n)\)</span>。</p>
+<p>换句话来说，一棵二叉树的维护成本基本上与其高度正相关。因而一个很自然的想法是，如果我们想让一棵二叉树好维护，那么就希望它的高度尽可能低，而在点数固定的情况下，一种朴素的思想是让节点尽可能“均匀”地分布在树上。</p>
+<div class="admonition definition">
+<p class="admonition-title">height of a tree</p>
+<p><strong>树的高度(Height of Tree)</strong>等于其根节点到叶孩子节点的若干路径中，最大的距离（即边的数量），也就是深度最深的节点到根节点到距离。</p>
+<p>特别的，一棵空树的高度为 -1。</p>
+<blockquote>
+<p>说的通俗一些，就是树的层数。</p>
+</blockquote>
+</div>
+<hr/>
+<h4 id="avl_1">AVL 树<a class="headerlink" href="#avl_1" title="Permanent link">#</a></h4>
+<p>而 AVL Tree 是一种<strong>平衡(balanced)</strong>的二叉搜索树，通过「高度」这个量，定义了「平衡」这件事。</p>
+<div class="admonition definition">
+<p class="admonition-title">AVL Tree</p>
+<ol>
+<li>一个空二叉树是一个 AVL 树；</li>
+<li>如果二叉树 <span class="arithmatex">\(T\)</span> 是一个 AVL 树，则其左右孩子树 <span class="arithmatex">\(T_l\)</span> 和 <span class="arithmatex">\(T_r\)</span> 也都应该是 AVL 树，且有 <span class="arithmatex">\(|h(T_l) - h(T_r)| \leq 1\)</span>；</li>
+</ol>
+<div class="admonition definition">
+<p class="admonition-title">Balance Factor</p>
+<p>一个节点的<strong>平衡因子(Balance Factor, BF)</strong>用来描述一个节点的平衡状态，对于节点 <span class="arithmatex">\(T_p\)</span>，它的左孩子树为 <span class="arithmatex">\(T_l\)</span>，右孩子树为 <span class="arithmatex">\(T_r\)</span>，则：</p>
+<div class="arithmatex">\[
+BF(T_p) = h(T_l) - h(T_r)
+\]</div>
+</div>
+<p>所以上面的第 2 条又可以写成：</p>
+<ul>
+<li>如果二叉树 <span class="arithmatex">\(T\)</span> 是一个 AVL 树，则其左右孩子树 <span class="arithmatex">\(T_l\)</span> 和 <span class="arithmatex">\(T_r\)</span> 也都应该是 AVL 树，且有 <span class="arithmatex">\(BF(T_p) \in \{0, \pm 1\}\)</span>；</li>
+</ul>
+<blockquote>
+<p>说的通俗一些就是，AVL 树的每一个点都平衡，而平衡与否取决于节点的两个孩子树层数之差是否超过 1。</p>
+</blockquote>
+</div>
+<p>在这种定义下，AVL 树的高度可以证明为 <span class="arithmatex">\(O(\log N)\)</span>，证明如下：</p>
+<div class="admonition proof">
+<p class="admonition-title">Height of AVL Trees</p>
+<div class="admonition inline note">
+<div class="mermaid">graph TD;
+A(("Root"))
+B[/"Left Subtree"\]
+C[/"Right Subtree"\]
+A === B
+A === C
+</div>
+</div>
+<p>我们记 <span class="arithmatex">\(n_h\)</span> 是高度为 <span class="arithmatex">\(h\)</span> 的 AVL 树所包含的最少节点数，则有如下递推关系：</p>
+<div class="arithmatex">\[
+n_h = \left\{
+    \begin{array}{l}
+        1                       &amp; (h = 0) \\
+        2                       &amp; (h = 1) \\
+        n_{h-1} + n_{h-2} + 1   &amp; (h &gt; 1)
+    \end{array}
+\right.
+\]</div>
+<p>发现 <span class="arithmatex">\(n_h + 1\)</span> 符合 Fibonacci 数列的递推公式（但是初始条件不一样），所以我们可以用 Fibonacci 对其进行一个估计。</p>
+<p>而对于如下 Fibonacci 数列：</p>
+<div class="arithmatex">\[
+F_i = \left\{
+    \begin{array}{l}
+        1                   &amp; (i = 1) \\
+        1                   &amp; (i = 2) \\
+        F_{i-1} + F_{i-2}   &amp; (i &gt; 2)
+    \end{array}
+\right.
+\]</div>
+<p>其通项为：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_n &amp;= \frac{1}{\sqrt{5}} \left( \left( \frac{1 + \sqrt{5}}{2} \right)^n - \left( \frac{1 - \sqrt{5}}{2} \right)^n \right) \\
+        &amp;\approx \frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n \\
+    \log{(F_n)} &amp;\approx n
+\end{aligned}
+\]</div>
+<p>而 <span class="arithmatex">\(n_h + 1 \approx F_{h+2}\)</span>，所以 <span class="arithmatex">\(h \approx \log{(n_h)}\)</span>，也就是说 <span class="arithmatex">\(h \approx \log{N}\)</span>。</p>
+</div>
+<hr/>
+<h4 id="_2">视角<a class="headerlink" href="#_2" title="Permanent link">#</a></h4>
+<p>而我们谈论 AVL 树时，我们希望以一个动态的视角来谈论 AVL 树，即讨论：某一棵树是否是 AVL 树；在某个操作后，它是否仍然是 AVL 树；若原先是，而经过操作后不再是，那要如何将它重新变为 AVL 树。</p>
+<p>以上三个步骤是简化后的建模，它成为我们解决其他问题的最小单元和基础。</p>
+<p>所以在这种模型下，我们需要定义两个东西：</p>
+<div class="admonition definition">
+<p class="admonition-title">Trouble Maker &amp; Trouble Finder</p>
+<p>以 🌰 来说明。</p>
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Frame 1</label><label for="__tabbed_2_2">Frame 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>下图为一个 AVL 树：</p>
+<div class="mermaid">graph TD;
+A(("8, BF=1"))
+B(("4, BF=0"))
+C(("9, BF=0"))
+D(("2, BF=0"))
+E(("6, BF=0"))
+A === B
+A === C
+B === D
+B === E
+</div>
+</div>
+<div class="tabbed-block">
+<p>现在我们插入 <code>5</code>：</p>
+<div class="mermaid">graph TD;
+A(("8, BF=2"))
+B(("4, BF=-1"))
+C(("9, BF=0"))
+D(("2, BF=0"))
+E(("6, BF=1"))
+F(("5, BF=0"))
+A === B
+A === C
+B === D
+B === E
+E === F
+E === NULL
+</div>
+<p>我们发现，此时 <code>8</code> 的「平衡因子」变成了2，不再符合 AVL 树的要求，而这一切都是 <code>5</code> 的插入导致的——于是我们称像这里的 <code>8</code> 一样，由于某个点的插入，其「平衡因子」不再符合要求的点，为 Trouble Finder；而像这里的 <code>5</code> 一样，导致 Trouble Finder 出现的点，被称之为 Trouble Maker。</p>
+</div>
+</div>
+</input></input></div>
+</div>
+<p>形象地描述这件事就是，在动态插入 <code>5</code> 这个过程中，出现了一个 "Trouble"，导致这个树不再是 AVL 树，而 <code>5</code> 是这个 "Trouble" 的 "Maker"，<code>8</code> 是 "Finder"。</p>
+</div>
+<hr/>
+<h3 id="_3">操作<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<p>本小节所需要讲的内容就是<strong><a href="#视角">#视角</a></strong>中提到的“重新变为 AVL 树”这一视角，也就是 AVL 树的维护。</p>
+<p>首先， 我们需要对 AVL 树的破坏情况进行分类，根据 "Trouble Finder"、"Related Trouble Finder's Child"、"Trouble Maker"这三个点的相对关系，分为 <code>LL</code>、<code>RR</code>、<code>LR</code>、<code>RL</code> 四种：</p>
+<div class="admonition note">
+<blockquote>
+<p>同心圆表示这个点是需要我们在后续操作中关注的。</p>
+<p>此外，虽然实际情况下可能出现多个 Trouble Finder，但是我们只关注<strong>以「距离案发现场最近的 Trouble Finder」为根的孩子树</strong>（这句话非常重要）。</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">LL</label><label for="__tabbed_3_2">RR</label><label for="__tabbed_3_3">LR</label><label for="__tabbed_3_4">RL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">flowchart TD
+    A((("Trouble\nFinder")))
+    B((("Left\nChild")))
+    C(("Right\nChild"))
+    D(("L Left\nChild"))
+    DA[/"Left and Right Subtrees"\]
+    E(("L Right\nChild"))
+    EA[/"Left and Right Subtrees"\]
+    F(("R Left\nChild"))
+    FA[/"Left and Right Subtrees"\]
+    G(("R Right\nChild"))
+    GA[/"Left and Right Subtrees"\]
+    H(("Trouble\nMaker"))
+    A === B
+    A === C
+    B === D === DA === H
+    B === E === EA
+    C === F === FA
+    C === G === GA
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">flowchart TD
+    A((("Trouble\nFinder")))
+    B(("Left\nChild"))
+    C((("Right\nChild")))
+    D(("L Left\nChild"))
+    DA[/"Left and Right Subtrees"\]
+    E(("L Right\nChild"))
+    EA[/"Left and Right Subtrees"\]
+    F(("R Left\nChild"))
+    FA[/"Left and Right Subtrees"\]
+    G(("R Right\nChild"))
+    GA[/"Left and Right Subtrees"\]
+    H(("Trouble\nMaker"))
+    A === B
+    A === C
+    B === D === DA
+    B === E === EA
+    C === F === FA
+    C === G === GA === H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">flowchart TD
+    A((("Trouble\nFinder")))
+    B((("Left\nChild")))
+    C(("Right\nChild"))
+    D(("L Left\nChild"))
+    DA[/"Left and Right Subtrees"\]
+    E((("L Right\nChild")))
+    EA[/"Left and Right Subtrees"\]
+    F(("R Left\nChild"))
+    FA[/"Left and Right Subtrees"\]
+    G(("R Right\nChild"))
+    GA[/"Left and Right Subtrees"\]
+    H(("Trouble\nMaker"))
+    A === B
+    A === C
+    B === D === DA
+    B === E === EA === H
+    C === F === FA
+    C === G === GA
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">flowchart TD
+    A((("Trouble\nFinder")))
+    B(("Left\nChild"))
+    C((("Right\nChild")))
+    D(("L Left\nChild"))
+    DA[/"Left and Right Subtrees"\]
+    E(("L Right\nChild"))
+    EA[/"Left and Right Subtrees"\]
+    F((("R Left\nChild")))
+    FA[/"Left and Right Subtrees"\]
+    G(("R Right\nChild"))
+    GA[/"Left and Right Subtrees"\]
+    H(("Trouble\nMaker"))
+    A === B
+    A === C
+    B === D === DA
+    B === E === EA
+    C === F === FA === H
+    C === G === GA
+</div>
+</div>
+</div>
+</input></input></input></input></div>
+<p>稍作解释，例如 <code>LR</code>，表示的是 Trouble Maker 在 Trouble Finder 的 L 孩子节点的 R 孩子树中。</p>
+<p>另外，对于我只在 <code>LR</code> 和 <code>RL</code> 中着重二级孩子节点，并不是笔误。之后会详细介绍。</p>
+</div>
+<hr/>
+<h4 id="ll_rr">LL &amp; RR<a class="headerlink" href="#ll_rr" title="Permanent link">#</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">废话</p>
+<p>大部分教材都倾向于继续用“旋转”来概括这些方法，确实其实从抽象角度来讲至少 <code>LL</code> 和 <code>RR</code> 部分也还是像的，但是我觉得这并不利于记忆和理解这个过程，尤其是对于 <code>LR</code> 和 <code>RL</code> 的部分。</p>
+<p>所以在 <code>LL</code> 和 <code>RR</code> 部分，我还是会先介绍一下比较传统的，用“旋转”的方式来理解，之后我将尝试着用我自己的思路来讲。</p>
+</div>
+<h5 id="_4">“旋转”视角<a class="headerlink" href="#_4" title="Permanent link">#</a></h5>
+<p><code>LL</code> 和 <code>RR</code> 这两种情况相对直观。由于它们的操作是对称的，所以我这里以 <code>LL</code> 为例。</p>
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        C[/"Right Subtree"\]
+
+        subgraph SA["New Left Subtree"]
+
+            subgraph SB["New L Left Subtree"]
+                D[/"L Left Subtree"\]
+                H(("Trouble\nMaker"))
+            end
+
+            B((("Left\nChild")))
+            E[/"L Right Subtree"\]
+        end
+
+        A === B
+        A === C
+        B === D === H
+        B === E
+</div>
+<p>根据相关性质，我们得到这个模型有如下性质：</p>
+<div class="admonition property">
+<p class="admonition-title">一些性质</p>
+<ol>
+<li><span class="arithmatex">\(BF(\text{Trouble Finder}) = h(\text{New Left Subtree}) - h(\text{Right Subtree}) = 2\)</span>；</li>
+<li><span class="arithmatex">\(h(\text{New L Left Subtree}) - h(\text{L Right Subtree}) = 1\)</span>；<ul>
+<li>如果此差为 0，则不应当成为 Trouble Maker，若此差为 2，则 Left Child 应当为 Trouble Finder；</li>
+</ul>
+</li>
+</ol>
+</div>
+<p>现在我们希望在保留二叉搜索树的性质下，要让 <span class="arithmatex">\(|BF(\text{Trouble Finder})|\)</span> 变小，一个很自然的想法就是让 <span class="arithmatex">\(h(\text{New Left Subtree})\)</span> 去 -1，让 <span class="arithmatex">\(h(\text{Right Subtree})\)</span> 去 +1。</p>
+<p>于是我们发现，这样的操作刚好：</p>
+<div class="admonition section">
+<p class="admonition-title">LL Single Rotation</p>
+<blockquote>
+<p>在 Frame 2 和 Frame 3 之间添加的细线是为了表示这里 L Right Subtree 的转移方法，让 2 ~ 3 帧的“旋转”过程中更加清晰。</p>
+<p>此外，这里要素的命名都是基于 Frame 1 的，对于 Frame 4 来说 L Right Subtree 显然已经不是 L Right Subtree 了。</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><input id="__tabbed_4_4" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Frame 1</label><label for="__tabbed_4_2">Frame 2</label><label for="__tabbed_4_3">Frame 3</label><label for="__tabbed_4_4">Frame 4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E[/"L Right Subtree"\]
+
+        A === B
+        A === C
+        B === D === H
+        B === E
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        E[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+
+        A === B
+        A --- E
+        A === C
+        B === D === H
+        B === E
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        E[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+
+        B === D === H
+        B --- E
+        B === A
+        A === E
+        A === C
+
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        E[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+
+        B === D === H
+        B === A
+        A === E
+        A === C
+
+</div>
+</div>
+</div>
+</input></input></input></input></div>
+<blockquote>
+<p>你甚至能从整个框在 2 ~ 3 帧的变短感受到这个树的高度减少了x（逃）</p>
+</blockquote>
+</div>
+<p>那么还有一个问题是，如何证明这样变换能够保持 AVL 的性质呢？</p>
+<p>我个人认为主要有两个维度，一是保持二叉搜索树的性质，二是保持平衡的性质，我的证明内容折叠起来了，建议读者可以先自己思考一下再展开看看我的想法。</p>
+<details class="proof">
+<summary>二叉搜索树性质的保持</summary>
+<p><img align="right" alt="" src="../img/1.png" width="30%"/></p>
+<p>不知道读者是否发现，对于一个排列得当的二叉搜索树，如果我从左到右，使用一条竖直的扫描线扫描整个树，将会得到一个单调序列，这也正对应着这个二叉搜索树所维护的有序数列。</p>
+<p>基于这种论调，再回头看上面那个动态的过程，甚至是观察我在 2 ~ 3 帧画出来的这个三角形的旋转，就会发现这种旋转实际上只是在将节点上下移动，所以不改变二叉搜索树的性质。</p>
+</details>
+<details class="proof">
+<summary>平衡的保持</summary>
+<p>让我们先回顾一下在上面给出的一些性质中的第 2 条： <span class="arithmatex">\(h(\text{New L Left Subtree}) - h(\text{L Right Subtree}) = 1\)</span>。</p>
+<p>在仔细思考整个旋转过程中每一个 Subtree 的高度的变化，即可得到证明。    </p>
+</details>
+<p>而 RR Single Rotation 完全对称，所以不再赘述。</p>
+<hr/>
+<h5 id="_5">“换根”视角<a class="headerlink" href="#_5" title="Permanent link">#</a></h5>
+<p>现在我想尝试着用我自己的方式来理解这个问题。</p>
+<p>首先让我们人力动画一下这个过程（划掉）：</p>
+<div class="admonition section">
+<p class="admonition-title">LL Single Rotation</p>
+<blockquote>
+<p>此外，这里要素的命名都是基于 Frame 1 的，对于 Frame 4 来说 L Right Subtree 显然已经不是 L Right Subtree 了。</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:5"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><input id="__tabbed_5_4" name="__tabbed_5" type="radio"/><input id="__tabbed_5_5" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Frame 1</label><label for="__tabbed_5_2">Frame 2</label><label for="__tabbed_5_3">Frame 3</label><label for="__tabbed_5_4">Frame 4</label><label for="__tabbed_5_5">Frame 5</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E[/"L Right Subtree"\]
+
+        A === B
+        A === C
+        B === D === H
+        B === E
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E[/"L Right Subtree"\]
+
+        A --- B
+        A === C
+        B === D === H
+        B === E
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        B((("Left\nChild")))
+        D[/"L Left Subtree"\]
+        E[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+        A((("Trouble\nFinder")))
+        C[/"Right Subtree"\]
+
+        A === C
+        B === D === H
+        B === E
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        B((("Left\nChild")))
+        D[/"L Left Subtree"\]
+        E[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+        A((("Trouble\nFinder")))
+        C[/"Right Subtree"\]
+
+        A === C
+        B === D === H
+        A === E
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D[/"L Left Subtree"\]
+        E[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+
+        B === D === H
+        B === A
+        A === E
+        A === C
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>首先，我们遇到的问题是什么？是 Trouble Maker 进来以后，Trouble Finder 发现 <span class="arithmatex">\(h(T_l) - h(T_r) = 2\)</span>了，用通俗的话来说就是左孩子树太高了，然而在这种情况下，左孩子树依然还站在一个台子（Trouble Finder）上和 Trouble Finder 比身高，所以我们需要将它从台子上请下来。也就是说，既然左孩子树太高了，那么我们就不<strong>希望</strong>让它再成为谁的孩子树，因为成为谁的孩子树必然意味着这条路径会更长。</p>
+<p>那么现在我们把它从台子上请下来，也就是说割裂它和 Trouble Finder 的亲子关系（对应 Frame 2）让它们同台“对抗”（这一步在 <code>LL</code> 和 <code>RR</code> 可能显得比较多余，但是在 <code>LR</code> 和 <code>RL</code> 就会让问题清晰很多）。</p>
+<p>然而我们仍然需要让这个森林重新变回一个树，所以就需要重新从里面找到根节点，显然，只能选择 Trouble Finder <strong>旁边</strong> 的 Left Child。但是为了继续维护二叉搜索树的性质，所以我们需要将 L Right Subtree 移植到 Trouble Finder 必定空缺（因为这里原先是 Left Child）的左指针上。</p>
+<p>OK，你可能觉得这个解释对于 LL Single Rotation 来说显得十分多此一举，但是这都是为了给后面做的铺垫，虽然这个方法看起来繁琐冗余，但是已经足以解释原先的 Single Rotation 无法解释的 LR &amp; RL 操作方法。</p>
+<hr/>
+<h4 id="lr_rl">LR &amp; RL<a class="headerlink" href="#lr_rl" title="Permanent link">#</a></h4>
+<p>首先我们需要知道为什么之前的方法不行，也是我觉得“旋转”这个做法在这个推进过程中比较割裂的地方：（对照 <strong><a href="#旋转视角" target="_blank">#旋转视角</a></strong> 的内容阅读）我们发现，由于 LL 中的 Trouble Maker 在左侧孩子树上，所以在旋转过程中，相当于把它“拽”上来了。然而对于 L Right Subtree，无论是旋转前还是旋转后，为了维护二叉搜索树的性质，它都被接在了深度为 1 的节点上，换句话来说 L Right Subtree 贡献的高度并没有改变。对于 RL 的情况也是同理的。所以我们并不能使用 LL Single Rotation 的方法来解决这个问题。</p>
+<div class="admonition note">
+<p class="admonition-title">关于旋转视角</p>
+<p>如果从旋转视角来考虑，确实也能考虑这个过程，但一方面过于复杂，一方面实际实现过程中也完全可以被优化，所以我希望使用换根的视角来理解这个问题。</p>
+</div>
+<p>那么我们换一个思路，用<strong><a href="#换根视角" target="_blank">“换根”视角</a></strong>来看待这个问题：</p>
+<div class="admonition section">
+<p class="admonition-title">LR Rotation</p>
+<blockquote>
+<p>这里两个 Subtree 接到同一个 Trouble Maker 的意思是 Trouble Maker 可以出现在两者任一中。</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:5"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><input id="__tabbed_6_4" name="__tabbed_6" type="radio"/><input id="__tabbed_6_5" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Frame 1</label><label for="__tabbed_6_2">Frame 2</label><label for="__tabbed_6_3">Frame 3</label><label for="__tabbed_6_4">Frame 4</label><label for="__tabbed_6_5">Frame 5</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+
+        A === B
+        A === C
+        B === D === DA
+        B === E === EA --- H
+        E === EB --- H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+
+        A --- B
+        A === C
+        B === D === DA
+        B --- E === EA --- H
+        E === EB --- H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+
+        B((("Left\nChild")))
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+        A((("Trouble\nFinder")))
+        C[/"Right Subtree"\]
+
+        A === C
+        B === D === DA
+        E === EA --- H
+        E === EB --- H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+
+        B((("Left\nChild")))
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+        A((("Trouble\nFinder")))
+        C[/"Right Subtree"\]
+
+        A === C
+        B === D === DA
+        E --- EA --- H
+        E --- EB --- H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+
+        D(("L Left\nChild"))
+        B((("Left\nChild")))
+        DA[/"L Left Subtree"\]
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+        H(("Trouble\nMaker"))
+        A((("Trouble\nFinder")))
+        C[/"Right Subtree"\]
+
+        E === B
+        E === A
+        B === D === DA
+        B === EA --- H
+        A === EB --- H
+        A === C
+</div>
+</div>
+</div>
+</div>
+</div>
+<details class="extra" open="open">
+<summary>关于记忆</summary>
+<p>记忆这个操作如何做的话，我的记忆方法是这样的：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:4"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><input id="__tabbed_7_3" name="__tabbed_7" type="radio"/><input id="__tabbed_7_4" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">Frame 1</label><label for="__tabbed_7_2">Frame 2</label><label for="__tabbed_7_3">Frame 3</label><label for="__tabbed_7_4">Frame 4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+
+        A === B
+        A === C
+        B === D === DA
+        B === E === EA --- H
+        E === EB --- H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        C[/"Right Subtree"\]
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+
+        A --- B
+        A --- E
+        A === C
+        B === D === DA
+        B --- E === EA --- H
+        E === EB --- H
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+        C[/"Right Subtree"\]
+
+        A --- B
+        E --- B 
+        E --- A
+        B === D === DA
+        B --- EA --- H
+        A --- EB --- H
+        A === C
+</div>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">    flowchart TD
+        A((("Trouble\nFinder")))
+        B((("Left\nChild")))
+        D(("L Left\nChild"))
+        DA[/"L Left Subtree"\]
+        H(("Trouble\nMaker"))
+        E((("L Right\nChild")))
+        EA[/"L Left Subtree"\]
+        EB[/"L Right Subtree"\]
+        C[/"Right Subtree"\]
+
+        E --- B 
+        E --- A
+        B === D === DA
+        B --- EA --- H
+        A --- EB --- H
+        A === C
+</div>
+</div>
+</div>
+</div>
+<p>用语言概括就是，找到关键的那三个点，然后把最下面的顶到上面去，剩下两个作为左右孩子树，原先的那个点的左右孩子树则对应地，左孩子树接到左边空缺的右孩子树上，右孩子树接到右边空缺的左孩子树上。</p>
+</details>
+<hr/>
+<h3 id="_6">其他问题<a class="headerlink" href="#_6" title="Permanent link">#</a></h3>
+<div class="admonition question">
+<p class="admonition-title">如果一个 Trouble 产生后，出现了多个 Trouble Finder，该如何处理？</p>
+<p>首先，请回顾一下 <strong><a href="#操作" target="_blank">#操作</a></strong> 中被加粗的这一句话，「以『距离案发现场最近的 Trouble Finder』为根的孩子树」。也就是说，我们现在已经有了解决最近的 Trouble Finder 的方案。</p>
+<p>感性的思考，AVL 的“平衡”可以由递归形式定义，具体来说衡量的是左右孩子树的“高度”差。当我们解决了一个 Trouble Finder，意味着我们让 Trouble Finder 的最高的那个孩子树高度 -1，这也意味着以 Trouble Finder 为根的那个孩子树高度 -1，这也意味着其所有父节点的平衡因子都会相应地变化。</p>
+<p>一个 Trouble 当且仅有一个 Trouble Maker，而且它必定是 Trouble Finder 所关注的那个“最长路径”的端点，这也意味着所有的子 Trouble Finder 都在对应的父 Trouble Finder 的“最长路径”上。而现在我们让子 Trouble Finder 唯一（如果不唯一，那在这个 Trouble Maker 到来之前就已经存在 Trouble 了）的最长路径也应当会 -1。而这必将导致其平衡因子的绝对值 -1。</p>
+</div>
+<hr/>
+<h2 id="splay">Splay 树<a class="headerlink" href="#splay" title="Permanent link">#</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">link</p>
+<p>OI Wiki: <a href="https://oi-wiki.org/ds/splay/">https://oi-wiki.org/ds/splay/</a></p>
+</div>
+<p>Splay 树，即伸展树，想要解决的问题和 AVL 树类似，只不过 Splay 树希望达到的目标是在<strong>摊还(Amortized)</strong>复杂度<span class="arithmatex">\(O(\log N)\)</span>的情况下完成大部分对点操作。</p>
+<p>我们知道，为使 AVL 保持平衡，我们需要维护从根节点到 Trouble Maker 这条路径上所有点的平衡因子。而 Splay 则不再维护这些信息，这意味着我们无法保证 Splay 树的状态都是平衡的，但是我们希望它尽可能平衡。具体来说就是对于 <span class="arithmatex">\(M\)</span> 次任意操作，其时间复杂度都为 <span class="arithmatex">\(O(M\log N)\)</span>，均摊下来这 <span class="arithmatex">\(M\)</span> 个操作每一个都需要 <span class="arithmatex">\(O(\log N)\)</span>。</p>
+<p>对于一个树，我们对其节点进行的操作可能是：<strong>增</strong>点、<strong>删</strong>点、<strong>改</strong>点、<strong>查</strong>点等等，而不同类型的操作开销可能不尽相同。简单的计算其平均值则忽略了这些操作之间互相的影响或者是操作频率的问题，所以我们这里使用<strong><a href="#摊还" target="_blank">摊还</a></strong>复杂度来描述其效率。</p>
+<blockquote>
+<p>关于摊还的问题我们还会在之后进一步深入。</p>
+</blockquote>
+<p>那么说了这么多，Splay 是怎么实现这一目标的呢？</p>
+<p>Splay 的核心思想就是，每当我们访问一个节点（比如查询某个点、插入某个点，甚至是删除某个点），我们就通过一系列操作将目标点转移到根部，形象上理解就是不断旋转整个树的构造，知道把点转到根部。</p>
+<div class="admonition eg">
+<p>例如我们查询点 <span class="arithmatex">\(k_1\)</span>，则会通过旋转将它转到根。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">Frame 1</label><label for="__tabbed_8_2">Frame 2</label><label for="__tabbed_8_3">Frame 3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="../img/2.png"/></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="../img/3.png"/></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="../img/4.png"/></p>
+</div>
+</div>
+</div>
+<p>可以发现，Frame 1 ~ 2 就是我们前面提到过的 <strong><a href="#lr--rl" target="_blank">LR Rotation</a></strong>，而 Frame 2 ~ 3 就是经过了两次 <strong><a href="#ll--rr" target="_blank">LL Rotation</a></strong>。当然，在 Splay 里这些操作都有了新的名字。</p>
+</div>
+<p>这个例子只是为了给读者一个初始印象，之后我们将更详细、准确的介绍操作。</p>
+<blockquote>
+<p>（没玩过可能听不太懂）不知道大家有没有玩过那种电子游戏，就是有好多转盘，相邻转盘之间有交界处，这些交界点上都会有圆球，当一个转盘旋转的时候，其圆周上的球体都会跟着这个圆周转动。通过不停转动相邻的圆盘，我们可以实现把某个位置的圆球转移到另外一个位置。而 Splay 差不多是这么个感觉。</p>
+</blockquote>
+<hr/>
+<h3 id="_7">基本操作<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
+<p>首先我们做一个约定，对于任意一个节点 X，我们记其父节点为 P(Parent)，其父节点的父节点为 G(Grandparent)。</p>
+<ul>
+<li>当我们访问到某个点 X 时：<ul>
+<li>如果 P 是根节点，则直接进行一次 <a href="#ll--rr" target="_blank">Single Rotation</a>，将 X 转到根节点；</li>
+<li>如果 P 不是根节点：<ul>
+<li>当情况为 LR / RL 时，进行一次 <a href="#lr--rl" target="_blank">LR Rotation 或 RL Rotation</a>，我们称之为 zig-zag；</li>
+<li>当情况为 LL / RR 时，进行两次 <a href="#ll--rr" target="_blank">Single Rotation</a>，使得 X、P、G 的顺序逆转，像跷跷板一样，我们称之为 zig-zig；</li>
+</ul>
+</li>
+<li>不断对 X 进行 Splay 操作，直到 X 成为根节点；</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../img/5.png"/></p>
+<p>可以发现，其具体操作基本就和 AVL 树的相关操作有很大重合。</p>
+<div class="admonition property">
+<p class="admonition-title">效果</p>
+<p>Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</p>
+</div>
+<hr/>
+<h3 id="_8">对点操作<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
+<p>由于 Splay Tree 除了在完成所有操作以后都需要进行一次 Splay 操作，其他部分都和 BST 一样，所以这里只简单介绍一下 Splay 的部分。</p>
+<div class="admonition section">
+<p class="admonition-title">Find X</p>
+<p>根据 BST 的性质，可以在 <span class="arithmatex">\(O(\log N)\)</span> 的时间里找到 <span class="arithmatex">\(X\)</span>，接下来通过旋转操作，将 <span class="arithmatex">\(X\)</span> 不断旋转至根，最终直接取出 Root 即为结果。   </p>
+</div>
+<div class="admonition section">
+<p class="admonition-title">Remove X</p>
+<p>根据 BST 的性质，可以在 <span class="arithmatex">\(O(\log N)\)</span> 的时间里找到 <span class="arithmatex">\(X\)</span>，接下来通过旋转操作，将 <span class="arithmatex">\(X\)</span> 不断旋转至根，接下来删除 Root 节点，并在维护 BST 性质的情况下递归地合并左右孩子树即可。</p>
+</div>
+<div class="admonition section">
+<p class="admonition-title">Find Max</p>
+<p>根据 BST 的性质，可以在 <span class="arithmatex">\(O(\log N)\)</span> 的时间里找到最大值，将它旋转到根部以后，可以发现它没有右孩子树，直接删掉就行。</p>
+</div>
+<hr/>
+<h3 id="_9">摊还分析<a class="headerlink" href="#_9" title="Permanent link">#</a></h3>
+<div class="admonition advice">
+<p class="admonition-title">前置阅读</p>
+<p>关于摊还分析的基本知识，请查看 <strong><a href="Ex01.md#摊还分析">Topic 1 | Amortized Analysis</a></strong>。</p>
+</div>
+<p>此处，我们将使用<strong>势能法</strong>来分析 Splay 的摊还复杂度，由于课件省略了很多细节上的解释，所以我这里会补充非常多内容。</p>
+<div class="admonition quote">
+<p class="admonition-title">reference</p>
+<p><a href="http://www2.hawaii.edu/~nodari/teaching/f19/scribes/notes06.pdf">http://www2.hawaii.edu/~nodari/teaching/f19/scribes/notes06.pdf</a></p>
+</div>
+<p>开始分析之前，我们首先需要明确分析的目标：</p>
+<p>对于 Splay，它不像我们在 <strong><a href="Ex01.md#摊还分析">Topic 1 | Amortized Analysis</a></strong> 提到的那些案例一样，存在明显的减势和增势行为。对于 Splay 来说，所有我们提到的操作都依赖于将目标点旋转到根来实现，而这也成为其主要开销（部分常数操作显然被覆盖，插入之类的操作之所以能被忽略的原因，可以参考 ltgg 的<strong><a href="https://www.yuque.com/27rabbit/gi2sf3/veonae">这篇文章</a></strong>）。其中我们会用到若干次 <code>zig</code>、<code>zig-zag</code>、<code>zig-zig</code> 的操作。</p>
+<p>因此我们可以认为，我们要分析的目标为：</p>
+<div class="arithmatex">\[
+T_{\text{rotate }x\text{ to root}} = T_{\text{zig}} + \sum{ {T_{\text{zig-zag}}}_i } + \sum{ {T_{\text{zig-zig}}}_i }
+\]</div>
+<blockquote>
+<p>上面三个部分每一个都有可能是 <span class="arithmatex">\(0\)</span>，而 <code>zig</code> 最多只会发生一次！</p>
+</blockquote>
+<p>接下来，我们需要设计一个势能函数 <span class="arithmatex">\(\Phi(x)\)</span>，并且根据我们提到过的势能分析法的特性，<span class="arithmatex">\(\Phi(x)\)</span> 应该具有这么几个特征：</p>
+<ul>
+<li>开销大的操作应当倾向让势能降，开销小的操作应当倾向让势能升；</li>
+<li>势能高倾向于让某些操作开销大，势能低倾向于让某些操作开销小；</li>
+<li><span class="arithmatex">\(\Phi(final) &gt; \Phi(initial)\)</span>；</li>
+</ul>
+<p>于是这里我们设计的势能函数为：</p>
+<div class="arithmatex">\[
+\Phi(T) = \sum_{des \in T} \log Size(des) = \sum_{des \in T} Rank(des)\\
+\begin{aligned}
+    &amp;\text{Where } des \text{ means the descendant of } T \text{,}\\
+    &amp;\text{and } Size(des) \text{ means the number of the nodes of } des \text{.} \\
+    &amp;\text{And we note } Rank(des) = \log Size(des) \approx Height(des) \text{.}
+\end{aligned}
+\]</div>
+<p>用语言描述一下就是，对于某个孩子树 <span class="arithmatex">\(T\)</span>，其势能函数 <span class="arithmatex">\(\Phi(T)\)</span> 等于<u>以所有它的后代为根</u>的孩子树的大小取对数以后求和。</p>
+<div class="admonition warning">
+<p class="admonition-title">Rank v.s. Height</p>
+<p>这里需要注意的一个点是，虽然 <span class="arithmatex">\(Rank(des) \approx Height(des)\)</span>，但是我们不应该用 <span class="arithmatex">\(Height()\)</span> 来代替 <span class="arithmatex">\(Rank()\)</span>，主要原因是在旋转过程中，<span class="arithmatex">\(Rank()\)</span> 不会变化（因为 <span class="arithmatex">\(Size()\)</span> 不会变化），但是 <span class="arithmatex">\(Height()\)</span> 可能变化。换句话来说，如果选用 <span class="arithmatex">\(Height()\)</span> 作为势能函数，我们就不得已考虑整棵树，而非只需要考虑当前旋转涉及的孩子树。</p>
+</div>
+<p>关于正确性的说明，我会放在之后的过程中一个个插入，它们会被包裹在 <code>key-point</code> 文字框中，请注意这些内容。接下来我们就可以开始分析了，根据我们给定的目标：</p>
+<div class="arithmatex">\[
+T_{\text{rotate }x\text{ to root}} = T_{\text{zig}} + \sum{ {T_{\text{zig-zag}}}_i } + \sum{ {T_{\text{zig-zig}}}_i }
+\]</div>
+<p>我们利用均摊分析，需要得到一个平滑上界：</p>
+<div class="arithmatex">\[
+\hat{c}_{\text{rotate }x\text{ to root}} = \hat{c}_{\text{zig}} + \sum{ {\hat{c}_{\text{zig-zag}}}_i } + \sum{ {\hat{c}_{\text{zig-zig}}}_i }
+\]</div>
+<p>而我们需要证明 <span class="arithmatex">\(\hat{c}_{\text{rotate }x\text{ to root}} = O(\log{N})\)</span>，现在我们需要分别分析 <code>zig</code>、<code>zig-zag</code>、<code>zig-zig</code>。</p>
+<hr/>
+<h4 id="zig">zig<a class="headerlink" href="#zig" title="Permanent link">#</a></h4>
+<div class="admonition section">
+<p class="admonition-title">Amortized Analysis for Zig</p>
+<p><img alt="" src="../img/60.png"/></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig}}}_i
+    &amp;= {c_{\text{zig}}}_i + \Phi_{i}(X) - \Phi_{i-1}(P) \\
+    &amp;= 1 + Rank_{i}(X) - Rank_{i-1}(X) +  Rank_{i}(P) - Rank_{i-1}(P)
+\end{aligned}
+\]</div>
+<p>观察配图，<span class="arithmatex">\(X\)</span> 多了 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(C\)</span> 作为子嗣，而 <span class="arithmatex">\(P\)</span> 悲惨地失去了 <span class="arithmatex">\(X\)</span> 一族，甚至成了 <span class="arithmatex">\(X\)</span> 的后代，即 <span class="arithmatex">\(X\)</span> 盛 <span class="arithmatex">\(P\)</span> 衰，因此就有不等式：</p>
+<div class="arithmatex">\[
+\left\{
+    \begin{aligned}
+        &amp; Rank_{i}(X) - Rank_{i-1}(X) \geq 0\\
+        &amp; Rank_{i}(P) - Rank_{i-1}(P) \leq 0
+    \end{aligned}    
+\right.
+\]</div>
+<p>所以我们可以做简单的缩放：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig}}}_i
+    &amp;= 1 + \underbrace{Rank_{i}(X) - Rank_{i-1}(X)}_{\geq 0} + \underbrace{Rank_{i}(P) - Rank_{i-1}(P)}_{\leq 0} \\
+    &amp;\leq 1 + Rank_{i}(X) - Rank_{i-1}(X)
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition key-point">
+<p class="admonition-title">为什么不是另外一种选择 / 为何这样缩放？</p>
+<blockquote>
+<p>这一部分在 cy 的 PPT 里并没有详细说明，但是我认为这是这个分析方法成立一个非常重要的因素！</p>
+</blockquote>
+<p>也许你已经注意到了，又或者你了解了之后两种分析，又回过头来思考发现，这里其实存在另外一种更紧凑的缩放方法（甚至不能说“缩放”），观察到 <span class="arithmatex">\(Size_{i}(X) =Size_{i-1}(P)\)</span>，所以：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig}}}_i
+    &amp;= 1 + Rank_{i}(P) - Rank_{i-1}(X) + \underbrace{Rank_{i}(X) - Rank_{i-1}(P)}_{= 0} \\
+    &amp;= 1 + Rank_{i}(P) - Rank_{i-1}(X)
+\end{aligned}
+\]</div>
+<p>但是这不便于我们之后的传递。还记得我们要求的目标吗？</p>
+<div class="arithmatex">\[
+\hat{c}_{\text{rotate }x\text{ to root}} = \hat{c}_{\text{zig}} + \sum{ {\hat{c}_{\text{zig-zag}}}_i } + \sum{ {\hat{c}_{\text{zig-zig}}}_i }
+\]</div>
+<p>我们之后需要对各种 <span class="arithmatex">\(\hat{c}\)</span> 进行求和，而每一次的 <span class="arithmatex">\(X,\;P,\;G\)</span> 都是不同的，为了在求和的时候实现错位相减，我们必须保证缩放得到的结果具有一定的<strong>传递性质</strong>，或者说在求和过程中能够达到<strong>裂项相消</strong>的效果。</p>
+<p>而对于 Splay 来说，我们的操作传递，正是通过不断将我们关注的 <span class="arithmatex">\(X\)</span> 点<strong>递归地向上旋转</strong>实现的。换句话来说，<span class="arithmatex">\(\Phi_{i}(X)\)</span> 中的 <span class="arithmatex">\(X\)</span>，就是 <span class="arithmatex">\(\Phi_{i-1}(X)\)</span> 中的 <span class="arithmatex">\(X\)</span>，如此我们最终可以得到 <span class="arithmatex">\(\Phi_{n}(X) - \Phi_{0}(X)\)</span>，而其中一个是根，一个是我们一开始打算操作的那个点。</p>
+<p>于是我们理想的缩放目标就是 <span class="arithmatex">\(k(Rank_{i}(X) - Rank_{i-1}(X)) \;\; \text{where } k \text{ is fixed for all the terms}\)</span>。</p>
+<hr/>
+<blockquote>
+<p>不过你可能又要提问了，<code>zig</code> 分析的结果里不是有个 <span class="arithmatex">\({c_{\text{zig}}}_i = 1\)</span> 吗？</p>
+<p>这是因为 <code>zig</code> 最多只发生一次，所以这个常数是没有影响的。</p>
+</blockquote>
+</div>
+<div class="admonition key-point">
+<p class="admonition-title">真的需要都缩放到相同的 k 吗</p>
+<p>随之而来的，一个需要讨论的问题是「<span class="arithmatex">\(\text{where } k \text{ is fixed for all the terms}\)</span>」真的重要吗，换句话来说，我们必须保证三个部分缩放出来都具有相同的 <span class="arithmatex">\(k\)</span> 吗？</p>
+<p>首先，重要肯定是重要的，只不过在这个问题中，由于我们旋转的方向都是向上，所以 <span class="arithmatex">\(Rank_{i}(X) \geq Rank_{i-1}(X)\)</span>，因此我们只需要最后将它们一起都缩放到 <span class="arithmatex">\(k_{overall} = \max\{k_\text{zig}, k_\text{zig-zag}, k_\text{zig-zig} \}\)</span> 就可以了。</p>
+</div>
+<hr/>
+<h4 id="zig-zag">zig-zag<a class="headerlink" href="#zig-zag" title="Permanent link">#</a></h4>
+<div class="admonition section">
+<p class="admonition-title">Amortized Analysis for Zig-Zag</p>
+<p><img alt="" src="../img/61.png"/></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig-zag}}}_i 
+    &amp;= {c_{\text{zig-zag}}}_i + \Phi_{i}(X)- \Phi_{i-1}(G) \\
+    &amp;= 2 + Rank_{i}(X) - Rank_{i-1}(X) + Rank_{i}(P) - Rank_{i-1}(P) + Rank_{i}(G) - Rank_{i-1}(G)
+\end{aligned}
+\]</div>
+<p>观察配图，<span class="arithmatex">\(X\)</span> 又一次绝地反击，成为它家长和它家长的家长共同的家长；<span class="arithmatex">\(G\)</span> 损失最惨重，丢掉了 <span class="arithmatex">\(A,\;B\)</span> 两族子嗣。</p>
+<p>在这次的缩放中，根据我们之前在 <code>key-point</code> 里提到的，我们需要将它缩放到 <span class="arithmatex">\(k(Rank_{i}(X) - Rank_{i-1}(X))\)</span> 的形式，并且由于 <code>zig-zig</code> 会多次发生，所以我们也得想办法搞掉这里的 <span class="arithmatex">\({c_{\text{zig-zag}}}_i = 2\)</span>，否则最后就会出现一个 <span class="arithmatex">\(2p(n)\)</span> 的 term，而我们的证明目标是 <span class="arithmatex">\(\log{N}\)</span>，所以我们必须将这个 <span class="arithmatex">\(2\)</span> 消掉。而为了消除这个 <span class="arithmatex">\(2\)</span>，我们需要先引入一个引理：</p>
+<div class="admonition property">
+<p class="admonition-title">Lemma 1</p>
+<p>由于 <span class="arithmatex">\(y = \log{x}\)</span> 是单调的凸函数，所以有 <span class="arithmatex">\(\frac{\log{x} + \log{b}}{2} \leq \log {\frac{a+b}{2}}\)</span>。</p>
+<p>而在 Splay 的均摊复杂度分析过程中，我们的 <span class="arithmatex">\(\log{x}\)</span> 指的是 <span class="arithmatex">\(\log_2{x}\)</span>，因此有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \log{a} + \log{b} 
+    &amp;= 2\left( \frac{\log{a} + \log{b}}{2} \right) \\
+    &amp;\leq 2\left( \log{\frac{a+b}{2}} \right) \\
+    &amp;= 2\left( \log{(a+b)} - \log{2} \right) \\
+    &amp;= 2 \log{(a+b)} - 2 \\
+\end{aligned}
+\]</div>
+</div>
+<p>看到这里出现了一个 <span class="arithmatex">\(-2\)</span> 我们就能长舒一口气了，这下 <span class="arithmatex">\({c_{\text{zig-zag}}}_i = 2\)</span> 死到临头咯！对照配图看，我们可以得到：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Rank_{i}(P) + Rank_{i}(G)   &amp;= \log{Size_{i}(P)} + \log{Size_{i}(G)} \\
+                                &amp;\leq 2\log{\left(Size_{i}(P)+Size_{i}(G)\right)} - 2 &amp; \text{(Lemma 1)}\\
+                                &amp;\leq 2\log{\left(Size_{i}(P)+Size_{i}(G)+1\right)} - 2 \\
+                                &amp;\leq 2\log{Size_{i}(X)} - 2 \\
+                                &amp;\leq 2Rank_{i}(X) - 2 \\
+\end{aligned}
+\]</div>
+<p>因此，我们能够得到这些相等或不等关系：</p>
+<div class="arithmatex">\[
+\left\{
+    \begin{aligned}
+        Rank_{i}(X) &amp;= Rank_{i-1}(G) \\
+        Rank_{i}(P) + Rank_{i}(G) &amp;\leq 2Rank_{i}(X) - 2 \\
+        Rank_{i-1}(P) + Rank_{i-1}(X) &amp;\geq 2Rank_{i-1}(X)
+    \end{aligned}
+\right.
+\]</div>
+<p>于是我们可以实现缩放：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig-zag}}}_i 
+    &amp;= 2 + Rank_{i}(X) - Rank_{i-1}(X) + Rank_{i}(P) - Rank_{i-1}(P) + Rank_{i}(G) - Rank_{i-1}(G) \\
+    &amp;= 2 + \left( Rank_{i}(X) - Rank_{i-1}(G)\right ) 
+         + \left( Rank_{i}(P) + Rank_{i}(G) \right)
+         - \left( Rank_{i-1}(P) + Rank_{i-1}(X) \right) \\
+    &amp;\leq 2 + 0 + 2Rank_{i}(X) - 2 + 2Rank_{i-1}(X) \\
+    &amp;= 2\left(Rank_{i}(X) - Rank_{i-1}(X)\right)
+\end{aligned}
+\]</div>
+<p>皆大欢喜！</p>
+</div>
+<hr/>
+<h4 id="zig-zig">zig-zig<a class="headerlink" href="#zig-zig" title="Permanent link">#</a></h4>
+<div class="admonition section">
+<p class="admonition-title">Amortized Analysis for Zig-Zig</p>
+<p><img alt="" src="../img/62.png"/></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig-zig}}}_i 
+    &amp;= {c_{\text{zig-zig}}}_i + \Phi_{i}(X)- \Phi_{i-1}(G) \\
+    &amp;= 2 + Rank_{i}(X) - Rank_{i-1}(X) + Rank_{i}(P) - Rank_{i-1}(P) + Rank_{i}(G) - Rank_{i-1}(G)
+\end{aligned}
+\]</div>
+<p>为了实现 <code>zig-zig</code> 的缩放，我们还需要对 Lemma 1 进行一个活用。对照配图，得到：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Rank_{i}(G) + Rank_{i-1}(X) 
+        &amp;\leq 2\log{\left( 
+            \underbrace{Size_{i}(G)}_{\mathbf{C}+\mathbf{D}+G}
+          + \underbrace{Size_{i-1}(X)}_{\mathbf{A}+\mathbf{B}+X}
+        \right)} - 2 &amp; \text{(Lemma 1)} \\
+        &amp;\leq 2\log{\left( Size_{i}(G) + Size_{i-1}(X) + 1 \right)} - 2 &amp; \\
+        &amp;= 2\log{\left( Size_{i}(X) \right)} - 2 \\
+        &amp;= 2Rank_{i}(X) - 2 \\
+    Rank_{i}(G) 
+        &amp;\leq 2Rank_{i}(X) - Rank_{i-1}(X) - 2
+\end{aligned}
+\]</div>
+<blockquote>
+<p>这一步很难想，但是也非常关键。</p>
+</blockquote>
+<p>于是，我们有如下这些不等式：</p>
+<div class="arithmatex">\[
+\left\{
+    \begin{aligned}
+        Rank_{i}(X) &amp;= Rank_{i-1}(G) \\
+        Rank_{i}(G) &amp;\leq 2Rank_{i}(X) - Rank_{i-1}(X) - 2 \\
+        Rank_{i}(P) &amp;\leq Rank_{i}(X) \\
+        Rank_{i-1}(P) &amp;\geq Rank_{i-1}(X)
+    \end{aligned}
+\right.
+\]</div>
+<p>于是我们就可以对其进行<s>诡异</s>的缩放：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig-zig}}}_i 
+    &amp;= 2 + Rank_{i}(X) - Rank_{i-1}(X) + Rank_{i}(P) - Rank_{i-1}(P) + Rank_{i}(G) - Rank_{i-1}(G) \\
+    &amp;= 2 + \left( Rank_{i}(X) - Rank_{i-1}(G) \right)
+         + Rank_{i}(G)
+         + Rank_{i}(P)
+         - Rank_{i-1}(P)
+         - Rank_{i-1}(X) \\
+    &amp;\leq 2 + 0 
+            + \left( 2Rank_{i}(X) - Rank_{i-1}(X) - 2 \right) 
+            + Rank_{i}(X)
+            - Rank_{i-1}(X)
+            - Rank_{i-1}(X) \\
+    &amp;= 3\left( Rank_{i}(X) - Rank_{i-1}(X) \right)
+\end{aligned}
+\]</div>
+<p>😩 至此，我们总算是把牛鬼蛇神的 <code>zig-zig</code> 的证明也给搞定了。</p>
+</div>
+<hr/>
+<h4 id="_10">结论<a class="headerlink" href="#_10" title="Permanent link">#</a></h4>
+<div class="admonition section">
+<p class="admonition-title">Amortized Analysis for Splay</p>
+<p>至此，对于三种操作，我们都得到了它们的均摊上界：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig}}}_i &amp;\leq 1 + Rank_{i}(X) - Rank_{i-1}(X) \\
+    {\hat{c}_{\text{zig-zag}}}_i &amp;\leq 2\left(Rank_{i}(X) - Rank_{i-1}(X)\right) \\
+    {\hat{c}_{\text{zig-zig}}}_i &amp;\leq 3\left(Rank_{i}(X) - Rank_{i-1}(X)\right)
+\end{aligned}
+\]</div>
+<p>根据我们在 <code>key-point</code> 框「真的需要都缩放到相同的 k 吗」中的内容，我们接下来可以将它们的 <span class="arithmatex">\(k\)</span> 都缩放为 <span class="arithmatex">\(3\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {\hat{c}_{\text{zig}}}_i &amp;\leq 1 + 3\left( Rank_{i}(X) - Rank_{i-1}(X) \right) \\
+    {\hat{c}_{\text{zig-zag}}}_i &amp;\leq 3\left( Rank_{i}(X) - Rank_{i-1}(X) \right) \\
+    {\hat{c}_{\text{zig-zig}}}_i &amp;\leq 3\left( Rank_{i}(X) - Rank_{i-1}(X) \right)
+\end{aligned}
+\]</div>
+<p>于是，我们就可以得到最终的均摊上界：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{c}_{\text{rotate }x\text{ to root}} 
+        &amp;= \hat{c}_{\text{zig}} + \sum{ {\hat{c}_{\text{zig-zag}}}_i } + \sum{ {\hat{c}_{\text{zig-zig}}}_i } \\
+        &amp;= O(1) + 3\left( Rank_{N}(X) - Rank_{0}(X) \right) \\
+        &amp;= O(\log{N})
+\end{aligned}
+\]</div>
+<blockquote>
+<p>可以仔细想想求和式是如何“相消”得到最后的式子的，这里的 <span class="arithmatex">\(\sum {\hat{c}_\text{...}}_i\)</span> 的 <span class="arithmatex">\(i\)</span> 并不是在求和式中各自连续的，但是三个 term 放在一起，则可以囊括 <span class="arithmatex">\(i\in\{1,2,...,N\}\)</span></p>
+</blockquote>
+</div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Created">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/Yaoyaolingbro/notebook/home" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+<script src="../../../js/baidu-tongji.js"></script>
+<script src="../../../js/katex.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

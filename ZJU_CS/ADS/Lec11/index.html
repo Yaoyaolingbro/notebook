@@ -1,0 +1,3693 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yaoyaoling">
+      
+      
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/Lec11/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Lecture 11 | Approximation - Yaoyaoling's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="../../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/more_changelog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-KJB4RXSKZG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-KJB4RXSKZG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-KJB4RXSKZG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture_11_approximation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Yaoyaoling&#39;s notebook" class="md-header__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Yaoyaoling's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 11 | Approximation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU_CS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Missing%20semester/" class="md-tabs__link">
+          
+  
+    
+  
+  Missing semester
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-tabs__link">
+          
+  
+    
+  
+  Online CS Courses
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/" class="md-tabs__link">
+          
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Language/Advanced%20C%20Language/" class="md-tabs__link">
+          
+  
+    
+  
+  Language
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../English/" class="md-tabs__link">
+          
+  
+    
+  
+  English
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Scientific%20research/" class="md-tabs__link">
+          
+  
+    
+  
+  Scientific research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../spark%20in%20life/" class="md-tabs__link">
+          
+  
+    
+  
+  Spark in life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Yaoyaoling&#39;s notebook" class="md-nav__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Yaoyaoling's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ZJU_CS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../HPC/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../FDS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    FDS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../DigitalDesign/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Digital desin
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Discrete%20math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Discrete math
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../oop/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    OOP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    ADS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Database/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../computer_organization/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Computer Organazation
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Missing%20semester/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Missing semester
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Missing semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/toolbox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工具箱（一些好用的网站or分享）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/git/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Markdown/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Markdown
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Docker/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Ladder/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Ladder
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Latex/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Latex
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Mkdocs%20material/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Mkdocs material
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Zotero/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zotero
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Online CS Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Online CS Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机科学导论
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CSAPP/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CSAPP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106L/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106L
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS50%20AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS50 AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS61B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS61B
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106X/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AI/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/machine%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/deep%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Deep learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/Model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    经典模型
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/Pytorch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Language
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Advanced%20C%20Language/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/C%2B%2B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/CUDA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CUDA
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Python/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Verilog/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Verilog
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../English/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../English/research/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    research
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Scientific%20research/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Scientific research
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Scientific research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/ode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/mathematic%20model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    mathematic model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Basic tutor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/Zz/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zhaozhou
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spark%20in%20life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Spark in life
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Spark in life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/college%20life/competition/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    College life
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/skills/cook/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/travel/GuiZhou/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Travel
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      近似算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="近似算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      近似范式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approximate_bin_packing" class="md-nav__link">
+    <span class="md-ellipsis">
+      [案例] Approximate Bin Packing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[案例] Approximate Bin Packing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#online_next_fit_nf" class="md-nav__link">
+    <span class="md-ellipsis">
+      (online) Next Fit (NF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online_first_fit_ff" class="md-nav__link">
+    <span class="md-ellipsis">
+      (online) First Fit (FF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online_best_fit_bf" class="md-nav__link">
+    <span class="md-ellipsis">
+      (online) Best Fit (BF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline_first_fit_decreasing_ffd" class="md-nav__link">
+    <span class="md-ellipsis">
+      (offline) First Fit Decreasing (FFD)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knapsack_problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      [案例] Knapsack Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[案例] Knapsack Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fractional_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fractional Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-1_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      0-1 Version
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0-1 Version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      贪心做法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态规划做法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the_k-center_problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      [案例] The K-center Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[案例] The K-center Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naive_greedy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naive Greedy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2r-greedy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2r-Greedy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smarter_greedy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smarter Greedy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="lecture_11_approximation">Lecture 11 | Approximation<a class="headerlink" href="#lecture_11_approximation" title="Permanent link">#</a></h1>
+<h2 id="_1">近似算法<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Approximation_algorithm">https://en.wikipedia.org/wiki/Approximation_algorithm</a></p>
+</div>
+<p>在上一章中我们介绍了 P/NP 问题，而大家普遍认为 P ≠ NP，这就意味着对于某些问题，我们无法使用多项式时间解决，而在问题规模变大时，越发不可接受。</p>
+<p>因此，我们考虑能否退而求其次，在多项式时间内求一个<strong>比较优</strong>的解。更具体的来说，我们尝试寻找一种多项式算法，使得其结果始终在关于准确解的可接受偏差范围内，对于这种算法，我们称之为<strong>近似算法(approximation algorithm)</strong>。</p>
+<p>我们设 <span class="arithmatex">\(f(n, x)\)</span> 是对输入大小为 <span class="arithmatex">\(n\)</span> 的情况下，对结果 <span class="arithmatex">\(x\)</span> 的<strong>最坏情况</strong>的一个直观量化（例如 dist, weight...），若设 <span class="arithmatex">\(x^*\)</span> 为准确解，<span class="arithmatex">\(x\)</span> 为给定算法结果，则我们定义<strong>近似比(Approximation Ratio)</strong><span class="arithmatex">\(\rho\)</span>：</p>
+<div class="arithmatex">\[
+\forall n \rho = \max\left\{\frac{f(n, x)}{f(n, x^*)}, \frac{f(n, x^*)}{f(n, x)}\right\}
+\]</div>
+<p>则称给定算法为 <span class="arithmatex">\(\rho\)</span> 近似算法(<span class="arithmatex">\(\rho\)</span>-approximation algorithm)。</p>
+<div class="admonition question">
+<p class="admonition-title">近似算法 v.s. 随机算法</p>
+<p>在看到近似算法时，我脑子里一下子浮现出了<a href="../Lec13/">随机算法</a>的概念，同样是求准确解的近似解，两者有何区别呢？</p>
+<details class="success">
+<summary>hint: 最坏情况</summary>
+<p>近似算法和随机算法最大的区别就是，当我们设计、分析、讨论近似算法的时候，<strong>我们关注的都是它的最坏情况</strong>。也就是说，近似算法是完全可控的，而纯粹的随机算法则是通过概率来减少坏情况出现的可能，并没有严格的约束。近似算法最坏也就坏到 <span class="arithmatex">\(\rho\)</span>，而随机算法最坏可以坏到海拉鲁大陆。</p>
+</details>
+</div>
+<hr />
+<h3 id="_2">近似范式<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme">https://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme</a></p>
+</div>
+<p><strong>近似范式(approximation scheme)</strong>指的是对于某个优化问题的一族相同模式的算法，它们满足对于确定的 <span class="arithmatex">\(\epsilon &gt; 0\)</span>，算法的近似比为 <span class="arithmatex">\(1+\epsilon\)</span>。</p>
+<blockquote>
+<p>可以粗糙地理解为：“范式”是一个输出为算法的特殊函数，而 <span class="arithmatex">\(\epsilon\)</span> 是“范式”的一个参数，对于特定的 <span class="arithmatex">\(\epsilon\)</span>，“范式”输出一个特定的算法（这些算法有着相同的模式），而这些“范式”输出的算法，都解决同一个问题，并且对于任意固定的 <span class="arithmatex">\(\epsilon\)</span> 其近似比为 <span class="arithmatex">\(1+\epsilon\)</span>。</p>
+<p>而关于 <span class="arithmatex">\(\epsilon &gt; 0\)</span> 这个约束，是因为近似比必定大于 1。</p>
+</blockquote>
+<p>而此时，这一族的算法的复杂度可以表示为 <span class="arithmatex">\(O(f(n, \epsilon))\)</span>，如 <span class="arithmatex">\(O(n^{2/\epsilon}), O((\frac{1}{\epsilon})^2n^3)\)</span>。当 <span class="arithmatex">\(f(n, \epsilon)\)</span> 关于 <span class="arithmatex">\(n\)</span> 是多项式时，我们称其为<strong>多项式时间近似范式(polynomial-time approximation scheme, PTAS)</strong>。当 <span class="arithmatex">\(f(n, \epsilon)\)</span> 关于 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(\frac{1}{\epsilon}\)</span> 都是多项式时，我们称其为<strong>完全多项式时间近似范式(fully polynomial-time approximation scheme, FPTAS)</strong>。</p>
+<p>为什么要区分 PTAS 和 FPTAS 呢？我们观察 <span class="arithmatex">\(\epsilon\)</span> 对算法的影响：随着 <span class="arithmatex">\(\epsilon\)</span> 的减小，近似比逐渐变小，即准确度提高；而 <span class="arithmatex">\(\frac{1}{\epsilon}\)</span> 变大，而通常来说 <span class="arithmatex">\(\frac{1}{\epsilon}\)</span> 与算法复杂度都是正相关的，因此会导致算法复杂度升高。如果说这个近似范式是 FPTAS，那么为了提高准确度而缩小 <span class="arithmatex">\(\epsilon\)</span>，导致的复杂度变化是相对可接受的（多项式级的变化，如 <span class="arithmatex">\((\frac{1}{\epsilon})^2n^3\)</span> 关于 <span class="arithmatex">\(\frac{1}{\epsilon}\)</span> 是多项式级的）；然而如果它不是 FPTAS，那么 <span class="arithmatex">\(\epsilon\)</span> 的缩小可能带来恐怖的复杂度增加（如 <span class="arithmatex">\(n^{2/\epsilon}\)</span> 关于 <span class="arithmatex">\(\epsilon\)</span> 是指数级的）。</p>
+<hr />
+<div class="admonition note">
+<p>接下来，我们以若干具体例子做分析，以便更好地理解近似算法。</p>
+</div>
+<hr />
+<h2 id="approximate_bin_packing">[案例] Approximate Bin Packing<a class="headerlink" href="#approximate_bin_packing" title="Permanent link">#</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Bin_packing">https://en.wikipedia.org/wiki/Bin_packing</a></p>
+</div>
+<p>装箱问题指的是，给定 <span class="arithmatex">\(N\)</span> 个 item，第 <span class="arithmatex">\(i\in [1,N]\)</span> 个 item 的 size 为 <span class="arithmatex">\(S_i \in (0,1]\)</span>，一个 bin 的大小为 <span class="arithmatex">\(1\)</span>，尝试寻找最少的，能够装载所有 item 的 bin 的数量。</p>
+<details class="eg">
+<summary>🌰 例子</summary>
+<p>给定 7 个 item，size 分别为 <span class="arithmatex">\(0.2, 0.5, 0.4, 0.7, 0.1, 0.3, 0.8\)</span>，则最少需要 3 个 bin（准确解）：</p>
+<ul>
+<li>bin 1: <span class="arithmatex">\(0.2 + 0.8\)</span>;</li>
+<li>bin 2: <span class="arithmatex">\(0.7 + 0.3\)</span>;</li>
+<li>bin 3: <span class="arithmatex">\(0.4 + 0.1 + 0.5\)</span>;</li>
+</ul>
+</details>
+<p>这是一个 NP hard 问题，现在我们考虑三种近似解法。需要注意的是，这三种都是<strong>在线(online)</strong>解法，即处理 <span class="arithmatex">\(item_i\)</span> 时我们不知道 <span class="arithmatex">\(item_{i+1}\sim item_{N}\)</span> 的情况。之后我们会再讨论<strong>离线(offline)</strong>做法，也就是我们知道所有 item 的情况以后再给出策略。</p>
+<hr />
+<h3 id="online_next_fit_nf">(online) Next Fit (NF)<a class="headerlink" href="#online_next_fit_nf" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Next-fit_bin_packing">https://en.wikipedia.org/wiki/Next-fit_bin_packing</a></p>
+</div>
+<p>NF 策略总是选择当前最后一个 bin，若能够容纳，则将当前 item 放入其中，否则新开一个 bin。</p>
+<p>NF 策略总是使用不超过 <span class="arithmatex">\(2M-1\)</span> 个 bin，其中 <span class="arithmatex">\(M\)</span> 表示准确解的 <span class="arithmatex">\(\#bin\)</span>。</p>
+<details class="proof">
+<summary>proof for 2M-1</summary>
+<p>我们从 NF 的结果出发，证明当 NF 的结果为需要 <span class="arithmatex">\(2M-1\)</span> 或 <span class="arithmatex">\(2M\)</span> 个 bin 时，准确解为至少需要 <span class="arithmatex">\(M\)</span> 个 bin。</p>
+<p>假设 <span class="arithmatex">\(S(B_i)\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个 bin 的 size，则根据 NF 的定义，有：<span class="arithmatex">\(S(B_{i}) + S(B_{i+1}) &gt; 1\)</span>（是 NF 的必要不充分条件）。稍作解释，使用反证法，假设 <span class="arithmatex">\(S(B_{i}) + S(B_{i+1}) \leq 1\)</span>，这说明无论 <span class="arithmatex">\(B_{i+1}\)</span> 中有多少 item，都一定能放进 <span class="arithmatex">\(B_i\)</span>，而这与 NF “<span class="arithmatex">\(B_i\)</span> 放不下了才开始放 <span class="arithmatex">\(B_{i+1}\)</span>” 的性质相违背。于是我们将所有桶两两配对：</p>
+<p>1.当 NF 的结果是需要 <span class="arithmatex">\(2M-1\)</span> 个 bin 时：</p>
+<div class="arithmatex">\[
+\left\{
+\begin{aligned}
+    S(B_1) + S(B_2) &amp;&gt; 1 \\
+    S(B_3) + S(B_4) &amp;&gt; 1 \\
+    \vdots \\
+    S(B_{2M-3}) + S(B_{2M-2}) &amp;&gt; 1 \\
+    S(B_{2M-1}) &amp;\leq 1
+\end{aligned}
+\right. \\
+\begin{aligned}
+    &amp;\therefore \sum_{i=1}^{2M-1} &gt; \sum_{i=1}^{2M-2} &gt; M-1 \\
+    &amp;\therefore \sum_{i=1}^{2M-1} \geq M
+\end{aligned}
+\]</div>
+<p>即 item 的总 size 至少为 M，即至少需要 <span class="arithmatex">\(M\)</span> 个 bin。</p>
+<p>2.而当 NF 的结果是需要 <span class="arithmatex">\(2M\)</span> 个 bin 时，可以转化为 <span class="arithmatex">\(2M-1\)</span> 的情况。</p>
+</details>
+<hr />
+<h3 id="online_first_fit_ff">(online) First Fit (FF)<a class="headerlink" href="#online_first_fit_ff" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/First-fit_bin_packing">https://en.wikipedia.org/wiki/First-fit_bin_packing</a></p>
+</div>
+<p>FF 策略总是选择第一个能放下当前 item 的 bin，若所有 bin 都无法容纳当前 item，则新开一个 bin。</p>
+<p>NF 策略总是使用不超过 <span class="arithmatex">\(\lfloor 1.7M \rfloor\)</span> 个 bin，并且存在一族能对边界取等的输入，其中 <span class="arithmatex">\(M\)</span> 表示准确解的 <span class="arithmatex">\(\#bin\)</span>。</p>
+<hr />
+<h3 id="online_best_fit_bf">(online) Best Fit (BF)<a class="headerlink" href="#online_best_fit_bf" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Best-fit_bin_packing">https://en.wikipedia.org/wiki/Best-fit_bin_packing</a></p>
+</div>
+<p>BF 策略总是选择能够容纳当前 item 且剩余空间最小的 bin（即 tightest），若所有 bin 都无法容纳当前 item，则新开一个 bin。</p>
+<p>NF 策略也总是使用不超过 <span class="arithmatex">\(\lfloor 1.7M \rfloor\)</span> 个 bin，并且存在一族能对边界取等的输入，其中 <span class="arithmatex">\(M\)</span> 表示准确解的 <span class="arithmatex">\(\#bin\)</span>。</p>
+<hr />
+<blockquote>
+<p>虽然在线做法由于对信息把握的不全面，在不特殊构造输入的情况下甚至几乎不可能达到最优解，但是现实世界中有很多能建模为装箱问题的问题，都要求使用在线做法解决。因此，研究在线做法还是有其意义的。</p>
+</blockquote>
+<p>此外，关于在线做法，有一个结论：</p>
+<div class="admonition property">
+<p class="admonition-title">theorem</p>
+<p>对于装箱问题，如果限定使用在线做法，则<strong>最优</strong>的近似解法，其<strong>最坏情况</strong>的结果也至少需要准确解的 <span class="arithmatex">\(\frac{5}{3}\)</span>。</p>
+<blockquote>
+<p>PPT 上的原话是，无论哪种在线做法也至少需要使用 <span class="arithmatex">\(\frac{5}{3}\)</span> 的准确解给出的数量，但是显然这个 <span class="arithmatex">\(\frac{5}{3}\)</span> 是针对最坏解的讨论。回顾「近似算法 v.s. 随机算法」这个 block 里的内容，我们分析近似解，都是针对其最坏情况来说的。</p>
+</blockquote>
+</div>
+<hr />
+<h3 id="offline_first_fit_decreasing_ffd">(offline) First Fit Decreasing (FFD)<a class="headerlink" href="#offline_first_fit_decreasing_ffd" title="Permanent link">#</a></h3>
+<p>离线做法的优势在于它能够获得所有 item 的信息以求统筹规划。这里给出的近似做法是，将 item 按照 size 降序排序，而后使用 FF（或 BF，由于单调性，两者等价）。</p>
+<details class="eg">
+<summary>🌰 例子</summary>
+<p>给定 7 个 item（同之前的 🌰），经过排序后，它们的 size 分别为 $0.8, 0.7, 0.5, 0.4, 0.3, 0.2, 0.1，则最少需要 3 个 bin（准确解）：</p>
+<ul>
+<li>bin 1: <span class="arithmatex">\(0.8 + 0.2\)</span>;</li>
+<li>bin 2: <span class="arithmatex">\(0.7 + 0.3\)</span>;</li>
+<li>bin 3: <span class="arithmatex">\(0.5 + 0.4 + 0.1\)</span>;</li>
+</ul>
+</details>
+<p>FFD 策略总是使用不超过 <span class="arithmatex">\(\frac{11}{9}M + \frac{6}{9}\)</span> 个 bin（为啥就连 wiki 也不约 6/9），并且存在一族能对边界取等的输入，其中 <span class="arithmatex">\(M\)</span> 表示准确解的 <span class="arithmatex">\(\#bin\)</span>。</p>
+<hr />
+<h2 id="knapsack_problem">[案例] Knapsack Problem<a class="headerlink" href="#knapsack_problem" title="Permanent link">#</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">link</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Knapsack_problem">https://en.wikipedia.org/wiki/Knapsack_problem</a></p>
+</div>
+<p>一个与装箱问题很像的问题是背包问题。其大致描述如下：给定一个容量为 <span class="arithmatex">\(M\)</span> 的背包，以及 <span class="arithmatex">\(N\)</span> 个 item，第 <span class="arithmatex">\(i\)</span> 个 item 的重量为 <span class="arithmatex">\(w_i\)</span>，其利润为 <span class="arithmatex">\(p_i\)</span>。要求在不超过背包容量的前提下，使得背包中的利润最大化。（我也不知道为什么 PPT 上会把容量和重量关联起来，anyway，容量限制了 item 的重量和。）</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>或许在学习 dp 的时候你已经接触过背包问题了，但是请注意，我们这里讨论的背包问题有一个非常重要的特点就是，容量和利润都是<strong>实数</strong>，更直白的来说，你没办法通过将容量或利润作为状态来 dp 求准确解。</p>
+</div>
+<p>而根据每一个物品能否自由拆分，背包问题分为 fractional version 和 0-1 version 两类。</p>
+<hr />
+<h3 id="fractional_version">Fractional Version<a class="headerlink" href="#fractional_version" title="Permanent link">#</a></h3>
+<p>如果我们记 <span class="arithmatex">\(x_i\in[0,1]\)</span> 为第 <span class="arithmatex">\(i\)</span> 个 item 的选中量（即假设 item 都是连续可分的），则约束条件可以表述为 <span class="arithmatex">\(\sum_{i}^N w_ix_i \leq M\)</span>，现在求 <span class="arithmatex">\(\sum_{i}^{N} p_ix_i\)</span> 的最大值。</p>
+<details class="eg">
+<summary>🌰 例子</summary>
+<p>假设现在 <span class="arithmatex">\(M = 20.0\)</span>，并且 <span class="arithmatex">\(N = 3\)</span>，分别是：</p>
+<ul>
+<li>item 1: <span class="arithmatex">\(w_1 = 18.0, p_1 = 25.0\)</span>; </li>
+<li>item 2: <span class="arithmatex">\(w_2 = 15.0, p_2 = 24.0\)</span>;</li>
+<li>item 3: <span class="arithmatex">\(w_3 = 10.0, p_3 = 15.0\)</span>;</li>
+</ul>
+<p>则最优解为 <span class="arithmatex">\(x_1 = 0, x_2 = 1, x_3 = \frac{1}{2}\)</span>，此时 <span class="arithmatex">\(\sum_{i}^{N} p_ix_i = 31.5\)</span>。</p>
+</details>
+<p>由于 <span class="arithmatex">\(x_i\in[0,1]\)</span>，给了我们极大的选择自由，我们可以选择任意多的某个物品。那么非常朴素的一个想法就是，尽可能多地选择“性价比”高的物品。也就是说，我们可以按照 <span class="arithmatex">\(\frac{p_i}{w_i}\)</span>（PPT 称之为 profit density）降序排序，而后从大到小依次选择物品，直到背包装满为止。</p>
+<p>不过该做法已经是准确解了，所以我们不对它进行关于近似算法的讨论。</p>
+<hr />
+<h3 id="0-1_version">0-1 Version<a class="headerlink" href="#0-1_version" title="Permanent link">#</a></h3>
+<p>相较于 fractional version，0-1 version 要求 <span class="arithmatex">\(x_i \in \{0,1\}\)</span>，换句话说每一个物品要么选要么不选。这是一个经典的 NPC 问题，我们尝试使用近似算法来求较优解。</p>
+<hr />
+<h4 id="_3">贪心做法<a class="headerlink" href="#_3" title="Permanent link">#</a></h4>
+<p>我们可以使用贪心算法，贪心策略可以是总是选可以放得下的、还没放入中的，<strong>利润最大</strong>的或 <span class="arithmatex">\(\frac{p_i}{w_i}\)</span> <strong>最大</strong>的。这些做法的近似比都是 2。</p>
+<details class="proof">
+<summary>proof for rho = 2</summary>
+<p>我们用 <span class="arithmatex">\(p_\text{max}\)</span> 表示所有 item 中最大的利润，用 <span class="arithmatex">\(P_\text{optimal}\)</span> 表示准确解，<span class="arithmatex">\(P_\text{greedy}\)</span> 表示我们使用贪心做法得到的答案。在该问题中，近似比的计算表达式为：</p>
+<div class="arithmatex">\[
+\rho = \max(
+    \frac{P_\text{optimal}}{P_\text{greedy}},
+    \frac{P_\text{greedy}}{P_\text{optimal}}
+)
+\]</div>
+<p>下面是证明过程：</p>
+<div class="arithmatex">\[
+\left\{
+\begin{aligned}
+    &amp; p_\text{max} \leq P_\text{greedy} &amp; (1)\\
+    &amp; P_\text{optimal} \leq P_\text{greedy} + p_\text{max} &amp; (2)
+\end{aligned}
+\right.
+\]</div>
+<p>将 <span class="arithmatex">\((1)\)</span> 式两侧同除以 <span class="arithmatex">\(P_\text{greedy}\)</span> 得：</p>
+<div class="arithmatex">\[
+\frac{p_\text{max}}{P_\text{greedy}} \leq 1 \quad (3)
+\]</div>
+<p>将 <span class="arithmatex">\((2)\)</span> 式两侧同除以 <span class="arithmatex">\(P_\text{greedy}\)</span>，并代入 <span class="arithmatex">\((3)\)</span> 得：</p>
+<div class="arithmatex">\[
+\frac{P_\text{optimal}}{P_\text{greedy}} \leq 1 + \frac{p_\text{max}}{P_\text{greedy}} \leq 2
+\]</div>
+<blockquote>
+<p>PPT 的证明过程中还有一个不等式，虽然成立，但是好像没起到作用，我就扩展一下写在这里求个眼熟了：</p>
+<div class="arithmatex">\[
+p_\text{max} \leq P_\text{greedy} \leq P_\text{optimal} \leq P_\text{frac}
+\]</div>
+<p>其中 <span class="arithmatex">\(P_\text{frac}\)</span> 指的是同样的数据下 fractional version 的答案。</p>
+</blockquote>
+</details>
+<blockquote>
+<p>补充结论：背包问题具有 FPTAS。</p>
+</blockquote>
+<hr />
+<h4 id="_4">动态规划做法<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
+<p><del>（真是混乱）</del></p>
+<div class="arithmatex">\[
+W_{i,p} = \text{the minimum weight of a collection from } \{1, …, i\} \text{ with total profit being  exactly } p \\
+W_{i,p} = \left\{
+\begin{aligned}
+    &amp;\infty &amp;&amp; i = 0 \\
+    &amp;W_{i-1, p} &amp;&amp; p_i &gt; p \\
+    &amp;\min\{W_{i-1, p}, w_i + W_{i-1, p-p_i}\} &amp;&amp; otherwise        
+\end{aligned}
+\right.\\
+i = 1, ..., n; p = 1, ..., n\cdot p_\text{max} \\
+O(n^2p_\text{max})
+\]</div>
+<p>如果 <span class="arithmatex">\(p_\text{max}\)</span> 很大，可以考虑将它们近似取整，类似于将浮点数向上取整。</p>
+<hr />
+<h2 id="the_k-center_problem">[案例] The K-center Problem<a class="headerlink" href="#the_k-center_problem" title="Permanent link">#</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">link</p>
+<p>Berkeley's: <a href="https://ugtcs.berkeley.edu/src/approx-sp19/scribe-notes-2.pdf">https://ugtcs.berkeley.edu/src/approx-sp19/scribe-notes-2.pdf</a></p>
+</div>
+<p>（二维）K 中心问题指：给定平面上的一系列 site（即点），在平面中找出 <span class="arithmatex">\(k\)</span> 个不同的 center，记 <span class="arithmatex">\(site_i\)</span> 到离它最近的 center 的距离为 <span class="arithmatex">\(dis_i\)</span>，求 <span class="arithmatex">\(\max \{dis_i\}\)</span> 的最小值。</p>
+<div class="admonition section">
+<p class="admonition-title">数学语言表达</p>
+<p>设 <span class="arithmatex">\(C = \{c_1, c_2, ..., c_k\}\)</span> 为 <span class="arithmatex">\(k\)</span> 个 center，<span class="arithmatex">\(S = \{s_1, s_2, ..., s_n\}\)</span> 为 <span class="arithmatex">\(n\)</span> 个 site，我们定义 site 到关于 center 的集合 <span class="arithmatex">\(C\)</span> 的距离为：</p>
+<div class="arithmatex">\[
+dis(s_i, C) = \min_{c_i\in C} \{ dis(s_i, c_i) \}
+\]</div>
+<p>即 <span class="arithmatex">\(s_i\)</span> 到距离它最近的 center 的距离。</p>
+<p>定义最大的最小覆盖半径为：</p>
+<div class="arithmatex">\[
+r(C) = \max_{s_i\in S} \{ dis(s_i, C) \} \\
+\]</div>
+<p>现在要寻找一个 <span class="arithmatex">\(C\)</span> 使得 <span class="arithmatex">\(r(C)\)</span> 最小（<span class="arithmatex">\(|C| = k\)</span>）。</p>
+</div>
+<p>很绕，非常绕。接下来开始说人话。</p>
+<p>平面的问题我们就用平面的思路来看，就是一个平面上有一堆点，现在我要在上面找 <span class="arithmatex">\(k\)</span> 个中心去画圆，使得这 <span class="arithmatex">\(k\)</span> 个圆能覆盖所有的点。现在要求最大的那个圆的半径最小能多小。</p>
+<details class="tip" open="open">
+<summary>关于距离</summary>
+<p>PPT 上对<strong>距离</strong>做了更进一步的说明，但是其实并不是这个问题的重点，但是为了严谨性，我还是在这里放上三条性质：</p>
+<div class="admonition property">
+<p class="admonition-title">3 property of 'distance'</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; dis(x,x) = 0 &amp;&amp; \text{(identity)} \\
+    &amp; dis(x,y) = dis(y,x) &amp;&amp; \text{(symmetry)} \\
+    &amp; dis(x,y) \leq dis(x,z) + dis(z,y) &amp;&amp; \text{(triangle inequality)}
+\end{aligned}
+\]</div>
+</div>
+</details>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">碎碎念</p>
+<p>这个东西和聚类有点像。主要难点就在于，我们不知道应该以何种策略去覆盖这些点，要是把两个距离很远的点划在同一个圆内，那答案肯定小不了。</p>
+</div>
+<p>接下来我们来尝试解决的这个问题。</p>
+<hr />
+<h3 id="naive_greedy">Naive Greedy<a class="headerlink" href="#naive_greedy" title="Permanent link">#</a></h3>
+<p>一个做法是，我们每次都选择最可能成为中心的那个点，具体来说：</p>
+<ol>
+<li>如果是第一个点，就选取所有点的中心；</li>
+<li>如果不是第一个点，就选取能一个最能让 <span class="arithmatex">\(r(C)\)</span> 下降的；</li>
+</ol>
+<p>这个做法的 bug 比较大，假设我们的点是聚类非常明显的两个点云，那么第一个点就会落在两个点云之间，这很蠢，所以我们不浪费过多时间在这个方法上。</p>
+<blockquote>
+<p>注意，随着 center 的增加，原来以 <span class="arithmatex">\(c_i\)</span> 为 center 的 site 很可能以最新插入的 <span class="arithmatex">\(c_j\)</span> 为 center。</p>
+</blockquote>
+<hr />
+<h3 id="2r-greedy">2r-Greedy<a class="headerlink" href="#2r-greedy" title="Permanent link">#</a></h3>
+<p>既然正向做很困难，那我们能不能反着做呢？有一种套路叫二分答案，即先猜答案，再验证是否是答案。在这个问题中我们可以迁移这个思想，即先猜一个 <span class="arithmatex">\(r\)</span>，然后尝试用 <span class="arithmatex">\(k\)</span> 个半径为 <span class="arithmatex">\(r\)</span> 的圆去覆盖剩下的所有点。</p>
+<p>更具体的来说，假设准确解对应的一个 center 集合为 <span class="arithmatex">\(C^*\)</span>，那么 <span class="arithmatex">\(\forall r(C_x) \geq r(C^*)\)</span> 的 <span class="arithmatex">\(C_x\)</span> 都必定存在覆盖方案；反过来说，如果我们能够验证对于 <span class="arithmatex">\(C_x\)</span> 能够覆盖所有的点，那么就可以约束准确解 <span class="arithmatex">\(r(C^*) \leq r(C_x)\)</span>。</p>
+<div class="admonition question">
+<p class="admonition-title">如何“验证”</p>
+<p>可是，仔细一想我们发现，二分答案的过程中，“验证对于 <span class="arithmatex">\(C_x\)</span> 能够覆盖所有的点”这件事也不好做，虽然我们有半径，但是我们也很难找到一个最好的方案来覆盖所有的点。</p>
+<details class="success">
+<summary>hint: 近似算法</summary>
+<p>于是我们的近似算法就可以大展拳脚了。但是需要注意，这里所谓的近似算法，指的是使用二分答案求解 <span class="arithmatex">\(r(C)\)</span> 这个算法，而非判断 <span class="arithmatex">\(k\)</span> 个半径为 <span class="arithmatex">\(r\)</span> 的圆能否覆盖所有点的算法。这一点非常重要！</p>
+<p>而关于算法具体如何操作，请接着看。 </p>
+</details>
+</div>
+<p>首先，我们再次梳理一下这个算法，它包含内外两层，首先外部通过在答案的<strong>候选区间（即 <span class="arithmatex">\((0, r_\text{max}]\)</span>，<span class="arithmatex">\(r_\text{max}\)</span> 为最远的两个点的距离）</strong>二分候选值，接着通过判定算法来判定接下来的二分方向。</p>
+<p>然而，由于我们很难在多项式时间实现准确的“判定”，所以我们采取这样一个启发式的策略来进行<strong>宽泛的必要条件筛选</strong>：</p>
+<div class="admonition section">
+<p class="admonition-title">流程描述</p>
+<p>设 <span class="arithmatex">\(C_x\)</span> 表示选中的 center，<span class="arithmatex">\(S_x\)</span> 表示尚未被任何圆覆盖的 site，<span class="arithmatex">\(r_x\)</span> 表示当前二分出来的，要我们判断的半径，<span class="arithmatex">\(S\)</span> 依然表示所有 site 的集合：</p>
+<ol>
+<li>初始化 <span class="arithmatex">\(C_x = \emptyset\)</span>；</li>
+<li>当 <span class="arithmatex">\(S_x \not = \emptyset\)</span> 时（即还有点没被覆盖时），重复这些操作：<ol>
+<li>随机选取一个 site <span class="arithmatex">\(s_i \in S_x\)</span>，将其插入 <span class="arithmatex">\(C_x\)</span>（即将 <span class="arithmatex">\(s_i\)</span> 当作一个 center），并从 <span class="arithmatex">\(S_x\)</span> 中将 <span class="arithmatex">\(s_i\)</span> 删除（即 <span class="arithmatex">\(s_i\)</span> 必定被覆盖）；</li>
+<li>删除 <span class="arithmatex">\(S_x\)</span> 中所有距离 <span class="arithmatex">\(s_i\)</span> 不足 <span class="arithmatex">\(r_x\)</span> 的点（即删除满足 <span class="arithmatex">\(dis(s_i, s_j) \leq r_x\)</span> 的所有 <span class="arithmatex">\(s_k \in S_x\)</span>）；</li>
+</ol>
+</li>
+<li>当所有点都被覆盖后：<ol>
+<li>如果 <span class="arithmatex">\(|C_x| \leq k\)</span>，则返回 yes；</li>
+<li>否则返回 no；</li>
+</ol>
+</li>
+</ol>
+<p>如果返回 yes，则下一个 <span class="arithmatex">\(r_x\)</span> 应当取更小的 <span class="arithmatex">\(r_x\)</span>；如果返回 no，下一次应该取更大的 <span class="arithmatex">\(r_x\)</span>（稍候会解释为什么）。</p>
+</div>
+<p>现在对其做进一步解释。这是一个启发式的做法，旨在每次寻找还没被覆盖的点作为新的 center，用一个半径为 <span class="arithmatex">\(2r_x\)</span> 的圆去覆盖剩下的点。通过判断这样所需要的 center 数量是否超过 <span class="arithmatex">\(k\)</span> 来判断是否能够覆盖。接下来很绕，请一步一步的看：</p>
+<ol>
+<li>当这个启发式搜索成功时，说明 <span class="arithmatex">\(2r_x \geq r(C^*)\)</span>，即 <span class="arithmatex">\(k\)</span> 个 <span class="arithmatex">\(2r_x\)</span> 的圆可以覆盖所有点；</li>
+<li>当这个启发式搜索失败时，<strong>不能</strong>说明 <span class="arithmatex">\(2r_x \geq r(C^*)\)</span>，即 <span class="arithmatex">\(k\)</span> 个 <span class="arithmatex">\(2r_x\)</span> 的圆不能覆盖所有点，因为启发式方案并不是最优方案；<strong>但是能说明必定不存在 <span class="arithmatex">\(r_x\)</span> 的覆盖，即 <span class="arithmatex">\(r_x \leq r(C^*)\)</span></strong>（证明见下方 lemma）；</li>
+</ol>
+<details class="property" open="open">
+<summary>lemma</summary>
+<p>假设半径为 <span class="arithmatex">\(r\)</span>，以 <span class="arithmatex">\(c\)</span> 为圆心的圆 <span class="arithmatex">\(C\)</span> 覆盖了 <span class="arithmatex">\(S\)</span> 中的所有点。</p>
+<p>那么，对于固定的半径 <span class="arithmatex">\(r'\)</span>，要想取任意的 <span class="arithmatex">\(s_i \in S\)</span> 为圆心，形成的圆 <span class="arithmatex">\(C_i\)</span>，<strong>总是</strong>能覆盖 <span class="arithmatex">\(S\)</span> 中的所有点，则 <span class="arithmatex">\(r' \geq 2r\)</span>。</p>
+<blockquote>
+<p>lemma 的证明就不在这里展开了，证明的关键是考虑两点分布在直径两端的情况。</p>
+</blockquote>
+<p>这个引理的附加结论就是：</p>
+<div class="arithmatex">\[
+\forall i \quad C \subset C_i
+\]</div>
+<p>即以 <span class="arithmatex">\(r\)</span> 为半径的最优覆盖圆，一定能被以任意 <span class="arithmatex">\(s_i\)</span> 为圆心、<span class="arithmatex">\(2r\)</span> 为半径的圆所覆盖。</p>
+<p><center>
+    <img alt="" src="../img/71.svg" />
+</center></p>
+</details>
+<p>当我们发现我们处于情况 <code>1.</code> 时，我们开心的发现我们确实得到了一个距离 <span class="arithmatex">\(r(C^*)\)</span> 更近的上界 <span class="arithmatex">\(2r_x\)</span>，由于二分的性质，我们每次通过 <code>1.</code> 确定的上界，总是越来越紧的。</p>
+<p>当我们处于情况 <code>2.</code> 时，我们不知道 <span class="arithmatex">\(2r_x\)</span> 和 <span class="arithmatex">\(r(C^*)\)</span> 的大小关系，但是知道 <span class="arithmatex">\(r_x\)</span> 和 <span class="arithmatex">\(r(C^*)\)</span> 的关系，由于二分的性质，我们每次通过 <code>2.</code> 确定的下界，也总是越来越紧的。</p>
+<p>而最终，我们会得到一个最终的 <span class="arithmatex">\(r_{x_0}\)</span>，满足：<span class="arithmatex">\(r_{x_0} \leq r(C^*) \leq 2r_{x_0}\)</span>（式中哪边能取等取决于最后落在 <code>1.</code> 还是 <code>2.</code>）。</p>
+<p>而我们最终给出的<strong>答案</strong>是 <span class="arithmatex">\(2r_{x_0}\)</span>（因为 <span class="arithmatex">\(r_{x_0}\)</span> 不满足条件，不是解，更不是近似解）。</p>
+<hr />
+<p>现在，我们来计算近似比：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; \begin{aligned}
+        \because \;\;\;
+        &amp; r_{x_0} \leq r(C^*) \leq 2r_{x_0} \\
+        &amp; \frac{1}{2} \leq \frac{r(C^*)}{2r_{x_0}} \leq 1 \\
+        &amp; 1 \leq \frac{2r_{x_0}}{r(C^*)} \leq 2
+    \end{aligned} \\
+    &amp; \therefore \; \rho = \max\{
+            \frac{ 2 r_{x_0} }{ r(C^*) },
+            \frac{ r(C^*) }{ 2 r_{x_0} }
+        \} = 2
+\end{aligned}
+\]</div>
+<hr />
+<h3 id="smarter_greedy">Smarter Greedy<a class="headerlink" href="#smarter_greedy" title="Permanent link">#</a></h3>
+<p>我们关注到，上面那个做法总是随机的选取新的 <span class="arithmatex">\(c_i\)</span>，但是对于 center 的选取，我们其实可以总是选择距离已有的 center 最远的点，此外，当 <span class="arithmatex">\(|C| &gt; k\)</span> 时，我们也没必要继续做了。</p>
+<div class="admonition section">
+<p class="admonition-title">流程描述</p>
+<ol>
+<li>初始化 <span class="arithmatex">\(C_x = \emptyset\)</span>，<span class="arithmatex">\(S_x = S\)</span>；</li>
+<li>随机选取一个 site <span class="arithmatex">\(s_i \in S_x\)</span>，将其插入 <span class="arithmatex">\(C_x\)</span>，并从 <span class="arithmatex">\(S_x\)</span> 中将 <span class="arithmatex">\(s_i\)</span> 删除；</li>
+<li>当 <span class="arithmatex">\(|C_x| \leq k\)</span> 且 <span class="arithmatex">\(S_x \not = \emptyset\)</span> 时，重复以下步骤：<ol>
+<li>选取一个 site <span class="arithmatex">\(s_i \in S_x\)</span>，这个 site 满足 <span class="arithmatex">\(\forall s_j \in S_x \quad dis(s_i, C_x) \geq dis(s_j, C_x)\)</span>（即这个点是还没被覆盖的点中距离 <span class="arithmatex">\(C_x\)</span> 最远的点）；</li>
+<li>将 <span class="arithmatex">\(s_i\)</span> 插入 <span class="arithmatex">\(C_x\)</span>，并从 <span class="arithmatex">\(S_x\)</span> 中将 <span class="arithmatex">\(s_i\)</span> 删除；</li>
+</ol>
+</li>
+<li>如果 <span class="arithmatex">\(|C_x| \leq k\)</span> 且 <span class="arithmatex">\(S_x = \emptyset\)</span>，则返回 yes；否则返回 no。</li>
+</ol>
+</div>
+<p>由于这个做法实际上只是优化了一下启发式的策略，并没有改变内核，所以其近似比仍然是 <span class="arithmatex">\(2\)</span>。</p>
+<hr />
+<h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<p>关于算法的设计，我们考虑这三个维度：</p>
+<ol>
+<li>最优性(optimality)：即能求准确解；</li>
+<li>高效性(efficiency)：即算法是否高效；</li>
+<li>普遍性(all instances)：即算法是否普遍适用于所有的情况；</li>
+</ol>
+<p>倘若一个解法：</p>
+<ol>
+<li>同时满足最优性和高效性，那么这个算法对特殊情况能高效求准确解；</li>
+<li>同时满足最优性和普遍性，那么这个算法对所有情况都能求准确解；</li>
+<li>同时满足高效性和普遍性，那么这个算法可能是个近似算法；</li>
+</ol>
+<p>就算 N=NP 成立，我们仍然无法保证三个愿望一次满足。</p>
+<blockquote>
+<p>不是很明白最后一句话如何理解，但是这一部分应该就是看个眼熟，不是很重要。</p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Yaoyaolingbro/notebook/home" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+        <script src="../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

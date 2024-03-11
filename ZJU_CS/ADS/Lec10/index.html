@@ -1,0 +1,1193 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="yaoyaoling" name="author"/>
+<link href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/Lec10/" rel="canonical"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
+<title>Lecture 10 | NP Completeness - Yaoyaoling's notebook</title>
+<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../css/timeline.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css" rel="stylesheet"/>
+<link href="../../../css/custom.css" rel="stylesheet"/>
+<link href="../../../css/card.css" rel="stylesheet"/>
+<link href="../../../css/tasklist.css" rel="stylesheet"/>
+<link href="../../../css/flink.css" rel="stylesheet"/>
+<link href="../../../css/more_changelog.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-KJB4RXSKZG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-KJB4RXSKZG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-KJB4RXSKZG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="deep-purple" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#lecture_10_np_completeness">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Yaoyaoling's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Yaoyaoling's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Yaoyaoling's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Lecture 10 | NP Completeness
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-purple" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-purple" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  ZJU_CS
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Missing%20semester/">
+          
+  
+    
+  
+  Missing semester
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/">
+          
+  
+    
+  
+  Online CS Courses
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../AI/">
+          
+  
+    
+  
+  AI
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Language/Advanced%20C%20Language/">
+          
+  
+    
+  
+  Language
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../English/">
+          
+  
+    
+  
+  English
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Scientific%20research/">
+          
+  
+    
+  
+  Scientific research
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../spark%20in%20life/">
+          
+  
+    
+  
+  Spark in life
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Yaoyaoling's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Yaoyaoling's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Yaoyaoling's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    ZJU_CS
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../HPC/">
+<span class="md-ellipsis">
+    HPC
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../FDS/">
+<span class="md-ellipsis">
+    FDS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../DigitalDesign/">
+<span class="md-ellipsis">
+    Digital desin
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../Discrete%20math/">
+<span class="md-ellipsis">
+    Discrete math
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../oop/">
+<span class="md-ellipsis">
+    OOP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    ADS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../Database/">
+<span class="md-ellipsis">
+    Database
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../computer_organization/">
+<span class="md-ellipsis">
+    Computer Organazation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Missing%20semester/">
+<span class="md-ellipsis">
+    Missing semester
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Missing semester
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Missing%20semester/toolbox/">
+<span class="md-ellipsis">
+    工具箱（一些好用的网站or分享）
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Missing%20semester/copilot/">
+<span class="md-ellipsis">
+    Github Copilot
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/git/">
+<span class="md-ellipsis">
+    Git
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Markdown/">
+<span class="md-ellipsis">
+    Markdown
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Linux/">
+<span class="md-ellipsis">
+    Linux
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Docker/">
+<span class="md-ellipsis">
+    Docker
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Ladder/">
+<span class="md-ellipsis">
+    Ladder
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Latex/">
+<span class="md-ellipsis">
+    Latex
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Mkdocs%20material/">
+<span class="md-ellipsis">
+    Mkdocs material
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Missing%20semester/Zotero/">
+<span class="md-ellipsis">
+    Zotero
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    Online CS Courses
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Online CS Courses
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/">
+<span class="md-ellipsis">
+    计算机科学导论
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CSAPP/">
+<span class="md-ellipsis">
+    CSAPP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS106L/">
+<span class="md-ellipsis">
+    CS106L
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS50%20AI/">
+<span class="md-ellipsis">
+    CS50 AI
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS61B/">
+<span class="md-ellipsis">
+    CS61B
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS106X/">
+<span class="md-ellipsis">
+    CS106X
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../AI/">
+<span class="md-ellipsis">
+    AI
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/machine%20learning/">
+<span class="md-ellipsis">
+    Machine Learning
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/deep%20learning/">
+<span class="md-ellipsis">
+    Deep learning
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/Model/">
+<span class="md-ellipsis">
+    经典模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../AI/Pytorch/">
+<span class="md-ellipsis">
+    Pytorch
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    Language
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/Advanced%20C%20Language/">
+<span class="md-ellipsis">
+    C
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/C%2B%2B/">
+<span class="md-ellipsis">
+    C++
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/CUDA/">
+<span class="md-ellipsis">
+    CUDA
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/Python/">
+<span class="md-ellipsis">
+    Python
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Language/Verilog/">
+<span class="md-ellipsis">
+    Verilog
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../English/">
+<span class="md-ellipsis">
+    English
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../English/research/">
+<span class="md-ellipsis">
+    research
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Scientific%20research/">
+<span class="md-ellipsis">
+    Scientific research
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            Scientific research
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Scientific%20research/ode/">
+<span class="md-ellipsis">
+    Ode
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Scientific%20research/mathematic%20model/">
+<span class="md-ellipsis">
+    mathematic model
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/">
+<span class="md-ellipsis">
+    Basic tutor
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../Scientific%20research/Zz/">
+<span class="md-ellipsis">
+    Zhaozhou
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../spark%20in%20life/">
+<span class="md-ellipsis">
+    Spark in life
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            Spark in life
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../spark%20in%20life/college%20life/competition/">
+<span class="md-ellipsis">
+    College life
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../spark%20in%20life/skills/cook/">
+<span class="md-ellipsis">
+    Skill
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../spark%20in%20life/travel/GuiZhou/">
+<span class="md-ellipsis">
+    Travel
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      概述
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      课内案例
+    </span>
+</a>
+<nav aria-label="课内案例" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#halting_problem">
+<span class="md-ellipsis">
+      Halting Problem
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hamilton_cycle_problem">
+<span class="md-ellipsis">
+      Hamilton Cycle Problem
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#traveling_salesman_problem">
+<span class="md-ellipsis">
+      Traveling Salesman Problem
+    </span>
+</a>
+<nav aria-label="Traveling Salesman Problem" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#npc">
+<span class="md-ellipsis">
+      判定版本的 NPC 证明
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#circuit-sat">
+<span class="md-ellipsis">
+      Circuit-SAT
+    </span>
+</a>
+<nav aria-label="Circuit-SAT" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-sat">
+<span class="md-ellipsis">
+      3-SAT
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a_formal-language_framework">
+<span class="md-ellipsis">
+      A formal-language Framework
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      相关概念
+    </span>
+</a>
+<nav aria-label="相关概念" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      图灵机
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      多项式时间归约
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="lecture_10_np_completeness">Lecture 10 | NP Completeness<a class="headerlink" href="#lecture_10_np_completeness" title="Permanent link">#</a></h1>
+<div class="admonition info">
+<p class="admonition-title">导读</p>
+<p>由于本节涉及较多概念，并且知识树长的很蓬松，所以我决定尝试非线性组织内容，因此本文的阅读顺序可能也并不会是线性的。</p>
+<p>所有提到的、并且本文会介绍的相关内容，都会以<strong><a href="#lecture-10--np-completeness">链接和放大镜🔍</a></strong>的形式出现。推荐使用鼠标中键等方式打开新标签页查看，方便回溯。</p>
+<blockquote>
+<p>推荐的阅读顺序是，顺着读下去，每次出现 🔍 都进行深度优先搜索式的学习，直至看完全文。</p>
+<p>其中，在 <strong><a href="#相关概念">相关概念</a></strong> 之后的部分，我会保证在前面都有提及，而其之前的内容，推荐都在顺序阅读中涉及。</p>
+</blockquote>
+</div>
+<hr/>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>OI Wiki: <a href="https://oi-wiki.org/misc/cc-basic/">https://oi-wiki.org/misc/cc-basic/</a></p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/P_versus_NP_problem">https://en.wikipedia.org/wiki/P_versus_NP_problem</a></p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/NP-completeness">https://en.wikipedia.org/wiki/NP-completeness</a></p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/NP-hardness">https://en.wikipedia.org/wiki/NP-hardness</a></p>
+</div>
+<p>根据问题的难度，由不同的定义划分，问题可以分为：</p>
+<p><strong>P</strong> 问题(polynomial time)、<strong>NP</strong> 问题(nondeterministic polynomial time)、<strong>NPC</strong> 问题(NP complete)、<strong>NPH</strong> 问题(NP hard)。除此之外 ，我们还需要额外了解不可计算问题(undecidable)。</p>
+<p>由于不可计算问题比较特殊，所以我先放在前面介绍。</p>
+<details class="definition">
+<summary>Undecidable Problem</summary>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Undecidable_problem">https://en.wikipedia.org/wiki/Undecidable_problem</a></p>
+</div>
+<p><strong>不可判定问题(undecidable problem)</strong>是一类特殊的<a href="https://en.wikipedia.org/wiki/Decision_problem">决定性问题</a>，它的特点是我们无法设计一个算法来求解它的结果。</p>
+<p>其中一个比较典型的例子就是<strong><a href="#halting-problem">停机问题🔍</a></strong>。</p>
+</details>
+<p>我们可以用这样一张图来表示其他几个概念的关系：</p>
+<p><center>
+<img alt="" src="../img/63.png" width="60%"/>
+</center></p>
+<blockquote>
+<p>Source: <a href="https://en.wikipedia.org/wiki/NP-hardness">https://en.wikipedia.org/wiki/NP-hardness</a></p>
+</blockquote>
+<p>可以粗浅的按照图中的“Complexity”轴来理解其中的转化关系，接下来给出它们的详细定义：</p>
+<div class="admonition definition">
+<p class="admonition-title">P</p>
+<p>P 取自 polynomial time，指的是可以用<strong><a href="#图灵机">确定型图灵机🔍</a></strong>在<strong>多项式</strong>时间内<strong>解决</strong>的问题。</p>
+<p>也就是我们通常意义下所说的，可以在<strong>多项式</strong>时间内<strong>解决</strong>的问题。</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">NP</p>
+<p>NP 即 nondeterministic polynomial time，指的是可以用<strong><a href="#图灵机" target="_blank">非确定型图灵机🔍</a></strong>在<strong>多项式</strong>时间内<strong>解决</strong>的问题。这个说法等价于可以用<strong><a href="#图灵机" target="_blank">确定型图灵机🔍</a></strong>在<strong>多项式</strong>时间内<strong>验证</strong>（判断答案是否正确）。</p>
+<p>也就是我们通常意义下所说的，可以在<strong>多项式</strong>时间内<strong>验证</strong>的问题。</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">NPC</p>
+<p>NPC 即 NP complete，NP 完全，是 NP 中最难的<strong>决定性</strong>问题（并不是无限定词的最难的问题！）。而我们称满足如下条件的问题为 NPC 问题：</p>
+<ol>
+<li>是一个 NP 问题；</li>
+<li>所有 NP 问题都可以<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>为该问题；</li>
+</ol>
+<p>由 2 可以有结论，所有的 NPC 问题难度相同——一旦有一个 NPC 问题被解决，那么所有 NPC 问题，乃至所有 NP 问题都能被解决。</p>
+<p>如果我们试图证明一个问题是 NPC 问题，我们可以通过这种手段：</p>
+<ol>
+<li>判定该问题是一个 NP 问题；</li>
+<li>判定一个已知的 NPC 问题可以<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>为该问题，或判定该问题是 NPH（在下面）问题；</li>
+</ol>
+<blockquote>
+<p>第一个被证明是 NPC 的问题是 <strong><a href="#circuit-sat" target="_blank">Circuit-SAT🔍</a></strong> 问题。</p>
+</blockquote>
+</div>
+<div class="admonition extra">
+<p class="admonition-title">P ?= NP &amp; NPC</p>
+<p>关于 P 和 NP 的关系，我们仍然不知道 P 是否能等于 NP，即我们仍然不知道是否存在多项式算法可以解决一切 NP 问题。</p>
+<p>而其中的关键就是，如果我们能找到 NPC 问题的多项式解法，那么就可以证明 P = NP。</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">NPH</p>
+<p>NPH 即 NP hard，NP 困难，它不一定需要是 NP 问题。而所有 NP 问题都可以<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>为 NPH 问题。</p>
+</div>
+<p>也就是说 <span class="arithmatex">\(NPC = NP \cap NPH\)</span>。</p>
+<hr/>
+<h2 id="_2">课内案例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p>接下来的内容都是课件中提到的一些具体问题和案例。</p>
+<hr/>
+<h3 id="halting_problem">Halting Problem<a class="headerlink" href="#halting_problem" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Halting_problem">https://en.wikipedia.org/wiki/Halting_problem</a></p>
+</div>
+<p>停机问题是一个典型的不可计算问题，它指的是，对于任意一个程序，我们无法设计一个算法来判断它是否会在有限时间内停机（即判断程序是否会死循环）。</p>
+<p>我们通过反证法可以证明：</p>
+<p>假设存在函数 <code>willHalt(func F)</code> 可以判断函数 F 是否会停机，如果会，则返回 <code>true</code>，否则返回 <code>false</code>。那么我们可以构造一个这样的函数 <code>foo()</code>：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">willHalt</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// Endless loop.</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>接下来，如果我们想知道 <code>foo()</code> 是否会停机，就会执行 <code>willHalt(foo)</code>。然而在 <code>foo()</code> 内部也有一个 <code>willHalt(foo)</code>，如果它认为 <code>foo()</code> 会停机，则构造一个死循环；而如果它认为 <code>foo()</code> 不会停机，则选择让它立刻停机，于是这里就产生了矛盾。</p>
+<p>理解上面这段内容的关键就是，这里虽然不存在事实意义上的“死循环”，但可以理解为这里存在一个逻辑上的递归，而这种“逻辑上的递归”，正是导致停机问题成为一个不可计算问题的原因。</p>
+<hr/>
+<h3 id="hamilton_cycle_problem">Hamilton Cycle Problem<a class="headerlink" href="#hamilton_cycle_problem" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem">https://en.wikipedia.org/wiki/Hamiltonian_path_problem</a></p>
+<p>OI Wiki: <a href="https://oi-wiki.org/graph/hamilton">https://oi-wiki.org/graph/hamilton</a></p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">哈密顿回路问题</p>
+<p>给定一个图，判断是否存在一条路径，使得它经过图中的每个点恰好一次，且最后回到起点。</p>
+</div>
+<p>哈密顿回路问题是一个 NPC 问题。</p>
+<hr/>
+<h3 id="traveling_salesman_problem">Traveling Salesman Problem<a class="headerlink" href="#traveling_salesman_problem" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">https://en.wikipedia.org/wiki/Travelling_salesman_problem</a></p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">旅行商问题</p>
+<p>旅行商问题有<strong>两种</strong>定义，其中前者是 NPH，而被称为“判定版本”的后者是 NPC。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input id="__tabbed_1_1" name="__tabbed_1" type="radio"><input checked="checked" id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">原始定义</label><label for="__tabbed_1_2">判定版本</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>给定一个<strong>完全</strong>图，判断是否存在一条路径，使得它经过图中的每个点恰好一次，且最后回到起点，且路径<strong>长度最短</strong>。</p>
+<blockquote>
+<p>"Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?"</p>
+<p>From Wikipedia</p>
+</blockquote>
+<p>该版本的 TSP 问题是一个 NPH 问题，常常出现在组合优化的语境中。</p>
+</div>
+<div class="tabbed-block">
+<p>给定一个<strong>完全</strong>图，判断是否存在一条路径，使得它经过图中的每个点恰好一次，且最后回到起点，且路径<strong>长度不超过</strong> <span class="arithmatex">\(k\)</span>。</p>
+<p>该版本的 TSP 问题是一个 NPC 问题，常常出现在复杂度理论的语境中。</p>
+</div>
+</div>
+</input></input></div>
+<div class="admonition warning">
+<p class="admonition-title">需要注意，接下来我们谈论的都是判定版本的 TSP！</p>
+</div>
+</div>
+<hr/>
+<h4 id="npc">判定版本的 NPC 证明<a class="headerlink" href="#npc" title="Permanent link">#</a></h4>
+<p>现在，假设我们已知 <a href="#hamilton-cycle-problem" target="_blank">Hamilton Cycle Problem</a> 问题是一个 NPC 问题，尝试通过<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>的方式来证明 TSP 也是一个 NPC 问题。</p>
+<div class="admonition quote">
+<p class="admonition-title">Recommended Reading</p>
+<p><a href="https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/hamiltonianCycle_to_TSP.html">https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/hamiltonianCycle_to_TSP.html</a></p>
+</div>
+<p>首先回顾证明 NPC 的步骤：</p>
+<ol>
+<li>判定该问题是一个 NP 问题；</li>
+<li>判定一个已知的 NPC 问题可以<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>为该问题，或者说判定该问题是 NPH 问题；</li>
+</ol>
+<p>代入到这个问题中，也就是我们需要证明：</p>
+<ol>
+<li>TSP 是一个 NP 问题；</li>
+<li>Hamilton Cycle Problem 可以<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>为 TSP；</li>
+</ol>
+<div class="admonition proof">
+<p class="admonition-title">TSP is NP</p>
+<p>证明 TSP 是一个 NP 问题即证明 TSP 的解可以在多项式时间内被验证。而验证一个解是 TSP 问题的解，需要证明下面两个点：</p>
+<ol>
+<li>这条路径经过了所有节点恰好一次；</li>
+<li>这条路径长度不超过<span class="arithmatex">\(k\)</span>；</li>
+</ol>
+<p>显然，这两条都只需要 <span class="arithmatex">\(O(N)\)</span> 的开销就能验证。</p>
+<p>于是，我们得到结论：<span class="arithmatex">\(\text{TSP} \in \text{NP}\)</span>。</p>
+</div>
+<div class="admonition proof">
+<p class="admonition-title">TSP is NPH</p>
+<p>要证明 TSP 是一个 NPH 问题，我们可以通过证明 Hamilton Cycle Problem(HCP) 可以<strong><a href="#多项式时间归约" target="_blank">多项式时间归约🔍</a></strong>为 TSP。</p>
+<p>为此，我们需要对比 HCP 和 TSP 的差异。</p>
+<p>以 HCP 为基础描述 TSP，实际上就是在一张<strong>完全图</strong>上寻找<strong>总长不超过</strong> <span class="arithmatex">\(k\)</span> 的哈密顿环路，具体来说：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">HCP</th>
+<th style="text-align: center;">TSP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">图 <span class="arithmatex">\(G(V,E)\)</span></td>
+<td style="text-align: center;">完全图 <span class="arithmatex">\(G'(V',E')\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">无边权</td>
+<td style="text-align: center;">有边权</td>
+</tr>
+<tr>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"><span class="arithmatex">\(\sum v_i \leq k\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>而为了证明 <span class="arithmatex">\(\text{HCP} \leq_p \text{TCP}\)</span>，我们设计一个<strong>多项式时间</strong>的方法 <code>f()</code> 实现 <span class="arithmatex">\(G(V,E) \to G'(V',E')\)</span>，具体来说，它做这些事：</p>
+<ol>
+<li>连接 <span class="arithmatex">\(G\)</span> 中所有没连上的边，使 <span class="arithmatex">\(G\)</span> 成为一张无权完全图；</li>
+<li>对于无权完全图中的每一条边 <span class="arithmatex">\(v^c_i\)</span>，如果在 <span class="arithmatex">\(G\)</span> 中也有这条边，那么令它边权为 0，否则令它边权为 1，于是得到有权完全图 <span class="arithmatex">\(G'(V',E')\)</span>；</li>
+</ol>
+<p><center>
+<img alt="" src="../img/64.svg"/>
+</center></p>
+<blockquote>
+<p>右图中所有的蓝边边权都为 0，绿边边权都为 1。</p>
+</blockquote>
+<p>由于完全图的边数为 <span class="arithmatex">\(\frac{n(n-1)}{2}\)</span>，所以这个步骤显然是多项式时间的。</p>
+<p>接下来，我们发现，原问题为在 <span class="arithmatex">\(G\)</span> 上寻找哈密顿环，等价于在 <span class="arithmatex">\(G' = f(G)\)</span> 上做 <span class="arithmatex">\(k = 0\)</span> 的 TSP。由此证明 <span class="arithmatex">\(\text{HCP} \leq_{p} \text{TSP}\)</span>，即 <span class="arithmatex">\(\text{TSP} \in \text{NPH}\)</span>。</p>
+</div>
+<p>综上所述，由于 <span class="arithmatex">\(\text{TSP} \in \text{NP}\)</span> 且 <span class="arithmatex">\(\text{TSP} \in \text{NPH}\)</span>，所以 <span class="arithmatex">\(\text{TSP} \in \text{NPC}\)</span>。</p>
+<hr/>
+<h3 id="circuit-sat">Circuit-SAT<a class="headerlink" href="#circuit-sat" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Circuit_satisfiability_problem">https://en.wikipedia.org/wiki/Circuit_satisfiability_problem</a></p>
+</div>
+<p>Circuit-SAT 又叫 circuit satisfiability problem，它是最早被证明是 NPC 的问题，即通过 NPC 问题的定义证明。</p>
+<p>其具体描述如下：</p>
+<div class="admonition definition">
+<p class="admonition-title">Circuit-SAT</p>
+<p>Circuit-SAT 即为确定给定布尔电路是否具有使输出为真的输入分配的决策的问题。</p>
+<p><img alt="" src="../img/65.png"/></p>
+<blockquote>
+<p>Source: <a href="https://en.wikipedia.org/wiki/Circuit_satisfiability_problem">https://en.wikipedia.org/wiki/Circuit_satisfiability_problem</a></p>
+</blockquote>
+<p>上图中，左侧电路满足条件，右侧电路不满足条件。</p>
+<hr/>
+<p>或者，更抽象的来说，是判断一个具有 <span class="arithmatex">\(n\)</span> 个布尔变量的布尔表达式是否具有结果为 True 的解。</p>
+</div>
+<hr/>
+<h4 id="3-sat">3-SAT<a class="headerlink" href="#3-sat" title="Permanent link">#</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem#3-satisfiability">https://en.wikipedia.org/wiki/Boolean_satisfiability_problem#3-satisfiability</a></p>
+</div>
+<p>3-SAT 指的是 Circuit-SAT 问题的一个特例，它对布尔电路，或者说布尔表达式的形式有特殊要求，具体来说，它要求布尔表达式形如：</p>
+<div class="arithmatex">\[
+(x_1 \vee x_2 \vee x_3) \wedge (x_4 \vee x_5 \vee x_6) \wedge \cdots \wedge (x_{n-2} \vee x_{n-1} \vee x_n)
+\]</div>
+<ul>
+<li>变量是否重复、是否取非不是重点，<span class="arithmatex">\(x_1\)</span> 可以和 <span class="arithmatex">\(x_6\)</span> 是同一个变量，也可以是某个变量的非，重点是这里的三个一组的形式。</li>
+</ul>
+<hr/>
+<h3 id="a_formal-language_framework">A formal-language Framework<a class="headerlink" href="#a_formal-language_framework" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> TODO: Finish this part.</li>
+</ul>
+<hr/>
+<h2 id="_3">相关概念<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<div class="admonition info">
+<p class="admonition-title">说明</p>
+<p>以下部分的内容是为了进一步说明上文中部分内容而介绍的概念，并不具有组织结构。</p>
+</div>
+<hr/>
+<h3 id="_4">图灵机<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Turing_machine">https://en.wikipedia.org/wiki/Turing_machine</a></p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Nondeterministic_Turing_machine">https://en.wikipedia.org/wiki/Nondeterministic_Turing_machine</a></p>
+</div>
+<p>图灵机有一些变体，而我们在这里引入图灵机是为了介绍 P/NP，只介绍<strong>确定型图灵机</strong>和<strong>非确定型图灵机</strong>。</p>
+<blockquote>
+<p>图灵机由一个<strong>无限长的纸带</strong>和一个<strong>读写头</strong>组成。纸带被划分为一个个<strong>格子</strong>，每个格子上有一个<strong>符号</strong>，读写头可以在纸带上移动，读写头可以读取当前格子上的符号，也可以改变当前格子上的符号。图灵机的<strong>状态</strong>是一个有限集合，每个状态都有一个<strong>转移函数</strong>，转移函数的输入是当前状态和当前格子上的符号，输出是下一个状态、下一个格子上的符号和读写头的移动方向。</p>
+</blockquote>
+<p>更本质的来说，图灵机是一种<strong>计算模型</strong>，我们可以用它来表示任何有限逻辑数学过程。确定型图灵机与我们常规理解的计算机逻辑类似，即下一步要做什么可以根据当前状态确定。而非确定型图灵机则类似于能够进行无限并行，并且最终总是选择通向正确答案的方向的那条路（有点类似于它能开平行宇宙，并且总是让你观测到正确的那一个平行宇宙）。</p>
+<hr/>
+<h3 id="_5">多项式时间归约<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Links</p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Polynomial-time_reduction">https://en.wikipedia.org/wiki/Polynomial-time_reduction</a></p>
+</div>
+<p>我们引入 P/NP 等这些概念，是为了衡量问题的复杂程度，而如何在具体的“问题”间传递、比较这种“复杂程度”，就是<strong>多项式时间归约(polynomial reduce)</strong>的目的。</p>
+<div class="mermaid">graph LR;
+A["问题 A"]
+B["问题 B"]
+A ===&gt;|"多项式时间转化"| B
+</div>
+<p>如果我们能在多项式时间的复杂度内，将问题 A 转化为问题 B，则称问题 A 可以<strong>多项式时间归约(polynomial reduce)</strong>为 B，记为 <span class="arithmatex">\(A \leq_{p} B\)</span>，表示 A 不会比 B 难。</p>
+<p>而采取数学语言来描述，则是：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A \leq_{p} B 
+\;\;\Leftrightarrow\;\;
+&amp; \exist f() \text{ which runs in polynomial time}, \\
+&amp; s.t.    \;\; \forall x \in A,\; f(x) \in B \\
+&amp; \text{and}\; \forall f(x) \in B,\; y \in A
+\end{aligned}
+\]</div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Created">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/Yaoyaolingbro/notebook/home" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+<script src="../../../js/baidu-tongji.js"></script>
+<script src="../../../js/katex.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
