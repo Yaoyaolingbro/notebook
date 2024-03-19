@@ -7,6 +7,11 @@
 
 本章介绍 RISC-V 的 ISA。
 
+<!-- prettier-ignore-start -->
+???+ question "Preview Question"
+    ![20240312120226.png](graph/20240312120226.png)
+<!-- prettier-ignore-end -->
+
 ### 2.1 寄存器，寻址方式
 
 #### 寄存器
@@ -31,30 +36,40 @@ RISC-V 使用 **little endian** 小端编址。也就是说，当我们从 0x100
 
 RISC-V 支持 PC relative 寻址、立即数寻址 ( `lui` )、间接寻址 ( `jalr` )、基址寻址 ( `8(sp)` )：
 
-![image.png](../../../assets/1654055499913-f3fd752f-06b7-43e4-a06f-3640e66481ed.png)
+![20240312113011.png](graph/20240312113011.png)
 
 
 #### 补码 2's complement
 
 $x + \bar x = 111\dots111_2 = -1$，因此 $-x = \bar x + 1$。前导 0 表示正数，前导 1 表示负数。[See also](https://www.yuque.com/xianyuxuan/coding/sca003#VqE99)
 
+<!-- prettier-ignore-start -->
+!!! note "different complement"
+    ![20240312120512.png](graph/20240312120512.png)
+<!-- prettier-ignore-end -->
+
+
 因此在将不足 64 位的数据载入寄存器时，如果数据是无符号数，只需要使用 0 将寄存器的其他部分填充 (**zero extension**)；而如果是符号数，则需要用最高位即符号位填充剩余部分，称为符号扩展 (**sign extension**)。
 
 即，在指令中的 `lw` ,  `lh` ,  `lb` 使用 sign extension，而 `lwu` ,  `lhu` ,  `lbu` 使用 zero extension。
 
 !!! info "18~19 Final"
-    ![image.png](../../../assets/1655019006306-bf6087f9-5461-4b02-be9a-8b6b410c9f89.png)
+    ![20240312113028.png](graph/20240312113028.png)
     
     ??? info "答案"
         -0x52F00000, -0x0FFFFCDF
 
+### 2.2 arithmetic shift
+在数逻中我们学到的全加器和半加器再不多赘述，下面我们看看RISC-V的拓展版本：
+![20240316153145.png](graph/20240316153145.png)
 
 
-### 2.2 指令，指令格式
+
+### 2.3 指令，指令格式
 
 课本上介绍的 RISC-V 指令（ `lr.d` ,  `sc.d` 被省略了）列表如下：
 
-![1.png](../../../assets/1654864713202-23520b16-be27-484e-8f08-39aa863679ba.png)
+![20240312113048.png](graph/20240312113048.png)
 
 > 在 RISC 指令集中，只有 load 系列和 store 系列指令能够访问内存。
 
@@ -64,7 +79,7 @@ RISC-V 的跳转指令的 offset 是基于当前指令的地址的偏移；这�
 
 RISC-V 指令格式如下：
 
-![1.png](../../../assets/1653461947307-ab399754-6565-46f5-8554-641c7def91a4.png)
+![20240312114010.png](graph/20240312114010.png)
 其中 `I` 型指令有两个条目；这是因为立即数移位操作 `slli` , `srli` , `srai` 并不可能对一个 64 位寄存器进行大于 63 位的移位操作，因此 12 位 imm 中只有后 6 位能实际被用到，因此前面 6 位被用来作为一个额外的操作码字段，如上图中第二个 `I` 条目那样。其他 `I` 型指令适用第一个 `I` 条目。
 
 另外，为什么 `SB` 和 `UJ` 不存立即数（也就是偏移）的最低位呢？（关注表格，可以发现只包括 `i[12:1]` 或者 `i[20:1]`，缺失 `i[0]`）因为，偏移的最后一位一定是 0，即地址一定是 2 字节对齐的，因此没有必要保存。
@@ -73,18 +88,18 @@ RISC-V 指令格式如下：
 ??? question "既然每个指令都是 4 字节对齐的，为什么不是最后两位都省略，而是只省略一位呢？"
     实际上，是存在指令长为 2 字节的 extension 的，只不过我们没学：
     
-    ![image.png](../../../assets/1654679475579-ff3afec9-a463-41e1-a7ad-a2ec86b35e51.png)
+    ![20240312114027.png](graph/20240312114027.png)
     
     <center>课本 P116</center>
 
-    ![image.png](../../../assets/1654679542585-af36dd13-2f74-4126-8b67-90392a0f1f8a.png)
+    ![20240312114040.png](graph/20240312114040.png)
 
     <center>RISC-V Spec V20191213 P15</center>
 
 
 
 ### 2.3 伪指令及其实现
-![image.png](../../../assets/1653470001735-c9b5f2b8-f4c6-48ca-beec-7987bea5d71f.png)
+![20240312114056.png](graph/20240312114056.png)
 
 注： `j imm` 也可以用 `beq x0, x0, imm` 实现，但是此法的 `imm` 的位数会较短，所以不采用。
 
@@ -107,11 +122,11 @@ RISC-V 约定：
 
 至此，我们将所有寄存器及其用途总结如下：
 
-![](../../../assets/1654054605190-66992a62-3995-4285-8002-c28a0a8e9073.png)
+![20240312114127.png](graph/20240312114127.png)
 
 其中 "preserved on call" 的意思是，是否保证调用前后这些寄存器的值不变。
 
-![image.png](../../../assets/1654866071308-dc8851c8-a41c-404f-830d-3aae477775df.png)
+![20240312114141.png](graph/20240312114141.png)
 
 
 ### 2.6 其他话题

@@ -7,4 +7,5 @@
 !!! note "参考资料"
     - [xiaojiaolong](https://zhang-each.github.io/My-CS-Notebook/DB/)
     - [CMU 15-445/645](https://15445.courses.cs.cmu.edu/fall2020/)
+    - [Homework Answer](https://github.com/noahabe/database_system_concepts_answers)
 <!-- prettier-ignore-end -->

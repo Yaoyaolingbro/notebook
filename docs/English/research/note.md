@@ -43,4 +43,12 @@
 # Week2
 本周学习如何使用webofscience进行文献检索，如何使用antconc进行文本分析。
 
-
+# Week3
+本周学习如何阅读学术文章
+## 词汇
+- skull（头骨）
+- context（上下文）
+- microphone（麦克风）
+- metabolism（新陈代谢）
+- disrupt（打断）(disrupt the body's metabolism)
+- versatile（多才多艺的）

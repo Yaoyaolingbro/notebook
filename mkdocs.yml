@@ -257,19 +257,11 @@ nav:
 
   - AI:
     - AI/index.md
+    - AI/DL.md
     - Machine Learning:
       - AI/machine learning/index.md
       - AI/machine learning/introduction.md
       - AI/machine learning/method.md
-    - Deep learning:
-      - AI/deep learning/index.md
-      - AI/deep learning/dl2.md
-      - AI/deep learning/flow.md
-    - 经典模型:
-      - AI/Model/index.md
-      - AI/Model/cnn.md
-      - AI/Model/rnn.md
-      - AI/Model/transformer.md
     - Pytorch:
       - AI/Pytorch/index.md
       - AI/Pytorch/note.md
@@ -280,6 +272,7 @@ nav:
     - C++:
       - Language/C++/index.md
       - Language/C++/stl.md
+      - Language/C++/experience.md
     - CUDA:
       - Language/CUDA/index.md
       - Language/CUDA/note.md
@@ -298,6 +291,9 @@ nav:
     - research:
       - English/research/index.md
       - English/research/note.md
+    - IELTS words:
+      - English/IELTS words/index.md
+      - English/IELTS words/chapter1.md
     
   
   - Scientific research:
@@ -313,6 +309,17 @@ nav:
       - 23 NIPS:
         - Scientific research/Zz/23NIPS/index.md
         - Scientific research/Zz/23NIPS/note.md
+
+  - Paper Reading:
+    - Paper Reading/index.md
+    - Basic Model:
+      - Paper Reading/basic model/index.md
+      - Paper Reading/basic model/transformer.md
+      - Paper Reading/basic model/cnn.md
+      - Paper Reading/basic model/rnn.md
+
+    - Protein:
+      - Paper Reading/protein/index.md
 
   - Spark in life:
     - spark in life/index.md
