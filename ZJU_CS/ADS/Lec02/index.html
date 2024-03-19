@@ -8,9 +8,9 @@
 <meta content="yaoyaoling" name="author"/>
 <link href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/Lec02/" rel="canonical"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.13" name="generator"/>
 <title>Lecture 2 | Red Black Tree &amp; B+ Tree - Yaoyaoling's notebook</title>
-<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -203,6 +203,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Paper%20Reading/">
+          
+  
+    
+  
+  Paper Reading
+
+        </a>
+</li>
+<li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../spark%20in%20life/">
           
   
@@ -245,490 +255,77 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
 <a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     ZJU_CS
   </span>
-</a>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-            ZJU_CS
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../HPC/">
-<span class="md-ellipsis">
-    HPC
-  </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../FDS/">
-<span class="md-ellipsis">
-    FDS
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../DigitalDesign/">
-<span class="md-ellipsis">
-    Digital desin
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../Discrete%20math/">
-<span class="md-ellipsis">
-    Discrete math
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../oop/">
-<span class="md-ellipsis">
-    OOP
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../">
-<span class="md-ellipsis">
-    ADS
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../Database/">
-<span class="md-ellipsis">
-    Database
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../computer_organization/">
-<span class="md-ellipsis">
-    Computer Organazation
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../Missing%20semester/">
 <span class="md-ellipsis">
     Missing semester
   </span>
-</a>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
-            Missing semester
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Missing%20semester/toolbox/">
-<span class="md-ellipsis">
-    工具箱（一些好用的网站or分享）
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Missing%20semester/copilot/">
-<span class="md-ellipsis">
-    Github Copilot
-  </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/git/">
-<span class="md-ellipsis">
-    Git
-  </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Markdown/">
-<span class="md-ellipsis">
-    Markdown
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Linux/">
-<span class="md-ellipsis">
-    Linux
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Docker/">
-<span class="md-ellipsis">
-    Docker
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Ladder/">
-<span class="md-ellipsis">
-    Ladder
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Latex/">
-<span class="md-ellipsis">
-    Latex
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Mkdocs%20material/">
-<span class="md-ellipsis">
-    Mkdocs material
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Missing%20semester/Zotero/">
-<span class="md-ellipsis">
-    Zotero
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<a class="md-nav__link" href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/">
 <span class="md-ellipsis">
     Online CS Courses
   </span>
 <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
-            Online CS Courses
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/">
-<span class="md-ellipsis">
-    计算机科学导论
-  </span>
-<span class="md-nav__icon md-icon"></span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Online%20CS%20Courses/CSAPP/">
-<span class="md-ellipsis">
-    CSAPP
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS106L/">
-<span class="md-ellipsis">
-    CS106L
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS50%20AI/">
-<span class="md-ellipsis">
-    CS50 AI
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS61B/">
-<span class="md-ellipsis">
-    CS61B
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Online%20CS%20Courses/CS106X/">
-<span class="md-ellipsis">
-    CS106X
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../AI/">
 <span class="md-ellipsis">
     AI
   </span>
-</a>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
-            AI
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../AI/machine%20learning/">
-<span class="md-ellipsis">
-    Machine Learning
-  </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../AI/deep%20learning/">
-<span class="md-ellipsis">
-    Deep learning
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../AI/Model/">
-<span class="md-ellipsis">
-    经典模型
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../AI/Pytorch/">
-<span class="md-ellipsis">
-    Pytorch
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<a class="md-nav__link" href="../../../Language/Advanced%20C%20Language/">
 <span class="md-ellipsis">
     Language
   </span>
 <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
-            Language
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Language/Advanced%20C%20Language/">
-<span class="md-ellipsis">
-    C
-  </span>
-<span class="md-nav__icon md-icon"></span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Language/C%2B%2B/">
-<span class="md-ellipsis">
-    C++
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Language/CUDA/">
-<span class="md-ellipsis">
-    CUDA
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Language/Python/">
-<span class="md-ellipsis">
-    Python
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Language/Verilog/">
-<span class="md-ellipsis">
-    Verilog
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../English/">
 <span class="md-ellipsis">
     English
   </span>
+<span class="md-nav__icon md-icon"></span>
 </a>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
-<span class="md-nav__icon md-icon"></span>
-            English
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
+</li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../English/research/">
-<span class="md-ellipsis">
-    research
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../Scientific%20research/">
 <span class="md-ellipsis">
     Scientific research
   </span>
-</a>
-<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_8">
-<span class="md-nav__icon md-icon"></span>
-            Scientific research
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Scientific%20research/ode/">
-<span class="md-ellipsis">
-    Ode
-  </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Scientific%20research/mathematic%20model/">
+<a class="md-nav__link" href="../../../Paper%20Reading/">
 <span class="md-ellipsis">
-    mathematic model
+    Paper Reading
   </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/">
-<span class="md-ellipsis">
-    Basic tutor
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../Scientific%20research/Zz/">
-<span class="md-ellipsis">
-    Zhaozhou
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../spark%20in%20life/">
 <span class="md-ellipsis">
     Spark in life
   </span>
-</a>
-<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_9">
-<span class="md-nav__icon md-icon"></span>
-            Spark in life
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../spark%20in%20life/college%20life/competition/">
-<span class="md-ellipsis">
-    College life
-  </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../spark%20in%20life/skills/cook/">
-<span class="md-ellipsis">
-    Skill
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../spark%20in%20life/travel/GuiZhou/">
-<span class="md-ellipsis">
-    Travel
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -921,7 +518,7 @@
 </input></input></div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">题面</label><label for="__tabbed_3_2">答案</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">题面</label><label for="__tabbed_3_2">答案</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>下图的红黑树是否合法？</p>
@@ -931,7 +528,7 @@
 <p>合法。</p>
 </div>
 </div>
-</input></input></div>
+</input></div>
 </div>
 </div>
 </input></input></div>
@@ -1042,7 +639,7 @@ A ===&gt;|"C"| C ---&gt;|"C&amp;R"| D
 </table>
 <p>其中，每一项操作都会导致一个点的消失（毕竟是删除），而如果消失的是红色节点，那么将不会影响黑高；而如果消失的是黑色节点，那么将会导致黑高减少一，此时我们需要做进一步操作。</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> TODO: 这里需要配图讲清楚节点的具体变换到底是怎么样的，尤其是节点颜色变化到底是怎么一回事，之后大概需要重写</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> TODO: 这里需要配图讲清楚节点的具体变换到底是怎么样的，尤其是节点颜色变化到底是怎么一回事，之后大概需要重写</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">说明</p>
@@ -1133,7 +730,7 @@ A ===&gt;|"C"| C ---&gt;|"C&amp;R"| D
 </ol>
 </div>
 <div class="admonition key-point">
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">区分 case 1.1 和 case 1.2</label><label for="__tabbed_4_2">不区分 case 1.1 和 case 1.2</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">区分 case 1.1 和 case 1.2</label><label for="__tabbed_4_2">不区分 case 1.1 和 case 1.2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="mermaid">graph LR;
@@ -1176,7 +773,7 @@ D ===&gt;|"C&amp;R"| C
 </div>
 </div>
 </div>
-</input></input></div>
+</div>
 <p>注意，状态机中的<strong>粗线</strong>表示转换过程中，我们关注的“子树”向上或向下转移了一级（由 case 4 出发时下降，由 case 1.2 出发时上升）；而<strong>细线</strong>表示我们关注的子树仍然是这一层的那一棵。以及，<code>C</code> 表示染色操作，<code>R</code> 表示旋转操作。</p>
 <p>其中，任何一个情况都可以作为一个初始情况。所以可以数出，到达 finish 的路径中，最多出现 3 次 Rotation（case 4 -&gt; case 3 -&gt; case 2 -&gt; finish）。</p>
 </div>
@@ -1262,7 +859,7 @@ D ===&gt;|"C&amp;R"| C
 <p>例如，我们在上面这棵树中找 <code>43</code> 这个值，橙色部分表示我们的焦点。</p>
 <div class="admonition section">
 <p class="admonition-title">Find(43)</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><input id="__tabbed_5_3" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Frame 1</label><label for="__tabbed_5_2">Frame 2</label><label for="__tabbed_5_3">Frame 3</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Frame 1</label><label for="__tabbed_5_2">Frame 2</label><label for="__tabbed_5_3">Frame 3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="" src="../img/17_1.svg"/></p>
@@ -1277,7 +874,7 @@ D ===&gt;|"C&amp;R"| C
 <p>已经走到叶子结点，最后发现我们要找的 <code>43</code>。</p>
 </div>
 </div>
-</input></input></input></div>
+</div>
 </div>
 <hr/>
 <h4 id="_9">插入<a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
@@ -1286,7 +883,7 @@ D ===&gt;|"C&amp;R"| C
 <p>依然是进行一个模拟，我们模拟插入 <code>46</code> 和 <code>44</code>。</p>
 <div class="admonition section">
 <p class="admonition-title">Insert(46), no split</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Frame 1</label><label for="__tabbed_6_2">Frame 2</label><label for="__tabbed_6_3">Frame 3</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Frame 1</label><label for="__tabbed_6_2">Frame 2</label><label for="__tabbed_6_3">Frame 3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="" src="../img/18_1.svg"/></p>
@@ -1301,7 +898,7 @@ D ===&gt;|"C&amp;R"| C
 <p>找到要塞的位置了，发现要塞的地方是 <code>45</code> 的后面，插入以后发现一共 4 个数，而 <span class="arithmatex">\(M=4\)</span>，不需要分裂。</p>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <div class="admonition section">
 <p class="admonition-title">Insert(44), split</p>
@@ -1382,7 +979,7 @@ D ===&gt;|"C&amp;R"| C
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+<script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
 <script src="../../../js/baidu-tongji.js"></script>
 <script src="../../../js/katex.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
