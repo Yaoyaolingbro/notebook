@@ -52,3 +52,9 @@
 - metabolism（新陈代谢）
 - disrupt（打断）(disrupt the body's metabolism)
 - versatile（多才多艺的）
+
+# Week4
+## 词汇
+| 单词 | 释义 |
+| --- | --- |
+|

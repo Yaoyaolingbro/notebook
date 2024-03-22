@@ -258,9 +258,7 @@ D. 50%
 
 **Q2-1.** The right path of a skew heap can be arbitrarily long.
 
-<div style="text-align:center;">
-<img src="graph/ads_hw_4.1.jpg" alt="4.1" style="margin: 0 auto; zoom: 80%;"/>
-</div>
+![4.1](graph/ads_hw_4.1.jpg)
 
 A. 2 is the root with 11 being its right child
 
@@ -273,9 +271,7 @@ D. the null path length of 4 is less than that of 2
 ??? general "Answer"
     D。都是2，如下图
 
-    <div style="text-align:center;">
-        <img src="graph/ads_hw_4.3.png" alt="4.3" style="margin: 0 auto; zoom: 60%;"/>
-    </div>
+    ![4.3](graph/ads_hw_4.3.png)
 
 **Q2-2.** We can perform BuildHeap for leftist heaps by considering each element as a one-node leftist heap, placing all these heaps on a queue, and performing the following step: Until only one heap is on the queue,， dequeue two heaps, merge them, and enqueue the result. Which one of the following statements is FALSE?
 
@@ -303,15 +299,12 @@ D. 11 is the right child of 7
 
 ??? general "Answer"
     B。有 8 个叶结点。如下图
-    <div style="text-align:center;">
-        <img src="graph/ads_hw_4.4.png" alt="4.4" style="margin: 0 auto; zoom: 60%;"/>
-    </div>
+
+    ![4.4](graph/ads_hw_4.4.png)
 
 **Q2-4.** Merge the two skew heaps in the following figure. Which one of the following statements is FALSE?
 
-<div style="text-align:center;">
-    <img src="graph/ads_hw_4.2.jpg" alt="4.2" style="margin: 0 auto; zoom: 80%;"/>
-</div>
+![4.2](graph/ads_hw_4.2.jpg)
 
 A. 15 is the right child of 8
 
@@ -324,9 +317,7 @@ D. 9 is the right child of 3
 ??? general "Answer"
     A。15 是 8 的左子结点。如下图
 
-    <div style="text-align:center;">
-        <img src="graph/ads_hw_4.5.png" alt="4.5" style="margin: 0 auto; zoom: 60%;"/>
-    </div>
+    ![4.5](graph/ads_hw_4.5.png)
 
 ## Hw5
 
