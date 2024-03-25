@@ -8,6 +8,7 @@
 这是计算机组成课程的学习记录。
 
 使用的课本是 _Computer Organization and Design - The Hardware / Software Interface (RISC-V Edition)_：
+作业答案可参考：https://github.com/dmohindru/cod5e/blob/master/solutions
 
 ![20240227101406.png](graph/20240227101406.png)
 

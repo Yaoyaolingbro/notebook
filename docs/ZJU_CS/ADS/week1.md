@@ -1,4 +1,4 @@
-# week1
+# Lecture 1 | AVL Trees & Splay Trees
 ## AVL tree
 [Tutor](https://www.hello-algo.com/chapter_tree/avl_tree/)
 在二叉树中我们知道，如果树的高度为h，那么最多有2^h-1个节点，但在多次插入或删除后可能退化为链表从而降低效率
