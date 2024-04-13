@@ -7,6 +7,8 @@
     参考资料：http://jalammar.github.io/illustrated-transformer/
     
     源码参考：https://github.com/jadore801120/attention-is-all-you-need-pytorch 
+
+    mli: b站视频
 <!-- prettier-ignore-end -->
 
 ## 论文内容批注

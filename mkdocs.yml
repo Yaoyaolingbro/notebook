@@ -192,6 +192,12 @@ nav:
       - ZJU_CS/ADS/homework.md
       - ZJU_CS/ADS/week1.md
       - ZJU_CS/ADS/week2.md
+      - ZJU_CS/ADS/week3.md
+      - ZJU_CS/ADS/week4.md
+      - ZJU_CS/ADS/week5.md
+      - ZJU_CS/ADS/week6.md
+      - ZJU_CS/ADS/week7.md
+      - ZJU_CS/ADS/week8.md
     - Database:
       - ZJU_CS/Database/index.md
       - ZJU_CS/Database/sql.md
@@ -200,6 +206,7 @@ nav:
       - ZJU_CS/Database/week3.md
       - ZJU_CS/Database/week4.md
       - ZJU_CS/Database/week5.md
+
     - Computer Organazation:
       - ZJU_CS/computer_organization/index.md
       - ZJU_CS/computer_organization/1_prelude.md

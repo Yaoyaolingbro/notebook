@@ -2,13 +2,16 @@
 
 !!! danger ""
     本文是图灵班姜女士的计算机组成，在咸鱼喧笔记的基础上进行整理学习。
+
     课程成绩占比为：quiz+6homework 20%，期中10%，期末40%，实验30%（bonus 5%）；
-    其中验收60%，报告40%。
+    > 其中验收60%，报告40%。迟交每天扣 20%😭
 
 这是计算机组成课程的学习记录。
 
 使用的课本是 _Computer Organization and Design - The Hardware / Software Interface (RISC-V Edition)_：
+
 作业答案可参考：https://github.com/dmohindru/cod5e/blob/master/solutions
+> (切记,由于指令集不同，答案不完全一样，抄的时候需保持清醒Orz)
 
 ![20240227101406.png](graph/20240227101406.png)
 
@@ -24,5 +27,5 @@
     - [x] Chapter 4:The Processor：Datapath and Control
     - [x] Chapter 5:Large and Fast:  Exploiting Memory Hierarchy
     - [ ] Chapter 6: Parallel processor from client to Cloud (选讲，非考试内容)
-    - [ ]Appendix: Storage, Networks, and Other Peripherals (Ch8 of Version 3,了解概念)
+    - [ ] Appendix: Storage, Networks, and Other Peripherals (Ch8 of Version 3,了解概念)
 
