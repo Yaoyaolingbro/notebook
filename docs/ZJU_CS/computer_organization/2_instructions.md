@@ -35,7 +35,7 @@ RISC-V 使用 **little endian** 小端编址。也就是说，当我们从 0x100
 RISC-V 支持 PC relative 寻址、立即数寻址 ( `lui` )、间接寻址 ( `jalr` )、基址寻址 ( `8(sp)` )：
 
 <!-- prettier-ignore-start -->
-??? info "Tips"
+??? info "Different addressing modes details"
     1. 直接寻址（Direct Addressing）:
     直接寻址是最简单的寻址方式。在这种模式下，指令中直接包含了操作数的地址。这意味着程序计数器（PC）从指令中获取内存地址，然后直接访问该地址中的数据。
     例如，如果有一个指令LOAD 2000，这里的2000就是操作数的直接地址。CPU将直接从内存地址2000处读取数据。
@@ -44,7 +44,7 @@ RISC-V 支持 PC relative 寻址、立即数寻址 ( `lui` )、间接寻址 ( `j
     寄存器寻址是指指令直接引用CPU内部的寄存器来获取或存储操作数。这种方式非常快速，因为寄存器位于CPU内部，访问速度远高于内存。
     例如，如果有一个指令ADD R1, R2，这里的R1和R2是寄存器的编号。CPU将使用这些寄存器中存储的数据进行加法操作。
 
-    3.基址寻址（Base Addressing）:
+    3. 基址寻址（Base Addressing）:
     在基址寻址中，指令包含一个基址寄存器和一个偏移量。CPU将基址寄存器中的值与偏移量相加，形成最终的内存地址。
     例如，LOAD R0, [R1+100]，这里R1是基址寄存器，100是偏移量，CPU将计算R1+100得到实际地址。
 
@@ -61,6 +61,9 @@ RISC-V 支持 PC relative 寻址、立即数寻址 ( `lui` )、间接寻址 ( `j
 
 $x + \bar x = 111\dots111_2 = -1$，因此 $-x = \bar x + 1$。前导 0 表示正数，前导 1 表示负数。[See also](https://www.yuque.com/xianyuxuan/coding/sca003#VqE99)
 
+
+> 唯一值得一提的是`INT_MIN`值为$-2^{31}$, `INT_MAX`值为$2^{31}-1$，因为 `-INT_MIN` 会溢出。
+
 <!-- prettier-ignore-start -->
 !!! note "different complement"
     ![20240312120512.png](graph/20240312120512.png)
@@ -68,6 +71,10 @@ $x + \bar x = 111\dots111_2 = -1$，因此 $-x = \bar x + 1$。前导 0 表示�
 
 
 因此在将不足 64 位的数据载入寄存器时，如果数据是无符号数，只需要使用 0 将寄存器的其他部分填充 (**zero extension**)；而如果是符号数，则需要用最高位即符号位填充剩余部分，称为符号扩展 (**sign extension**)。
+<!-- prettier-ignore-start -->
+??? info "Sign extension"
+    ![20240414015726.png](graph/20240414015726.png)
+<!-- prettier-ignore-end -->
 
 即，在指令中的 `lw` ,  `lh` ,  `lb` 使用 sign extension，而 `lwu` ,  `lhu` ,  `lbu` 使用 zero extension。
 
@@ -95,7 +102,7 @@ RISC-V 的跳转指令的 offset **是基于当前指令的地址的偏移**；�
 
  `lw` ,  `lwu` 等操作都会清零高位。
 
-RISC-V 指令格式如下：
+**RISC-V 指令格式如下：**
 
 ![20240312114010.png](graph/20240312114010.png)
 其中 `I` 型指令有两个条目；这是因为立即数移位操作 `slli` , `srli` , `srai` 并不可能对一个 64 位寄存器进行大于 63 位的移位操作，因此 12 位 imm 中只有后 6 位能实际被用到，因此前面 6 位被用来作为一个额外的操作码字段，如上图中第二个 `I` 条目那样。其他 `I` 型指令适用第一个 `I` 条目。
@@ -121,17 +128,24 @@ RISC-V 指令格式如下：
 
 注： `j imm` 也可以用 `beq x0, x0, imm` 实现，但是此法的 `imm` 的位数会较短，所以不采用。
 
+<!-- prettier-ignore-start -->
+??? info "指令总结"
+    - lw和sw指令的偏移量是字节偏移量。此外对应着寄存器和内存的数据传输。
+<!-- prettier-ignore-end -->
+
 ### 2.4 分支和循环
-### 循环
+### 2.5 循环
 ![20240402120834.png](graph/20240402120834.png)
 
-### 分支
-｜ jalr ｜ switch ｜
-｜---｜---｜
-｜![20240402120931.png](graph/20240402120931.png) | ![20240402120949.png](graph/20240402120949.png) |
+### 2.6 分支
+> beq 12位，jalr 20 位。
+
+| jalr | switch |
+| ---- | ------ |
+|![20240402120931.png](graph/20240402120931.png) | ![20240402120949.png](graph/20240402120949.png) |
 
 
-### 2.5 过程调用和栈
+### 2.7 过程调用和栈
 RISC-V 约定：
 
    -  `x5` - `x7` 以及 `x28` - `x31` 是 temp reg，如果需要的话 caller 保存；也就是说，不保证在经过过程调用之后这些寄存器的值不变。
@@ -152,8 +166,12 @@ RISC-V 约定：
 
 ![20240312114141.png](graph/20240312114141.png)
 
+有一个例子：
 
-### 2.6 其他话题
+![20240414014947.png](graph/20240414014947.png)
+
+
+### 2.8 其他话题
 
 - 检查 index out of bounds：如果 `x20 = i, x11 = size` ，那么 `bgeu x20, x11, IndexOutOfBounds` ，即  `x20 >= x11 || x20 < 0` 
 - 大立即数

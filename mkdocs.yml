@@ -309,6 +309,9 @@ nav:
   - Scientific research:
     - Scientific research/index.md
     - Scientific research/ode.md
+    - 4science:
+      - Scientific research/4science/index.md
+      - Scientific research/4science/protein hierarchy.md
     - mathematic model:
       - Scientific research/mathematic model/index.md
       - Scientific research/mathematic model/mcm.md
