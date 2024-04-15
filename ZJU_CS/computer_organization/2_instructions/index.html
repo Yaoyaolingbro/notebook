@@ -1251,27 +1251,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      循环
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      分支
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#25" class="md-nav__link">
     <span class="md-ellipsis">
-      2.5 过程调用和栈
+      2.5 循环
     </span>
   </a>
   
@@ -1280,7 +1262,25 @@
         <li class="md-nav__item">
   <a href="#26" class="md-nav__link">
     <span class="md-ellipsis">
-      2.6 其他话题
+      2.6 分支
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 过程调用和栈
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 其他话题
     </span>
   </a>
   
@@ -1730,6 +1730,8 @@
       
         
       
+        
+      
     
     
       
@@ -1976,27 +1978,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      循环
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      分支
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#25" class="md-nav__link">
     <span class="md-ellipsis">
-      2.5 过程调用和栈
+      2.5 循环
     </span>
   </a>
   
@@ -2005,7 +1989,25 @@
         <li class="md-nav__item">
   <a href="#26" class="md-nav__link">
     <span class="md-ellipsis">
-      2.6 其他话题
+      2.6 分支
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 过程调用和栈
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 其他话题
     </span>
   </a>
   
@@ -2058,7 +2060,7 @@
 <p>RISC-V 支持 PC relative 寻址、立即数寻址 ( <code>lui</code> )、间接寻址 ( <code>jalr</code> )、基址寻址 ( <code>8(sp)</code> )：</p>
 <!-- prettier-ignore-start -->
 <details class="info">
-<summary>Tips</summary>
+<summary>Different addressing modes details</summary>
 <ol>
 <li>
 <p>直接寻址（Direct Addressing）:
@@ -2070,14 +2072,16 @@
 寄存器寻址是指指令直接引用CPU内部的寄存器来获取或存储操作数。这种方式非常快速，因为寄存器位于CPU内部，访问速度远高于内存。
 例如，如果有一个指令ADD R1, R2，这里的R1和R2是寄存器的编号。CPU将使用这些寄存器中存储的数据进行加法操作。</p>
 </li>
-</ol>
-<p>3.基址寻址（Base Addressing）:
+<li>
+<p>基址寻址（Base Addressing）:
 在基址寻址中，指令包含一个基址寄存器和一个偏移量。CPU将基址寄存器中的值与偏移量相加，形成最终的内存地址。
 例如，LOAD R0, [R1+100]，这里R1是基址寄存器，100是偏移量，CPU将计算R1+100得到实际地址。</p>
-<ol start="4">
-<li>相对寻址（Relative Addressing）:
+</li>
+<li>
+<p>相对寻址（Relative Addressing）:
 相对寻址涉及到使用程序计数器（PC）或指令中的偏移量来确定操作数的地址。这种方式常用于实现跳转指令。
-例如，JMP PC+100，这里PC是程序计数器，100是相对于当前PC的偏移量。</li>
+例如，JMP PC+100，这里PC是程序计数器，100是相对于当前PC的偏移量。</p>
+</li>
 </ol>
 </details>
 <!-- prettier-ignore-end -->
@@ -2085,6 +2089,9 @@
 <p><img alt="20240312113011.png" src="../graph/20240312113011.png" /></p>
 <h4 id="2s_complement">补码 2's complement<a class="headerlink" href="#2s_complement" title="Permanent link">#</a></h4>
 <p><span class="arithmatex">\(x + \bar x = 111\dots111_2 = -1\)</span>，因此 <span class="arithmatex">\(-x = \bar x + 1\)</span>。前导 0 表示正数，前导 1 表示负数。<a href="https://www.yuque.com/xianyuxuan/coding/sca003#VqE99">See also</a></p>
+<blockquote>
+<p>唯一值得一提的是<code>INT_MIN</code>值为<span class="arithmatex">\(-2^{31}\)</span>, <code>INT_MAX</code>值为<span class="arithmatex">\(2^{31}-1\)</span>，因为 <code>-INT_MIN</code> 会溢出。</p>
+</blockquote>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">different complement</p>
@@ -2093,6 +2100,13 @@
 <!-- prettier-ignore-end -->
 
 <p>因此在将不足 64 位的数据载入寄存器时，如果数据是无符号数，只需要使用 0 将寄存器的其他部分填充 (<strong>zero extension</strong>)；而如果是符号数，则需要用最高位即符号位填充剩余部分，称为符号扩展 (<strong>sign extension</strong>)。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Sign extension</summary>
+<p><img alt="20240414015726.png" src="../graph/20240414015726.png" /></p>
+</details>
+<!-- prettier-ignore-end -->
+
 <p>即，在指令中的 <code>lw</code> ,  <code>lh</code> ,  <code>lb</code> 使用 sign extension，而 <code>lwu</code> ,  <code>lhu</code> ,  <code>lbu</code> 使用 zero extension。</p>
 <div class="admonition info">
 <p class="admonition-title">18~19 Final</p>
@@ -2113,7 +2127,7 @@
 </blockquote>
 <p>RISC-V 的跳转指令的 offset <strong>是基于当前指令的地址的偏移</strong>；这不同于其他一些汇编是基于下一条指令的偏移的。即如果是跳转语句 <code>PC</code> 就不 +4 了，而是直接 +offset。</p>
 <p><code>lw</code> ,  <code>lwu</code> 等操作都会清零高位。</p>
-<p>RISC-V 指令格式如下：</p>
+<p><strong>RISC-V 指令格式如下：</strong></p>
 <p><img alt="20240312114010.png" src="../graph/20240312114010.png" />
 其中 <code>I</code> 型指令有两个条目；这是因为立即数移位操作 <code>slli</code> , <code>srli</code> , <code>srai</code> 并不可能对一个 64 位寄存器进行大于 63 位的移位操作，因此 12 位 imm 中只有后 6 位能实际被用到，因此前面 6 位被用来作为一个额外的操作码字段，如上图中第二个 <code>I</code> 条目那样。其他 <code>I</code> 型指令适用第一个 <code>I</code> 条目。</p>
 <p>另外，为什么 <code>SB</code> 和 <code>UJ</code> 不存立即数（也就是偏移）的最低位呢？（关注表格，可以发现只包括 <code>i[12:1]</code> 或者 <code>i[20:1]</code>，缺失 <code>i[0]</code>）因为，偏移的最后一位一定是 0，即地址一定是 2 字节对齐的，因此没有必要保存。</p>
@@ -2128,14 +2142,37 @@
 <h3 id="23_1">2.3 伪指令及其实现<a class="headerlink" href="#23_1" title="Permanent link">#</a></h3>
 <p><img alt="20240312114056.png" src="../graph/20240312114056.png" /></p>
 <p>注： <code>j imm</code> 也可以用 <code>beq x0, x0, imm</code> 实现，但是此法的 <code>imm</code> 的位数会较短，所以不采用。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>指令总结</summary>
+<ul>
+<li>lw和sw指令的偏移量是字节偏移量。此外对应着寄存器和内存的数据传输。</li>
+</ul>
+</details>
+<!-- prettier-ignore-end -->
+
 <h3 id="24">2.4 分支和循环<a class="headerlink" href="#24" title="Permanent link">#</a></h3>
-<h3 id="_3">循环<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<h3 id="25">2.5 循环<a class="headerlink" href="#25" title="Permanent link">#</a></h3>
 <p><img alt="20240402120834.png" src="../graph/20240402120834.png" /></p>
-<h3 id="_4">分支<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
-<p>｜ jalr ｜ switch ｜
-｜---｜---｜
-｜<img alt="20240402120931.png" src="../graph/20240402120931.png" /> | <img alt="20240402120949.png" src="../graph/20240402120949.png" /> |</p>
-<h3 id="25">2.5 过程调用和栈<a class="headerlink" href="#25" title="Permanent link">#</a></h3>
+<h3 id="26">2.6 分支<a class="headerlink" href="#26" title="Permanent link">#</a></h3>
+<blockquote>
+<p>beq 12位，jalr 20 位。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>jalr</th>
+<th>switch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="20240402120931.png" src="../graph/20240402120931.png" /></td>
+<td><img alt="20240402120949.png" src="../graph/20240402120949.png" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="27">2.7 过程调用和栈<a class="headerlink" href="#27" title="Permanent link">#</a></h3>
 <p>RISC-V 约定：</p>
 <ul>
 <li><code>x5</code> - <code>x7</code> 以及 <code>x28</code> - <code>x31</code> 是 temp reg，如果需要的话 caller 保存；也就是说，不保证在经过过程调用之后这些寄存器的值不变。</li>
@@ -2156,7 +2193,9 @@
 <p><img alt="20240312114127.png" src="../graph/20240312114127.png" /></p>
 <p>其中 "preserved on call" 的意思是，是否保证调用前后这些寄存器的值不变。</p>
 <p><img alt="20240312114141.png" src="../graph/20240312114141.png" /></p>
-<h3 id="26">2.6 其他话题<a class="headerlink" href="#26" title="Permanent link">#</a></h3>
+<p>有一个例子：</p>
+<p><img alt="20240414014947.png" src="../graph/20240414014947.png" /></p>
+<h3 id="28">2.8 其他话题<a class="headerlink" href="#28" title="Permanent link">#</a></h3>
 <ul>
 <li>检查 index out of bounds：如果 <code>x20 = i, x11 = size</code> ，那么 <code>bgeu x20, x11, IndexOutOfBounds</code> ，即  <code>x20 &gt;= x11 || x20 &lt; 0</code> </li>
 <li>大立即数</li>
@@ -2188,7 +2227,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月14日 00:38:08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月15日 11:06:05</span>
   </span>
 
     
