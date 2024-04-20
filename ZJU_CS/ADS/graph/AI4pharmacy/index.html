@@ -10,28 +10,24 @@
         <meta name="author" content="yaoyaoling">
       
       
-        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/week6/">
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/graph/AI4pharmacy/">
       
       
-        <link rel="prev" href="../week5/">
       
       
-        <link rel="next" href="../week7/">
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
     
     
       
-        <title>Lecture 6 | Backtracing - Yaoyaoling's notebook</title>
+        <title>医药人工智能 - Yaoyaoling's notebook</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e359304.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,21 +46,21 @@
       
     
     
-      <link rel="stylesheet" href="../../../css/timeline.css">
+      <link rel="stylesheet" href="../../../../css/timeline.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
-      <link rel="stylesheet" href="../../../css/custom.css">
+      <link rel="stylesheet" href="../../../../css/custom.css">
     
-      <link rel="stylesheet" href="../../../css/card.css">
+      <link rel="stylesheet" href="../../../../css/card.css">
     
-      <link rel="stylesheet" href="../../../css/tasklist.css">
+      <link rel="stylesheet" href="../../../../css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../css/flink.css">
+      <link rel="stylesheet" href="../../../../css/flink.css">
     
-      <link rel="stylesheet" href="../../../css/more_changelog.css">
+      <link rel="stylesheet" href="../../../../css/more_changelog.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -100,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture_6_backtracing" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +110,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Yaoyaoling&#39;s notebook" class="md-header__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
+    <a href="../../../.." title="Yaoyaoling&#39;s notebook" class="md-header__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -134,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 6 | Backtracing
+              医药人工智能
             
           </span>
         </div>
@@ -248,7 +244,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
     
@@ -263,13 +259,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../" class="md-tabs__link">
           
   
     
@@ -289,7 +283,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Missing%20semester/" class="md-tabs__link">
+        <a href="../../../../Missing%20semester/" class="md-tabs__link">
           
   
     
@@ -315,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-tabs__link">
+        <a href="../../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-tabs__link">
           
   
     
@@ -338,7 +332,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../AI/" class="md-tabs__link">
+        <a href="../../../../AI/" class="md-tabs__link">
           
   
     
@@ -364,7 +358,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Language/Advanced%20C%20Language/" class="md-tabs__link">
+        <a href="../../../../Language/Advanced%20C%20Language/" class="md-tabs__link">
           
   
     
@@ -387,7 +381,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../English/" class="md-tabs__link">
+        <a href="../../../../English/" class="md-tabs__link">
           
   
     
@@ -407,7 +401,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Scientific%20research/" class="md-tabs__link">
+        <a href="../../../../Scientific%20research/" class="md-tabs__link">
           
   
     
@@ -427,7 +421,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Paper%20Reading/" class="md-tabs__link">
+        <a href="../../../../Paper%20Reading/" class="md-tabs__link">
           
   
     
@@ -447,7 +441,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../spark%20in%20life/" class="md-tabs__link">
+        <a href="../../../../spark%20in%20life/" class="md-tabs__link">
           
   
     
@@ -482,7 +476,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Yaoyaoling&#39;s notebook" class="md-nav__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
+    <a href="../../../.." title="Yaoyaoling&#39;s notebook" class="md-nav__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -512,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,8 +523,6 @@
       
   
   
-    
-  
   
   
     
@@ -559,92 +551,27 @@
     
     
       
-        
-        
-      
       
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
+  
+  
+    <a href="../../../" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     ZJU_CS
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            ZJU_CS
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../HPC/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    HPC
-  </span>
-  
-
       
         <span class="md-nav__icon md-icon"></span>
       
@@ -655,720 +582,6 @@
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../FDS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    FDS
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../DigitalDesign/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Digital desin
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../Discrete%20math/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Discrete math
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../oop/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    OOP
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    ADS
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_7">
-            <span class="md-nav__icon md-icon"></span>
-            ADS
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../homework/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ADS Homework Review
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 1 | AVL Trees & Splay Trees
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 2 | Red Black Tree & B+ Tree
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week3/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 3 | Inverted File Index
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week4/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 4 | Leftist Heap & Skew Heap
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week5/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 5 | Binomial Queue
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Lecture 6 | Backtracing
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 6 | Backtracing
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      八皇后
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the_turnpike_reconstruction_problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      [案例] The Turnpike Reconstruction Problem
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      ɑ-β 剪枝
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week7/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 7 | Divide & Conquer
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture 8 | Dynamic Programming
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../Database/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Database
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../computer_organization/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Computer Organazation
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
     
       
       
@@ -1419,7 +632,7 @@
         
   
   
-    <a href="../../../Missing%20semester/" class="md-nav__link">
+    <a href="../../../../Missing%20semester/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1478,7 +691,7 @@
     
   
   
-    <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-nav__link">
+    <a href="../../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1534,7 +747,7 @@
         
   
   
-    <a href="../../../AI/" class="md-nav__link">
+    <a href="../../../../AI/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1591,7 +804,7 @@
     
   
   
-    <a href="../../../Language/Advanced%20C%20Language/" class="md-nav__link">
+    <a href="../../../../Language/Advanced%20C%20Language/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1645,7 +858,7 @@
         
   
   
-    <a href="../../../English/" class="md-nav__link">
+    <a href="../../../../English/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1703,7 +916,7 @@
         
   
   
-    <a href="../../../Scientific%20research/" class="md-nav__link">
+    <a href="../../../../Scientific%20research/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1755,7 +968,7 @@
         
   
   
-    <a href="../../../Paper%20Reading/" class="md-nav__link">
+    <a href="../../../../Paper%20Reading/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1809,7 +1022,7 @@
         
   
   
-    <a href="../../../spark%20in%20life/" class="md-nav__link">
+    <a href="../../../../spark%20in%20life/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1848,41 +1061,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      八皇后
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the_turnpike_reconstruction_problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      [案例] The Turnpike Reconstruction Problem
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      ɑ-β 剪枝
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1899,37 +1077,18 @@
   
 
 
-<h1 id="lecture_6_backtracing">Lecture 6 | Backtracing<a class="headerlink" href="#lecture_6_backtracing" title="Permanent link">#</a></h1>
-<div class="admonition quote">
-<p class="admonition-title">link</p>
-<p>OI Wiki: <a href="https://oi-wiki.org/search/backtracking/">https://oi-wiki.org/search/backtracking/</a></p>
-<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Backtracking">https://en.wikipedia.org/wiki/Backtracking</a></p>
-</div>
-<p>这一节的内容比较散，因为回溯是一个很基础而且很泛用的东西，所以感觉怎么讲都不太合适。更多的是需要在具体问题、具体模型中去体会。</p>
-<p><del>加上如果每一个内容都要往死里去叙述的话实在太累了，所以回溯这一章想偷个懒，就简单记录一下课上提到过的一些模型吧。</del></p>
-<hr />
-<h2 id="_1">八皇后<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<p>非常经典的问题，相信接触过算法的同学基本上都绕不开这个东西。</p>
-<div class="admonition quote">
-<p class="admonition-title">link</p>
-<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">https://en.wikipedia.org/wiki/Eight_queens_puzzle</a></p>
-</div>
-<hr />
-<h2 id="the_turnpike_reconstruction_problem">[案例] The Turnpike Reconstruction Problem<a class="headerlink" href="#the_turnpike_reconstruction_problem" title="Permanent link">#</a></h2>
-<p><strong>收费站重建问题(The Turnpike Reconstruction Problem)</strong>描述的是一条被抽象为直线的公路上，有 <span class="arithmatex">\(N\)</span> 个收费站（<span class="arithmatex">\(x_1, x_2, ..., x_N\)</span>）。现在给出任意两个收费站之间的距离的可重集合 <span class="arithmatex">\(D\)</span>，（可想而知，一共有 <span class="arithmatex">\(\frac{N(N-1)}{2}\)</span> 个元素），求收费站的位置，即给定任意两点的距离集合，求出这些点的坐标。</p>
-<div class="admonition tip">
-<p class="admonition-title">solution</p>
-<p>大概思路就是，首先假设 <span class="arithmatex">\(x_1 = 0\)</span>，那么很显然 <span class="arithmatex">\(x_N = \mathop{max} \{D\}\)</span>。同时我们也得到这条线段的长度为 <span class="arithmatex">\(\mathop{max} \{D\}\)</span>。接下来 <span class="arithmatex">\(D\)</span> 中从大到小取出元素，则必定追加在 <span class="arithmatex">\(x_1\)</span> 右侧或 <span class="arithmatex">\(x_N\)</span> 左侧，以此类推。（反证法可以证明在完全安排好之前都是追加在左侧或者右侧的既定边界之间的）。而每一次追加的选择都代表决策树中的一个分支，可以利用其它条件进行剪枝（例如 <span class="arithmatex">\(D\)</span> 中有 <span class="arithmatex">\(x_p - x_0\)</span> 就一定有 <span class="arithmatex">\(x_N - x_p\)</span>）。</p>
-</div>
-<hr />
-<h2 id="-">ɑ-β 剪枝<a class="headerlink" href="#-" title="Permanent link">#</a></h2>
-<div class="admonition quote">
-<p class="admonition-title">link</p>
-<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning</a></p>
-</div>
+<h1 id="_1">医药人工智能<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <ul>
-<li>实际上就类似于求解不能连续向右的，从根到叶子的路径。</li>
+<li>讲师：朱峰</li>
 </ul>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">资源</p>
+<ul>
+<li>[化合物识别](<a href="https://stonemind.stonewise.cn/patent/ProjectList.aspx">https://stonemind.stonewise.cn/patent/ProjectList.aspx</a>）</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
 
 
 
@@ -1952,7 +1111,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月14日 00:38:08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月20日 14:04:02</span>
   </span>
 
     
@@ -1962,7 +1121,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月2日 23:52:46</span>
   </span>
 
     
@@ -2031,14 +1190,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
-        <script src="../../../js/baidu-tongji.js"></script>
+        <script src="../../../../js/baidu-tongji.js"></script>
       
-        <script src="../../../js/katex.js"></script>
+        <script src="../../../../js/katex.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
