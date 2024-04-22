@@ -2,6 +2,7 @@
 
 !!! warning
     本章部分内容建立在掌握至少一门汇编语言的基础上，例如修读过计算机系统概论或汇编语言等课程。
+    可能姜老师班上的同学会传承zzh学长给你们留的作业哟。放个网站https://hackmd.io/@gofzKoaiTI6mFzp4FTuenw/HJg3Q-lb6， 大家自行保重🙏。
 
 我们讨论过，计算机的 performance 受 **#inst, clock cycle time 和 clock cycles per inst (CPI)** 决定。给定一个程序，需要使用的 #inst 受编译器和 inst set architecture 决定。
 
