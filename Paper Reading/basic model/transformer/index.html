@@ -1129,10 +1129,52 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="论文内容批注">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些背景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seq2seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seq2Seq
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       代码解释
     </span>
@@ -1357,10 +1399,52 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="论文内容批注">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些背景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seq2seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seq2Seq
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       代码解释
     </span>
@@ -1413,6 +1497,7 @@
 <!-- prettier-ignore-end -->
 
 <h2 id="_1">论文内容批注<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<h3 id="_2">一些背景<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
 <ol>
 <li><a href="https://en.wikipedia.org/wiki/BLEU">BELU</a>一种自动评估机器翻译文本的指标。BLEU 得分是一个 0 到 1 之间的数字，用于衡量机器翻译文本与一组高质量参考翻译的相似度。0 表示机器翻译的输出与参考翻译没有重叠（低质量），而 1 表示其与参考翻译完全重叠（高质量）。<img alt="" src="../graph/BELU.png" /></li>
 </ol>
@@ -1422,12 +1507,41 @@
 <ol start="2">
 <li><a href="../rnn/##LSTM">LSTM</a></li>
 </ol>
-<h2 id="_2">代码解释<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<h3 id="seq2seq">Seq2Seq<a class="headerlink" href="#seq2seq" title="Permanent link">#</a></h3>
+<blockquote>
+<p>这个模型非常的有趣，需要不定输出的模型都可以通过使用得到比较好的效果</p>
+</blockquote>
+<h3 id="encoder">Encoder<a class="headerlink" href="#encoder" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>下图中的论文说明了，normalization的位置并不固定。
+<img alt="20240423152859.png" src="../graph/20240423152859.png" /></p>
+</li>
+<li>
+<p>attention 是否可以增添一些限制呢？这些也已经有人研究过了。
+   <img alt="20240423155537.png" src="../graph/20240423155537.png" /></p>
+</li>
+<li>
+<p>Beam search：用来解决搜索问题的一种技术，它是一种启发式搜索算法，用于在图或树中搜索最优路径。Beam search 是一种贪心算法，它在每一步都保留 k 个最有希望的解，然后在下一步中继续扩展这些解。这样，Beam search 会在搜索空间中保留 k 条路径，而不是只保留一条路径。这样，Beam search 可以在搜索空间中保留多个解，从而提高搜索效率。<img alt="" src="graph/beam_search.png" /></p>
+</li>
+<li>
+<p>optimize的时候也可以硬train一发，把decoder当作agent来进行reward。
+   <a href="https://bair.berkeley.edu/blog/2017/09/12/learning-to-optimize-with-rl/">Berkley blog</a></p>
+</li>
+<li>
+<p>schedule sampling 可以用来解决训练和测试的不一致问题。
+   <a href="https://arxiv.org/abs/1506.03099">论文</a></p>
+</li>
+</ol>
+<h3 id="decoder">Decoder<a class="headerlink" href="#decoder" title="Permanent link">#</a></h3>
+<p>在Decoder中就有了cross attention。</p>
+<h2 id="_3">代码解释<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <h3 id="self-attention">self-attention<a class="headerlink" href="#self-attention" title="Permanent link">#</a></h3>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">资源</p>
-<p>这个部分其实非常推荐去看21spring李宏毅老师的视频，有很多启发性的内容!!!</p>
+<p>这个部分其实非常推荐去看21spring李宏毅老师的视频，有很多启发性的内容!!!
+以及一个对比讲解<a href="https://www.youtube.com/watch?v=mmzRYGCfTzc">视频</a>    </p>
 </div>
 <!-- prettier-ignore-end -->
 
@@ -1542,7 +1656,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月22日 14:02:03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月7日 14:22:49</span>
   </span>
 
     

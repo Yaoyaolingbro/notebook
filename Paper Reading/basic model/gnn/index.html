@@ -1061,6 +1061,107 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic_roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic RoadMap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些些数学
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一些些数学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#n-dim_vector_space" class="md-nav__link">
+    <span class="md-ellipsis">
+      N-dim Vector Space
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fourier_series_representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fourier Series Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectral_graph_theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spectral Graph Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spectral Graph Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laplacian_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laplacian Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normalized_laplacian_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normalized Laplacian Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting_vertex_frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpreting vertex frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what_we_want_to_learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What we want to learn？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1085,9 +1186,63 @@
 <li><a href="https://distill.pub/2021/gnn-intro/">A gentle introduction to Graph Neural Networks (Basics, DeepWalk, GCN, GAT, GraphSAGE)</a></li>
 <li><a href="https://distill.pub/2021/understanding-gnns/">understand GNN</a></li>
 <li><a href="https://arxiv.org/abs/2403.00485">A survey on graph neural networks</a></li>
+<li><a href="https://www.youtube.com/watch?v=eybCCtNKwzA">李宏毅老师的助教视频</a></li>
 </ul>
 </div>
 <!-- prettier-ignore-end -->
+
+<h2 id="basic_roadmap">Basic RoadMap<a class="headerlink" href="#basic_roadmap" title="Permanent link">#</a></h2>
+<p><img alt="20240422150611.png" src="../graph/20240422150611.png" /></p>
+<h2 id="_1">一些些数学<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<blockquote>
+<p>图卷积的基本定义</p>
+</blockquote>
+<p><img alt="20240503170505.png" src="../graph/20240503170505.png" /></p>
+<h3 id="n-dim_vector_space">N-dim Vector Space<a class="headerlink" href="#n-dim_vector_space" title="Permanent link">#</a></h3>
+<div class="arithmatex">\[
+\mathbb{R}^n = \{x = (x_1, x_2, \cdots, x_n) | x_i \in \mathbb{R}\} \\
+\vec{A}=\sum_{k=1}^{N} a_{k} \widehat{v}_{k} \\
+a_j = \vec{A} \cdot \widehat{v}_j = \sum_{k=1}^{N} a_{k} \widehat{v}_{k} \cdot \widehat{v}_j \\
+\widehat{v}_{i} \cdot \widehat{v}_{j} = \delta_{ij} = \begin{cases} 1 &amp; i = j \\ 0 &amp; i \neq j \end{cases}
+\]</div>
+<h3 id="fourier_series_representation">Fourier Series Representation<a class="headerlink" href="#fourier_series_representation" title="Permanent link">#</a></h3>
+<div class="arithmatex">\[
+x(t) = \sum_{n=-\infty}^{\infty} c_n e^{j2\pi nt/T} \\
+c_n = \frac{1}{T} \int_{T} x(t) e^{-j2\pi nt/T} dt
+\]</div>
+<p><strong>Fourier Transform</strong>
+$$
+X(f) = \int_{-\infty}^{\infty} x(t) e^{-j2\pi ft} dt
+$$</p>
+<h3 id="spectral_graph_theory">Spectral Graph Theory<a class="headerlink" href="#spectral_graph_theory" title="Permanent link">#</a></h3>
+<h4 id="laplacian_matrix">Laplacian Matrix<a class="headerlink" href="#laplacian_matrix" title="Permanent link">#</a></h4>
+<div class="arithmatex">\[
+L = D - A
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(D\)</span> is the degree matrix, <span class="arithmatex">\(A\)</span> is the adjacency matrix
+L is symmetric and positive semi-definite (for undirected graph)
+$ L = U \Lambda U^T $, where <span class="arithmatex">\(U\)</span> is the eigenvector matrix and <span class="arithmatex">\(\Lambda\)</span> is the eigenvalue matrix (Spectral decomposition)</p>
+</blockquote>
+<h4 id="normalized_laplacian_matrix">Normalized Laplacian Matrix<a class="headerlink" href="#normalized_laplacian_matrix" title="Permanent link">#</a></h4>
+<div class="arithmatex">\[
+L_{sym} = D^{-1/2} L D^{-1/2} \\
+L_{rw} = D^{-1} L
+\]</div>
+<h4 id="interpreting_vertex_frequency">Interpreting vertex frequency<a class="headerlink" href="#interpreting_vertex_frequency" title="Permanent link">#</a></h4>
+<p>$$
+Lf = (D-A)f = Df - Af
+$$
+<img alt="20240503165730.png" src="../graph/20240503165730.png" />
+<img alt="20240503165922.png" src="../graph/20240503165922.png" /></p>
+<h4 id="what_we_want_to_learn">What we want to learn？<a class="headerlink" href="#what_we_want_to_learn" title="Permanent link">#</a></h4>
+<p><img alt="20240503170828.png" src="../graph/20240503170828.png" /></p>
+<blockquote>
+<p>ChebNet：通过Chebyshev多项式近似卷积核
+GCN是ChebNet的特例，只使用了一阶Chebyshev多项式
+GCN-LPA：将GCN与LPA（Label Propagation Algorithm）结合，实现了半监督学习
+GAT是GCN的改进，通过注意力机制学习权重</p>
+</blockquote>
 
 
 
@@ -1110,7 +1265,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月14日 00:38:08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月7日 14:22:49</span>
   </span>
 
     
