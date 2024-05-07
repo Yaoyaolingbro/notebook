@@ -13,12 +13,34 @@
 <!-- prettier-ignore-end -->
 
 ## 论文内容批注
+### 一些背景
 1. [BELU](https://en.wikipedia.org/wiki/BLEU)一种自动评估机器翻译文本的指标。BLEU 得分是一个 0 到 1 之间的数字，用于衡量机器翻译文本与一组高质量参考翻译的相似度。0 表示机器翻译的输出与参考翻译没有重叠（低质量），而 1 表示其与参考翻译完全重叠（高质量）。![](graph/BELU.png)
 
 > 事实表明，BLEU 得分与人类对翻译质量的判断有很好的相关性。请注意，即使是人工翻译也无法达到 1.0 的满分。一般来说，>40%就算是很高质量的翻译，>60%则往往超过人工翻译。
 
 2. [LSTM](rnn.md##LSTM)
 
+### Seq2Seq
+>  这个模型非常的有趣，需要不定输出的模型都可以通过使用得到比较好的效果
+
+
+### Encoder
+1. 下图中的论文说明了，normalization的位置并不固定。
+![20240423152859.png](graph/20240423152859.png)
+
+2. attention 是否可以增添一些限制呢？这些也已经有人研究过了。
+   ![20240423155537.png](graph/20240423155537.png)
+
+3. Beam search：用来解决搜索问题的一种技术，它是一种启发式搜索算法，用于在图或树中搜索最优路径。Beam search 是一种贪心算法，它在每一步都保留 k 个最有希望的解，然后在下一步中继续扩展这些解。这样，Beam search 会在搜索空间中保留 k 条路径，而不是只保留一条路径。这样，Beam search 可以在搜索空间中保留多个解，从而提高搜索效率。![](graph/beam_search.png)
+
+4. optimize的时候也可以硬train一发，把decoder当作agent来进行reward。
+   [Berkley blog](https://bair.berkeley.edu/blog/2017/09/12/learning-to-optimize-with-rl/)
+
+5. schedule sampling 可以用来解决训练和测试的不一致问题。
+   [论文](https://arxiv.org/abs/1506.03099)
+
+### Decoder
+在Decoder中就有了cross attention。
 
 ## 代码解释
 
@@ -27,6 +49,7 @@
 <!-- prettier-ignore-start -->
 !!! note "资源"
     这个部分其实非常推荐去看21spring李宏毅老师的视频，有很多启发性的内容!!!
+    以及一个对比讲解[视频](https://www.youtube.com/watch?v=mmzRYGCfTzc)    
 <!-- prettier-ignore-end -->
 
 其实Query Key Value 个人认为还是一个比较好理解的逻辑，可以通过3b1b的可视化进行更好的理解。但此外来说，它非常取巧的进行了一种类似于矩阵乘法的操作，来加速了运算速度，并且类似全连接层，加入了全局信息。\\

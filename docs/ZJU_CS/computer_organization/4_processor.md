@@ -10,7 +10,7 @@
 
 ### 4.1.1 Overview
 
-<center>![image.png](../../../assets/1654671143448-cfbcadc6-ce0c-4723-bc9e-5c880f31fdac.png)</center>
+![20240422194433.png](graph/20240422194433.png)
 
 上图展示了一个 RISC-V 核心指令的实现（并不完整），包括  `ld`  ,   `sd`  ,   `add`  ,   `sub`  ,   `and`  ,   `or`  ,   `beq`  。我们简单进行分析。
 
@@ -22,8 +22,7 @@
    -   `add`  ,   `sub`  ,   `and`  ,   `or`  这几个 R 型指令总共需要访问 3 个寄存器，如下图所示：
 
 
-<center>![image.png](../../../assets/1654672203572-171714de-bbd9-4da7-b2d6-024c1dd0b2f0.png)</center>
-
+![20240422194451.png](graph/20240422194451.png)
 
 - (1) 处取出指令，  `[6:0]`  被送到 Control 产生对应的控制信号，我们稍后可以看到；  `[19:15]`  ,   `[24:20]`  ,   `[11:7]`  分别对应  `rs1`  ,  `rs2`  ,  `rd`  ，被连入 Registers 这个结构，对应地  `Read data 1`  和  `Read data 2`  两处的值即变为  `rs1`  ,  `rs2`  的值；
 - (2) 处 MUX 在  `ALUSrc = 0`  的信号作用下选择  `Read data 2`  作为 ALU 的输入与  `Read data 1`  进行运算，具体的运算由  `ALU control`  提供的信号指明（我们在 **4.1.3 小节** 讨论这个话题）。运算结果在  `ALU result`  中。
@@ -41,26 +40,26 @@
 ### 4.1.3 ALU Control
 在 3.1 节中，我们设计的 ALU 需要这样的控制结构：
 
-<center>![image.png](/../assets/1654674035822-c566a50e-cde7-4244-880a-21bcc3b31699.png)</center>
+![20240422194510.png](graph/20240422194510.png)
 
 我们列一下需要使用 ALU 的指令的表格（我们在）：
 
-<center>![image.png](../../../assets/1654674059843-56287529-b9a6-4441-9933-2879581bf8f3.png)</center>
+![20240422194532.png](graph/20240422194532.png)
 
 我们根据这个表列出真值表：
 
-<center>![image.png](../../../assets/1654674304680-f7f2359b-bd75-47d9-b19c-d53550653ed9.png)</center>
+![20240422194552.png](graph/20240422194552.png)
 
 其中可以发现，标为绿色的列的取值要么是 0 要么是无关的，因此它们并不影响结果。
 
 根据这个真值表构造门电路，就可以构造出 ALU control 单元了。如图中所示，该单元依赖 Control 单元给出的  `ALUOp`  信号以及  `I[30, 14:2]`  ：
 
-<center>![image.png](../../../assets/1654674211472-df83a1c1-1776-4a5a-a662-cf7c81edfead.png)</center>
+![20240422194604.png](graph/20240422194604.png)
 
 !!! info
     ALU control 模块可以这样实现：
 
-    <center>![image.png](../../../assets/1654680132424-1501096b-1795-4e84-aa15-31b81cdbe7bd.png)</center>
+    ![20240422194616.png](graph/20240422194616.png)
 
     需要理解的是，我们并不是根据机器码来构造电路的，而是相反：电路的设计参考了很多方面的问题，机器码应当主要迎合电路使其设计更加方便。
 
