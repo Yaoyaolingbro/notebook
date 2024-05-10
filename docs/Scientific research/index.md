@@ -15,5 +15,6 @@
     - [vizro：一个好用的画图工具](https://github.com/mckinsey/vizro)
     - [论文写作](./science_writing_for_non-native_engish_speakers.pdf)
     - [画图](https://www.chiplot.online/)
+    - [tuning](https://github.com/google-research/tuning_playbook)
     - [李沐老师论文阅读]()
 <!-- prettier-ignore-end -->
