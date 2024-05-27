@@ -18,11 +18,12 @@
 
 给出几种案例以及可视化，说明局部搜索容易失效。
 
-## 梅特罗波利斯算法
+### 梅特罗波利斯算法
 
 **梅特罗波利斯算法(the Metropolis algorithm)**的过程：
 
-> 凑合一下，之后有空再改。
+> - 梯度下降法不一定work，改进后的算法:Metropolis Algorithm 
+> - 梯度下降法是定向选择邻居，而metropolis是随机选择邻居的算法
 
 ```cpp
 SolutionType Metropolis() {   
@@ -49,7 +50,7 @@ SolutionType Metropolis() {
 
 ---
 
-## 模拟退火
+### 模拟退火
 
 
 **模拟退火(simulated annealing)**

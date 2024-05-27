@@ -726,9 +726,7 @@ C. $w(T)\geqslant w(S)/2$ for any graph $G$
 D. None of the above
 
 ??? general "Answer"
-    <div style="text-align:center;">
-        <img src="graph/ads_hw_11.1.png" alt="11.1" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![2-2](graph/ads_hw_11.1.png)
 
 ## Hw12
 
