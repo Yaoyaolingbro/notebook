@@ -1293,46 +1293,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#42_pipeline" class="md-nav__link">
+  <a href="#42_interrupts_and_exceptions" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2 Pipeline
+      4.2 Interrupts and Exceptions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4.2 Pipeline">
+    <nav class="md-nav" aria-label="4.2 Interrupts and Exceptions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#421_intro" class="md-nav__link">
+  <a href="#421_handling_exceptions" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.1 Intro
+      4.2.1 Handling Exceptions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#422_structure_hazards" class="md-nav__link">
+  <a href="#422_csrcontrol_and_status_registers" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.2 Structure hazards
+      4.2.2 CSR（Control and Status Registers）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43_pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431_intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3.1 Intro
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#423_data_hazards" class="md-nav__link">
+  <a href="#432_structure_hazards" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.3 Data Hazards
+      4.3.2 Structure hazards
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#424_control_hazards_branch_hazards" class="md-nav__link">
+  <a href="#433_data_hazards" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.4 Control Hazards / Branch Hazards
+      4.3.3 Data Hazards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434_control_hazards_branch_hazards" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3.4 Control Hazards / Branch Hazards
     </span>
   </a>
   
@@ -2004,46 +2037,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#42_pipeline" class="md-nav__link">
+  <a href="#42_interrupts_and_exceptions" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2 Pipeline
+      4.2 Interrupts and Exceptions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4.2 Pipeline">
+    <nav class="md-nav" aria-label="4.2 Interrupts and Exceptions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#421_intro" class="md-nav__link">
+  <a href="#421_handling_exceptions" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.1 Intro
+      4.2.1 Handling Exceptions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#422_structure_hazards" class="md-nav__link">
+  <a href="#422_csrcontrol_and_status_registers" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.2 Structure hazards
+      4.2.2 CSR（Control and Status Registers）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43_pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431_intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3.1 Intro
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#423_data_hazards" class="md-nav__link">
+  <a href="#432_structure_hazards" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.3 Data Hazards
+      4.3.2 Structure hazards
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#424_control_hazards_branch_hazards" class="md-nav__link">
+  <a href="#433_data_hazards" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2.4 Control Hazards / Branch Hazards
+      4.3.3 Data Hazards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434_control_hazards_branch_hazards" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3.4 Control Hazards / Branch Hazards
     </span>
   </a>
   
@@ -2085,6 +2151,9 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>由于时间原因，本文后半部分有一些地方不完整。</p>
+<blockquote>
+<p>附上一个个人认为杀疯了的<a href="https://passlab.github.io/CSCE513/notes/lecture07_RISCV_Impl.pdf">ppt</a></p>
+</blockquote>
 </div>
 <p>我们讨论过，计算机的 performance 受 <strong>inst#, clock cycle time 和 clock cycles per inst (CPI)</strong> 决定。Clock cycle time 和 CPI 受 processor 的实现方式影响。本章介绍 RISC-V 的 processor 一种实现。</p>
 <h2 id="41_datapath">4.1 Datapath<a class="headerlink" href="#41_datapath" title="Permanent link">#</a></h2>
@@ -2096,89 +2165,6 @@
 </ul>
 <!-- prettier-ignore-start -->
 
-<table>
-<thead>
-<tr>
-<th>Diff Ins</th>
-<th>RegWrite</th>
-<th>MemtoReg</th>
-<th>MemWrite</th>
-<th>ALUSrc</th>
-<th>ALUOp</th>
-<th>MemRead</th>
-<th>Branch</th>
-<th>Jump</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>R-type</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <details class="info">
 <summary>Control signal</summary>
 <table>
@@ -2197,15 +2183,15 @@
 </thead>
 <tbody>
 <tr>
-<td>R-type</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>10</td>
-<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -2226,7 +2212,7 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>有聪明的小朋友可能会问，为什么需要  <code>RegWrite</code>  这个控制信号呢？非常简单，因为  <code>Write register</code>  和  <code>Write data</code>  这两条线始终是连着的，Reg files 需要知道什么时候需要写入寄存器，因此只有当  <code>RegWrite = 1</code>  时才会被对应地写入。</p>
-<p>聪明的小朋友可能又会问了，为什么  <code>PC</code>  寄存器也要写入，但是不需要控制信号呢？非常简单，因为  <code>PC</code>  在 <strong>每个</strong> 时钟周期都会被写入，所以只需要在时钟的 <strong>每个</strong> 上升沿或者下降沿触发就好了（我们采取的设计是下降沿触发，我们在 <strong>4.2.3 小节</strong> 再讨论为什么这样设计），不需要额外的控制信号了。</p>
+<p>聪明的小朋友可能又会问了，为什么  <code>PC</code>  寄存器也要写入，但是不需要控制信号呢？非常简单，因为  <code>PC</code>  在 <strong>每个</strong> 时钟周期都会被写入，所以只需要在时钟的 <strong>每个</strong> 上升沿或者下降沿触发就好了（我们采取的设计是下降沿触发，我们在 <strong>4.3.3 小节</strong> 再讨论为什么这样设计），不需要额外的控制信号了。</p>
 </div>
 <h3 id="413_alu_control">4.1.3 ALU Control<a class="headerlink" href="#413_alu_control" title="Permanent link">#</a></h3>
 <p>在 3.1 节中，我们设计的 ALU 需要这样的控制结构：</p>
@@ -2248,7 +2234,7 @@
 <ul>
 <li>在一条指令运行完后，如果不发生跳转，PC + 4，否则 PC 跳转到 PC + offset 的位置去。这个过程是如何完成的呢？看下图：</li>
 </ul>
-<p><center><img alt="image.png" src="../../../assets/1654671880110-a3a3e4f1-ba35-4a91-810e-895996d1025c.png" /></center></p>
+<p><img alt="20240511161551.png" src="../graph/20240511161551.png" /></p>
 <ul>
 <li>(1) 中有两个加法器，一个的结果是 PC + 4，另一个是 PC + offset，其中 offset 是来自当前 instruction 的；这两个加法器通过 MUX 送给 PC</li>
 <li>MUX 的控制信号来自  (2)， (2) 是一个与门，即当且仅当两个输入信号都为真时才会输出 1，从而在上述 MUX 中选择跳转。 (2) 的两个输入分别来自：<ul>
@@ -2270,16 +2256,32 @@
 <p>用文化人的话来说，Load 指令和 Store 指令的数据通路操作留作习题。</p>
 <h3 id="416_control">4.1.6 Control<a class="headerlink" href="#416_control" title="Permanent link">#</a></h3>
 <p>看完上述若干小节，control 单元的设计也非常显然了。我们很容易给出如下真值表：</p>
-<p><center><img alt="image.png" src="../../../assets/1654681433205-5ed6293c-b44b-49c5-90de-ae0d3d93cac7.png" /></center></p>
+<p><img alt="20240511161623.png" src="../graph/20240511161623.png" /></p>
 <p>后面就是连电路的工作了。连出来长这样：</p>
-<p><center><img alt="image.png" src="../../../assets/1654681479004-e8c104d3-390b-4210-a4ee-1495f73f9970.png" width="400" /></center></p>
+<p><img alt="20240511161641.png" src="../graph/20240511161641.png" /></p>
 <h3 id="417_why_a_single-cycle_implementation_is_not_used_today">4.1.7 Why a Single-Cycle Implementation is not Used Today<a class="headerlink" href="#417_why_a_single-cycle_implementation_is_not_used_today" title="Permanent link">#</a></h3>
 <p>单周期的实现是指，一个指令的所有工作都在一个时钟周期内完成，也就是 CPI = 1。那么，一个时钟周期的长度就要足够最长的那个指令完成运行。但是，例如  <code>load</code>  类的指令要经过 inst mem, reg file, ALU, data mem, reg file 这么多的步骤，这会使得时钟周期变得很长，导致整体性能变得很差。单周期的实现违反了 <strong>common case fast</strong> 这一设计原则。</p>
 <p>因此，我们引入一种新的实现技术，叫 <strong>流水线 (Pipeline)</strong>。</p>
-<h2 id="42_pipeline">4.2 Pipeline<a class="headerlink" href="#42_pipeline" title="Permanent link">#</a></h2>
-<h3 id="421_intro">4.2.1 Intro<a class="headerlink" href="#421_intro" title="Permanent link">#</a></h3>
+<h2 id="42_interrupts_and_exceptions">4.2 Interrupts and Exceptions<a class="headerlink" href="#42_interrupts_and_exceptions" title="Permanent link">#</a></h2>
+<p>中断是指一些I/O设备请求CPU的服务，而异常是指程序运行时出现的错误，如：除零错误、内存越界、未定义opcode、溢出等。这两者都会导致程序的正常执行被打断，CPU需要做出相应的处理。</p>
+<h3 id="421_handling_exceptions">4.2.1 Handling Exceptions<a class="headerlink" href="#421_handling_exceptions" title="Permanent link">#</a></h3>
+<ul>
+<li>当异常发生时，CPU会将异常的原因保存在 <strong>Cause Register</strong> 中，将异常发生时的指令地址保存在 <strong>EPC Register</strong> 中，然后跳转到异常处理程序。</li>
+<li>保存问题的原因和地址是为了在异常处理程序中能够知道异常发生的原因和异常发生时的指令地址，以便进行相应的处理。<blockquote>
+<p>在RISC-V中，SEPC和SCAUSE（2 for undefined opcode, 12 for hardware malfunction）分别对应EPC和Cause Register。</p>
+</blockquote>
+</li>
+<li>Jump to Handler的过程是通过 <strong>Exception Vector</strong> 实现的，即在异常发生时，CPU会根据异常的原因跳转到相应的异常处理程序。<blockquote>
+<p>在RISC-V中，这个过程是通过 <strong>Vectored Interrupt</strong> 实现的。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="422_csrcontrol_and_status_registers">4.2.2 CSR（Control and Status Registers）<a class="headerlink" href="#422_csrcontrol_and_status_registers" title="Permanent link">#</a></h3>
+<p><img alt="20240512004843.png" src="../graph/20240512004843.png" /></p>
+<h2 id="43_pipeline">4.3 Pipeline<a class="headerlink" href="#43_pipeline" title="Permanent link">#</a></h2>
+<h3 id="431_intro">4.3.1 Intro<a class="headerlink" href="#431_intro" title="Permanent link">#</a></h3>
 <p>在小学奥数中我们就学过，并行能够提高整体的效率，例如这个洗衣服的例子：</p>
-<p><center><img alt="image.png" src="../../../assets/1654740094086-8364d8a3-4cec-4e6f-837e-fa717447c1db.png" /></center></p>
+<p><img alt="20240511163146.png" src="../graph/20240511163146.png" /></p>
 <p>对于单个工作，流水线技术并没有缩短其运行时间；但是由于多个工作可以并行地执行，流水线技术可以更好地压榨资源，使得它们被同时而不是轮流使用，在工作比较多的时候可以增加整体的 <strong>吞吐率 throughput</strong>，从而减少了完成整个任务的时间。</p>
 <p>在本例中，由于流水线开始和结束的时候并没有完全充满，因此吞吐率不及原来的 4 倍（4 来自于例子中有 4 个步骤）；但是当工作数足够多的时候，吞吐率就几乎是原来的 4 倍了。</p>
 <p>回到 RISC-V 中来，一个指令通常被划分为 5 个阶段：</p>
@@ -2291,7 +2293,7 @@
 <li><strong>WB, Write Back</strong>，将结果写回寄存器（如果需要的话）</li>
 </ol>
 <p>各阶段会用到的组件如下图所示（这个图还有很多问题，我们后面慢慢讨论~），可以看到这些部分是可以并行执行的（比如 Reg File 可以一边读一边写）：</p>
-<p><center><img alt="image.png" src="../../../assets/1654741944095-f2787d5f-e997-4ada-afda-38ef9bc5057e.png" /></center></p>
+<p><img alt="20240511163231.png" src="../graph/20240511163231.png" /></p>
 <p>其加速的核心主旨是，它们都希望一个周期能完成一条指令，但是单周期 CPU 的一个周期需要承担一个指令的所有步骤；而流水线技术引入后，由于它可以并行地同时执行五个阶段的步骤，所以此时的周期只需要一个阶段的长度。总的来说，单周期 CPU 的时钟周期由总耗时最长的指令决定，流水线 CPU 的时钟周期由耗时最长的指令阶段（IF, ID 等）决定。</p>
 <p>也就是说，我们本来是在一个周期中完成一个指令，而现在是在一个周期中完成五个不同指令的不同阶段。当然，每个时钟周期的长度也需要足够任何一个阶段完成执行。</p>
 <p>RISC-V 也有很多流水线友好的设计，例如：</p>
@@ -2316,9 +2318,9 @@
 </ul>
 </li>
 </ul>
-<h3 id="422_structure_hazards">4.2.2 Structure hazards<a class="headerlink" href="#422_structure_hazards" title="Permanent link">#</a></h3>
+<h3 id="432_structure_hazards">4.3.2 Structure hazards<a class="headerlink" href="#432_structure_hazards" title="Permanent link">#</a></h3>
 <p>但是，聪明的小朋友也可以看出一些问题！比如，前一个指令在  <code>ID</code>  阶段的时候，会使用到其在  <code>IF</code>  阶段读出的指令的内容；但与此同时后一个指令已经运行到  <code>IF</code>  阶段并读出了新的指令，那么前一个指令就没的用了！这个现象在很多地方普遍存在，包括 Control 信号的传递，因此我们实际上会在每两个 stage 之间用一些寄存器保存这些内容：</p>
-<p><center><img alt="image.png" src="../../../assets/1655061248536-62d39071-e009-424a-ab6f-4bddbdbe144f.png" /></center></p>
+<p><img alt="20240511163642.png" src="../graph/20240511163642.png" /></p>
 <p>可以看到，上面这个图除了加了一些竖条条以外和之前没有流水线的时候几乎没什么差别。这些竖条条就是 pipeline registers，例如  <code>IF/ID</code>  就是  <code>IF</code>  和  <code>ID</code>  阶段之间的一些寄存器。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2326,15 +2328,15 @@
 <p>我们之前并没有讨论为什么要<strong>在下降沿写入</strong>，本节下一个 Info 框框就会说明啦！</p>
 </div>
 <p>我们关注 datapath 中两个从右往左传东西的情况！一个是  <code>WB</code>  阶段写回数据，一个是  <code>MEM</code>  阶段判断是否发生跳转。分别关注对应增加的 datapath：</p>
-<p><center><img alt="image.png" src="../../../assets/1654757278833-5e408879-9e7d-4e6d-80f0-0ff4a20f7c35.png" /></center></p>
+<p><img alt="20240511163946.png" src="../graph/20240511163946.png" /></p>
 <p>对于  <code>WB</code>  来说，我们写回时需要记录写到哪个 register 中，这个信息是  <code>ID</code>  阶段从 Instruction 中  <code>[11:7]</code>  的位置取出的，但是直到  <code>WB</code>  阶段才被用到，因此这个信息被存到了  <code>ID/EX</code>  ，下一个周期存到了  <code>EX/MEM</code>  ，下一个周期存到了  <code>MEM/WB</code>  ，然后下一个周期被使用。</p>
 <p><code>MEM</code>  判断是否发生跳转的逻辑类似，略。</p>
 <p>另外，由于在流水线中 IF 和 MEM 都有可能用到内存，为了不出现结构竞争，我们将数据和指令放在不同的地方，以避免同时出现要访问内存而导致的结构竞争。</p>
-<h3 id="423_data_hazards">4.2.3 Data Hazards<a class="headerlink" href="#423_data_hazards" title="Permanent link">#</a></h3>
+<h3 id="433_data_hazards">4.3.3 Data Hazards<a class="headerlink" href="#433_data_hazards" title="Permanent link">#</a></h3>
 <p>但是，聪明的小朋友仍然可以看出一些问题！考虑这样的指令序列：</p>
-<p><center><img alt="image.png" src="../../../assets/1654795731132-5ba12d3f-c143-43d5-9114-3c22725c4abf.png" /></center></p>
+<p><img alt="20240511164001.png" src="../graph/20240511164001.png" /></p>
 <p>用简化的数据通路查看一下各指令各 stage 的执行时间：</p>
-<p><center><img alt="image.png" src="../../../assets/1654795975014-57ed0190-026f-4d9d-84eb-8a3f6fa3d26d.png" /></center></p>
+<p><img alt="20240511164017.png" src="../graph/20240511164017.png" /></p>
 <blockquote>
 <p>我们简单介绍一下这张图。最上面是横轴，也就是时间轴，CC 代表 Clock Cycle；下面的 10, -20 这种数据是  <code>x2</code>  寄存器的值；接下来的每一行都是一个语句的执行过程，  <code>IM</code>  就是 inst mem，对应  <code>IF</code>  stage；  <code>Reg</code>  就是 reg file，对应  <code>ID</code>  stage；长得像 ALU 的就是 ALU，对应  <code>EX</code>  stage；  <code>DM</code>  就是 data mem，对应  <code>MEM</code>  stage；最后面的  <code>Reg</code>  也是 reg file，对应  <code>WB</code>  stage。每个 stage 占用一个时钟周期。</p>
 <p>图中深色（灰色、蓝色）的部分就是对应指令会使用到的组件，其中 mem 和 reg file 用左半边为深色时表示 <strong>写入</strong>，右半边为深色时表示 <strong>读取</strong>。我们稍后解释这样表示的原因。</p>
@@ -2345,41 +2347,39 @@
 <summary>Info</summary>
 <p>在第 5 个时钟周期内，关于 Reg files 我们需要完成 2 件事：  <code>sub x2, x1, x3</code>  的  <code>WB</code>  阶段将  <code>x2</code>  的新值写入 Reg files，以及  <code>add x14, x2, x2</code>  的  <code>ID</code>  阶段将  <code>x2</code>  的值读出来并且存到  <code>ID/EX</code>  寄存器中。这两个事情有没有可能正确执行呢？答案是有的！</p>
 <p>众所周知，时钟信号有上升沿和下降沿，我们既可以规定一个时钟周期由一个上升沿开始到另一个上升沿结束，也可以规定一个时钟周期从一个下降沿开始到另一个下降沿结束：</p>
-<p><center><img alt="image.png" src="../../../assets/1654798942770-f1bffcc8-2e09-4472-92a3-19d5438c106c.png" /></center></p>
+<p><img alt="20240511164049.png" src="../graph/20240511164049.png" /></p>
 <p>在课本的设计中，我们采取前者，也就是一个时钟周期就是相邻两次上升沿之间的时间段。</p>
 <p>而寄存器的写入可以由上升沿触发，也可以由下降沿触发。如果我们规定 Reg files 中的寄存器在上升沿触发写入，也就是在前半个周期中完成写入 Reg files 寄存器的工作；而规定 Pipeline registers 在下降沿触发写入，也就是在后半个周期完成写入工作，那么，在第 5 个时钟周期的上半，  <code>x2</code>  的新值被写入 Reg；下半周期从 Reg 读出  <code>x2</code>  并写入  <code>ID/EX</code>  Reg 的值就是  <code>x2</code>  的新值了。所以说，这样的设计使得这种情况下不会出现 structure hazard。</p>
 <p>这也就能解释为什么  <code>PC</code>  要在下降沿写入了，看 datapath 的这一部分：</p>
-<p><center><img alt="image.png" src="../../../assets/1654800274740-6ee9e8eb-af7d-4d26-874f-ce82ba6bee7e.png" /></center></p>
+<p><img alt="20240511164103.png" src="../graph/20240511164103.png" /></p>
 <p>如果  <code>PC</code>  在上升沿写入，也就是在上升沿更新到下一条指令的位置，那么在下降沿要将当前指令写入  <code>IF/ID</code>  的时候，从 inst mem 中读出的指令已经是下一条而不是当前指令了！所以我们必须让  <code>PC</code>  在下降沿写入，这样才能读取到正确的指令。</p>
 <p><strong>也就是说，Reg files 的写入均发生在上半周期，也就是上升沿；而 Pipeline registers 和  <code>PC</code>  的写入均发生在下半周期，也就是下降沿</strong>。</p>
 <p>这也是图例中 reg file 用左半边为深色表示写入，右半边为深色表示读取的原因：写入发生在上半个周期，而使用读取的结果发生在下半个周期。</p>
 </details>
 <p>那么，如何解决 data hazard 呢？回顾刚刚的那张图：</p>
-<p><center><img alt="image.png" src="../../../assets/1654795975014-57ed0190-026f-4d9d-84eb-8a3f6fa3d26d.png" /></center></p>
+<p><img alt="20240511164116.png" src="../graph/20240511164116.png" /></p>
 <p>我们注意到，虽然  <code>sub x2, x1, x3</code>  在第 5 个时钟周期的  <code>WB</code>  阶段才将结果写回，但是在第 3 个时钟周期的  <code>EX</code>  阶段其实就算出来了！所以我们可以增加额外的硬件结构，使得 ALU 的输入不仅可以来源于寄存器中读出来的、放在  <code>ID/EX</code>  中的值，还可以来源于  <code>EX/MEM</code>  中或者  <code>MEM/WB</code>  中的值，它们分别对应前一条和再前一条指令的 ALU 的计算结果。如下图所示： </p>
-<p><center><img alt="image.png" src="../../../assets/1654861103791-a16d1edb-9e66-46ed-849a-c292bba99b03.png" /></center></p>
+<p><img alt="20240511164131.png" src="../graph/20240511164131.png" /></p>
 <p>在第 3 个时钟周期，第一条指令的结果被算出并保存在  <code>EX/MEM</code>  </p>
 <p>学不完了，暂时不详细写了，大意就是   <code>X = 1, 2 = if (MEM.Rd != x0 &amp;&amp; EX.RsX == MEM.Rd) ForwardX = 10; else if (WB.Rd != x0 &amp;&amp; EX.RsX == WB.Rd) ForwardX = 01; else ForwardX = 00;</code>  ：</p>
-<p><center><img alt="image.png" src="../../../assets/1655054499226-ac885ac8-6b68-4191-ad18-776f62a0b762.png" /></center></p>
+<p><img alt="20240511164144.png" src="../graph/20240511164144.png" /></p>
 <p>但是遇到 load 指令不得不 stall，刚刚可以是因为 EX 和 ID 就差了一轮，但是 load 的数据要到 MEM 才有，所以如果下一条指令要用，上一条也拿不出来，只能要 stall 等才行：</p>
-<p><center><img alt="image.png" src="../../../assets/1655054689394-a8283431-11f7-49fa-8bd4-96d9fbae73a5.png" /></center></p>
-<p><center><img alt="image.png" src="../../../assets/1655054716560-ae2d14e7-454d-45d2-857c-4aa1b93107be.png" /></center></p>
+<p><img alt="20240511164230.png" src="../graph/20240511164230.png" /></p>
+<p><img alt="20240511164250.png" src="../graph/20240511164250.png" /></p>
 <p>在 ID 阶段可以判定 hazard：  <code>if (EX.MemRead &amp;&amp; EX.Rd == ID.RsX) Hazard();</code>  </p>
 <p>如何 stall 呢？两个任务：让当前指令不要产生效果 (清空  <code>RegWrite</code>  和  <code>MemWrite</code>  )、让后面的语句不要受到影响 (保留  <code>PC</code>  和  <code>IF/ID</code>  一周期不改)：</p>
-<p><center><img alt="image.png" src="../../../assets/1655054837667-510c675d-617c-4ce5-bab1-7ff5bc4ade30.png" /></center></p>
+<p><img alt="20240511164302.png" src="../graph/20240511164302.png" /></p>
 <p>还有一种办法是对指令进行等价换序，让某些指令尽量晚一点执行，以避免数据竞争。这种方法叫 code scheduling。</p>
-<p><center>
-    <img alt="" src="../graph/2023-06-24_11-44-24.png" />
-</center></p>
-<h3 id="424_control_hazards_branch_hazards">4.2.4 Control Hazards / Branch Hazards<a class="headerlink" href="#424_control_hazards_branch_hazards" title="Permanent link">#</a></h3>
+<p><img alt="20240511164317.png" src="../graph/20240511164317.png" /></p>
+<h3 id="434_control_hazards_branch_hazards">4.3.4 Control Hazards / Branch Hazards<a class="headerlink" href="#434_control_hazards_branch_hazards" title="Permanent link">#</a></h3>
 <div class="admonition example">
 <p class="admonition-title">例题</p>
 <p>下面一段代码在不考虑解决 hazard 的情况下的运行结果是什么？假设所有寄存器初始值为 0，Mem(1) = 0x99, Mem(8) = 0xaa, Mem(9) = 0xbb。</p>
-<p><center><img alt="{E948E6BF-5169-F815-4D0F-041670E8B363}.png" src="../../../assets/1654444304614-a4aa93e1-af21-4393-be24-c942fc624e0c.png" /></center></p>
+<p><img alt="20240511164355.png" src="../graph/20240511164355.png" /></p>
 <details class="info">
 <summary>解答</summary>
 <p>我们可以模拟每条指令各阶段的执行情况：</p>
-<p><center><img alt="" src="../../../assets/1654444145762-06b778ee-17cb-409d-a9c8-88e0a9329674.png" /></center></p>
+<p><img alt="20240511164413.png" src="../graph/20240511164413.png" /></p>
 <p>从中我们也可以总结出规律（这和流水线的具体设计有关！），即：</p>
 <ul>
 <li>某条指令 (例如  <code>#10</code> )  <code>WB</code>  阶段做的寄存器更改，其之后第三条指令 ( <code>#13</code> ) 的  <code>ID</code>  阶段才能读出新的值；</li>
@@ -2389,12 +2389,12 @@
 <p>利用这些规律，我们可以简化我们的解题方式：</p>
 <p>Reg: 到哪一次执行的 ID 阶段开始，读出的 Reg 值会是该值
 PC: 到哪一次执行 <strong>之后</strong>，PC 的值会被改为该值</p>
-<p><center><img alt="" src="../../../assets/1654444212530-325281ab-e86e-4ce4-a4a2-dbd4f451ba04.png" /></center></p>
+<p><img alt="20240511164426.png" src="../graph/20240511164426.png" /></p>
 </details>
 </div>
 <h2 id="43_exceptions">4.3 Exceptions<a class="headerlink" href="#43_exceptions" title="Permanent link">#</a></h2>
 <p>Exception 和 Interrupt 在很多地方是不作区分的，但是我们做一个简单的区分：</p>
-<p><center><img alt="image.png" src="../../../assets/1654930011877-7a77a135-36e1-4ccc-8822-49a704cc0d95.png" /></center></p>
+<p><img alt="20240511164443.png" src="../graph/20240511164443.png" /></p>
 <p>当 exception 发生时，在 <strong>Supervisor Exception Program Counter, SEPC</strong> 这个寄存器中保存发生 exception 的指令地址，然后将控制权交给操作系统。操作系统还必须知道发生 exception 的原因，RISC-V 中使用的方法是在 <strong>Supervisor Exception Cause Register, SCAUSE</strong> 这个寄存器中记录 exception 的原因。可以选择的另一种方法是 <strong>vectored interrupt</strong>，</p>
 
 
@@ -2418,7 +2418,7 @@ PC: 到哪一次执行 <strong>之后</strong>，PC 的值会被改为该值</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月10日 18:14:41</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月27日 13:59:41</span>
   </span>
 
     
