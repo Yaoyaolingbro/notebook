@@ -198,9 +198,16 @@ nav:
       - ZJU_CS/ADS/week6.md
       - ZJU_CS/ADS/week7.md
       - ZJU_CS/ADS/week8.md
+      - ZJU_CS/ADS/week9.md
+      - ZJU_CS/ADS/week10.md
+      - ZJU_CS/ADS/week11.md
+      - ZJU_CS/ADS/week12.md
+      - ZJU_CS/ADS/week13.md
+      - ZJU_CS/ADS/week14.md
+      - ZJU_CS/ADS/week15.md
     - Database:
       - ZJU_CS/Database/index.md
-      - ZJU_CS/Database/sql.md
+      - ZJU_CS/Database/review.md
       - ZJU_CS/Database/week1.md
       - ZJU_CS/Database/week2.md
       - ZJU_CS/Database/week3.md

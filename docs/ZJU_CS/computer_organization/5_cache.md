@@ -11,7 +11,7 @@
 因此，结构化的 memory 被设计出来。近期访问到的内存单元和它附近的内容被复制一份放在离 CPU 更近、访问更快，但也更小的 **cache** 中，从而利用上述局部性加速访问。
 
 
-<center>![image.png](../../../assets/1652692160527-7606f530-5481-4d42-8ed2-c4df690c9bf4.png)</center>
+![20240605161144.png](graph/20240605161144.png)
 
 
 我们称复制的单位是 **block** 或者 **line**，它通常是 2 的若干次方个 word 那么大（一个 word 是 4 Byte）。
@@ -22,6 +22,10 @@
 
 对应的有 hit / miss rate (也称 ratio) 的概念，不再赘述。
 
+<!-- prettier-ignore-start -->
+!!! note "Medium"
+    一个我认为讲述的非常high level的[blog](https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a)
+<!-- prettier-ignore-end -->
 
 ## 5.2 The basics of Cache
 下面我们来具体考虑 cache 怎么实现。主要需要讨论的问题是：如何知道一个 block 是否在 cache 里？以及如果知道它在的话，如何找到它？
@@ -29,7 +33,7 @@
 
 ### 5.3.1 Direct Mapped Cache
 
-<center>![image.png](../../../assets/1652692837568-a910a2a5-d2ff-4251-8dfb-447508ca670c.png)</center>
+![20240605165058.png](graph/20240605165058.png)
 
 如上图所示，内存有 32 个 block，其编号 (block address) 分别为 00000 到 11111；cache 有 8 个 block。Direct mapped cache 这种方式直接按 block address 的后 3 位确定它应该放在 cache 的哪个 block 里。
 
@@ -49,18 +53,18 @@
 
 也就是说，我们将 byte address 分为 2 个部分：block address 和 byte offset，即所在 block 的编号以及在 block 中的偏移量 (in byte)；而 block address 又分为了两个部分，即 tag 和 index。即：
 
-<center>![image.png](../../../assets/1652751935229-d2221dfa-a158-4842-9cb6-7bcb51479bec.png)</center>
+![20240605165132.png](graph/20240605165132.png)
 
 而在 cache 中，我们存储以下信息：
 
-<center>![image.png](../../../assets/1652752079856-f08cb589-5068-4524-90b6-23c7a3f1b7df.png)</center>
+![20240605165146.png](graph/20240605165146.png)
 
 即，每个 cache block 有一个 index，当出现一次 miss 后从内存中拿所需内存覆盖到对应的 index 条目上的 data 字段，将 tag 设为 block address 的前几位，将 valid bit 设为 1。
 
 ???+ example "例 5.1 Direct Mapped Cache 的填充和替换"
 	下面是一个具体的例子：
 	
-    <center>![image.png](../../../assets/1652752776370-d0133a42-a292-4d62-b055-001d5d601a10.png)</center>
+    ![20240605165209.png](graph/20240605165209.png)
 
 
 ???+ example "例 5.2 Direct Mapped Cache 的位数计算和连线方式"
@@ -70,18 +74,19 @@
 
 	亦即：
 	
-    <center>![image.png](../../../assets/1652752904223-cd18cbdd-7d9b-45f6-9dfc-4543a5951094.png)</center>
+    
+    ![20240605165226.png](graph/20240605165226.png)
 
 	当然，如我们之前所说，一个 block 有可能包含多个 word，而每次实际上只会访问出一个 word。因此这时我们还需要在 block 中选择对应的 word，这时候我们就可以将 byte offset 进一步细分成表示 block 中某个 word 的 **block offset**（为什么不叫 word offset 呢？），以及表示 word 中某个 byte 的 **byte offset**：
 	
-    <center>![image.png](../../../assets/1652765206172-56e8e84c-5e9c-41d4-ae02-6a0dfca2399c.png)</center>
+    ![20240605165248.png](graph/20240605165248.png)
 
 	即，对这个图中的情形，地址是 32 位的，一个 block 有 16 个 word，有 256 个 cache entry。因此 byte offset 的位数是 $\log_2 4 = 2$，block offset 的位数是 $\log_2 16 = 4$，index 的位数是 $\log_2 256 = 8$，tag 的位数是 $32-8-4-2=18$，一个 cache entry 的长度是 valid bit 1 位 + tag 18 位 + data 16 word * 4 byte/word * 8 bit/byte = 531 位。
 
 ???+ example "例 5.3 Direct Mapped Cache 的位数计算"
 	再例如：
 	
-    <center>![image.png](../../../assets/1652753397820-7f30a36f-aab7-41b1-bbbf-89c151253a49.png)</center>
+    ![20240605165320.png](graph/20240605165320.png)
 
 
 ### 5.3.2 Handling Cache Hits & Misses
@@ -111,7 +116,7 @@
 
 **Fully associative**，简单来说就是 block can go anywhere in cache。这种方式的好处是可以降低 miss rate，坏处是每次需要跟所有 block 比较是否 hit：
 
-<center>![image.png](../../../assets/1652756194622-6e4626af-f977-45b0-86dc-7cbfcef52bfd.png)</center>
+![20240605165423.png](graph/20240605165423.png)
 
 这种情况下，我们需要额外讨论替换时采用什么样的策略；即：替换哪一块。通常有三种策略：
 
@@ -121,20 +126,20 @@
 
 介于 direct mapping 和 fully associative 之间的是 set associative，即每个 block 仍然会根据其 address 确定其可以存放的 cache block，但是可以放的地方并不是一个，而是一组。即：
 
-<center>![image.png](../../../assets/1652756607490-1017df1c-5566-4e2a-a28b-116f0e333638.png)</center>
+![20240605165439.png](graph/20240605165439.png)
 
 最右边是一个 2-way set-associative 的例子，每个地址对应 cache 中的一组，在这里一组有两个 cache block。因此在访问时也需要分别比较这两个 block 是否 hit。在替换时也需要决定替换哪一块，也可以使用前述的三个策略中的一个实现。
 
 相似地，一个 4-way set-associative 的访问中判断 hit 和获取 data 的连线如下：
 
-<center>![image.png](../../../assets/1652757530348-328003df-17fe-47b0-826f-7c7f283d4811.png)</center>
+![20240605165453.png](graph/20240605165453.png)
 
 
 所以，事实上，direct mapping 和 fully associative 其实都是 set associative 的特例：direct mapping 其实就是 1-way set associative，而 fully associative 就是 n-way set associative，其中 n 是 cache block 的个数；我们称一组的大小为 **associativity**，那么这两种方法的 associativity 就分别是 1 和 n。
 
 显然，在查看所需 block 是否在 cache 中时，需要访问的 cache block 个数就等于 associativity，即：
 
-<center>![image.png](../../../assets/1652757375415-3eaa40f0-fcf9-4005-a401-8892a22d6867.png)</center>
+![20240605165506.png](graph/20240605165506.png)
 
 
 ???+ example "例 5.4 Set associative 的位数计算"

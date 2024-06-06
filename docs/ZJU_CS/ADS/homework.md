@@ -1071,7 +1071,7 @@ D. 4
     \end{matrix}
     $$
 
-**Q2-4.** Suppose we have the internal memory that ca### n handle 12 numbers at a time, and the following two runs on the tapes:
+**Q2-4.** Suppose we have the internal memory that can handle 12 numbers at a time, and the following two runs on the tapes:
 
 **Run 1**: 1, 3, 5, 7, 8, 9, 10, 12
 
@@ -1090,9 +1090,7 @@ D. 7 and 8 are written onto the third tape; 9 and 15 are merged into an output b
 ??? general "Answer"
     D。如下图：
 
-    <div style="text-align:center;">
-        <img src="graph/ads_hw_15.1.png" alt="15.1" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
+    ![](graph/ads_hw_15.1.png)
 
     D 选项强行想要 parallel ，因此没有管正在读入的 10, 12，直接基于现有 3 个 buffer 块 merge ，因此进行了错误的 merge(9, 15)。事实上这一步无法 parallel ，必须等待 10, 12 读完之后才能进行正确的 merge(9, 10)。
 
