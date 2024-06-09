@@ -77,7 +77,7 @@ Null values represented by **null-value bitmap（空位图）**
 * number of record entries
 * end of free space in the block  
 一个指针指向 free space 末尾，用来分配内存
-* location and size of each record
+* location **and** size of each record
 
 当删除的时候，一种方法是把后面的记录挪过去，让自由空间更紧凑，这样需要修改 entries, free space 的指针, 偏移量也要调整。也可以暂时不调整，等后面如果需要分配内存但不够用时，再一次性重整之前的空间。
 
@@ -124,7 +124,7 @@ Need to reorganize the file from time to time to restore sequential order.
 Store several relations in one file using a multitable clustering file organization.  
 
 !!! Example
-    对于老师和部分经常一起访问的情况，我们可以把这两个信息放在一起。（如果两个表经常连接，这样比较高效）  
+    对于老师和部门经常一起访问的情况，我们可以把这两个信息放在一起。（如果两个表经常连接，这样比较高效）  
     但这样对于单独查找某个信息就不太方便。
     <div align=center> <img src="http://cdn.hobbitqia.cc/202304241636016.png" width = 60%/> </div>
 

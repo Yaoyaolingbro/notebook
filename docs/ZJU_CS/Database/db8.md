@@ -126,6 +126,7 @@ Use standard block-oriented disk interfaces, but store data on multiple flash st
     <div align=center> <img src="http://cdn.hobbitqia.cc/202304241057122.png" width = 60%/> </div>
 
 * **wear leveling(磨损均衡)**  
+
 evenly distributed erase operators across physical blocks
 
 <div align=center> <img src="http://cdn.hobbitqia.cc/202304241059015.png" width = 60%/> </div>

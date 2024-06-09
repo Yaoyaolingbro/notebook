@@ -208,11 +208,22 @@ nav:
     - Database:
       - ZJU_CS/Database/index.md
       - ZJU_CS/Database/review.md
-      - ZJU_CS/Database/week1.md
-      - ZJU_CS/Database/week2.md
-      - ZJU_CS/Database/week3.md
-      - ZJU_CS/Database/week4.md
-      - ZJU_CS/Database/week5.md
+      - ZJU_CS/Database/quiz.md
+      - ZJU_CS/Database/db1.md
+      - ZJU_CS/Database/db2.md
+      - ZJU_CS/Database/db3.md
+      - ZJU_CS/Database/db4.md
+      - ZJU_CS/Database/db5.md
+      - ZJU_CS/Database/db6.md
+      - ZJU_CS/Database/db7.md
+      - ZJU_CS/Database/db8.md
+      - ZJU_CS/Database/db9.md
+      - ZJU_CS/Database/db10.md
+      - ZJU_CS/Database/db11.md
+      - ZJU_CS/Database/db12.md
+      - ZJU_CS/Database/db13.md
+      - ZJU_CS/Database/db14.md
+      - ZJU_CS/Database/db15.md
 
     - Computer Organazation:
       - ZJU_CS/computer_organization/index.md
