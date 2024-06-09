@@ -6,7 +6,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="yaoyaoling" name="author"/>
-<link href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/Lec10/" rel="canonical"/>
+<link href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/week10/" rel="canonical"/>
+<link href="../week9/" rel="prev"/>
+<link href="../week11/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.13" name="generator"/>
 <title>Lecture 10 | NP Completeness - Yaoyaoling's notebook</title>
@@ -132,7 +134,7 @@
 
       </a>
 </li>
-<li class="md-tabs__item">
+<li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../../">
           
   
@@ -255,13 +257,330 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     ZJU_CS
   </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../HPC/">
+<span class="md-ellipsis">
+    HPC
+  </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../FDS/">
+<span class="md-ellipsis">
+    FDS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../DigitalDesign/">
+<span class="md-ellipsis">
+    Digital desin
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../Discrete%20math/">
+<span class="md-ellipsis">
+    Discrete math
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../oop/">
+<span class="md-ellipsis">
+    OOP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    ADS
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+            ADS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../homework/">
+<span class="md-ellipsis">
+    ADS Homework Review
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week1/">
+<span class="md-ellipsis">
+    Lecture 1 | AVL Trees &amp; Splay Trees
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week2/">
+<span class="md-ellipsis">
+    Lecture 2 | Red Black Tree &amp; B+ Tree
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week3/">
+<span class="md-ellipsis">
+    Lecture 3 | Inverted File Index
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week4/">
+<span class="md-ellipsis">
+    Lecture 4 | Leftist Heap &amp; Skew Heap
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week5/">
+<span class="md-ellipsis">
+    Lecture 5 | Binomial Queue
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week6/">
+<span class="md-ellipsis">
+    Lecture 6 | Backtracing
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week7/">
+<span class="md-ellipsis">
+    Lecture 7 | Divide &amp; Conquer
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week8/">
+<span class="md-ellipsis">
+    Lecture 8 | Dynamic Programming
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week9/">
+<span class="md-ellipsis">
+    Lecture 9 | Greedy Algorithms
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Lecture 10 | NP Completeness
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Lecture 10 | NP Completeness
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      概述
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      课内案例
+    </span>
+</a>
+<nav aria-label="课内案例" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#halting_problem">
+<span class="md-ellipsis">
+      Halting Problem
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hamilton_cycle_problem">
+<span class="md-ellipsis">
+      Hamilton Cycle Problem
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#traveling_salesman_problem">
+<span class="md-ellipsis">
+      Traveling Salesman Problem
+    </span>
+</a>
+<nav aria-label="Traveling Salesman Problem" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#npc">
+<span class="md-ellipsis">
+      判定版本的 NPC 证明
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#circuit-sat">
+<span class="md-ellipsis">
+      Circuit-SAT
+    </span>
+</a>
+<nav aria-label="Circuit-SAT" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-sat">
+<span class="md-ellipsis">
+      3-SAT
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a_formal-language_framework">
+<span class="md-ellipsis">
+      A formal-language Framework
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      相关概念
+    </span>
+</a>
+<nav aria-label="相关概念" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      图灵机
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      多项式时间归约
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week11/">
+<span class="md-ellipsis">
+    Lecture 11 | Approximation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week12/">
+<span class="md-ellipsis">
+    Lecture 12 | Local Search
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week13/">
+<span class="md-ellipsis">
+    Lecture 13 | Randomized Algorithms
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week14/">
+<span class="md-ellipsis">
+    第14讲 | 并行
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../week15.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../Database/">
+<span class="md-ellipsis">
+    Database
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../computer_organization/">
+<span class="md-ellipsis">
+    Computer Organazation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
 <a class="md-nav__link" href="../../../Missing%20semester/">
@@ -738,7 +1057,7 @@ A \leq_{p} B
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月11日 10:06:55</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月6日 15:19:35</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">

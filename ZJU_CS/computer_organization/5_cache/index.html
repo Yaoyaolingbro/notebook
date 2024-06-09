@@ -930,6 +930,20 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -977,6 +991,28 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -2126,15 +2162,22 @@
 <li><strong>Spatial locality</strong>, 空间局部性，即近期访问项目附近的项目也有可能会在短时间内再次被访问。例如连续的指令执行，或者数组变量等</li>
 </ul>
 <p>因此，结构化的 memory 被设计出来。近期访问到的内存单元和它附近的内容被复制一份放在离 CPU 更近、访问更快，但也更小的 <strong>cache</strong> 中，从而利用上述局部性加速访问。</p>
-<p><center><img alt="image.png" src="../../../assets/1652692160527-7606f530-5481-4d42-8ed2-c4df690c9bf4.png" /></center></p>
+<p><img alt="20240605161144.png" src="../graph/20240605161144.png" /></p>
 <p>我们称复制的单位是 <strong>block</strong> 或者 <strong>line</strong>，它通常是 2 的若干次方个 word 那么大（一个 word 是 4 Byte）。</p>
 <p>如果我们希望访问的内存单元 (即，它所在的 block) 恰好在 cache 中（之前某一次被搬上来了），我们称之为一次 <strong>hit</strong>，这时我们只需要从中读出来就可以了。判断是否 hit，以及读出来的时间称为 <strong>hit time</strong>。</p>
 <p>如果并不存在，称为一次 <strong>miss</strong>。当 cache miss 时，我们需要先将内容所在的 block 从 memory 拿到 cache，然后再将内容读到处理器；这个过程花的时间成为 <strong>miss penalty</strong>。</p>
 <p>对应的有 hit / miss rate (也称 ratio) 的概念，不再赘述。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">Medium</p>
+<p>一个我认为讲述的非常high level的<a href="https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a">blog</a></p>
+</div>
+<!-- prettier-ignore-end -->
+
 <h2 id="52_the_basics_of_cache">5.2 The basics of Cache<a class="headerlink" href="#52_the_basics_of_cache" title="Permanent link">#</a></h2>
 <p>下面我们来具体考虑 cache 怎么实现。主要需要讨论的问题是：如何知道一个 block 是否在 cache 里？以及如果知道它在的话，如何找到它？</p>
 <h3 id="531_direct_mapped_cache">5.3.1 Direct Mapped Cache<a class="headerlink" href="#531_direct_mapped_cache" title="Permanent link">#</a></h3>
-<p><center><img alt="image.png" src="../../../assets/1652692837568-a910a2a5-d2ff-4251-8dfb-447508ca670c.png" /></center></p>
+<p><img alt="20240605165058.png" src="../graph/20240605165058.png" /></p>
 <p>如上图所示，内存有 32 个 block，其编号 (block address) 分别为 00000 到 11111；cache 有 8 个 block。Direct mapped cache 这种方式直接按 block address 的后 3 位确定它应该放在 cache 的哪个 block 里。</p>
 <p>即，图上灰色的 block 的编号末 3 位都是 001，所以就应该放在 cache 中编号为 001 的灰色 block 里；橙色同理。</p>
 <p>为什么是三位呢？很简单，因为 cache 有 8 个 block 的话，其对应的就是 3 位二进制数。我们把这个决定映射关系的末几位称为 <strong>index</strong>。同理，如果 cache 有 64 个 block 的话，index 就是 6 位。Cache 的 block 数始终是 2 的幂次方。</p>
@@ -2144,29 +2187,29 @@
 <p>也就是说，cache hit 当且仅当 valid bit 是 1 而且 tag 是一致的。</p>
 <p>我们在内存中的地址都是以字节为单位的，而上面我们讨论的 block address 都是以 block 为单位的，这两者之间有什么样的关系呢？非常简单，由于一个 block 总是 2 的若干次方个 word 那么大， 而每个 word 是 4 Byte，因此每个 block 的 byte 数也是 2 的若干次方。因此，我们只需要去掉 byte address 的后几位，就可以获得它的 block address 了。这样相邻的 2 的若干次方个 byte 就会聚合成一个 block 了，因为它们的 byte address 的前若干位，即 block address，是相同的。</p>
 <p>也就是说，我们将 byte address 分为 2 个部分：block address 和 byte offset，即所在 block 的编号以及在 block 中的偏移量 (in byte)；而 block address 又分为了两个部分，即 tag 和 index。即：</p>
-<p><center><img alt="image.png" src="../../../assets/1652751935229-d2221dfa-a158-4842-9cb6-7bcb51479bec.png" /></center></p>
+<p><img alt="20240605165132.png" src="../graph/20240605165132.png" /></p>
 <p>而在 cache 中，我们存储以下信息：</p>
-<p><center><img alt="image.png" src="../../../assets/1652752079856-f08cb589-5068-4524-90b6-23c7a3f1b7df.png" /></center></p>
+<p><img alt="20240605165146.png" src="../graph/20240605165146.png" /></p>
 <p>即，每个 cache block 有一个 index，当出现一次 miss 后从内存中拿所需内存覆盖到对应的 index 条目上的 data 字段，将 tag 设为 block address 的前几位，将 valid bit 设为 1。</p>
 <details class="example" open="open">
 <summary>例 5.1 Direct Mapped Cache 的填充和替换</summary>
 <p>下面是一个具体的例子：</p>
-<p><center><img alt="image.png" src="../../../assets/1652752776370-d0133a42-a292-4d62-b055-001d5d601a10.png" /></center></p>
+<p><img alt="20240605165209.png" src="../graph/20240605165209.png" /></p>
 </details>
 <details class="example" open="open">
 <summary>例 5.2 Direct Mapped Cache 的位数计算和连线方式</summary>
 <p>又例如，对于一个 64 位地址的机器，cache 的大小为 1024 个 block，一个 block 有 1 个 word，即 4 个 byte，那么 index 的位数就是 <span class="arithmatex">\(\log_2 1024 = 10\)</span>，byte offset 的位数就是 <span class="arithmatex">\(\log_2 4 = 2\)</span>，因此 tag 的位数就是 <span class="arithmatex">\(64 - 10 - 2 = 52\)</span>；另外一个 block 的大小是 4 个 byte，即 32 位，因此一个 cache 的条目的位数就是 valid bit 1 位 + tag 52 位 + word 32 位 = 85 位。</p>
 <p>（index 并不需要在这里被计算，因为 index 之于 cache 就像 address 之于 main memory 一样，是直接用来访问的）</p>
 <p>亦即：</p>
-<p><center><img alt="image.png" src="../../../assets/1652752904223-cd18cbdd-7d9b-45f6-9dfc-4543a5951094.png" /></center></p>
+<p><img alt="20240605165226.png" src="../graph/20240605165226.png" /></p>
 <p>当然，如我们之前所说，一个 block 有可能包含多个 word，而每次实际上只会访问出一个 word。因此这时我们还需要在 block 中选择对应的 word，这时候我们就可以将 byte offset 进一步细分成表示 block 中某个 word 的 <strong>block offset</strong>（为什么不叫 word offset 呢？），以及表示 word 中某个 byte 的 <strong>byte offset</strong>：</p>
-<p><center><img alt="image.png" src="../../../assets/1652765206172-56e8e84c-5e9c-41d4-ae02-6a0dfca2399c.png" /></center></p>
+<p><img alt="20240605165248.png" src="../graph/20240605165248.png" /></p>
 <p>即，对这个图中的情形，地址是 32 位的，一个 block 有 16 个 word，有 256 个 cache entry。因此 byte offset 的位数是 <span class="arithmatex">\(\log_2 4 = 2\)</span>，block offset 的位数是 <span class="arithmatex">\(\log_2 16 = 4\)</span>，index 的位数是 <span class="arithmatex">\(\log_2 256 = 8\)</span>，tag 的位数是 <span class="arithmatex">\(32-8-4-2=18\)</span>，一个 cache entry 的长度是 valid bit 1 位 + tag 18 位 + data 16 word * 4 byte/word * 8 bit/byte = 531 位。</p>
 </details>
 <details class="example" open="open">
 <summary>例 5.3 Direct Mapped Cache 的位数计算</summary>
 <p>再例如：</p>
-<p><center><img alt="image.png" src="../../../assets/1652753397820-7f30a36f-aab7-41b1-bbbf-89c151253a49.png" /></center></p>
+<p><img alt="20240605165320.png" src="../graph/20240605165320.png" /></p>
 </details>
 <h3 id="532_handling_cache_hits_misses">5.3.2 Handling Cache Hits &amp; Misses<a class="headerlink" href="#532_handling_cache_hits_misses" title="Permanent link">#</a></h3>
 <p>显然，读和写的时候发生 cache miss 的处理方式是不一样的；另外读也有读数据和读指令之分（指令 cache 和数据 cache 通常是分离的）。我们分别对其进行讨论：</p>
@@ -2210,7 +2253,7 @@
 <h3 id="533">5.3.3 其他定位方式<a class="headerlink" href="#533" title="Permanent link">#</a></h3>
 <p>在 5.3.1 中，我们讨论了最简单的映射方式，即直接映射：对于任一给定的 block address，有且仅有一个 cache block 可供它存放。实际上，还有一些其他的映射方式。</p>
 <p><strong>Fully associative</strong>，简单来说就是 block can go anywhere in cache。这种方式的好处是可以降低 miss rate，坏处是每次需要跟所有 block 比较是否 hit：</p>
-<p><center><img alt="image.png" src="../../../assets/1652756194622-6e4626af-f977-45b0-86dc-7cbfcef52bfd.png" /></center></p>
+<p><img alt="20240605165423.png" src="../graph/20240605165423.png" /></p>
 <p>这种情况下，我们需要额外讨论替换时采用什么样的策略；即：替换哪一块。通常有三种策略：</p>
 <ul>
 <li><strong>Random replacement</strong>，随机挑选一个幸运 block 覆盖掉（需要一个随机数生成器）</li>
@@ -2218,13 +2261,13 @@
 <li><strong>FIFO, First In First Out</strong>，选择进入时间最早的 block 覆盖掉（同样需要一些额外的位记录信息，同样没讲具体实现）</li>
 </ul>
 <p>介于 direct mapping 和 fully associative 之间的是 set associative，即每个 block 仍然会根据其 address 确定其可以存放的 cache block，但是可以放的地方并不是一个，而是一组。即：</p>
-<p><center><img alt="image.png" src="../../../assets/1652756607490-1017df1c-5566-4e2a-a28b-116f0e333638.png" /></center></p>
+<p><img alt="20240605165439.png" src="../graph/20240605165439.png" /></p>
 <p>最右边是一个 2-way set-associative 的例子，每个地址对应 cache 中的一组，在这里一组有两个 cache block。因此在访问时也需要分别比较这两个 block 是否 hit。在替换时也需要决定替换哪一块，也可以使用前述的三个策略中的一个实现。</p>
 <p>相似地，一个 4-way set-associative 的访问中判断 hit 和获取 data 的连线如下：</p>
-<p><center><img alt="image.png" src="../../../assets/1652757530348-328003df-17fe-47b0-826f-7c7f283d4811.png" /></center></p>
+<p><img alt="20240605165453.png" src="../graph/20240605165453.png" /></p>
 <p>所以，事实上，direct mapping 和 fully associative 其实都是 set associative 的特例：direct mapping 其实就是 1-way set associative，而 fully associative 就是 n-way set associative，其中 n 是 cache block 的个数；我们称一组的大小为 <strong>associativity</strong>，那么这两种方法的 associativity 就分别是 1 和 n。</p>
 <p>显然，在查看所需 block 是否在 cache 中时，需要访问的 cache block 个数就等于 associativity，即：</p>
-<p><center><img alt="image.png" src="../../../assets/1652757375415-3eaa40f0-fcf9-4005-a401-8892a22d6867.png" /></center></p>
+<p><img alt="20240605165506.png" src="../graph/20240605165506.png" /></p>
 <details class="example" open="open">
 <summary>例 5.4 Set associative 的位数计算</summary>
 <p>已知 Cache size is 4K Block, Block size is 4 words, Physical address is 32bits，求 direct-mapped, 2-way associative, 4-way associative, fully associative 时 tag 和 index 的位数。</p>
@@ -2359,7 +2402,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年2月27日 10:05:54</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月6日 15:19:35</span>
   </span>
 
     
