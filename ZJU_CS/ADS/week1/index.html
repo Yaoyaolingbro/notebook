@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/ADS/week1/">
       
       
-        <link rel="prev" href="../homework/">
+        <link rel="prev" href="../exam/">
       
       
         <link rel="next" href="../week2/">
@@ -556,6 +556,8 @@
       
         
       
+        
+      
     
     
       
@@ -946,6 +948,8 @@
       
         
       
+        
+      
     
     
       
@@ -1001,6 +1005,27 @@
   
   <span class="md-ellipsis">
     ADS Homework Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    历年卷复习
   </span>
   
 
@@ -1502,7 +1527,7 @@
         
   
   <span class="md-ellipsis">
-    第14讲 | 并行
+    Lecture 14 | 并行
   </span>
   
 
@@ -1519,11 +1544,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../week15.md" class="md-nav__link">
+      <a href="../week15/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Lecture 15 | External Sorting
   </span>
   
 
@@ -1672,6 +1697,55 @@
   
   <span class="md-ellipsis">
     Computer Organazation
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../3DCV/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to 3D CV
   </span>
   
 
@@ -2389,6 +2463,9 @@
 <!-- prettier-ignore-end -->
 
 <h3 id="_3">插入和删除<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<blockquote>
+<p>PPT 中未做讲解，可以看OI-Wiki的<a href="https://oi-wiki.org/ds/avl/">AVL树</a></p>
+</blockquote>
 <h2 id="splay_tree">Splay tree<a class="headerlink" href="#splay_tree" title="Permanent link">#</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">link</p>
@@ -2467,7 +2544,7 @@
 <p><a href="http://www2.hawaii.edu/~nodari/teaching/f19/scribes/notes06.pdf">http://www2.hawaii.edu/~nodari/teaching/f19/scribes/notes06.pdf</a></p>
 </div>
 <p>开始分析之前，我们首先需要明确分析的目标：</p>
-<p>对于 Splay，它不像我们在 <strong><a href="Ex01.md#摊还分析">Topic 1 | Amortized Analysis</a></strong> 提到的那些案例一样，存在明显的减势和增势行为。对于 Splay 来说，所有我们提到的操作都依赖于将目标点旋转到根来实现，而这也成为其主要开销（部分常数操作显然被覆盖，插入之类的操作之所以能被忽略的原因，可以参考 ltgg 的<strong><a href="https://www.yuque.com/27rabbit/gi2sf3/veonae">这篇文章</a></strong>）。其中我们会用到若干次 <code>zig</code>、<code>zig-zag</code>、<code>zig-zig</code> 的操作。</p>
+<p>对于 Splay，它不像我们在 <strong><a href="#amortized-analysis">Topic | Amortized Analysis</a></strong> 提到的那些案例一样，存在明显的减势和增势行为。对于 Splay 来说，所有我们提到的操作都依赖于将目标点旋转到根来实现，而这也成为其主要开销（部分常数操作显然被覆盖，插入之类的操作之所以能被忽略的原因，可以参考 ltgg 的<strong><a href="https://www.yuque.com/27rabbit/gi2sf3/veonae">这篇文章</a></strong>）。其中我们会用到若干次 <code>zig</code>、<code>zig-zag</code>、<code>zig-zig</code> 的操作。</p>
 <p>因此我们可以认为，我们要分析的目标为：</p>
 <div class="arithmatex">\[
 T_{\text{rotate }x\text{ to root}} = T_{\text{zig}} + \sum{ {T_{\text{zig-zag}}}_i } + \sum{ {T_{\text{zig-zig}}}_i }
@@ -2792,7 +2869,7 @@ T_{amortized} = \frac{\sum_i{T_i}}{n}
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月25日 21:42:59</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月15日 15:57:56</span>
   </span>
 
     

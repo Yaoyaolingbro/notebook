@@ -24,7 +24,7 @@
     
     
       
-        <title>Indexing - Yaoyaoling's notebook</title>
+        <title>Lecture 10 | Indexing - Yaoyaoling's notebook</title>
       
     
     
@@ -100,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#indexing" class="md-skip">
+        <a href="#lecture_10_indexing" class="md-skip">
           Skip to content
         </a>
       
@@ -134,7 +134,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Indexing
+              Lecture 10 | Indexing
             
           </span>
         </div>
@@ -556,6 +556,8 @@
       
         
       
+        
+      
     
     
       
@@ -944,6 +946,8 @@
       
         
       
+        
+      
     
     
       
@@ -1125,7 +1129,7 @@
         
   
   <span class="md-ellipsis">
-    Introduction
+    Lecture 1 | Introduction
   </span>
   
 
@@ -1272,7 +1276,7 @@
         
   
   <span class="md-ellipsis">
-    Physical Storage Systems
+    Lecture 8 | Physical Storage Systems
   </span>
   
 
@@ -1293,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    Data Storage Structures
+    Lecture 9 | Data Storage Structures
   </span>
   
 
@@ -1323,7 +1327,7 @@
           
   
   <span class="md-ellipsis">
-    Indexing
+    Lecture 10 | Indexing
   </span>
   
 
@@ -1334,7 +1338,7 @@
         
   
   <span class="md-ellipsis">
-    Indexing
+    Lecture 10 | Indexing
   </span>
   
 
@@ -1528,7 +1532,7 @@
         
   
   <span class="md-ellipsis">
-    Query Processing
+    Lecture11 ｜ Query Processing
   </span>
   
 
@@ -1678,6 +1682,55 @@
   
   <span class="md-ellipsis">
     Computer Organazation
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../3DCV/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to 3D CV
   </span>
   
 
@@ -2357,7 +2410,7 @@
   
 
 
-<h1 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">#</a></h1>
+<h1 id="lecture_10_indexing">Lecture 10 | Indexing<a class="headerlink" href="#lecture_10_indexing" title="Permanent link">#</a></h1>
 <h2 id="basic_concepts">Basic Concepts<a class="headerlink" href="#basic_concepts" title="Permanent link">#</a></h2>
 <p><strong>Indexing</strong> mechanisms used to <em>speed up access</em> to desired data.<br />
 索引用来加速查找。  </p>
@@ -2390,8 +2443,8 @@ An <strong>index file</strong> consists of records (called index entries) of the
 <details class="example">
 <summary>Example</summary>
 <p><div align=center> <img src="http://cdn.hobbitqia.cc/202305081005754.png" width = 60%/> </div></p>
-<p>主索引和数据内的顺序是一样的。点查和范围查都是比较高效的。
-<div align=center> <img src="http://cdn.hobbitqia.cc/202305081007582.png" width = 60%/> </div></p>
+<p>主索引和数据内的顺序是一样的。点查和范围查都是比较高效的。</p>
+<p><div align=center> <img src="http://cdn.hobbitqia.cc/202305081007582.png" width = 60%/> </div></p>
 <p>如果 key 不是一个主键，那可能会对应多个记录。</p>
 </details>
 <p>Primary index 是很宝贵的，只能有一个，其他都是辅助索引。    </p>
@@ -2556,7 +2609,7 @@ Optimum page size therefore much smaller</li>
 <li>When in-memory tree is full, records moved to disk (<span class="arithmatex">\(L_1\)</span> tree)<br />
 B+-tree constructed using <em>bottom-up build</em> by merging existing <span class="arithmatex">\(L_1\)</span> tree with records from <span class="arithmatex">\(L_0\)</span> tree<br />
 内存里的 B+ 树如果满了，就马上写到磁盘里去（可以连续写）  </li>
-<li>When <span class="arithmatex">\(L_1\)</span> tree exceeds some threshold, merge into $L_2￥ tree<br />
+<li>When <span class="arithmatex">\(L_1\)</span> tree exceeds some threshold, merge into <span class="arithmatex">\(L_2\)</span> tree<br />
 And so on for more levels<br />
 Size threshold for <span class="arithmatex">\(L_{i+1}\)</span> tree is <span class="arithmatex">\(k\)</span> times size threshold for <span class="arithmatex">\(L_i\)</span> tree </li>
 </ul>
@@ -2601,7 +2654,7 @@ Size threshold for <span class="arithmatex">\(L_{i+1}\)</span> tree is <span cla
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月19日 11:22:29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月15日 15:57:56</span>
   </span>
 
     
