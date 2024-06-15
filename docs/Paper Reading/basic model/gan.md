@@ -1,6 +1,6 @@
 # Generative Adversarial Networks
 <!-- prettier-ignore-start -->
-!!! note "resource"
+!!! quote "resource"
     
 
 <!-- prettier-ignore-end -->

@@ -190,6 +190,7 @@ nav:
     - ADS:
       - ZJU_CS/ADS/index.md
       - ZJU_CS/ADS/homework.md
+      - ZJU_CS/ADS/exam.md
       - ZJU_CS/ADS/week1.md
       - ZJU_CS/ADS/week2.md
       - ZJU_CS/ADS/week3.md
@@ -234,6 +235,9 @@ nav:
       - ZJU_CS/computer_organization/5_cache.md
       - ZJU_CS/computer_organization/6_IO.md
       - ZJU_CS/computer_organization/历年卷.md
+
+    - Introduction to 3D CV:
+      - ZJU_CS/3DCV/index.md
 
   - Missing semester: 
     - Missing semester/index.md

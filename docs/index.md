@@ -5,11 +5,13 @@
 
 如果里面的内容大家有补充说明的地方，欢迎和笔者沟通：Duzz816@163.com 或者提交Issue。
 
-感谢每一位我所遇见的浙大学长同学的帮助，以及[csdiy](https://csdiy.wiki)对我的指导。我也会根据我的学习过程把一些好的重要的网站放在我的笔记里。（如若可以，请点下右上角的小星星哟wink）
+感谢每一位我所遇见的浙大学长同学的帮助，以及[csdiy](https://csdiy.wiki)对我的指导。我也会根据我的学习过程把一些好的重要的网站放在我的笔记里。（如若可以，请点下右上角的小星星哟✨）
 
 <!-- prettier-ignore-start -->
 !!! warning "笔记近况"
     由于个人原因，其实不少笔记都是有所搁置的，关于科研方面的内容，我会尽快更新，但是关于课程学习的内容，可能会有所延迟。欢迎随时和笔者联系，谢谢哟～
+
+    > 最近发现个宝藏网站：https://github.com/kamranahmedse/developer-roadmap?tab=readme-ov-file
 <!-- prettier-ignore-end -->
 
 !!! note "List"

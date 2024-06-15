@@ -1,4 +1,4 @@
-# 第14讲 | 并行
+# Lecture 14 | 并行
 
 有两种并行算法模型：PRAM（Parallel Random Access Machine）和 WD（Work-Depth）模型。
 

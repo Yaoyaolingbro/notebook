@@ -10,7 +10,7 @@
 <!-- prettier-ignore-end -->
 
 <!-- prettier-ignore-start -->
-???+ note "Resource"
+???+ quote "Resource"
     [一文汇总](https://www.jiqizhixin.com/articles/2021-02-24-7)
     
 <!-- prettier-ignore-end -->

@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Introduction
+# Lecture 1 | Introduction
 
 ??? Abstract 
     * Database Systems

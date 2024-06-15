@@ -15,6 +15,7 @@
 
 <!-- prettier-ignore-start -->
 !!! note "旋转的选择"
+
     |失衡节点的平衡因子 ｜ 子节点的平衡因子 | 应采用的旋转方法|
     |---|---|---|
     | $>1$ | $\geq 0$ | 右旋 |
@@ -24,7 +25,7 @@
 <!-- prettier-ignore-end -->
 
 ### 插入和删除
-
+> PPT 中未做讲解，可以看OI-Wiki的[AVL树](https://oi-wiki.org/ds/avl/)
 
 ## Splay tree
 !!! quote "link"
@@ -104,7 +105,7 @@ Splay 的核心思想就是，每当我们访问一个节点（比如查询某�
 
 开始分析之前，我们首先需要明确分析的目标：
 
-对于 Splay，它不像我们在 **[Topic 1 | Amortized Analysis](Ex01.md#摊还分析)** 提到的那些案例一样，存在明显的减势和增势行为。对于 Splay 来说，所有我们提到的操作都依赖于将目标点旋转到根来实现，而这也成为其主要开销（部分常数操作显然被覆盖，插入之类的操作之所以能被忽略的原因，可以参考 ltgg 的**[这篇文章](https://www.yuque.com/27rabbit/gi2sf3/veonae)**）。其中我们会用到若干次 `zig`、`zig-zag`、`zig-zig` 的操作。
+对于 Splay，它不像我们在 **[Topic | Amortized Analysis](#amortized-analysis)** 提到的那些案例一样，存在明显的减势和增势行为。对于 Splay 来说，所有我们提到的操作都依赖于将目标点旋转到根来实现，而这也成为其主要开销（部分常数操作显然被覆盖，插入之类的操作之所以能被忽略的原因，可以参考 ltgg 的**[这篇文章](https://www.yuque.com/27rabbit/gi2sf3/veonae)**）。其中我们会用到若干次 `zig`、`zig-zag`、`zig-zig` 的操作。
 
 因此我们可以认为，我们要分析的目标为：
 

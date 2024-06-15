@@ -1,5 +1,10 @@
 # Protein hierachy
 
+<!-- prettier-ignore-start -->
+!!! quote "resource"
+    [Protein Machinelearning](https://github.com/yangkky/Machine-learning-for-proteins)
+<!-- prettier-ignore-end -->
+
 ## Paper list
 ### 3d graph network
 - [Protein Representation Learning by Geometric Structure Pretraining](https://paperswithcode.com/paper/protein-structure-representation-learning-by)

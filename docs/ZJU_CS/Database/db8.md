@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Physical Storage Systems
+# Lecture 8 | Physical Storage Systems
 
 ??? Abstract
     * Classification of Physical Storage Media

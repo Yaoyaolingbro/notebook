@@ -7,9 +7,10 @@
 <!-- prettier-ignore-end -->
 
 <!-- prettier-ignore-start -->
-!!! note " Resource"
+!!! quote " Resource"
     - [李沐]（https://github.com/mli/paper-reading?tab=readme-ov-file）的paper-reading项目
     - [paper with code](https://paperswithcode.com/)
     - [geeksforgeeks](https://www.geeksforgeeks.org/): 一个关于计算机科学的学习网站
     - [colah blog](https://colah.github.io/)
+    - [Paper Reading](https://papers.cool/)
 <!-- prettier-ignore-end -->

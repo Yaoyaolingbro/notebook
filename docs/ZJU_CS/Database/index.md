@@ -2,6 +2,7 @@
 - 老师：孙建伶
 - 成绩占比：10%Exercise + 10%Quiz + 30%lab + 50%期末
 
+> 申明：本笔记是在HobbitQiang的基础上进行修改的，感谢开源🙏
 
 <!-- prettier-ignore-start -->
 !!! note "参考资料"

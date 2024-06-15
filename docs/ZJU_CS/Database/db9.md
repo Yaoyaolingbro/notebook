@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Data Storage Structures
+# Lecture 9 | Data Storage Structures
 
 ??? Abstract
     * File Organization

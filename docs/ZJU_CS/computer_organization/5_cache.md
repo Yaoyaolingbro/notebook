@@ -51,6 +51,11 @@
 
 我们在内存中的地址都是以字节为单位的，而上面我们讨论的 block address 都是以 block 为单位的，这两者之间有什么样的关系呢？非常简单，由于一个 block 总是 2 的若干次方个 word 那么大， 而每个 word 是 4 Byte，因此每个 block 的 byte 数也是 2 的若干次方。因此，我们只需要去掉 byte address 的后几位，就可以获得它的 block address 了。这样相邻的 2 的若干次方个 byte 就会聚合成一个 block 了，因为它们的 byte address 的前若干位，即 block address，是相同的。
 
+<!-- prettier-ignore-start -->
+!!! info "批注"
+    这里的逻辑其实是非常非常清晰的，之前的作者写的稍微有点点绕？但我觉得计组这个课说白了就是把自己的思想实现出来；这里bonus建议大家完成四分的量（第五分要合到cpu里需要考虑时序的问题的），有助于你理解和梳理逻辑的。
+<!-- prettier-ignore-end -->
+
 也就是说，我们将 byte address 分为 2 个部分：block address 和 byte offset，即所在 block 的编号以及在 block 中的偏移量 (in byte)；而 block address 又分为了两个部分，即 tag 和 index。即：
 
 ![20240605165132.png](graph/20240605165132.png)

@@ -1,7 +1,7 @@
 # 写在前面
 
 !!! danger ""
-    本文是图灵班姜女士的计算机组成，在咸鱼喧笔记的基础上进行整理学习。
+    本文是图灵班姜女士的计算机组成，在**咸鱼喧笔记**的基础上进行整理学习。
 
     课程成绩占比为：quiz+6homework 20%，期中10%，期末40%，实验30%（bonus 5%）；
     > 其中验收60%，报告40%。迟交每天扣 20%😭
@@ -10,6 +10,7 @@
 
 使用的课本是 _Computer Organization and Design - The Hardware / Software Interface (RISC-V Edition)_：
 
+实验代码参考：https://github.com/liangchenwater/RISC-V-CPU
 作业答案可参考：https://github.com/dmohindru/cod5e/blob/master/solutions
 > (切记,由于指令集不同，答案不完全一样，抄的时候需保持清醒Orz)
 
