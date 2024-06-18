@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-## Relational Database Design
+# Lecture 7 ｜ Relational Database Design
 
 ### Introduction
 

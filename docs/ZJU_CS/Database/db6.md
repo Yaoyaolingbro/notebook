@@ -194,8 +194,8 @@ Primary key of the table is the union of the discriminator of the weak entity s
 
     ??? Question "为什么多对多的关系一定要转化成一个关系模式"
 
-* Many-to-one and one-to-many relationship sets that are total on the many-side can be represented by adding an extra attribute to the “many” side, containing the primary key of the “one” side.  
-多对一可以不转换为单独的关系模式，直接在“多“那个表上添加”一“的主键即可。
+    * Many-to-one and one-to-many relationship sets that are total on the many-side can be represented by adding an extra attribute to the “many” side, containing the primary key of the “one” side.  
+    多对一可以不转换为单独的关系模式，直接在“多“那个表上添加”一“的主键即可。
 
     ??? Example
         <div align=center> <img src="http://cdn.hobbitqia.cc/202304031637004.png" width = 60%/> </div>

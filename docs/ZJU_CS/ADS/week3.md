@@ -100,9 +100,26 @@
 而第二种办法则有较强的容灾性能。即使一台机器无法工作，也不会剧烈影响到整个系统的工作。
 
 ---
+## THreshold
+
+请区分`document`和`Query`判准的区别
+![20240617155519.png](graph/20240617155519.png)
+
+
+<!-- prettier-ignore-start -->
+??? info "例题"
+    ![20240617160403.png](graph/20240617160403.png)
+<!-- prettier-ignore-end -->
+---
 
 ## 性能评估
+<!-- prettier-ignore-start -->
+!!! warning "必考！！！"
+    这个计算必考一定要记住呀！！！
+<!-- prettier-ignore-end -->
+![20240617155719.png](graph/20240617155719.png)
 
-和统计学的假设检验类似，也和机器学习领域的 Average Precision 类似。
-
-这些内容可以很好的类比，暂时不再展开。
+<!-- prettier-ignore-start -->
+??? info "23mid"
+    ![20240617155846.png](graph/20240617155846.png)
+<!-- prettier-ignore-end -->

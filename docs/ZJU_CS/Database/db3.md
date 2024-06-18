@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Introduction to SQL
+# Lecture 3 ｜ Introduction to SQL
 
 ??? Abstract 
     * Data Definition

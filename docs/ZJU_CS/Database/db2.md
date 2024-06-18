@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Relational Model
+# Lecture 2 | Relational Model
 
 ## Structure of Relational Databases
 
