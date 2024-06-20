@@ -2373,7 +2373,8 @@
 <h3 id="_1">概念<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
 <p>左偏堆，或者说<strong>左偏堆(Leftist Heap)</strong>，它相比于普通的堆，更好的一点在于它支持快速的堆合并操作。“左偏”，并不断将新的东西往右侧合并，来实现每次都是往相对小的那一侧塞进东西，进而保相对证了这个</p>
 <p>由于左偏堆不再是一个完全二叉树，所以我们不能再像维护大根堆小跟堆那样用数组来维护它了。</p>
-<p>一个左偏堆的结点维护了左右子堆的地址、自身的键值、和一个“<strong>距离(dist)</strong>”。</p>
+<p>一个左偏堆的结点维护了左右子堆的地址、自身的键值、和一个“<strong>距离(dist)</strong>”。
+<img alt="20240618190120.png" src="../graph/20240618190120.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">LeftistHeapNode</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">dist</span><span class="p">;</span>
@@ -2649,7 +2650,7 @@
 <div class="tabbed-block">
 <p><img alt="" src="../img/40.svg" /></p>
 <p>省略了中间的步骤，可以尝试模拟一下，每一次合并操作结束之后都交换左右子树。</p>
-<p>我们总是先往右侧子树递归下去地合并，没完成一次合并就交换这个子树和它的兄弟姐妹，而它的兄弟姐妹在这次交换完以后就不会再发生改变，而这个子树则会继续进行下一次合并。</p>
+<p>我们总是先往右侧子树递归下去地合并，每完成一次合并就交换这个子树和它的兄弟姐妹，而它的兄弟姐妹在这次交换完以后就不会再发生改变，而这个子树则会继续进行下一次合并。</p>
 </div>
 </div>
 </div>
@@ -2776,7 +2777,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月25日 21:42:59</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月20日 23:32:40</span>
   </span>
 
     
