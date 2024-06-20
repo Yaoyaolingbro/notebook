@@ -91,7 +91,7 @@ $F={AB \to C, C \to D}$, set F hold on the relation R(ABCDE).
 (e) Entire content of each level copied multiple times.
 
 
-## week 11
+## week11
 ![20240616212729.png](graph/20240616212729.png)
 > A B D
 
@@ -121,7 +121,7 @@ $F={AB \to C, C \to D}$, set F hold on the relation R(ABCDE).
 - 16080 160
 - 1680 16
 
-## week 12
+## week12
 
 ![20240617012626.png](graph/20240617012626.png)
 > A B C D
@@ -132,3 +132,13 @@ $F={AB \to C, C \to D}$, set F hold on the relation R(ABCDE).
 
 ## week13
 非常知识点，把PPT构成逻辑框架即可完成
+
+## week14
+这里面对锁的考察还是比较细致了😭 这几章的知识都不少啊讲真
+
+![20240620132558.png](graph/20240620132558.png)
+> B
+
+
+![20240620133122.png](graph/20240620133122.png)
+> D
