@@ -1,5 +1,9 @@
 # 论文写作词汇表
-
+<!-- prettier-ignore-start -->
+!!! quote "资源"
+    [pengsida实验室论文写作指南](https://pengsida.notion.site/c1a22465a0fa4b15a12985223916048e)
+    [一个宝藏书](./science_writing_for_non-native_engish_speakers.pdf)
+<!-- prettier-ignore-end -->
 ## Methods
 
 ### Give the source

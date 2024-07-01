@@ -356,6 +356,8 @@ nav:
 
     - Protein:
       - Paper Reading/protein/index.md
+      - Paper Reading/protein/alphafold.md
+      - Paper Reading/protein/ESM3.md
 
   - Spark in life:
     - spark in life/index.md
