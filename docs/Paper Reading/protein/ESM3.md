@@ -31,3 +31,6 @@ The generative pipeline is as follows:
 
 ## 可能性
 ![20240702192005.png](graph/20240702192005.png)
+
+合成的对比
+![20240702193042.png](graph/20240702193042.png)
