@@ -359,6 +359,10 @@ nav:
       - Paper Reading/protein/alphafold.md
       - Paper Reading/protein/ESM3.md
 
+    - LLM Inference
+      - Paper Reading/LLM Inference/index.md
+      - Paper Reading/LLM Inference/survey.md
+
   - Spark in life:
     - spark in life/index.md
     - College life:
