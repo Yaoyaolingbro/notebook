@@ -201,35 +201,77 @@ GPTQ、AWQ等是被广泛使用的）
 
 ##### Sparsification
 ![20240707133031.png](graph/20240707133031.png)
+
 非结构化剪枝在硬件方面的稀疏性的加速潜能。跟Hessian矩阵有关。
 通常采取重构未剪枝的部分来补偿剪枝损失
-有人利用二阶信息来辅助剪枝。
-##### Structure Optimization
+> 有人利用二阶信息来辅助剪枝。
 
+当然结构化剪枝的好处也非常明显，弊端则在于会较大损失性能。
+
+当然还存在`sparse attention`，又会存在两种解决办法：`static sparse attention`和`dynamic sparse attention`，前者是将注意力矩阵的稀疏性引入到注意力矩阵中，后者则是自适应消除激活值。
+
+<!-- prettier-ignore-start -->
+???+ note "一个有趣的attention方向"
+    ![20240708112456.png](graph/20240708112456.png)
+<!-- prettier-ignore-end -->
+
+##### Structure Optimization
+结构优化的目标是精化模型架构或结构，目标是增强模型效率和性能之间的平衡。在这一研究领域中，两个突出的技术脱颖而出：神经架构搜索( NAS )和低秩分解( LRF )。
+
+神经架构搜索( Neural Architecture Search，NAS ) [ 221 ]旨在自动搜索最优的神经架构，在效率和性能之间取得最佳平衡。（进化算法？）
+
+![20240708112731.png](graph/20240708112731.png)
 
 
 ##### Knowledge Distillation
+![20240708112913.png](graph/20240708112913.png)
 
 ##### Dynamic Inference
-
+动态推理是让模型子结构进行自适应选择，有点类似cpu的中断机制，但是这个机制是在模型内部进行的。（早停）
+![20240708113141.png](graph/20240708113141.png)
 
 
 #### Knowledge, Suggestions and Future Direction
 
 
 ### System-level
+LLM推理的系统级优化主要包括增强模型前向传递。考虑一个LLM的计算图，存在多个运算符，其中注意力和线性运算符占据了75%。此外其他碎片化的大量算子也会导致内存访问的不规则性。因此，系统级优化的目标是减少内存访问成本，提高计算效率。
+
+
 ![20240707121518.png](graph/20240707121518.png)
+
+
 
 #### Inference Engine
 ##### Graph and Operator Optimization
+> cutlass等去优化GEMM和GEMV的计算，并且针对small batch也有一些优化。
 
+由于MoE的快速增长，对FFN的优化是十分迫切的。
+
+- ** Graph-level Optimization**: kernal fusion作为一种流行的图级优化，因其能够减少运行时间而脱颖而出。应用核融合的优势主要有三点：( 1 )减少内存访问。融合后的内核本质上去除了中间结果的内存访问，减轻了操作员的内存瓶颈。( 2 )减轻内核启动开销。对于一些轻量级的运算符(例如,残差相加)，内核启动时间占据了大部分的延迟，内核融合减少了单个内核的启动。( 3 )增强并行性。对于那些不存在数据依赖关系的运算符，当一个接一个的内核执行无法填充硬件容量时，通过融合的方式并行化内核是有利的。
+
+> Flash Decoding 在推理时可以着重了解下
 
 ##### Speculative Decoding
+该方法的核心思想是使用一个较小的模型，称为`draft model`，以有效地预测后续的几个token，然后使用目标LLM并行地验证这些预测。该方法旨在使LLM能够在单次推理所需的时间范围内生成多个token。
+
+- Draft Construction
+- Draft Verify
+
+![20240708115943.png](graph/20240708115943.png)
+
+> 利用条件概率的分布采样
+> ![20240708120151.png](graph/20240708120151.png)
 
 #### Serving System
+> 这里跟数据库的page太像了只能说
+
+![20240708120554.png](graph/20240708120554.png)
+
+由于kv-cache占据了推理的主要部分，如何分配调度则成为了一个问题。（当考虑到并发时更为复杂）
 
 #### Hardware Accelertor Design
-
+基于FPGA的一些东西？不是很想讲了
 #### LLM Framework
 ![20240707121951.png](graph/20240707121951.png)
 
