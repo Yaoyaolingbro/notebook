@@ -1,4 +1,9 @@
 # Diffusion
+<!-- prettier-ignore-start -->
+!!! quote "资源"
+    [Blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process)
+<!-- prettier-ignore-end -->
+
 ## Training
 ![20240701144113.png](graph/20240701144113.png)
 
