@@ -83,6 +83,10 @@ d_ff = 2048   # FFN中的隐藏层维度
 - data-level 对模型本身几乎没什么影响
 - model-level 通过改变模型结构来减少计算量，可能微调会使模型性能受损
 - system-level 从系统布局的角度优化（本论文说flash attention可能会有树脂偏差？）
+<!-- prettier-ignore-start -->
+??? info "Flash Attention"
+    [flash attention 手稿](https://courses.cs.washington.edu/courses/cse599m/23sp/notes/flashattn.pdf)
+<!-- prettier-ignore-end -->
 ![20240706231206.png](graph/20240706231206.png)
 
 
@@ -141,8 +145,22 @@ Mixture-of-Experts (MoE)：MoE模型将FFN分解为多个专家，每个专家�
 
 ##### Efficient Attention Design
 由于二次方的复杂度开销，尤其在长文本上影响显著，这些研究大致可以分为两个主要的分支：多查询注意和低复杂度注意。
+<!-- prettier-ignore-start -->
+!!! note "KV cache 计算"
+    KV Cache显存占用的计算方式如下：
+
+    1 token KV Cache = 2[K,V] x hidden_size x layers x 2[bytes per FP16] = 4 x H x N bytes
+    比如对于LLaMA 13B fp16模型，1个token所需要的KV Cache为：4 x 5120 x 40 = 819200 bytes，即 800KB。那么对于L=seq_len为2048 tokens的请求，需要的KV Cache数量为: 4 x 2048 x 5120 x 40 = 2048 x 800KB = 1.6GB
+
+
+<!-- prettier-ignore-end -->
+
+![20240727230814.png](graph/20240727230814.png)
 
 - MQA：对MHA的改进，共享kv-cache在不同的attention heads上。（GQA则是MQA和MHA的Mix）
+
+![20240727231211.png](graph/20240727231211.png)
+
 - Low-Complexity Attention：降低attention以及softmax非线性计算的复杂度
 > ![20240707113746.png](graph/20240707113746.png)
 
@@ -252,6 +270,10 @@ LLM推理的系统级优化主要包括增强模型前向传递。考虑一个LL
 - ** Graph-level Optimization**: kernal fusion作为一种流行的图级优化，因其能够减少运行时间而脱颖而出。应用核融合的优势主要有三点：( 1 )减少内存访问。融合后的内核本质上去除了中间结果的内存访问，减轻了操作员的内存瓶颈。( 2 )减轻内核启动开销。对于一些轻量级的运算符(例如,残差相加)，内核启动时间占据了大部分的延迟，内核融合减少了单个内核的启动。( 3 )增强并行性。对于那些不存在数据依赖关系的运算符，当一个接一个的内核执行无法填充硬件容量时，通过融合的方式并行化内核是有利的。
 
 > Flash Decoding 在推理时可以着重了解下
+> ![](https://pic2.zhimg.com/v2-2c21fe2fe87a25e76a5863e3dd25b2d1_b.webp)
+>
+> Flash Decoding 示意图：
+> ![](https://pic3.zhimg.com/v2-13fcb10493400523013dcfe55cc9b846_b.webp)
 
 ##### Speculative Decoding
 该方法的核心思想是使用一个较小的模型，称为`draft model`，以有效地预测后续的几个token，然后使用目标LLM并行地验证这些预测。该方法旨在使LLM能够在单次推理所需的时间范围内生成多个token。
