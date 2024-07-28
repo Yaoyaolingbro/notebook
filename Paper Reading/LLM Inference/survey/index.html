@@ -2096,17 +2096,25 @@
 <p>一般来说LLama-70B参数的模型需要140G存储weights（FP16）
 至于延迟，在2块NVIDIA A100 GPU上生成一个令牌需要大约100毫秒。因此，生成一个包含数百个令牌的序列需要10秒以上的时间。</p>
 </blockquote>
-<p>一般来说存在最开始提到的三个问题，本文优化的重点则主要集中于
-• 模型参数
-• Attention在长文本下的计算开销
-• 自回归解码方法逐个生成token。在每个解码步骤中，所有的模型权重都从片外HBM加载到GPU芯片中，导致较大的内存访问成本。此外，KV-cache的大小随着输入长度的增加而增加，这可能导致碎片化的内存和不规则的内存访问模式</p>
+<p>一般来说存在最开始提到的三个问题，本文优化的重点则主要集中于</p>
+<ul>
+<li>模型参数</li>
+<li>Attention在长文本下的计算开销</li>
+<li>自回归解码方法逐个生成token。在每个解码步骤中，所有的模型权重都从片外HBM加载到GPU芯片中，导致较大的内存访问成本。此外，KV-cache的大小随着输入长度的增加而增加，这可能导致碎片化的内存和不规则的内存访问模式</li>
+</ul>
 <h2 id="_1">优化手段的简要分类<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <ul>
 <li>data-level 对模型本身几乎没什么影响</li>
 <li>model-level 通过改变模型结构来减少计算量，可能微调会使模型性能受损</li>
-<li>system-level 从系统布局的角度优化（本论文说flash attention可能会有树脂偏差？）
-<img alt="20240706231206.png" src="../graph/20240706231206.png" /></li>
+<li>system-level 从系统布局的角度优化（本论文说flash attention可能会有树脂偏差？）</li>
 </ul>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Flash Attention</summary>
+<p><a href="https://courses.cs.washington.edu/courses/cse599m/23sp/notes/flashattn.pdf">flash attention 手稿</a></p>
+</details>
+<!-- prettier-ignore-end -->
+<p><img alt="20240706231206.png" src="../graph/20240706231206.png" /></p>
 <h3 id="data-level">Data-level<a class="headerlink" href="#data-level" title="Permanent link">#</a></h3>
 <h4 id="input_compression">Input Compression<a class="headerlink" href="#input_compression" title="Permanent link">#</a></h4>
 <p><img alt="20240706232709.png" src="../graph/20240706232709.png" /></p>
@@ -2160,8 +2168,21 @@
 </ul>
 <h5 id="efficient_attention_design">Efficient Attention Design<a class="headerlink" href="#efficient_attention_design" title="Permanent link">#</a></h5>
 <p>由于二次方的复杂度开销，尤其在长文本上影响显著，这些研究大致可以分为两个主要的分支：多查询注意和低复杂度注意。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">KV cache 计算</p>
+<p>KV Cache显存占用的计算方式如下：</p>
+<p>1 token KV Cache = 2[K,V] x hidden_size x layers x 2[bytes per FP16] = 4 x H x N bytes
+比如对于LLaMA 13B fp16模型，1个token所需要的KV Cache为：4 x 5120 x 40 = 819200 bytes，即 800KB。那么对于L=seq_len为2048 tokens的请求，需要的KV Cache数量为: 4 x 2048 x 5120 x 40 = 2048 x 800KB = 1.6GB</p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p><img alt="20240727230814.png" src="../graph/20240727230814.png" /></p>
 <ul>
 <li>MQA：对MHA的改进，共享kv-cache在不同的attention heads上。（GQA则是MQA和MHA的Mix）</li>
+</ul>
+<p><img alt="20240727231211.png" src="../graph/20240727231211.png" /></p>
+<ul>
 <li>
 <p>Low-Complexity Attention：降低attention以及softmax非线性计算的复杂度</p>
 <blockquote>
@@ -2256,7 +2277,10 @@ GPTQ、AWQ等是被广泛使用的）</li>
 <li><strong> Graph-level Optimization</strong>: kernal fusion作为一种流行的图级优化，因其能够减少运行时间而脱颖而出。应用核融合的优势主要有三点：( 1 )减少内存访问。融合后的内核本质上去除了中间结果的内存访问，减轻了操作员的内存瓶颈。( 2 )减轻内核启动开销。对于一些轻量级的运算符(例如,残差相加)，内核启动时间占据了大部分的延迟，内核融合减少了单个内核的启动。( 3 )增强并行性。对于那些不存在数据依赖关系的运算符，当一个接一个的内核执行无法填充硬件容量时，通过融合的方式并行化内核是有利的。</li>
 </ul>
 <blockquote>
-<p>Flash Decoding 在推理时可以着重了解下</p>
+<p>Flash Decoding 在推理时可以着重了解下
+<img alt="" src="https://pic2.zhimg.com/v2-2c21fe2fe87a25e76a5863e3dd25b2d1_b.webp" /></p>
+<p>Flash Decoding 示意图：
+<img alt="" src="https://pic3.zhimg.com/v2-13fcb10493400523013dcfe55cc9b846_b.webp" /></p>
 </blockquote>
 <h5 id="speculative_decoding">Speculative Decoding<a class="headerlink" href="#speculative_decoding" title="Permanent link">#</a></h5>
 <p>该方法的核心思想是使用一个较小的模型，称为<code>draft model</code>，以有效地预测后续的几个token，然后使用目标LLM并行地验证这些预测。该方法旨在使LLM能够在单次推理所需的时间范围内生成多个token。</p>
@@ -2302,7 +2326,7 @@ GPTQ、AWQ等是被广泛使用的）</li>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年7月8日 12:07:38</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年7月28日 16:40:21</span>
   </span>
 
     
