@@ -238,6 +238,26 @@ nav:
 
     - Introduction to 3D CV:
       - ZJU_CS/3DCV/index.md
+      - ZJU_CS/3DCV/lec1.md
+      - ZJU_CS/3DCV/lec2.md
+      - ZJU_CS/3DCV/lec3.md
+      - ZJU_CS/3DCV/lec4.md
+      - ZJU_CS/3DCV/lec5.md
+      - ZJU_CS/3DCV/lec6.md
+      - ZJU_CS/3DCV/lec7.md
+      - ZJU_CS/3DCV/lec8.md
+      - ZJU_CS/3DCV/lec9.md
+      - ZJU_CS/3DCV/lec10.md
+      - ZJU_CS/3DCV/lec11.md
+      - ZJU_CS/3DCV/lec12.md
+
+    - Computer Arichitecture:
+      - ZJU_CS/CA/index.md
+      - ZJU_CS/CA/week1.md
+
+    - Computer Network:
+      - ZJU_CS/CN/index.md
+      - ZJU_CS/CN/week1.md
 
   - Missing semester: 
     - Missing semester/index.md
@@ -332,6 +352,8 @@ nav:
     - Scientific research/index.md
     - Scientific research/writing.md
     - Scientific research/ode.md
+    - 3d vision:
+      - Scientific research/3d vision/index.md
     - 4science:
       - Scientific research/4science/index.md
       - Scientific research/4science/protein_hierachy.md
@@ -340,11 +362,6 @@ nav:
       - Scientific research/mathematic model/mcm.md
     - Basic tutor:
       - Scientific research/basic tutor/voice synthesis.md
-    - Zhaozhou:
-      - Scientific research/Zz/index.md
-      - 23 NIPS:
-        - Scientific research/Zz/23NIPS/index.md
-        - Scientific research/Zz/23NIPS/note.md
 
   - Paper Reading:
     - Paper Reading/index.md
