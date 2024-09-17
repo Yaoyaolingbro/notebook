@@ -5,6 +5,7 @@
 这里首先介绍了优化的基本范式，详见优化基本理论与方法，这里不详细展开
 
 一个有趣的example：Image deblurring
+![20240817224920.png](graph/20240817224920.png)
 
 我们已知模糊图像Y和卷积核F，需要通过优化的方法得到去噪后的图像X
 
@@ -99,6 +100,8 @@ $$
 #### Gauss-Newton method
 > Useful for solving nonlinear least squares $\hat{x}=arg \mathop{min}_x\Vert R(x)\Vert_2^2$
 
+> $R(x)$ is residual vector, which is $R(x)=Ax-b$ 
+
 - Instead of expanding $F(x)$, we expand $R(x)$
 
 $$
@@ -113,7 +116,7 @@ $$
 
 即使用$(J_R^TJ_R)$ 来近似代替$H_F$. 大大减少计算量
 
-- Disadvantage: $(J_R^TJ_R)$不正定，所以未必可逆
+- Disadvantage: $(J_R^TJ_R)$不正定，所以未必可逆，可能会导致不稳定
 
 #### Levenberg-Marquardt
 

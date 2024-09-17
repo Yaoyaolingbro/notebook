@@ -95,6 +95,7 @@ Reducing image size -> down-sampling
 
 
 ## Image magnification
+> 这里主要介绍插值的各种技巧；个人认为如果你熟练使用matplotlib的话，这部分内容应该不会有太大的困难。
 
 ### Interpolation
 
@@ -120,4 +121,7 @@ Reducing image size -> down-sampling
 
 
 #### Bilinear Interpolation
+![20240817221438.png](graph/20240817221438.png)
 
+### Super resolution
+> 超分辨率技术，现在几乎都是基于深度学习的方法

@@ -226,7 +226,7 @@ nav:
       - ZJU_CS/Database/db14.md
       - ZJU_CS/Database/db15.md
 
-    - Computer Organazation:
+    - Computer Organization:
       - ZJU_CS/computer_organization/index.md
       - ZJU_CS/computer_organization/1_prelude.md
       - ZJU_CS/computer_organization/2_instructions.md
@@ -258,6 +258,11 @@ nav:
     - Computer Network:
       - ZJU_CS/CN/index.md
       - ZJU_CS/CN/week1.md
+
+    - Operating System:
+      - ZJU_CS/OS/index.md
+      - ZJU_CS/OS/week1.md
+      
 
   - Missing semester: 
     - Missing semester/index.md
@@ -340,6 +345,7 @@ nav:
 
   - English:
     - English/index.md
+    - English/CET6.md
     - research:
       - English/research/index.md
       - English/research/note.md
@@ -385,6 +391,7 @@ nav:
     - College life:
       - spark in life/college life/competition.md
       - spark in life/college life/freshman.md
+      - spark in life/college life/sophomore.md
     - Skill:
       - spark in life/skills/cook.md
       - spark in life/skills/driver license.md

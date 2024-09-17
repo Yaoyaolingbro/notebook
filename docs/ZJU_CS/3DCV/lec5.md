@@ -198,6 +198,7 @@ Answer:  **Extract a descriptor for each point, find similar descriptors between
 首先很容易想到的就是将像素值拉长，作为一个特征向量。But this is very sensitive(i.e.,not invariant) to even small shifts, rotations.
 
 #### SIFT(Scale Invariant Feature Transform)
+> 一个非常自然的想法
 
 SIFT 使用patch的**梯度分布**(梯度向量的方向分布)作为描述子。该方向必然是位于$[0,2\pi]$之间，因此SIFT构建一个直方图，来统计在每个区间（例如十等分）有多少个像素。$[0,2\pi]$等分个数即为描述子的维度。
 
