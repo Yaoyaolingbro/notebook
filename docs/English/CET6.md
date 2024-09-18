@@ -23,4 +23,36 @@
 |plateaued|瓶颈| |
 |foreplay|前戏| |
 |sloppiness|粗心| |
-|discretion|谨慎| |
+|discretion|谨慎| discreet adj.谨慎的|
+|battle cry|战斗口号| |
+|Do the math|算一下| |
+|legitimacy|权威| |
+|counting on|依靠| |
+|esteem|n.尊重；v.尊重| |
+|for the sake of conscience|为了良心| |
+|dismanting|拆除| |
+|screw it up|搞砸了| |
+|wheeler dealer|投机商人| |
+|fulfill the destiny|实现命运| |
+|make it dignified|使之体面| |
+|trickle down|滴滴答答| |
+|ludicrous|adj.荒唐的| |
+|rancid|adj.腐臭的| |
+|prelude|n.序幕,前奏| |
+|suffocating|adj.令人窒息的| |    
+|This is cut and dry.|这是老生常谈。| |
+|intrube|v.打扰| |
+|imposition|n.强加,欺骗,打扰| |
+|discard|v.丢弃| |
+|tension|n.紧张| |
+|water under the bridge|过去的事情| |
+|quarrelsome|adj.好争吵的| |
+|diet|n.饮食| |
+|for the time being|暂时| |
+|flagship|n.旗舰| |
+|rub shoulders with|与...交往| |
+|defy|v.违抗| |
+|caucus|n.政党会议| |
+|testimony|n.证词| |
+|scapgoat|n.替罪羊| |
+|badger|v.纠缠| |

@@ -1,10 +1,7 @@
- 
-#给出一个默认的项目路径
-path="F:\Note of computer"
+cd ~/.ssh
+sh check.sh
 
-#先进入项目当中
- 
-cd $path
+cd /Users/yaoyaoling/Desktop/notebook
 
 echo "####### 进入自己的项目 #######"
  
@@ -37,3 +34,6 @@ git push
 mkdocs gh-deploy
  
 echo "####### 推送并页面部署成功 #######"
+
+cd ~/.ssh
+sh recheck.sh
