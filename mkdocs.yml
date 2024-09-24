@@ -254,6 +254,8 @@ nav:
     - Computer Arichitecture:
       - ZJU_CS/CA/index.md
       - ZJU_CS/CA/week1.md
+      - ZJU_CS/CA/week2.md
+      - ZJU_CS/CA/week3.md
 
     - Computer Network:
       - ZJU_CS/CN/index.md
@@ -261,7 +263,7 @@ nav:
 
     - Operating System:
       - ZJU_CS/OS/index.md
-      - ZJU_CS/OS/week1.md
+      - ZJU_CS/OS/chap01.md
       
 
   - Missing semester: 

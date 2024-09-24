@@ -16,6 +16,8 @@ counter: True
     * Building and Booting an Operating System
     * Operating System Debugging
 
+[linux 源码解读](https://elixir.bootlin.com/linux/v6.11/source)
+
 ## Operating System Services
 
 A View of Operating System Services
