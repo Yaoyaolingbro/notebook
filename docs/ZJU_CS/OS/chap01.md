@@ -38,6 +38,8 @@ User-friendly desktop metaphor interface
 Programming interface to the services provided by the OS
 用户空间进入内核的接口 interface.  
 
+用来做`privileged operations`，比如 `I/O`，`memory management`，`process management`，`file management`，`communication`，`protection`。
+
 一般用高级语言编写，称为 API(Application Programming Interface) ***e.g.*** Win32 API, POSIX API(for Unix, Linux, Mac OSX), Java API(for JVM)
 
 ### Example of System Call - `write` 
@@ -85,11 +87,7 @@ The caller need know nothing about how the system call is implemented.
     `make` `.i` 文件可以得到预处理后的文件。
 
 ??? Info "`write`"
-    其实 `write` 也是一个 wrapper，背后故事可见：
-
-    * http://osteras.info/personal/2013/10/11/hello-world-analysis.html
-    * https://code.woboq.org/userspace/glibc/sysdeps/unix/sysv/linux/notcancel.h.html#__write_nocancel
-    * https://code.woboq.org/userspace/glibc/sysdeps/unix/sysv/linux/write_nocancel.c.html#__write_nocancel
+    其实 `write` 也是一个 wrapper，封装了很多层。具体可以听老师上课讲的。
 
 ### System Calls 
 
@@ -101,6 +99,9 @@ The caller need know nothing about how the system call is implemented.
 !!! Info "`time`"
     `time` 可以输出 real, user, sys 的时间。（real 表示时钟的时间）  
     有时 user 和 sys 是多进程同时进行，所以加起来的时间比时钟的时间长。
+
+!!! Info "`ag`"
+    silver searcher，比 `grep` 更快。
 
 #### System Call Parameter Passing
 
@@ -159,7 +160,9 @@ Linking 分为 static 和 dynamic
     * 没有 `.interp` 段
 * **Dynamic linking**: Reuse libraries to reduce ELF file size  
     * 代码分散在多个文件，运行时再加载，小。  
-    * 有 `.interp` 段，存的是 loader。
+    * **有 `.interp` 段，存的是 loader。**
+
+> loader resolve symbols at runtime
 
 ### Running a binary  
 
@@ -167,7 +170,7 @@ Linking 分为 static 和 dynamic
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011192630.png" width=70%></div>
 
 ELF section 被映射到内存里面的不同 segment。
-注意区分堆和栈，分配数据时 stack 快，heap 慢。
+注意区分堆和栈，**分配数据时 stack 快，heap 慢。**
 
 * who setup ELF files mapping?
     * Kernel
@@ -263,6 +266,7 @@ Application Binary Interface (ABI) 更贴近硬件架构
 
 **microkernel**: Moves as much from the kernel into user space.   
 把 driver, file system... 都放到 user space，只留下最核心的东西在 kernel space.  
+[make linux map](https://makelinux.github.io/kernel/map/)
 
 * benefits: 
     * Easier to extend a microkernel

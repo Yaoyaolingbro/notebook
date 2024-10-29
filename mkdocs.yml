@@ -253,9 +253,10 @@ nav:
 
     - Computer Arichitecture:
       - ZJU_CS/CA/index.md
-      - ZJU_CS/CA/week1.md
-      - ZJU_CS/CA/week2.md
-      - ZJU_CS/CA/week3.md
+      - ZJU_CS/CA/chap00.md
+      - ZJU_CS/CA/chap01.md
+      - ZJU_CS/CA/chap02.md
+      - ZJU_CS/CA/chap03.md
 
     - Computer Network:
       - ZJU_CS/CN/index.md
@@ -263,7 +264,14 @@ nav:
 
     - Operating System:
       - ZJU_CS/OS/index.md
+      - ZJU_CS/OS/chap00.md
       - ZJU_CS/OS/chap01.md
+      - ZJU_CS/OS/chap02.md
+      - ZJU_CS/OS/chap03.md
+      - ZJU_CS/OS/chap04.md
+      - ZJU_CS/OS/chap05.md
+      - ZJU_CS/OS/chap06.md
+      - ZJU_CS/OS/chap07.md
       
 
   - Missing semester: 
@@ -314,6 +322,11 @@ nav:
     - CS106X:
       - Online CS Courses/CS106X/index.md
 
+    - CS285:
+      - Online CS Courses/CS285/index.md
+      - Online CS Courses/CS285/takeaway.md
+      - Online CS Courses/CS285/chap01.md
+
   - AI:
     - AI/index.md
     - AI/DL.md
@@ -342,6 +355,7 @@ nav:
       - Language/Python/fastpython.md
       - Language/Python/skill.md
       - Language/Python/enviroment.md
+      - Language/Python/pytorch.md
     - Verilog:
       - Language/Verilog/index.md
 
@@ -360,6 +374,7 @@ nav:
     - Scientific research/index.md
     - Scientific research/writing.md
     - Scientific research/ode.md
+    - Scientific research/vlm.md
     - 3d vision:
       - Scientific research/3d vision/index.md
     - 4science:

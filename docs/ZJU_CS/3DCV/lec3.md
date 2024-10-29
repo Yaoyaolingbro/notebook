@@ -6,9 +6,9 @@
 
 ## Image processing basics
 
-### 一些基本的处理
+### Increasing Contrast
+![20240926105453.png](graph/20240926105453.png)
 
-- 增加对比度(使用"S curve")
 - 模糊，锐化，边缘提取
 
 ### convolution

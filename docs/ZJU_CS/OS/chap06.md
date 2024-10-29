@@ -18,24 +18,28 @@ Several processes (or threads) access and manipulate the same data *concurrently
 
 在内核中，比如两个进程同时 `fork`，子进程可能拿到一样的 pid。
 
-critical section
+### critical section
 
 修改共同变量的区域称为 critical section；共同区域之前叫 entry section，之后叫 exit section。
 <div align = center><img src="https://cdn.hobbitqia.cc/20231107100813.png" width=50%></div>
 
-* Single-core system: preventing interrupts
+* Single-core system: preventing interrupts （关闭中断）
 * Multiple-processor: preventing interrupts are not feasible (depending on if kernel is preemptive or non-preemptive)
     * Preemptive – allows preemption of process when running in kernel mode
     * Non-preemptive – runs until exits kernel mode, blocks, or voluntarily yields CPU
+    * 一定用synchronization来保护。
 
 <!-- 期末填空题，必考 -->
+<!-- prettier-ignore-start -->
+!!! note "期末考点"
+    * Mutual Exclusion（互斥访问）
+        * 在同一时刻，最多只有一个线程可以执行临界区
+    * Progress（空闲让进）
+        * 当没有线程在执行临界区代码时，必须在申请进入临界区的线程中选择一个线程，允许其执行临界区代码，保证程序执行的进展
+    * Bounded waiting（有限等待）
+        * 当一个进程申请进入临界区后，必须在有限的时间内获得许可并进入临界区，不能无限等待
 
-* Mutual Exclusion（互斥访问）
-    * 在同一时刻，最多只有一个线程可以执行临界区
-* Progress（空闲让进）
-    * 当没有线程在执行临界区代码时，必须在申请进入临界区的线程中选择一个线程，允许其执行临界区代码，保证程序执行的进展
-* Bounded waiting（有限等待）
-    * 当一个进程申请进入临界区后，必须在有限的时间内获得许可并进入临界区，不能无限等待
+<!-- prettier-ignore-end -->
 
 ## Peterson’s Solution
 
@@ -49,7 +53,7 @@ Peterson’s solution solves *two-processes/threads* synchronization (Only works
 
 <div align = center><img src="https://cdn.hobbitqia.cc/20231107101358.png" width=60%></div>
 
-验证三个条件
+**验证三个条件（考试考点）**
 
 * Mutual exclusion
     * P0 enters CS:
@@ -204,9 +208,9 @@ release() {
 }
 ```
 
-问题：如果一个进程有时间片，但是拿不到锁，一直 spin，会浪费 CPU 时间。
+**问题：**如果一个进程有时间片，但是拿不到锁，一直 spin，会浪费 CPU 时间。
 
-we put the busy waiting thread into suspended (yield-> moving from running to sleeping)  
+we put the busy waiting thread into suspended (yield-> moving from running to **sleeping**)  
 When the lock is locked, change process’s state to SLEEP, add to the queue, and call `schedule()`
 
 ## Semaphore
@@ -298,6 +302,7 @@ signal(semaphore *S) {
 
 ??? Example "Semaphore w/ waiting queue in practice"
     真实实现里，需要有 spinlock 来保护 semaphore 操作的原子性。
+    21行和22行一定不能互换，否则会出现死锁。
     <div align = center><img src="https://cdn.hobbitqia.cc/20231107114117.png" width=50%></div>
     <div align = center><img src="https://cdn.hobbitqia.cc/20231107114150.png" width=50%></div>
 
@@ -336,8 +341,8 @@ Linux 提供：
 * Spinlocks
 * Semaphores
 
-    在 `linux/include/linux/semaphore.h` 中，`down()` 是 lock（如果要进入 sleep，它会先释放锁再睡眠，唤醒之后会立刻重新获得锁），`up()` 是 unlock。
-* Reader-writer locks
+    在 `linux/include/linux/semaphore.h` 中，`down()` 是 lock（如果要进入 sleep，它会**先释放锁再睡**眠，唤醒之后会立刻重新获得锁），`up()` 是 unlock。
+* [Reader-writer locks](https://en.wikipedia.org/wiki/Read-copy-update)
 
 ## POSIX Synchronization
 
@@ -372,6 +377,59 @@ POSIX API provides
 
 *Named semaphores* can be used by unrelated processes, *unnamed* cannot.  
     `sem_open(), sem_init(), sem_wait(), sem_post()`
+
+```C
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <unistd.h>
+
+#define NUM_THREADS 5
+
+sem_t semaphore;  // 定义信号量
+
+void* access_resource(void* arg) {
+    int thread_id = *(int*)arg;
+    
+    printf("Thread %d: Waiting to access resource...\n", thread_id);
+    
+    // 等待信号量，尝试访问资源
+    sem_wait(&semaphore);
+    
+    printf("Thread %d: Accessing resource...\n", thread_id);
+    sleep(1);  // 模拟访问资源的操作
+    printf("Thread %d: Releasing resource...\n", thread_id);
+    
+    // 释放信号量，表示离开资源
+    sem_post(&semaphore);
+    
+    return NULL;
+}
+
+int main() {
+    pthread_t threads[NUM_THREADS];
+    int thread_ids[NUM_THREADS];
+    
+    // 初始化信号量，设定初始值为3，表示最多允许3个线程同时访问资源
+    sem_init(&semaphore, 0, 3);
+    
+    // 创建多个线程
+    for (int i = 0; i < NUM_THREADS; i++) {
+        thread_ids[i] = i + 1;
+        pthread_create(&threads[i], NULL, access_resource, &thread_ids[i]);
+    }
+    
+    // 等待所有线程完成
+    for (int i = 0; i < NUM_THREADS; i++) {
+        pthread_join(threads[i], NULL);
+    }
+    
+    // 销毁信号量
+    sem_destroy(&semaphore);
+    
+    return 0;
+}
+```
 
 #### Unamed Semaphores
 

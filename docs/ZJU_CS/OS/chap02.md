@@ -41,7 +41,13 @@ points to the next instruction to execute (i.e., an address in the code)
 
     * `int x;` unitialized data, 
     * `int y = 15;` initialized data
+    > 注意⚠️：elf里的data段数据不变；变的是内存上的值变化。
     * 临时变量在栈上，malloc 在堆上。
+
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    [sp vs fp](https://stackoverflow.com/questions/68023230/whats-the-difference-between-stack-pointer-and-frame-pointer-in-assembly-arm)
+<!-- prettier-ignore-end -->
 
 ### The Stack
 
@@ -50,7 +56,7 @@ points to the next instruction to execute (i.e., an address in the code)
 ??? Example "Simple Runtime Stack"
     <div align = center><img src="https://cdn.hobbitqia.cc/20231010163732.png" width=30%></div>
 
-引入栈是为了解决函数调用的问题。  
+**引入栈是为了解决函数调用的问题。  **
 
 Any function needs to have some “state” so that it can run. 
 
@@ -87,6 +93,8 @@ Represented by the C structure `task_struct`.
 
 所有的 `task_struct` 是通过链表串起来的。
 
+![20241008140353.png](graph/20241008140353.png)
+
 ## Process State
 
 As a process executes, it changes state
@@ -98,7 +106,7 @@ As a process executes, it changes state
 * **Ready**: The process is waiting to be assigned to a processor
 * **Terminated**: The process has finished execution
 
-<!-- p17 必考 -->
+<!-- p17  -->
 
 ### Process Creation
 
@@ -128,15 +136,17 @@ The child is is a copy of the parent, but
 
 * It has a different pid (and thus ppid)
 * Its resource utilization (so far) is set to 0
-* `fork()` returns the child’s pid to the parent, and 0 to the child.  
-`fork` 会把 child 的 pid 返回给 parent，给 child 返回 0. (how to implement?)  
+* **`fork()` returns the child’s pid to the parent, and 0 to the child.  **
+`fork` 会把 child 的 pid 返回给 parent，给 child 返回 0. [implement]()
 * Both processes continue execution after the call to `fork()`
 
 ??? Example
     What does the following code print?
     ``` C
+    #include <unistd.h>
     int a = 12;
-    if (pid = fork()) { // PARENT
+    pid_t pid = fork();
+    if (pid) { // PARENT
         // ask the OS to put me in waiting
         sleep(10);
         fprintf(stdout,”a = %d\n”,a);
@@ -203,7 +213,7 @@ Manipulating Signals
 
 * The `signal()` system call allows a process to specify what action to do on a signal  
 我们可以修改有些信号的处理程序。
-* Signals like `SIGKILL` and `SIGSTOP` cannot be ignored or handled by the user, for security reasons
+* **Signals like `SIGKILL` and `SIGSTOP` cannot be ignored or handled by the user, for security reasons**
 
 #### Zombie
 

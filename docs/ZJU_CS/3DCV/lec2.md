@@ -175,9 +175,10 @@ $\begin{bmatrix} 1&0&0&0 \\ 0&1&0&0\\ 0&0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\z
 ### Shutter speed
 
 - control exposure time
-- **The pixel value is equal to the integral of the light intensity within the exposure time**
+- **The pixel value is equal to the integral of the light intensity within the exposure time**（像素
 
 ### Rolling shutter effect
+![20240926101519.png](graph/20240926101519.png)
 
 ### Color spaces
 
@@ -194,6 +195,13 @@ $\begin{bmatrix} 1&0&0&0 \\ 0&1&0&0\\ 0&0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\z
 
 
 ![](image/2.16.png)
+
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    |RGB->HSV|HSV->RGB|
+    |---|---|
+    | ![20240926102158.png](graph/20240926102158.png) | ![20240926102134.png](graph/20240926102134.png) |
+<!-- prettier-ignore-end -->
 
 
 

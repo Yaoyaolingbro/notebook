@@ -74,7 +74,7 @@ How can we make a process run faster
 
 * One-to-One Model
 
-    把线程的管理变得很简单，现在 Linux，Windows 都是这种模型。
+    把线程的管理变得很简单，**现在 Linux，Windows 都是这种模型**。
     <div align = center><img src="https://cdn.hobbitqia.cc/20231031103523.png" width=70%></div>
 
 * Many-to-Many Model
@@ -174,6 +174,7 @@ Some OSes provide both options
 Most UNIX versions: a thread can say which signals it accepts and which signals it doesn’t accept.  
 
 On Linux: dealing with threads and signals is tricky but well understood with many tutorials on the matter and man pages
+> Linux把这个部分提供接口给用户，让用户自己来处理。
 
 ### Safe Thread Cancellation
 
@@ -201,9 +202,9 @@ In Linux, a thread is also called a **light-weight process**(**LWP**).
 The `**clone()**` syscall is used to create a thread or a process. 
 
 !!! Note
-    `clone` 有一个参数 `CLONE_VM`，如果不设置那么类似于 `fork`，每个线程都有自己的内存空间；如果设置了那么线程跑在同一地址空间上。
+    `clone` 有一个参数 `CLONE_VM`，如果不设置那么类似于 `fork`，每个线程都有自己的内存空间；**如果设置了那么线程跑在同一地址空间上**。
 
-    注意线程能访问到其他线程的栈，也能读写，只是正常使用情况下是用的自己栈。？？？
+    注意线程能访问到其他线程的栈，也能读写，只是正常使用情况下是用的自己栈。
 
 TCB 用来存储线程的信息，Linux 并不区分 PCB 和 TCB，都是用 `task_struct` 来表示。
 
@@ -222,7 +223,9 @@ A process is
 !!! Example "Threads with Process – What is shared"
     <div align = center><img src="https://cdn.hobbitqia.cc/20231031144309.png" width=70%></div>
     
-    可以看到 `mm_struct` （与内存管理相关的信息，如页表，`vm_struct`）是共享的，`task_struct, pid, stack, comm` 是不共享的。
+    可以看到 `mm_struct` （与内存管理相关的信息，如页表，`vm_struct`）是共享的，`task_struct, pid, stack, comm（一般来说是一样的，但是因为是数组所以不共享）` 是不共享的。
+
+    PID stack 是`0x4000`(16KB)对齐
 
 * One task in Linux
     * Same task_struct (PCB) means same thread（一个 PCB 指的是一个线程）

@@ -82,7 +82,7 @@ Implementation of communication link
     * Direct or indirect
         * Direct  
             
-            有一个 P 和 Q，直接发信息。如果有 n 个进程，需要建立 $C_2^n$ 个连接。
+            有一个 P 和 Q，直接发信息。如果有 n 个进程，需要建立 **$C_2^n$** 个连接。
         
         * Indirect
 
