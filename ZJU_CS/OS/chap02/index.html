@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/OS/chap02/">
       
       
+        <link rel="prev" href="../chap01/">
+      
+      
+        <link rel="next" href="../chap03/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -259,10 +263,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../" class="md-tabs__link">
           
   
@@ -522,6 +528,8 @@
       
   
   
+    
+  
   
     
     
@@ -561,12 +569,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
@@ -588,7 +596,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             ZJU_CS
@@ -1169,6 +1177,8 @@
       
         
       
+        
+      
     
     
     
@@ -1251,6 +1261,8 @@
                 
   
   
+    
+  
   
     
     
@@ -1261,32 +1273,418 @@
       
         
       
-    
-    
-    
-    
-      
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+        
       
         
-  
-  
-    <a href="../" class="md-nav__link">
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Operating System
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            Operating System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap00.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Processes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Processes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process_concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process_control_block_pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Control Block (PCB)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#process_creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the_fork_system_call" class="md-nav__link">
+    <span class="md-ellipsis">
+      The fork() System Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the_execve_system_call" class="md-nav__link">
+    <span class="md-ellipsis">
+      The execve() System Call
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_terminations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Terminations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Terminations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processes_and_signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processes and Signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zombie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zombie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orphans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orphans
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context_switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context Switch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Takeaway
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inter-Process Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synchoronization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deadlock
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1812,6 +2210,8 @@
       
         
       
+        
+      
     
     
     
@@ -2102,6 +2502,54 @@
   
   <span class="md-ellipsis">
     CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS285/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS285
   </span>
   
 
@@ -2517,6 +2965,8 @@
       
         
       
+        
+      
     
     
     
@@ -2804,6 +3254,8 @@
       
         
       
+        
+      
     
     
     
@@ -2878,6 +3330,26 @@
   
   <span class="md-ellipsis">
     Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/vlm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些常见的VLM的问题
   </span>
   
 
@@ -3732,17 +4204,27 @@ points to the next instruction to execute (i.e., an address in the code)</li>
 <p><div align = center><img src="https://cdn.hobbitqia.cc/20231011231535.png" width=60%></div></p>
 <ul>
 <li><code>int x;</code> unitialized data, </li>
-<li><code>int y = 15;</code> initialized data</li>
+<li><code>int y = 15;</code> initialized data<blockquote>
+<p>注意⚠️：elf里的data段数据不变；变的是内存上的值变化。</p>
+</blockquote>
+</li>
 <li>临时变量在栈上，malloc 在堆上。</li>
 </ul>
 </div>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>Tips</summary>
+<p><a href="https://stackoverflow.com/questions/68023230/whats-the-difference-between-stack-pointer-and-frame-pointer-in-assembly-arm">sp vs fp</a></p>
+</details>
+<!-- prettier-ignore-end -->
+
 <h3 id="the_stack">The Stack<a class="headerlink" href="#the_stack" title="Permanent link">#</a></h3>
 <p>每个函数运行时都会分配栈的一部分，即一个栈帧 stack frame. </p>
 <details class="example">
 <summary>Simple Runtime Stack</summary>
 <p><div align = center><img src="https://cdn.hobbitqia.cc/20231010163732.png" width=30%></div></p>
 </details>
-<p>引入栈是为了解决函数调用的问题。  </p>
+<p>**引入栈是为了解决函数调用的问题。  **</p>
 <p>Any function needs to have some “state” so that it can run. </p>
 <ul>
 <li>Parameters passed to it by whatever function called it</li>
@@ -3776,6 +4258,7 @@ returns: the return address</li>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011205333.png" width=65%></div>
 
 <p>所有的 <code>task_struct</code> 是通过链表串起来的。</p>
+<p><img alt="20241008140353.png" src="../graph/20241008140353.png" /></p>
 <h2 id="process_state">Process State<a class="headerlink" href="#process_state" title="Permanent link">#</a></h2>
 <p>As a process executes, it changes state</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231010164518.png" width=75%></div>
@@ -3787,7 +4270,7 @@ returns: the return address</li>
 <li><strong>Ready</strong>: The process is waiting to be assigned to a processor</li>
 <li><strong>Terminated</strong>: The process has finished execution</li>
 </ul>
-<!-- p17 必考 -->
+<!-- p17  -->
 
 <h3 id="process_creation">Process Creation<a class="headerlink" href="#process_creation" title="Permanent link">#</a></h3>
 <p>A process may create new processes, in which case it becomes a parent.</p>
@@ -3822,23 +4305,25 @@ The child is is a copy of the parent, but</p>
 <ul>
 <li>It has a different pid (and thus ppid)</li>
 <li>Its resource utilization (so far) is set to 0</li>
-<li><code>fork()</code> returns the child’s pid to the parent, and 0 to the child.<br />
-<code>fork</code> 会把 child 的 pid 返回给 parent，给 child 返回 0. (how to implement?)  </li>
+<li>**<code>fork()</code> returns the child’s pid to the parent, and 0 to the child.  **
+<code>fork</code> 会把 child 的 pid 返回给 parent，给 child 返回 0. <a href="">implement</a></li>
 <li>Both processes continue execution after the call to <code>fork()</code></li>
 </ul>
 <details class="example">
 <summary>Example</summary>
 <p>What does the following code print?
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// PARENT</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c1">// ask the OS to put me in waiting</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="err">”</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// CHILD</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// PARENT</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="c1">// ask the OS to put me in waiting</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="err">”</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// CHILD</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
 </code></pre></div>
 The answer should be 12.<br />
 <code>fork</code> 之后变量的值相同，但并不是同一个变量。（相当于一份拷贝）
@@ -3901,7 +4386,7 @@ The answer should be 12.</p>
 <ul>
 <li>The <code>signal()</code> system call allows a process to specify what action to do on a signal<br />
 我们可以修改有些信号的处理程序。</li>
-<li>Signals like <code>SIGKILL</code> and <code>SIGSTOP</code> cannot be ignored or handled by the user, for security reasons</li>
+<li><strong>Signals like <code>SIGKILL</code> and <code>SIGSTOP</code> cannot be ignored or handled by the user, for security reasons</strong></li>
 </ul>
 <h4 id="zombie">Zombie<a class="headerlink" href="#zombie" title="Permanent link">#</a></h4>
 <p>When a child process terminates</p>
@@ -4067,7 +4552,7 @@ context 一定在 kernel mode 执行。为了安全，上下文切换涉及到�
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月17日 14:52:21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
       
         <br>
         Created:

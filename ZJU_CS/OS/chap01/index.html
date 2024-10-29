@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../../Missing%20semester/">
+        <link rel="next" href="../chap02/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1177,6 +1177,8 @@
       
         
       
+        
+      
     
     
     
@@ -1271,6 +1273,20 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1309,6 +1325,26 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap00.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1531,6 +1567,126 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inter-Process Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synchoronization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deadlock
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2063,6 +2219,8 @@
       
         
       
+        
+      
     
     
     
@@ -2353,6 +2511,54 @@
   
   <span class="md-ellipsis">
     CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS285/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS285
   </span>
   
 
@@ -2768,6 +2974,8 @@
       
         
       
+        
+      
     
     
     
@@ -3055,6 +3263,8 @@
       
         
       
+        
+      
     
     
     
@@ -3129,6 +3339,26 @@
   
   <span class="md-ellipsis">
     Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/vlm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些常见的VLM的问题
   </span>
   
 
@@ -3985,6 +4215,7 @@ User-friendly desktop metaphor interface</li>
 <h2 id="system_calls">System Calls<a class="headerlink" href="#system_calls" title="Permanent link">#</a></h2>
 <p>Programming interface to the services provided by the OS
 用户空间进入内核的接口 interface.  </p>
+<p>用来做<code>privileged operations</code>，比如 <code>I/O</code>，<code>memory management</code>，<code>process management</code>，<code>file management</code>，<code>communication</code>，<code>protection</code>。</p>
 <p>一般用高级语言编写，称为 API(Application Programming Interface) <strong><em>e.g.</em></strong> Win32 API, POSIX API(for Unix, Linux, Mac OSX), Java API(for JVM)</p>
 <h3 id="example_of_system_call_-_write">Example of System Call - <code>write</code><a class="headerlink" href="#example_of_system_call_-_write" title="Permanent link">#</a></h3>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231010102617.png" width=70%></div>
@@ -4032,12 +4263,7 @@ User-friendly desktop metaphor interface</li>
 </div>
 <details class="info">
 <summary><code>write</code></summary>
-<p>其实 <code>write</code> 也是一个 wrapper，背后故事可见：</p>
-<ul>
-<li><a href="http://osteras.info/personal/2013/10/11/hello-world-analysis.html">http://osteras.info/personal/2013/10/11/hello-world-analysis.html</a></li>
-<li><a href="https://code.woboq.org/userspace/glibc/sysdeps/unix/sysv/linux/notcancel.h.html#__write_nocancel">https://code.woboq.org/userspace/glibc/sysdeps/unix/sysv/linux/notcancel.h.html#__write_nocancel</a></li>
-<li><a href="https://code.woboq.org/userspace/glibc/sysdeps/unix/sysv/linux/write_nocancel.c.html#__write_nocancel">https://code.woboq.org/userspace/glibc/sysdeps/unix/sysv/linux/write_nocancel.c.html#__write_nocancel</a></li>
-</ul>
+<p>其实 <code>write</code> 也是一个 wrapper，封装了很多层。具体可以听老师上课讲的。</p>
 </details>
 <h3 id="system_calls_1">System Calls<a class="headerlink" href="#system_calls_1" title="Permanent link">#</a></h3>
 <div class="admonition info">
@@ -4050,6 +4276,10 @@ User-friendly desktop metaphor interface</li>
 <p class="admonition-title"><code>time</code></p>
 <p><code>time</code> 可以输出 real, user, sys 的时间。（real 表示时钟的时间）<br />
 有时 user 和 sys 是多进程同时进行，所以加起来的时间比时钟的时间长。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title"><code>ag</code></p>
+<p>silver searcher，比 <code>grep</code> 更快。</p>
 </div>
 <h4 id="system_call_parameter_passing">System Call Parameter Passing<a class="headerlink" href="#system_call_parameter_passing" title="Permanent link">#</a></h4>
 <p>传参，如果参数小，直接放在寄存器里；否则可以把地址放在寄存器里，通过地址访问。</p>
@@ -4105,16 +4335,19 @@ create process, terminate process; end, abort; </li>
 </li>
 <li><strong>Dynamic linking</strong>: Reuse libraries to reduce ELF file size  <ul>
 <li>代码分散在多个文件，运行时再加载，小。  </li>
-<li>有 <code>.interp</code> 段，存的是 loader。</li>
+<li><strong>有 <code>.interp</code> 段，存的是 loader。</strong></li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>loader resolve symbols at runtime</p>
+</blockquote>
 <h3 id="running_a_binary">Running a binary<a class="headerlink" href="#running_a_binary" title="Permanent link">#</a></h3>
 <p>运行时的内存布局：</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011192630.png" width=70%></div>
 
 <p>ELF section 被映射到内存里面的不同 segment。
-注意区分堆和栈，分配数据时 stack 快，heap 慢。</p>
+注意区分堆和栈，<strong>分配数据时 stack 快，heap 慢。</strong></p>
 <ul>
 <li>who setup ELF files mapping?<ul>
 <li>Kernel</li>
@@ -4212,7 +4445,8 @@ Application Binary Interface (ABI) 更贴近硬件架构</li>
 <h3 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h3>
 <p>宏内核里放有很多 driver，而 driver 出问题，直接影响到 CPU 的 scheduler.    </p>
 <p><strong>microkernel</strong>: Moves as much from the kernel into user space. <br />
-把 driver, file system... 都放到 user space，只留下最核心的东西在 kernel space.  </p>
+把 driver, file system... 都放到 user space，只留下最核心的东西在 kernel space.<br />
+<a href="https://makelinux.github.io/kernel/map/">make linux map</a></p>
 <ul>
 <li>benefits: <ul>
 <li>Easier to extend a microkernel</li>
@@ -4239,7 +4473,7 @@ Application Binary Interface (ABI) 更贴近硬件架构</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月24日 14:26:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
       
         <br>
         Created:

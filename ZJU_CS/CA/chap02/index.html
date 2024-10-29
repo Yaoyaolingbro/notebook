@@ -10,13 +10,13 @@
         <meta name="author" content="yaoyaoling">
       
       
-        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/CA/week2/">
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/CA/chap02/">
       
       
-        <link rel="prev" href="../week1/">
+        <link rel="prev" href="../chap01/">
       
       
-        <link rel="next" href="../week3/">
+        <link rel="next" href="../chap03/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Fundamentals of Computer Design - Yaoyaoling's notebook</title>
+        <title>Memory Hierarchy - Yaoyaoling's notebook</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fundamentals_of_computer_design" class="md-skip">
+        <a href="#memory_hierarchy" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +137,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fundamentals of Computer Design
+              Memory Hierarchy
             
           </span>
         </div>
@@ -1179,6 +1179,8 @@
       
         
       
+        
+      
     
     
     
@@ -1225,11 +1227,31 @@
   
   
     <li class="md-nav__item">
-      <a href="../week1/" class="md-nav__link">
+      <a href="../chap00/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamentals of Computer Design
   </span>
   
 
@@ -1258,7 +1280,7 @@
           
   
   <span class="md-ellipsis">
-    Fundamentals of Computer Design
+    Memory Hierarchy
   </span>
   
 
@@ -1269,7 +1291,7 @@
         
   
   <span class="md-ellipsis">
-    Fundamentals of Computer Design
+    Memory Hierarchy
   </span>
   
 
@@ -1291,9 +1313,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pipeline" class="md-nav__link">
+  <a href="#technology_and_optimizations" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipeline
+      Technology and Optimizations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology and Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main_memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dram_improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRAM improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#six_basic_cache_optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Six basic cache optimizations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual_memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background_4_questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background 4 Questions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ten_advanced_cache_optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ten advanced cache optimizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual_memory_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Memory
     </span>
   </a>
   
@@ -1314,11 +1426,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../week3/" class="md-nav__link">
+      <a href="../chap03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Fundamental Performance
+    Instruction-Level Parallelism
   </span>
   
 
@@ -1392,6 +1504,20 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -1947,6 +2073,8 @@
       
         
       
+        
+      
     
     
     
@@ -2237,6 +2365,54 @@
   
   <span class="md-ellipsis">
     CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS285/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS285
   </span>
   
 
@@ -2652,6 +2828,8 @@
       
         
       
+        
+      
     
     
     
@@ -2939,6 +3117,8 @@
       
         
       
+        
+      
     
     
     
@@ -3013,6 +3193,26 @@
   
   <span class="md-ellipsis">
     Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/vlm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些常见的VLM的问题
   </span>
   
 
@@ -3652,9 +3852,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pipeline" class="md-nav__link">
+  <a href="#technology_and_optimizations" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipeline
+      Technology and Optimizations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology and Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main_memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dram_improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRAM improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#six_basic_cache_optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Six basic cache optimizations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual_memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background_4_questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background 4 Questions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ten_advanced_cache_optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ten advanced cache optimizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual_memory_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Memory
     </span>
   </a>
   
@@ -3678,25 +3968,146 @@
   
 
 
-<h1 id="fundamentals_of_computer_design">Fundamentals of Computer Design<a class="headerlink" href="#fundamentals_of_computer_design" title="Permanent link">#</a></h1>
-<h2 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">#</a></h2>
-<p><img alt="20240914103716.png" src="../graph/20240914103716.png" /></p>
+<h1 id="memory_hierarchy">Memory Hierarchy<a class="headerlink" href="#memory_hierarchy" title="Permanent link">#</a></h1>
+<p><img alt="20241024224438.png" src="../graph/20241024224438.png" /></p>
+<h2 id="technology_and_optimizations">Technology and Optimizations<a class="headerlink" href="#technology_and_optimizations" title="Permanent link">#</a></h2>
+<h3 id="main_memory">Main memory<a class="headerlink" href="#main_memory" title="Permanent link">#</a></h3>
+<ul>
+<li>Latency:</li>
+<li>
+<ul>
+<li>acess time: time to read/write a word</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>cycle time: time between successive accesses</li>
+</ul>
+</li>
+<li>
+<p>bandwith: the time to retrieve the rest of the block</p>
+</li>
+<li>
+<p>SRAM(Static random access memory): Don't need to be refreshed, so access time is very close to cycle time</p>
+</li>
+<li>DRAM(Dynamic random access memory): DRAMs are commonly sold on small boards called DIMM (dual inline memory modules), typically containing 4 ~ 16 DRAMs</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">technique</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">cache</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>介绍了三种cache技术,具体可以见机组</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">DRAM</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>具体分为了RAS（行地址选择）和CAS（列地址选择）两个部分
+<img alt="20241024225306.png" src="../graph/20241024225306.png" /></p>
+</div>
+<!-- prettier-ignore-end -->
+
+<h3 id="dram_improvements">DRAM improvements<a class="headerlink" href="#dram_improvements" title="Permanent link">#</a></h3>
+<ul>
+<li>Timing signals</li>
+<li>Leverage spatial locality</li>
+<li>Clock signals</li>
+<li>SDRAM</li>
+<li>Wider DRAM</li>
+<li>DDR(double data rate) SDRAM</li>
+<li>Multiple banks</li>
+</ul>
+<h2 id="cache_performance">Cache performance<a class="headerlink" href="#cache_performance" title="Permanent link">#</a></h2>
+<div class="arithmatex">\[
+\text{Average hit time} = (1 - \text{miss rate}) \times \text{cache access time} + \text{miss rate} \times \text{miss penalty} \\
+= \text{cache access time} + \text{miss rate} \times \text{miss penalty}
+\]</div>
+<h3 id="six_basic_cache_optimizations">Six basic cache optimizations<a class="headerlink" href="#six_basic_cache_optimizations" title="Permanent link">#</a></h3>
+<ul>
+<li>Larger block size</li>
+<li>Bigger cache</li>
+<li>higher associativity</li>
+<li>multilevel caches</li>
+<li>Give priority to read misses</li>
+<li>Avoiding address translation during indexing of the cache
+<img alt="20241024234144.png" src="../graph/20241024234144.png" /></li>
+</ul>
 <blockquote>
-<p>当多核出现时，每个核都有自己的pipeline，这时的指令冲突更为严峻。</p>
+<p><strong>Capacity vs Conflict</strong></p>
 </blockquote>
-<p>接下来讲解了cpu发展史，Moore law &amp; Dennard scaling，以及cpu的性能指标。</p>
-<p><img alt="20240914110521.png" src="../graph/20240914110521.png" /></p>
+<p><img alt="20241024234324.png" src="../graph/20241024234324.png" /></p>
+<p><img alt="20241025143819.png" src="../graph/20241025143819.png" /></p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">cache寻址</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">VIVT</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p><img alt="20241025143723.png" src="../graph/20241025143723.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">PIPT</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p><img alt="20241025143747.png" src="../graph/20241025143747.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">VIPT</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p><img alt="20241025143806.png" src="../graph/20241025143806.png" /></p>
+</div>
+<!-- prettier-ignore-end -->
+
+<h2 id="virtual_memory">Virtual Memory<a class="headerlink" href="#virtual_memory" title="Permanent link">#</a></h2>
+<h3 id="background_4_questions">Background 4 Questions<a class="headerlink" href="#background_4_questions" title="Permanent link">#</a></h3>
+<ul>
+<li>Where to place a block</li>
+<li><img alt="20241024234521.png" src="../graph/20241024234521.png" /> <img alt="20241024234540.png" src="../graph/20241024234540.png" /></li>
+<li>Which block to replace upon a virtual memory miss? (<strong>LRU</strong>)</li>
+<li>Which block to replace upon a virtual memory miss? (Write back or write through)</li>
+</ul>
+<div class="arithmatex">\[
+\text{Virtual memory} = \text{main memory} + \text{Secondary storage}
+\]</div>
+<p><img alt="20241024234750.png" src="../graph/20241024234750.png" /></p>
+<h2 id="ten_advanced_cache_optimizations">Ten advanced cache optimizations<a class="headerlink" href="#ten_advanced_cache_optimizations" title="Permanent link">#</a></h2>
+<p><img alt="20241025145509.png" src="../graph/20241025145509.png" /></p>
+<ul>
+<li>Small and Simple First-Level Caches</li>
+<li>Way Prediction</li>
+<li>Multibanked Caches (Pipelining Access)</li>
+<li>Nonblocking Caches</li>
+<li>Critical Word First</li>
+<li>Merging Write Buffer</li>
+<li>Compiler Optimization</li>
+<li>Hardware Prefetching</li>
+<li>Compiler Prefetching</li>
+<li>HBM</li>
+</ul>
+<p><img alt="20241025150006.png" src="../graph/20241025150006.png" /></p>
+<blockquote>
+<p><img alt="20241025150059.png" src="../graph/20241025150059.png" width="50%" /></p>
+</blockquote>
+<h2 id="virtual_memory_1">Virtual Memory<a class="headerlink" href="#virtual_memory_1" title="Permanent link">#</a></h2>
+<p><img alt="20241025152714.png" src="../graph/20241025152714.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月17日 14:52:21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月17日 14:52:21</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
       
     
   </small>
