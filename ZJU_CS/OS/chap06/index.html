@@ -1333,11 +1333,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../chap00.md" class="md-nav__link">
+      <a href="../mid-review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Mid Review
   </span>
   
 
@@ -4432,7 +4432,7 @@
 <!-- 期末填空题，必考 -->
 <!-- prettier-ignore-start -->
 <div class="admonition note">
-<p class="admonition-title">期末考点</p>
+<p class="admonition-title">期末考点 三个条件</p>
 <ul>
 <li>Mutual Exclusion（互斥访问）<ul>
 <li>在同一时刻，最多只有一个线程可以执行临界区</li>
@@ -4656,6 +4656,9 @@ When the lock is locked, change process’s state to SLEEP, add to the queue, an
 <div align = center><img src="https://cdn.hobbitqia.cc/20231107113130.png" width=55%></div></p>
 </div>
 <h3 id="semaphore_w_waiting_queue">Semaphore w/ waiting queue<a class="headerlink" href="#semaphore_w_waiting_queue" title="Permanent link">#</a></h3>
+<blockquote>
+<p>要yield然后sleep，所以需要context switch</p>
+</blockquote>
 <p>With each semaphore there is an associated waiting queue. </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span>
@@ -4927,6 +4930,9 @@ When the lock is locked, change process’s state to SLEEP, add to the queue, an
 </li>
 </ul>
 <h2 id="synchronization_examples">Synchronization Examples<a class="headerlink" href="#synchronization_examples" title="Permanent link">#</a></h2>
+<blockquote>
+<p>每年必考一个大题，难度在1、2 之间</p>
+</blockquote>
 <p>一般我们用信号量解决问题，因为信号量相对来说功能更多，而且很多操作系统对信号量做了更多设计，用来避免 busy waiting 等问题。</p>
 <p>一个信号量用来表示 一类资源的余量；<code>wait()</code> 等待到其有余量时从中取走一个，而 <code>signal()</code> 释放一个资源。</p>
 <h3 id="bounded-buffer_problem">Bounded-Buffer Problem<a class="headerlink" href="#bounded-buffer_problem" title="Permanent link">#</a></h3>
@@ -4966,7 +4972,7 @@ buffer 需要互斥的保护，因此需要一个 mutex。当它满了的时候�
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="o">-</span><span class="n">slots</span><span class="p">);</span>
 <a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">TRUE</span><span class="p">)</span>
 </code></pre></div>
-    这里 <code>wait()</code> 的顺序不能调换：如果先 <code>wait(mutex)</code>，那么 <code>wait(empty-slots)</code> 之后，如果 buffer 空了，那么这个时候就会带着 mutex 休眠，这样另一个进程也拿不到这个锁了。</li>
+    这里 <code>wait()</code> 的<strong>顺序不能调换</strong>：如果先 <code>wait(mutex)</code>，那么 <code>wait(empty-slots)</code> 之后，如果 buffer 空了，那么这个时候就会带着 mutex 休眠，这样另一个进程也拿不到这个锁了。</li>
 <li>The consumer process
     <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="c1">//produce an item</span>
@@ -5036,7 +5042,67 @@ buffer 需要互斥的保护，因此需要一个 mutex。当它满了的时候�
 <p>如果 write ready 了，他就会尽可能早地进行写操作。如果有 reader hold data，那么需要等待 ready writer 结束后再读。</p>
 </li>
 </ul>
-<p>上面的代码是 Reader first。</p>
+<p><strong>上面的代码是 Reader first。</strong></p>
+<!-- prettier-ignore-start -->
+<details class="code" open="open">
+<summary>write first</summary>
+<p>在 Readers-Writers 问题中，Write-First 策略优先考虑写者，确保一旦有写者请求写入，读者将被阻止，直到写操作完成。这样可以防止写者长时间等待，但可能导致读者延迟。</p>
+<p>以下是 Write-First 策略的伪代码：</p>
+<p>初始化变量</p>
+<p>int read_count = 0             // 当前正在读的读者数量
+boolean writer_waiting = false // 指示是否有写者等待
+semaphore mutex = 1            // 保护读者计数器的锁
+semaphore write_lock = 1       // 控制对资源的写入
+semaphore read_lock = 1        // 控制对资源的读取（防止写优先时读者抢占资源）</p>
+<p>写者（Writer）过程
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">writer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="n">writer_waiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w">       </span><span class="c1">// 标记有写者等待</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">write_lock</span><span class="p">)</span><span class="w">            </span><span class="c1">// 请求写入权限</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="c1">// 进行写操作</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="n">write_data</span><span class="p">()</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">write_lock</span><span class="p">)</span><span class="w">          </span><span class="c1">// 释放写入权限</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">    </span><span class="n">writer_waiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="w">      </span><span class="c1">// 清除写者等待标记</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">read_count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">         </span><span class="c1">// 若有读者等待，允许其读取</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">read_lock</span><span class="p">)</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>读者（Reader）过程
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">reader</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">writer_waiting</span><span class="p">)</span><span class="w">         </span><span class="c1">// 若有写者等待，阻止读者进入</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">read_lock</span><span class="p">)</span><span class="w">         </span><span class="c1">// 等待写者完成后才允许进入</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="n">read_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">read_count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">        </span><span class="c1">// 第一个读者需要获得写入权限（防止写者打断读者）</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">write_lock</span><span class="p">)</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="c1">// 进行读操作</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span><span class="n">read_data</span><span class="p">()</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">    </span><span class="n">read_count</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">read_count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">        </span><span class="c1">// 最后一个读者释放写入权限</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">write_lock</span><span class="p">)</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>伪代码说明:
+    1.  写者优先：写者在请求时会设置 writer_waiting 标志，并请求 write_lock。在写者请求写入后，后续到来的读者在 read_lock 处等待，直到写者完成。
+    2.  读者控制：
+    •   第一个读者进入时，会锁定 write_lock，防止写者在读者读完前抢占资源。
+    •   最后一个读者离开时释放 write_lock，允许写者进入。
+    3.  写者和读者等待释放：当写者完成后，若有读者等待且 read_count &gt; 0，则通过 read_lock 允许读者进入。</p>
+</details>
+<!-- prettier-ignore-end -->
+
 <h3 id="dining-philosophers_problem">Dining-philosophers problem<a class="headerlink" href="#dining-philosophers_problem" title="Permanent link">#</a></h3>
 <p>Philosophers spend their lives thinking and eating, they sit in a round table, but don’t interact with each other.  </p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231109205206.png" width=50%></div>
@@ -5078,7 +5144,7 @@ buffer 需要互斥的保护，因此需要一个 mutex。当它满了的时候�
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月30日 20:23:45</span>
       
         <br>
         Created:

@@ -10,13 +10,13 @@
         <meta name="author" content="yaoyaoling">
       
       
-        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/OS/chap03/">
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/OS/mid-review/">
       
       
-        <link rel="prev" href="../chap02/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../chap04/">
+        <link rel="next" href="../chap01/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Inter-Process Communication - Yaoyaoling's notebook</title>
+        <title>Mid Review - Yaoyaoling's notebook</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inter-process_communication" class="md-skip">
+        <a href="#mid_review" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +137,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inter-Process Communication
+              Mid Review
             
           </span>
         </div>
@@ -1331,9 +1331,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../mid-review/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Mid Review
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1342,6 +1362,110 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#os_overview_structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      OS overview &amp; structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OS overview & structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system_call" class="md-nav__link">
+    <span class="md-ellipsis">
+      system call
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      五个状态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu_switch_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU switch to
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipc" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synchronization
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1391,29 +1515,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Inter-Process Communication
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../chap03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1422,101 +1526,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ipc_communication_models" class="md-nav__link">
-    <span class="md-ellipsis">
-      IPC Communication Models
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="IPC Communication Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shared_memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      Shared Memory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message_passing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Passing
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Message Passing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementing_message-passing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementing Message-Passing
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pipes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pipes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#client-server_communication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client-Server Communication
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaway
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3908,61 +3917,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ipc_communication_models" class="md-nav__link">
+  <a href="#os_overview_structures" class="md-nav__link">
     <span class="md-ellipsis">
-      IPC Communication Models
+      OS overview &amp; structures
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="IPC Communication Models">
+    <nav class="md-nav" aria-label="OS overview & structures">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared_memory" class="md-nav__link">
+  <a href="#system_call" class="md-nav__link">
     <span class="md-ellipsis">
-      Shared Memory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message_passing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Passing
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Message Passing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementing_message-passing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementing Message-Passing
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pipes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pipes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#client-server_communication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client-Server Communication
+      system call
     </span>
   </a>
   
@@ -3974,9 +3941,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#takeaway" class="md-nav__link">
+  <a href="#process" class="md-nav__link">
     <span class="md-ellipsis">
-      Takeaway
+      Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      五个状态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu_switch_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU switch to
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipc" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synchronization
     </span>
   </a>
   
@@ -4000,179 +4018,132 @@
   
 
 
-<h1 id="inter-process_communication">Inter-Process Communication<a class="headerlink" href="#inter-process_communication" title="Permanent link">#</a></h1>
-<p>Processes within a host may be independent or cooperating.<br />
-Reasons for cooperating processes:</p>
+<h1 id="mid_review">Mid Review<a class="headerlink" href="#mid_review" title="Permanent link">#</a></h1>
 <ul>
-<li>Information sharing</li>
-<li>Computation speedup</li>
-<li>Modularity</li>
-<li>Convenience</li>
+<li>Computer architecture</li>
+<li>OS overview</li>
+<li>OS structure</li>
+<li>Process management</li>
+<li>schedule</li>
+<li>IPC</li>
+<li>Thread</li>
+<li>synchronization</li>
+<li>deadlock</li>
 </ul>
-<p>进程保护的太好了，需要有互相通信的手段。</p>
-<p>Models of IPC</p>
-<ul>
-<li>Shared memory</li>
-<li>Message passing</li>
-<li>Signal</li>
-<li>Pipe</li>
-<li>Socket</li>
-</ul>
-<h2 id="ipc_communication_models">IPC Communication Models<a class="headerlink" href="#ipc_communication_models" title="Permanent link">#</a></h2>
-<div align = center><img src="https://cdn.hobbitqia.cc/20231011225958.png" width=70%></div>
+<p><img alt="20241030165309.png" src="../graph/20241030165309.png" /></p>
+<h2 id="os_overview_structures">OS overview &amp; structures<a class="headerlink" href="#os_overview_structures" title="Permanent link">#</a></h2>
+<p>OS is a <strong>resource abstractor and allocator</strong>
+所有和硬件资源有关的操作都是privileged的，所以需要OS来管理。</p>
+<p>OS is a <strong>control program</strong></p>
+<p>There are two kinds of events: <strong>interrupt</strong> and <strong>trap</strong>.</p>
+<h3 id="system_call">system call<a class="headerlink" href="#system_call" title="Permanent link">#</a></h3>
+<p>system call is a <strong>software trap</strong>.</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">normal syscall</p>
+<p>x86-32: <code>int 0x80</code>
+x86-64: <code>syscall</code>
+ARM: <code>svc</code>
+MIPS: <code>ecall</code></p>
+</div>
+<!-- prettier-ignore-end -->
 
+<p><strong>syscall table</strong> 里的 <strong>index</strong> 是 syscall number，对应的是 syscall handler 的地址。</p>
+<p>不同thread的context是不同的，所以需要 <strong>context switch</strong>。会分别存放到thread对应的kernel stack里， 存放pt_regs, pc, sp等。
+<img alt="20241030170845.png" src="../graph/20241030170845.png" />
+最后调用<code>ret_to_user</code>返回到user。</p>
+<p><img alt="20241030170035.png" src="../graph/20241030170035.png" /></p>
 <ul>
-<li>Message-passing<br />
-需要内核空间支持<ul>
-<li>useful for exchanging small amounts of data</li>
-<li>simple to implement in the OS</li>
-<li>sometimes cumbersome for the user as code is sprinkled with send/recv operations</li>
-<li>high-overhead: one syscall per communication operation</li>
+<li>需要明晰dynamic link和static link的优缺点</li>
+<li>dynamic通过<code>.interp</code>找到<code>ld-linux.so</code>，然后找到<code>.dynsym</code>，最后找到<code>.text</code>。</li>
 </ul>
-</li>
-<li>Shared memory<br />
-非内核空间 <ul>
-<li>low-overhead: a few syscalls initially, and then none   </li>
-<li>more convenient for the user since we’re used to simply reading/writing from/to RAM</li>
-<li>more difficult to implement in the OS</li>
-</ul>
-</li>
-</ul>
-<h3 id="shared_memory">Shared Memory<a class="headerlink" href="#shared_memory" title="Permanent link">#</a></h3>
-<p>Processes need to establish a shared memory region.  </p>
-<div class="admonition example">
-<p class="admonition-title">producer/consumer example</p>
-<p><div align = center><img src="https://cdn.hobbitqia.cc/20231011230419.png" width=70%></div></p>
+<p><code>execve</code>会把新的程序加载到内存中，调度所需要的内容。
+<img alt="20241030171216.png" src="../graph/20241030171216.png" /></p>
+<blockquote>
+<p><code>entry point address</code> 是 <code>_start</code> 的地址，里面会调用 <code>__libc_start_main</code> 函数，里面才调用 <code>main()</code> 函数。并且存到user的pc里。</p>
+</blockquote>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>必考两个图</summary>
+<p><img alt="20241030171929.png" src="../graph/20241030171929.png" />
+<img alt="20241030171946.png" src="../graph/20241030171946.png" /></p>
+</details>
+<!-- prettier-ignore-end -->
+
+<p>要区分Policy和Mechanism，Policy是决策，Mechanism是实现。</p>
+<h2 id="process">Process<a class="headerlink" href="#process" title="Permanent link">#</a></h2>
+<p>A process is a program in execution.
+<img alt="20241030172158.png" src="../graph/20241030172158.png" /></p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">神图</p>
+<p><img alt="20241030172226.png" src="../graph/20241030172226.png" /></p>
 </div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p><div align = center><img src="https://cdn.hobbitqia.cc/20231024103056.png" width=70%></div></p>
-<p><code>ipcs -a</code> 可以查看当前 IPC 的状态。</p>
+<!-- prettier-ignore-end -->
+
+<h3 id="_1">五个状态<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
+<p><img alt="20241030172258.png" src="../graph/20241030172258.png" /></p>
+<ul>
+<li>fork() 会复制父进程的PCB，但是不会复制内存，只是共享内存。</li>
+<li>exec() 会把新的程序加载到内存中，调度所需要的内容。</li>
+<li>wait() 会等待子进程结束，然后返回子进程的状态。</li>
+</ul>
+<p>一定要会数有多少个进程</p>
+<p>之后讲了orphan和zombie进程，以及进程的创建和销毁。</p>
+<blockquote>
+<p>Process schedule：有多少个<code>schedule</code>就有多少个<code>queue</code></p>
+</blockquote>
+<h3 id="cpu_switch_to">CPU switch to<a class="headerlink" href="#cpu_switch_to" title="Permanent link">#</a></h3>
+<p>要明晰context switch的神图</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">内核的</p>
+<p>多了pt_regs；以及有大小限制</p>
 </div>
-<p>存在问题：不安全。任何人拿到 <code>share_id</code> 都可以把共享内存 attach 到自己进程上，可以观察到其他进程的数据、甚至做 DOS 攻击。</p>
-<p>而且很 cubersome，会发生各种 error 需要处理。（现在使用不多）</p>
-<h3 id="message_passing">Message Passing<a class="headerlink" href="#message_passing" title="Permanent link">#</a></h3>
-<p>Two fundamental operations:</p>
-<ul>
-<li><strong>send</strong>: to send a message (<strong>i.e.</strong>, some bytes)</li>
-<li><strong>recv</strong>: to receive a message</li>
-</ul>
-<p>If processes P and Q wish to communicate they</p>
-<ul>
-<li>
-<p>establish a communication “link” between them</p>
-<p>This “link” is an abstraction that can be implemented in many ways (even with shared memory!!)</p>
-</li>
-<li>
-<p>place calls to <code>send()</code> and <code>recv()</code></p>
-</li>
-<li>optionally shutdown the communication “link”</li>
-</ul>
-<h4 id="implementing_message-passing">Implementing Message-Passing<a class="headerlink" href="#implementing_message-passing" title="Permanent link">#</a></h4>
-<p>Implementation of communication link</p>
-<ul>
-<li>Physical:<ul>
-<li>Shared memory</li>
-<li>Hardware bus</li>
-<li>Network</li>
-</ul>
-</li>
-<li>
-<p>Logical:</p>
-<ul>
-<li>
-<p>Direct or indirect</p>
-<ul>
-<li>
-<p>Direct  </p>
-<p>有一个 P 和 Q，直接发信息。如果有 n 个进程，需要建立 <strong><span class="arithmatex">\(C_2^n\)</span></strong> 个连接。</p>
-</li>
-<li>
-<p>Indirect</p>
-<p>有一个 mailbox，发信息相当于发给一个 mailbox。如果有多个进程，我们需要确定是由哪个进程接收信息。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Synchronous or asynchronous</p>
-<ul>
-<li>
-<p>Synchronous: Blocking is considered synchronous</p>
-<p>即我们发信息，如果接收者没收到信息，发送者就堵塞着不走；我们收信息，如果发送者没有发送信息，接送者就堵塞着不走。</p>
-</li>
-<li>
-<p>Asynchronous: Non-blocking is considered asynchronous</p>
-</li>
-<li>异步效率更高，同步时效性更高。<ul>
-<li>Automatic or explicit buffering</li>
-</ul>
-</li>
-<li>Zero capacity - no messages are queued on a link. Sender must wait for receiver. </li>
-<li>Bounded capacity - finite length of n messages. Sender must wait if link full.X</li>
-<li>Unbounded capacity - infinite length. Sender never waits.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="pipes">Pipes<a class="headerlink" href="#pipes" title="Permanent link">#</a></h3>
-<ul>
-<li>
-<p><strong>Ordinary pipes</strong>  </p>
-<p>没有名字，只能通过 <code>fork()</code> 来传播。</p>
-<ul>
-<li><em>Producer</em> writes to one end (the <strong>write-end</strong> of the pipe)</li>
-<li><em>Consumer</em> reads from the other end (the <strong>read-end</strong> of the pipe)</li>
-</ul>
-<p><div align = center><img src="https://cdn.hobbitqia.cc/20231031094344.png" width=70%></div></p>
-<p>注意 <code>fd[0]</code> 是 read-end，<code>fd[1]</code> 是 write-end（对于双方都是）</p>
-</li>
-<li>
-<p><strong>Named pipes</strong></p>
-<p>可以把名字通过网络/文件传播，这样就能交互。（可以使用 <code>mkfifo</code> 创建 named pipes）</p>
-</li>
-</ul>
-<p>In UNIX, a pipe is <strong>mono-directional</strong>. <br />
-要实现两个方向一定需要两个 pipe。</p>
-<h3 id="client-server_communication">Client-Server Communication<a class="headerlink" href="#client-server_communication" title="Permanent link">#</a></h3>
-<p>广义上的 IPC，因为是跑在两个物理机器上的交互。</p>
-<ul>
-<li>Sockets</li>
-<li>
-<p>RPCs</p>
-<p>所有的交互都是和 stub 通信，stub 会和远端的 server 通信。
-存在网络问题，如丢包。</p>
-</li>
-<li>
-<p>Java RMI</p>
-<p>RPC in Java</p>
-</li>
-</ul>
-<h2 id="takeaway">Takeaway<a class="headerlink" href="#takeaway" title="Permanent link">#</a></h2>
-<div class="admonition summary">
-<p class="admonition-title">Takeaway</p>
-<ul>
-<li>Communicating processes are the basis for many programs/services</li>
-<li>OSes provide two main ways for processes to communicate<ul>
-<li>shared memory</li>
-<li>message-passing</li>
-</ul>
-</li>
-<li>Each way comes with many variants and in many flavors</li>
-<li>Signals, Pipes, Sockets, RPCs, RMIs, etc.</li>
-</ul>
+<!-- prettier-ignore-end -->
+
+<p><code>task_struct</code>相当于PCB，里面有<code>mm_struct</code>，<code>files_struct</code>等。
+以及caller saved和callee saved。</p>
+<p>context_switch 没有单独的<code>syscall</code>，只是timer调用后自动schedule了。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">为什么fork会返回两个值</p>
+<p>因为会有两个context，一个是父进程的，一个是子进程的；分别返回0和子进程的pid。</p>
 </div>
+<!-- prettier-ignore-end -->
+
+<p><img alt="20241030173652.png" src="../graph/20241030173652.png" /></p>
+<p>两个pc的值区别在于，task_struct里的<code>thread_info</code>的cpu_context里的<code>pc</code>存的是kernel的地址，而<code>pt_regs</code>里的<code>pc</code>存的是user的地址。</p>
+<h2 id="ipc">IPC<a class="headerlink" href="#ipc" title="Permanent link">#</a></h2>
+<ul>
+<li>shared memory和message passing</li>
+</ul>
+<h2 id="thread">Thread<a class="headerlink" href="#thread" title="Permanent link">#</a></h2>
+<p><img alt="20241030174046.png" src="../graph/20241030174046.png" /></p>
+<!-- prettier-ignore-start -->
+<div class="admonition graph">
+<p class="admonition-title">神图</p>
+<p><img alt="20241030174117.png" src="../graph/20241030174117.png" /></p>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>是red-hat帮助linux开发的thread的实现。
+一般来说是使用one to one的mapping</p>
+<h2 id="synchronization">Synchronization<a class="headerlink" href="#synchronization" title="Permanent link">#</a></h2>
+<p>semaphore里必须有spinlock，因为有可能会被打断。
+要明晰四个概念
+这里一般来说会出一个大题</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月30日 20:23:45</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月17日 14:52:21</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月30日 20:23:45</span>
       
     
   </small>

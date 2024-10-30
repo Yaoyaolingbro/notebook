@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/OS/chap01/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../mid-review/">
       
       
         <link rel="next" href="../chap02/">
@@ -1333,11 +1333,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../chap00.md" class="md-nav__link">
+      <a href="../mid-review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Mid Review
   </span>
   
 
@@ -4391,7 +4391,7 @@ create process, terminate process; end, abort; </li>
 <p>ELF 里有 entry point address（通过 <code>readelf -h</code>）</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011194022.png" width=65%></div>
 
-<p>entry point address 不是 <code>main()</code> 的地址，而是 <code>_start</code> 的地址，里面会调用 <code>__libc_start_main</code> 函数，里面才调用 <code>main()</code> 函数。<br />
+<p>entry point address 不是 <code>main()</code> 的地址，而是 <strong><code>_start</code> </strong>的地址，里面会调用 <code>__libc_start_main</code> 函数，里面才调用 <code>main()</code> 函数。<br />
 <code>_start</code> 是在读取命令行参数并且传给 <code>main</code>。</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011194100.png" width=65%></div>
 
@@ -4473,7 +4473,7 @@ Application Binary Interface (ABI) 更贴近硬件架构</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 20:50:57</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月30日 20:23:45</span>
       
         <br>
         Created:
