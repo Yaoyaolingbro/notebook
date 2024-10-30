@@ -31,7 +31,7 @@ Several processes (or threads) access and manipulate the same data *concurrently
 
 <!-- 期末填空题，必考 -->
 <!-- prettier-ignore-start -->
-!!! note "期末考点"
+!!! note "期末考点 三个条件"
     * Mutual Exclusion（互斥访问）
         * 在同一时刻，最多只有一个线程可以执行临界区
     * Progress（空闲让进）
@@ -248,6 +248,8 @@ Can only be accessed via two indivisible (atomic) operations
     <div align = center><img src="https://cdn.hobbitqia.cc/20231107113130.png" width=55%></div>
     
 ### Semaphore w/ waiting queue
+
+> 要yield然后sleep，所以需要context switch
 
 With each semaphore there is an associated waiting queue. 
 
@@ -521,6 +523,7 @@ pthread_mutex_unlock(&mutex);
 * Mutex is used to guarantee that operations are atomic.
 
 ## Synchronization Examples
+> 每年必考一个大题，难度在1、2 之间
 
 一般我们用信号量解决问题，因为信号量相对来说功能更多，而且很多操作系统对信号量做了更多设计，用来避免 busy waiting 等问题。
 
@@ -556,7 +559,7 @@ buffer 需要互斥的保护，因此需要一个 mutex。当它满了的时候�
         signal(full-slots);
     } while (TRUE)
     ```
-    这里 `wait()` 的顺序不能调换：如果先 `wait(mutex)`，那么 `wait(empty-slots)` 之后，如果 buffer 空了，那么这个时候就会带着 mutex 休眠，这样另一个进程也拿不到这个锁了。
+    这里 `wait()` 的**顺序不能调换**：如果先 `wait(mutex)`，那么 `wait(empty-slots)` 之后，如果 buffer 空了，那么这个时候就会带着 mutex 休眠，这样另一个进程也拿不到这个锁了。
 * The consumer process
     ``` C
     do {
@@ -627,7 +630,74 @@ Two variations of readers-writers problem
 
     如果 write ready 了，他就会尽可能早地进行写操作。如果有 reader hold data，那么需要等待 ready writer 结束后再读。
 
-上面的代码是 Reader first。
+**上面的代码是 Reader first。**
+
+<!-- prettier-ignore-start -->
+???+ code "write first"
+
+    在 Readers-Writers 问题中，Write-First 策略优先考虑写者，确保一旦有写者请求写入，读者将被阻止，直到写操作完成。这样可以防止写者长时间等待，但可能导致读者延迟。
+
+    以下是 Write-First 策略的伪代码：
+
+    初始化变量
+
+    int read_count = 0             // 当前正在读的读者数量
+    boolean writer_waiting = false // 指示是否有写者等待
+    semaphore mutex = 1            // 保护读者计数器的锁
+    semaphore write_lock = 1       // 控制对资源的写入
+    semaphore read_lock = 1        // 控制对资源的读取（防止写优先时读者抢占资源）
+
+    写者（Writer）过程
+    ``` C
+    writer() {
+        wait(mutex)
+        writer_waiting = true       // 标记有写者等待
+        signal(mutex)
+
+        wait(write_lock)            // 请求写入权限
+
+        // 进行写操作
+        write_data()
+
+        signal(write_lock)          // 释放写入权限
+
+        wait(mutex)
+        writer_waiting = false      // 清除写者等待标记
+        if (read_count > 0)         // 若有读者等待，允许其读取
+            signal(read_lock)
+        signal(mutex)
+    }
+    ```
+
+    读者（Reader）过程
+    ``` C
+    reader() {
+        wait(mutex)
+        if (writer_waiting)         // 若有写者等待，阻止读者进入
+            wait(read_lock)         // 等待写者完成后才允许进入
+        read_count += 1
+        if (read_count == 1)        // 第一个读者需要获得写入权限（防止写者打断读者）
+            wait(write_lock)
+        signal(mutex)
+
+        // 进行读操作
+        read_data()
+
+        wait(mutex)
+        read_count -= 1
+        if (read_count == 0)        // 最后一个读者释放写入权限
+            signal(write_lock)
+        signal(mutex)
+    }
+    ```
+
+    伪代码说明:
+        1.	写者优先：写者在请求时会设置 writer_waiting 标志，并请求 write_lock。在写者请求写入后，后续到来的读者在 read_lock 处等待，直到写者完成。
+        2.	读者控制：
+        •	第一个读者进入时，会锁定 write_lock，防止写者在读者读完前抢占资源。
+        •	最后一个读者离开时释放 write_lock，允许写者进入。
+        3.	写者和读者等待释放：当写者完成后，若有读者等待且 read_count > 0，则通过 read_lock 允许读者进入。
+<!-- prettier-ignore-end -->
 
 ### Dining-philosophers problem
 

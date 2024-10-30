@@ -4,8 +4,8 @@
 ## Technology and Optimizations
 ### Main memory
 - Latency:
-- - acess time: time to read/write a word
-- - cycle time: time between successive accesses
+  - acess time: time to read/write a word
+  - cycle time: time between successive accesses
 - bandwith: the time to retrieve the rest of the block
   
 - SRAM(Static random access memory): Don't need to be refreshed, so access time is very close to cycle time

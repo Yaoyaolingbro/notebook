@@ -208,7 +208,7 @@ ELF section 被映射到内存里面的不同 segment。
 ELF 里有 entry point address（通过 `readelf -h`）
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011194022.png" width=65%></div>
 
-entry point address 不是 `main()` 的地址，而是 `_start` 的地址，里面会调用 `__libc_start_main` 函数，里面才调用 `main()` 函数。  
+entry point address 不是 `main()` 的地址，而是 **`_start` **的地址，里面会调用 `__libc_start_main` 函数，里面才调用 `main()` 函数。  
 `_start` 是在读取命令行参数并且传给 `main`。
 <div align = center><img src="https://cdn.hobbitqia.cc/20231011194100.png" width=65%></div>
 

@@ -35,8 +35,8 @@ memory也会按照分层结构进行设计，以减少访问时间。
 ## What make the computer fast?
 ### Parrallelism
 - application-level parallelism
-- - DLP: Data-level parallelism > ![20241023235930.png](graph/20241023235930.png)
-- - TLP: Task-level parallelism > ![20241024000012.png](graph/20241024000012.png)
+  - DLP: Data-level parallelism > ![20241023235930.png](graph/20241023235930.png)
+  - TLP: Task-level parallelism > ![20241024000012.png](graph/20241024000012.png)
 - hardware-level parallelism (four ways) > ![20241024000035.png](graph/20241024000035.png)
 
 ### Class of parrallel architecture

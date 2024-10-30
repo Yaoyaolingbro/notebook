@@ -37,6 +37,7 @@ Note: most OSes do not prevent or deal with deadlocks.
     * release
 
 ### Four Conditions of Deadlock
+> cheatsheet必备
 
 * Mutual exclusion: a resource can only be used by one process at a time.
 
