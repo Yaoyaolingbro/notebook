@@ -5,3 +5,4 @@
 [Github repo](https://github.com/d2l-ai/d2l-zh)
 [Book-pages](https://zh.d2l.ai/index.html)
 [课程视频](https://courses.d2l.ai/berkeley-stat-157/index.html)
+[GAN的loss分析](https://www.youtube.com/watch?v=xFCuXE1Nb8w&t=479s)

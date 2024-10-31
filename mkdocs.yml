@@ -326,17 +326,35 @@ nav:
       - Online CS Courses/CS285/index.md
       - Online CS Courses/CS285/takeaway.md
       - Online CS Courses/CS285/chap01.md
+      - Online CS Courses/CS285/chap02.md
+      - Online CS Courses/CS285/chap03.md
+      - Online CS Courses/CS285/chap04.md
+      - Online CS Courses/CS285/chap05.md
+      - Online CS Courses/CS285/chap06.md
+      - Online CS Courses/CS285/chap07.md
+      - Online CS Courses/CS285/chap08.md
+      - Online CS Courses/CS285/chap09.md
+      - Online CS Courses/CS285/chap10.md
+      - Online CS Courses/CS285/chap11.md
+      - Online CS Courses/CS285/chap12.md
+      - Online CS Courses/CS285/chap13.md
+      - Online CS Courses/CS285/chap14.md
+      - Online CS Courses/CS285/chap15.md
+      - Online CS Courses/CS285/chap16.md
+      - Online CS Courses/CS285/chap17.md
+      - Online CS Courses/CS285/chap18.md
+      - Online CS Courses/CS285/chap19.md
+      - Online CS Courses/CS285/chap20.md
+      - Online CS Courses/CS285/chap21.md
 
   - AI:
     - AI/index.md
     - AI/DL.md
+    - AI/LLM.md
     - Machine Learning:
       - AI/machine learning/index.md
       - AI/machine learning/introduction.md
       - AI/machine learning/method.md
-    - Pytorch:
-      - AI/Pytorch/index.md
-      - AI/Pytorch/note.md
   
   - Language:
     - C:

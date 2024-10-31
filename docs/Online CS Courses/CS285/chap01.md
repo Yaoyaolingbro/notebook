@@ -1,7 +1,7 @@
 # Terminology
 ![20241029201146.png](graph/20241029201146.png)
 
-先来回顾一下[Preliminaries](./0-preliminaries.md#preliminaries)中的内容，介绍一些符号——
+先来回顾一下[Preliminaries](./index.md#preliminaries)中的内容，介绍一些符号——
 
 - $o_t$ : observation at time $t$
 - $a_t$ : action at time $t$
@@ -32,14 +32,16 @@ $$
 
 注意，在给定$a_2$的时候，$a_3$是独立于$a_1$的，并且$s_1$不会提供额外的信息。
 
-请不要confounding$O \& S$, $O$是agent的观察，$S$是agent的状态。
+请不要confounding $O \& S$, $O$是agent的观察，$S$是agent的状态。
 
 早期的单纯的监督学习并不能很好的在自动驾驶场景上应用的原因是：IID(Independent and Identically Distributed)假设不成立.
 
-即当前输出结果可能影响着下一次输出结果的准确性。
+> 即当前输出结果可能影响着下一次输出结果的准确性。
+
 ![20241029202348.png](graph/20241029202348.png)
 
 但是当英伟达把数据堆的足够多的时候，还是work了的。
+
 解决的办法可以是：增加数据量，强大的模型，multi-task learning（exotic）。
 ![20241029202631.png](graph/20241029202631.png)
 
@@ -71,10 +73,13 @@ $$
 - $a=\pi^{\star}(s)$ : the expert policy gives $a$ when the state is $s$
 - $\pi_\theta$ : the policy we are trying to learn
 - $p_{\pi_\theta}(s_t)$ : the probability of being at state $s_t$ at time $t$ if we follow $\pi_\theta$ . 
-    - **重要提示**: $p_{\pi_\theta}(s_t)$ 的这个 $p_{\pi_\theta}$ 分布和 $p_{\pi_\theta}(s_{t+1})$ 的这个 $p_{\pi_\theta}$ 分布可不是一个分布！一个是在 $t$ 时的分布，一个是在 $t+1$ 时的分布。 的确——you are on the road :)
+    - **重要提示**: $p_{\pi_\theta}(s_t)$ 的这个 $p_{\pi_\theta}$ 分布和 $p_{\pi_\theta}(s_{t+1})$ 的这个 $p_{\pi_\theta}$ 分布可不是一个分布！一个是在 $t$ 时的分布，一个是在 $t+1$ 时的分布。 的确——you are on the road 😈
 - Use $|p_1-p_2|$ to denote the total variance distance between $p_1$ and $p_2$ : $|p_1-p_2|=\sum_{x}|p_1(x)-p_2(x)|$
 
 ## Distribution Distance
+
+> Relax，只是为了证明上界的问题。
+
 **Assumptions.**
 
 - $\forall (a,s), \pi_\theta(a\ne \pi^{\star}(s)|s)\le \epsilon$
@@ -146,19 +151,41 @@ $$
 S\le \sum_{t\le T} \epsilon+\sum_{t\le T} 2\epsilon t = \mathcal{O}(\epsilon T^2).
 $$
 
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    Take away，video中有讲到，其实reward函数和cost函数是可以互换的，只要把reward函数取负就行了。
+    ![20241031105631.png](graph/20241031105631.png)
+<!-- prettier-ignore-end -->
+
 # Make Bahavior Cloning Work
 
 介绍几个常见的方法，解决bahavior cloning的这个问题。
 
 ## Adding Mistakes
+
+![20241031104854.png](graph/20241031104854.png)
  
 假设我们的模型学会改正自己的错误（比如，在走钢丝的时候，身体向左倾倒的时刻，我们的模型能够自动调整身体向右倾倒）。这样的话，成功的概率会大很多。
 
 一个典型的实验是，我们做一个驾驶的模型，然后做三个摄像头：一个正常的摄像头，一个向左偏移的摄像头，一个向右偏移的摄像头。在训练的时候，左边摄像头的图片被标记为“右转”，右边摄像头的图片被标记为“左转”。这样的话，我们的模型就能够学会自动调整。
 
+<!-- prettier-ignore-start -->
+??? demo "线代模型的一些代表工作"
+    
+    ![20241031105112.png](graph/20241031105112.png)
+    ![20241031105125.png](graph/20241031105125.png)
+    ![20241031105138.png](graph/20241031105138.png)
+    ![20241031105154.png](graph/20241031105154.png)
+    ![20241031105209.png](graph/20241031105209.png)
+<!-- prettier-ignore-end -->
+
 ## Multi-task Learning
 
+![20241031104419.png](graph/20241031104419.png)
+
 还记得我们之前的问题：只要模型一步误入歧途，接下来就再也没有挽回的余地。回顾一下，之前的模型失误的时候会走向一条全新的道路，是完全没有训练过的；但 multi-task learning 可以解决这个问题——它通过巧妙的设计收集大量的 trajectory 信息，使得模型在哪里都不至于完全不知所措。
+
+![20241031105315.png](graph/20241031105315.png)
 
 具体地，我们在训练的时候让专家并非向往一个目标 $s_T$ 前进；相反，让它对很多个 $s_T$ 走多条这样的路径：
 
@@ -174,7 +201,16 @@ $$
 
 也就是说，我们模型知道了对于每一个 **目标 $s_T$** 应该每一步怎样走。这样的操作也叫做 Goal-conditioned behavior cloning。
 
+<!-- prettier-ignore-start -->
+??? example "一些现在的工作"
+    ![20241031105404.png](graph/20241031105404.png)
+    ![20241031105419.png](graph/20241031105419.png)
+    ![20241031105431.png](graph/20241031105431.png)
+<!-- prettier-ignore-end -->
+
 ## DAgger
+
+![20241031105459.png](graph/20241031105459.png)
 
 DAgger也试着解决原来的问题。它的思路是，为了防止模型走错之后不知道该怎么走，我们就在每一个训练 iteration 完成之后让模型自己跑一次，并让专家来标记正确答案。具体地，我们从 $\pi_\theta$ 中采样
 
