@@ -1,3 +1,6 @@
+# Takeaway of all lectures
+> 这里只是用来自己看看的
+
 # 2-Imitation Learning
 
 **Behavioral Cloning**

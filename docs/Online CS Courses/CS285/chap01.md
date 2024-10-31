@@ -1,3 +1,4 @@
+# chap01 Supervised Learning of Behaviors
 # Terminology
 ![20241029201146.png](graph/20241029201146.png)
 
