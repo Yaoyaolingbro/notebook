@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Deadlock
+# Chap07 | Deadlock
 
 * Deadlock problem
 * System model
@@ -184,9 +184,9 @@ Resource-allocation graph can be used for single instance resourcedeadlock avoid
         想要，但还没有 request。
 
     * claim edge is represented by a dashed line
-* resources must be claimed a priori in the system.
+* **resources must be claimed a priori in the system.**
 
-    要事先声明。
+    (要事先声明, 不优雅)
 
 Transitions in between edges
 

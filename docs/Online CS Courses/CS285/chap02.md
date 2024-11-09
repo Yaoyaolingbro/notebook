@@ -1,5 +1,8 @@
 # chap02 Introduction to Reinforcement Learning
-
+<!-- prettier-ignore-start -->
+!!! note "导言"
+    简单来说，强化学习是指根据reward函数，通过与环境的交互，学习一个policy，使得在这个policy下，我们可以获得最大的reward（更希望的是在未来的reward更好）。这一章节主要介绍了强化学习的基本概念，从马尔可夫决策过程（MDP）开始，到value function和Q function，再到RL算法的概览。这一章节是整个课程的基础，后续的章节会围绕这些概念展开。
+<!-- prettier-ignore-end -->
 # Markov Decision Process (MDP)
 
 ## Basic Concepts

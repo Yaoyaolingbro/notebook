@@ -1,4 +1,4 @@
-# Lec 3 : Image Processing
+# Lec03 | Image Processing
 
 !!! note
 

@@ -3,5 +3,5 @@
 
 <!-- prettier-ignore-start -->
 !!! quote "resource"
-    [资源](https://github.com/zjuerme/zju_course)
+    [一个非常好的学长的作业资源](https://github.com/zjuerme/zju_course)
 <!-- prettier-ignore-end -->

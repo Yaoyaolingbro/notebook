@@ -1,4 +1,4 @@
-# Lec8 Depth estimation and 3D reconstruction
+# Lec08 | Depth estimation and 3D reconstruction
 
 上一节我们讨论的structure from motion重建的是稀疏的点云，这节我们讨论稠密的重建，即对每个像素点进行重建，而需要的一个重要概念就是深度的估计。
 
@@ -113,8 +113,8 @@ $$
 
     - Camera calibration errors
     - Poor image resolution
-    - Occlusions
-    - Violations of brightness constancy
+    - Occlusions （遮挡）
+    - Violations of brightness constancy （镜子或者透明的东西）
     - Textureless regions
 
 !!! Question "结构光"
@@ -259,6 +259,21 @@ cost volumn记下了每个像素每一个深度对应的误差，最后我们提
     
     - Solved by Poisson equation
 
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    Poisson重建的推导过程
+
+	1.	法向量场的定义：假设点云上每个点都有一个法向量，我们可以构建一个由这些法向量组成的法向量场$\vec{N}$。
+	2.	指示函数的定义：我们定义一个指示函数$\chi$，它的梯度代表重建的表面。理想情况下，指示函数的梯度方向应与法向量场一致。
+	3.	Poisson方程的形成：通过应用拉普拉斯算子$\Delta$，我们可以得到Poisson方程：
+    $$
+    \Delta \chi = \nabla \cdot \vec{N}
+    $$
+    这个方程的物理意义是，指示函数\chi的梯度与输入的法向量场$\vec{N}$一致。通过求解该方程，能够得到一个符合输入法向量场的函数。
+	4.	离散化与求解:在计算中，点云被离散化并投影到三维网格上。然后，使用离散的有限元方法或多分辨率方法，将Poisson方程转化为离散的线性方程组。
+	5.	求解线性方程组:离散化之后，线性方程组可以通过数值方法（如共轭梯度法）求解，得到指示函数$\chi$的解。
+	6.	等值面提取:一旦得到了指示函数$\chi$，可以通过提取$\chi = 0.5$等值面，获得重建的三维表面。这通常使用Marching Cubes算法将等值面转化为三角网格表示。
+<!-- prettier-ignore-end -->
 
 #### Marching Cubes
 

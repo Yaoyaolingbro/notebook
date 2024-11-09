@@ -1,4 +1,4 @@
-# Lec4: Model fitting and Optimization
+# Lec04 | Model fitting and Optimization
 
 ## Optimization
 
@@ -32,7 +32,7 @@ $$
 
 #### Maximum Likelihood Estimation
 
-首先假设数据服从高斯分布
+首先假设数据服从高斯noise
 $$
 b_i=a_i^T+n,\ n\sim G(0,\sigma)
 $$
@@ -87,7 +87,7 @@ $$
 F(x_k+\Delta x)\approx F(x_k)+J_F\Delta x+\frac{1}{2}\Delta x^{T}H_F\Delta x
 $$
 
-- Find $\Delta x$ to minmize $F(x_k+\Delta x)$
+- Find $\Delta x$ to minmize $F(x_k+\Delta x)$（即对$\Delta x$求导 = 0， 这里注意$H_F$是Hessian矩阵，以及只有当其为二阶连续可微时才得到这个结果）
 
 $$
 H_F\Delta x+J_F^{T}=0 \\ \Delta x=-H_F^{-1}J_F^{T}\ (Newton Step)

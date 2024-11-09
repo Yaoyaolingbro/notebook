@@ -1,4 +1,4 @@
-# Lec2 Image Formation
+# Lec02 | Image Formation
 
 ## Camera and lens
 

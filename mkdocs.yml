@@ -278,6 +278,7 @@ nav:
     - Missing semester/index.md
     - Missing semester/toolbox.md
     - Missing semester/copilot.md
+    - Missing semester/NAS.md
     - Git: 
       - Missing semester/git/index.md
       - Missing semester/git/fastGit.md
@@ -305,23 +306,6 @@ nav:
       - Missing semester/Zotero/use.md
 
   - Online CS Courses:
-    - 计算机科学导论: 
-      - Online CS Courses/Fundation of computer science/index.md
-    - CSAPP: 
-      - Online CS Courses/CSAPP/index.md
-      - Online CS Courses/CSAPP/note.md
-    - CS106L: 
-      - Online CS Courses/CS106L/index.md
-      - Online CS Courses/CS106L/note.md
-    - CS50 AI:
-      - Online CS Courses/CS50 AI/index.md
-      - Online CS Courses/CS50 AI/note.md
-    - CS61B:
-      - Online CS Courses/CS61B/index.md
-      - Online CS Courses/CS61B/note.md
-    - CS106X:
-      - Online CS Courses/CS106X/index.md
-
     - CS285:
       - Online CS Courses/CS285/index.md
       - Online CS Courses/CS285/takeaway.md
@@ -346,6 +330,19 @@ nav:
       - Online CS Courses/CS285/chap19.md
       - Online CS Courses/CS285/chap20.md
       - Online CS Courses/CS285/chap21.md
+    - CS106L: 
+      - Online CS Courses/CS106L/index.md
+      - Online CS Courses/CS106L/note.md
+    - CS50 AI:
+      - Online CS Courses/CS50 AI/index.md
+      - Online CS Courses/CS50 AI/note.md
+    - CS61B:
+      - Online CS Courses/CS61B/index.md
+      - Online CS Courses/CS61B/note.md
+    - 计算机科学导论: 
+      - Online CS Courses/Fundation of computer science/index.md
+    - CS106X:
+      - Online CS Courses/CS106X/index.md
 
   - AI:
     - AI/index.md

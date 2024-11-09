@@ -1,4 +1,4 @@
-# Lec12 Computational Photography
+# Lec12 | Computational Photography
 
 计算摄影学的任务就是通过算法使得拍出来的图像质量更高。
 

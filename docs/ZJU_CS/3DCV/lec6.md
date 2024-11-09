@@ -1,4 +1,4 @@
-# Image Stitching
+# Lec06 | Image Stitching
 
 ## Image Warping
 
@@ -86,7 +86,7 @@ $$
 **Recap the Idea**:
 
 - All the inliers will agree with each other on the translation vector;
-- The outliers will disagree with each other( RANSAC only ha guarantees if there are <50% outliers)
+- The outliers will disagree with each other( RANSAC only has guarantees if there are <50% outliers)
 
 > All good matches are alike; every bad match is bad in its own way.
 >

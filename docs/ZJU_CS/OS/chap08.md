@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Main Memory
+# Chap08 | Main Memory
 
 Program must be brought (from disk) into memory and placed within a process for it to be run.
 
@@ -120,7 +120,7 @@ Variable partitions 可以避免内部碎片，但无论如何总是有外部碎
 
 #### External fragmentation
 
-* total amount of free memory space is larger than a request.
+* total amount of free memory space **is larger than a request.**
 * the request cannot be fulfilled because the free memory is not contiguous.
 
 External fragmentation can be reduced by **compaction**.

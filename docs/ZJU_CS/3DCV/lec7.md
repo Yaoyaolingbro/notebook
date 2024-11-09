@@ -1,4 +1,4 @@
-# Lec7: Structure from Motion
+# Lec07 | Structure from Motion
 
 
 

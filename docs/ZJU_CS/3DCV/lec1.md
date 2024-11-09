@@ -1,5 +1,4 @@
---- comments: true ---
-# Introduction
+# Lec01 | Introduction
 
 ## What is Computer Vision
 

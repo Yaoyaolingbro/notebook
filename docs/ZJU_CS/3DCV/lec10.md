@@ -1,4 +1,4 @@
-# Lec10 Recognition
+# Lec10 | Recognition
 
 !!! Question
 

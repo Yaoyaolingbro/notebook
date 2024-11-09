@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Synchoronization
+# Chap06 | Synchoronization
 
 * Processes/threads can execute concurrently
 * Concurrent access to shared data may result in data inconsistency
