@@ -3825,7 +3825,7 @@
 <!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">注意指南</p>
-<p>尽量断电操作，插入后需要（否则可能识别不到）。</p>
+<p>尽量断电操作，插入后需要重启（否则可能识别不到）。</p>
 <p>在命令行使用<code>sudo fdisk -l</code>查看硬盘是否被识别，如果没有识别到，可能是硬盘没有插好或者硬盘损坏。</p>
 </div>
 <!-- prettier-ignore-end -->
@@ -3833,41 +3833,45 @@
 <h2 id="_2">自动挂载<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>可以通过编辑/etc/fstab文件来实现开机自动挂载设备。以下是具体步骤：</p>
 <ol>
-<li>查看分区的UUID：使用UUID来识别分区，这样即使硬盘设备名改变也不会影响挂载。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>blkid
-</code></pre></div></li>
-</ol>
+<li>
+<p>查看分区的UUID：使用UUID来识别分区，这样即使硬盘设备名改变也不会影响挂载。
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>blkid
+</code></pre></div></p>
 <p>找到/dev/sda2和/dev/sdb2对应的UUID，例如：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/dev/sda2: UUID=&quot;xxxx-xxxx&quot; ...
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/dev/sdb2: UUID=&quot;yyyy-yyyy&quot; ...
 </code></pre></div></p>
-<p>•   /mnt/sda2和/mnt/sdb2是挂载点，确保它们已存在：<code>sudo mkdir -p /mnt/sda2 /mnt/sdb2</code></p>
-<ol start="2">
-<li>编辑/etc/fstab文件：
-打开/etc/fstab文件并添加以下内容（用实际的UUID替换xxxx-xxxx和yyyy-yyyy）：
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo vim /etc/fstab
+<blockquote>
+<p>/mnt/sda2和/mnt/sdb2是挂载点，确保它们已存在：<code>sudo mkdir -p /mnt/sda2 /mnt/sdb2</code></p>
+</blockquote>
+</li>
+<li>
+<p>编辑/etc/fstab文件：
+    打开/etc/fstab文件并添加以下内容（用实际的UUID替换xxxx-xxxx和yyyy-yyyy）：
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo vim /etc/fstab
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a># 在文件末尾添加：
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>UUID=xxxx-xxxx  /mnt/sda2  ext4  defaults  0  2
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>UUID=yyyy-yyyy  /mnt/sdb2  ext4  defaults  0  2
-</code></pre></div></li>
-</ol>
-<p>•   ext4是文件系统类型，<strong>请根据实际文件系统类型（如ext4、ntfs等）调整</strong>。
-•   defaults选项可以指定默认挂载参数，0表示不进行备份，2表示文件系统检查的顺序。</p>
-<ol start="3">
+</code></pre></div></p>
+<blockquote>
+<p>ext4是文件系统类型，<strong>请根据实际文件系统类型（如ext4、ntfs等）调整</strong>。
+defaults选项可以指定默认挂载参数，0表示不进行备份，2表示文件系统检查的顺序。</p>
+</blockquote>
+</li>
 <li>
 <p>测试挂载：
-执行以下命令，确保没有错误信息输出，来测试挂载配置是否正确。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>mount<span class="w"> </span>-a
+    执行以下命令，确保没有错误信息输出，来测试挂载配置是否正确。
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>mount<span class="w"> </span>-a
 </code></pre></div></p>
 </li>
 <li>
 <p>重启系统：
-重启系统，检查设备是否已自动挂载到/mnt/sda2和/mnt/sdb2。</p>
+    重启系统，检查设备是否已自动挂载到/mnt/sda2和/mnt/sdb2。</p>
+<p>这样配置后，/dev/sda2和/dev/sdb2会在每次开机时自动挂载到指定的目录下。</p>
 </li>
 </ol>
-<p>这样配置后，/dev/sda2和/dev/sdb2会在每次开机时自动挂载到指定的目录下。</p>
 <h2 id="nfs">NFS 指南<a class="headerlink" href="#nfs" title="Permanent link">#</a></h2>
 <p><a href="https://pq01uwab7j.feishu.cn/docx/VIYfd6sCFoUH2Mxfl1DctkGNnFf?from=from_copylink">飞书NAS指南即可</a></p>
 <h2 id="sshfs">使用sshfs挂载远程文件夹<a class="headerlink" href="#sshfs" title="Permanent link">#</a></h2>
@@ -3903,16 +3907,16 @@
 
 <h3 id="_5">开机自动挂载<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
 <ol>
-<li>设置 SSH 密钥登录</li>
-</ol>
+<li>
+<p>设置 SSH 密钥登录</p>
 <p>首先，确保配置了免密码的 SSH 密钥认证，以避免系统在启动时需要手动输入密码。以下是生成并配置 SSH 密钥的方法（如果已经设置好，可以跳过）：</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># ssh-keygen -t rsa</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ssh-copy-id<span class="w"> </span>username@remote_host<span class="w"> </span><span class="c1"># 用来直接复制你的公钥到目的主机</span>
 </code></pre></div>
 这样在启动时，系统可以自动使用 SSH 密钥登录。</p>
-<ol start="2">
-<li>添加挂载配置到 /etc/fstab</li>
-</ol>
+</li>
+<li>
+<p>添加挂载配置到 /etc/fstab</p>
 <p>编辑 /etc/fstab 文件，添加一行挂载配置。您需要使用 sudo 权限来编辑此文件：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/fstab
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
@@ -3929,13 +3933,15 @@
 </code></pre></div>
 <p><code>sudo mount -a</code>测试是否成功挂载</p>
 <p>如果挂载成功，则说明配置无误。重启系统后，sshfs 将会自动挂载远程文件夹。</p>
+</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月9日 17:03:32</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月9日 17:16:06</span>
       
         <br>
         Created:
