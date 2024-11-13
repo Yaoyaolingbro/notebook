@@ -45,7 +45,7 @@ Hardware Address Protection
 CPU must check every memory access generated in user mode to be sure it is between base and limit for that user.
 <div align = center><img src="https://cdn.hobbitqia.cc/20231116210520.png" width=60%></div>
 
-CPU 首先发出逻辑地址（即偏移量）随后判断是否超过 limit 范围，随后再加上重定位寄存器（即 base）就得到了真正的物理地址。
+**CPU 首先发出逻辑地址（即偏移量）随后判断是否超过 limit 范围，随后再加上重定位寄存器（即 base）就得到了真正的物理地址。**
 
 Advantages
 
@@ -204,6 +204,8 @@ Fixed 和 Variable 划分都是物理连续的分配，Paging 是把所有内存
 
 Basic methods
 
+> 需要区分记忆
+
 * Divide **physical** address into fixed-sized blocks called **frames**（帧）
     * Size is power of 2, usually 4KB.
 * Divide **logical** address into blocks of same size called **pages**（页）
@@ -238,7 +240,7 @@ Paging has no **external** fragmentation, but **internal** fragmentation.
 
 !!! Example
     <div align = center><img src="https://cdn.hobbitqia.cc/20231116215910.png" width=60%></div>
-    https://cdn.hobbitqia.cc/20231117152200.png
+    <div align = center><img src="https://cdn.hobbitqia.cc/20231117152200.png" width=60%></div>
 
 ### Address Translation
 
@@ -357,7 +359,7 @@ Page table must be **physically contiguous**.
 
 <div align = center><img src="https://cdn.hobbitqia.cc/20231117164128.png" width=60%></div>
 
-最坏情况下，如果只访问第一个页和最后一页，那么只用一级页表需要 1K 个页用来放页表（这个页表有 $2^{20}$ 个条目），但是对于二级页表就只需要 3 个页表（1 个一级和 2 个二级页表），即 3 个页来放页表。
+最坏情况下，如果只访问第一个页和最后一页，那么只用一级页表需要 1K 个页用来放页表（这个页表有 $2^{20}$ 个条目），但是对于二级页表就只需要 3 个页表（1 个一级和 2 个二级页表），**即 3 个页来放页表。**
 
 A logical address is divided into:
 
