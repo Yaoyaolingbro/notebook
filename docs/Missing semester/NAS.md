@@ -13,6 +13,29 @@
     在命令行使用`sudo fdisk -l`查看硬盘是否被识别，如果没有识别到，可能是硬盘没有插好或者硬盘损坏。
 <!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
+!!! example "全新的机械硬盘"
+    通过`lsblk`查看硬盘是否被识别，如果没有识别到，可能是硬盘没有插好或者硬盘损坏。
+
+    接下来你需要格式化硬盘，这里以ext4为例，执行以下命令：
+    ```shell
+    # 检查磁盘类型
+    sudo parted /dev/sda print
+    # Partition Table: msdos，则说明当前是 MBR 分区表，则无法创建超过 2TB 的分区
+    # (parted) mklabel gpt
+    # (parted) quit
+
+    sudo fdisk /dev/sda
+    Command (m for help): p # 查看分区
+    Command (m for help): n # 新建分区
+    Command (m for help): w # 保存退出
+
+    # 格式化
+    sudo mkfs.ext4 /dev/sda2
+    # 之后按照原教程挂载即可
+    ```
+<!-- prettier-ignore-end -->
+
 ## 自动挂载
 可以通过编辑/etc/fstab文件来实现开机自动挂载设备。以下是具体步骤：
 
@@ -48,6 +71,7 @@
     ```shell
     sudo mount -a
     ```
+    > Anyway,你可以需要赋予权限：`sudo chmod -R 777 /mnt/sda2 /mnt/sdb2`
 
 4.	重启系统：
     重启系统，检查设备是否已自动挂载到/mnt/sda2和/mnt/sdb2。
@@ -55,7 +79,45 @@
     这样配置后，/dev/sda2和/dev/sdb2会在每次开机时自动挂载到指定的目录下。
 
 ## NFS 指南
+<!-- prettier-ignore-start -->
+??? info "Tips"
+    由于NFS是基于网络的文件系统，因此需要确保网络连接稳定。
+    此外由于会涉及到NET网络以及防火墙的问题，只建议实验室内的设备使用。
+<!-- prettier-ignore-end -->
 
+### 服务端
+1.	安装NFS服务器：
+    ```shell
+    sudo apt update
+    sudo apt install nfs-kernel-server
+    ```
+
+2.	配置NFS共享目录：
+    编辑/etc/exports文件，添加需要共享的目录：
+    ```shell
+    sudo vim /etc/exports
+
+    # 在文件末尾添加：
+    /mnt/sda2 *(rw,sync,no_root_squash,no_subtree_check)
+    /mnt/sdb2 *(rw,sync,no_root_squash,no_subtree_check)
+
+    # 保存并退出
+    # 检查状态
+    sudo exportfs -ra
+    sudo exportfs -v
+    ```
+
+    > /mnt/sda2和/mnt/sdb2是需要共享的目录，*表示允许所有主机访问，rw表示读写权限，sync表示同步写入，no_root_squash表示不降低root用户权限，no_subtree_check表示不检查子目录。
+
+3.	重启NFS服务：
+    ```shell
+    sudo systemctl restart nfs-kernel-server
+    sudo systemctl enable nfs-kernel-server
+    ```
+
+    > 如果有防火墙，需要开放NFS服务端口（默认是2049）。
+
+### 客户端
 [飞书NAS指南即可](https://pq01uwab7j.feishu.cn/docx/VIYfd6sCFoUH2Mxfl1DctkGNnFf?from=from_copylink)
 
 
@@ -96,6 +158,30 @@ fusermount -u ~/remote_folder
 
     •	确保网络连接稳定，否则可能会导致挂载失败或中断。
 	•	如果您使用密钥认证，可以配置免密码登录，以减少输入密码的次数。
+
+    如果通过 sshfs 挂载远程目录后发现没有修改权限，可能是由于以下原因之一。以下是排查问题并解决的步骤：
+
+
+
+    > 启用 allow_other 选项
+
+    原因
+
+    默认情况下，sshfs 只允许挂载用户访问远程文件。其他用户可能被限制写入。
+
+    解决方法
+
+        1.	编辑 /etc/fuse.conf 文件，确保 allow_other 已启用（需要管理员权限）：
+        ```shell
+        sudo nano /etc/fuse.conf
+        ```
+        确保以下行没有注释（去掉开头的 #）：`user_allow_other`
+
+
+        2.	挂载时添加 allow_other 选项：
+        ```shell
+        sshfs -o allow_other username@remote_host:/path/to/remote/directory ~/host-dzz
+        ```
 <!-- prettier-ignore-end -->
 	
 

@@ -39,6 +39,7 @@ Some questions about demand paging:
 
 * Demand paging vs page fault
     * What is the relationship?
+    * Demand paging is a method of handling page faults.
 * What causes page fault？
     * User space program accesses an address
 * Which hardware issues page fault?
