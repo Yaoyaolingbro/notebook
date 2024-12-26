@@ -92,6 +92,8 @@ GPU 访问内存也算 DMA，只要不经过 CPU 就算。
 
 <div align = center><img src="https://cdn.hobbitqia.cc/20231215163421.png" width=70%></div>
 
+> Driver在CPU上运行，Controller是在设备上的。
+
 ## Application I/O Interface
 
 I/O **system calls** encapsulate device behaviors in generic classes.

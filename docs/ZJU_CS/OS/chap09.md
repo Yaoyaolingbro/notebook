@@ -68,6 +68,8 @@ Each page table entry has a **valid–invalid (present) bit**
 
 Linux implementation
 
+先看是否在VMA里面！！！
+
 Page Fault 出现有两种情况，一种是地址本身超过了 `vma` 的范围，或者落在 Heap 内但权限不对，这种情况操作系统会杀死进程；一种是落在 Heap 里，而且权限也正确，那么这个时候 OS 就会分配一个空闲帧，然后把这个页映射到这个帧上。
 
 <div align = center><img src="https://cdn.hobbitqia.cc/20231121103527.png" width=75%></div>
@@ -371,7 +373,7 @@ Each process needs minimum number of frames - according to instructions semantic
 * Why does demand paging work?
     * process memory access has high locality.
     * process migrates from one locality to another, localities may overlap.
-* Why does thrashing occur? 
+* **Why does thrashing occur? **
     * total memory size < total size of locality
 
         一个 locality 大小比内存大，因此我们不得不一直换进换出页。

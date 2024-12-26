@@ -260,7 +260,14 @@ nav:
 
     - Computer Network:
       - ZJU_CS/CN/index.md
-      - ZJU_CS/CN/week1.md
+      - ZJU_CS/CN/chap01.md
+      - ZJU_CS/CN/chap02.md
+      - ZJU_CS/CN/chap03.md
+      - ZJU_CS/CN/chap04.md
+      - ZJU_CS/CN/chap05.md
+      - ZJU_CS/CN/chap06.md
+      - ZJU_CS/CN/chap07.md
+      - ZJU_CS/CN/chap08.md
 
     - Operating System:
       - ZJU_CS/OS/index.md

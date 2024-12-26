@@ -2,7 +2,7 @@
 counter: True  
 ---
 
-# Chap05 |S cheduling
+# Chap05 | Scheduling
 
 ## CPU Scheduling
 

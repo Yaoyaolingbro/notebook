@@ -140,7 +140,7 @@ sudo apt install sshfs
 在本地创建一个目录用于挂载远程文件夹。这个目录最好放到大家自己的家目录下：
 ```shell
 mkdir ~/remote_folder
-sshfs username@remote_host:/remote/path/to/folder ~/remote_folder
+sshfs -o follow_symlinks username@remote_host:/remote/path/to/folder ~/remote_folder
 
 •	username：远程服务器上的用户名
 •	remote_host：远程服务器的 IP 地址或域名

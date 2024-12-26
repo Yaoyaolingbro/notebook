@@ -27,6 +27,8 @@ hard disk is most popular.
     * latency based on spindle speed: 1/rpm * 60
         * average latency = 1/2 latency
 
+    > time计算考试会考
+
 !!! Example
     <div align = center><img src="https://cdn.hobbitqia.cc/20231215144350.png" width=70%></div>
 
@@ -147,6 +149,8 @@ data stored on the tape are relatively permanent.
 ## Disk Management
 
 使用这些介质（磁盘、固态硬盘、磁带）的时候，需要先格式化。
+
+> u盘使用FCFS
 
 **Physical formatting**: divide disk into sectors for controller to read/write.  
 即把介质上分好不同的部分。

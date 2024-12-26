@@ -87,6 +87,8 @@ on-disk 的是可持久化的（persisitant），in-memory 的是易失的（vol
 
 ## Virtual File Systems
 
+> 定义了统一的接口（函数指针），被实例化为具体的文件系统。
+
 操作系统可以同时支持多种类型的文件系统。
 
 <div align = center><img src="https://cdn.hobbitqia.cc/20231224105213.png" width=70%></div>
@@ -112,6 +114,10 @@ Write syscall -> `vfs_write` -> indirect call -> `ext4_file_write_iter`
 ## Directory Implementation
 
 Directory is a special file, storing the mapping from file name to inode.
+
+> 做了文件名到 inode 的映射。
+
+
 
 他的数据块有自己的名字（目录项 `dir_entry`），每一个目录项有一个 inode、目录项长度、名字长度。
 <div align = center><img src="https://cdn.hobbitqia.cc/20231224161523.png" width=70%></div>
@@ -165,6 +171,8 @@ Indexed allocation: each file has its own index blocks of pointers to its data b
 需要一个方法分配 index block 的大小（太大会浪费，太小那么指向的空间小）。我们可以把 index block 链接起来，或者用多级索引。
 
 !!! Example
+    **这个计算必考！！！**
+
     <div align = center><img src="https://cdn.hobbitqia.cc/20231224164718.png" width=70%></div>
 
     如果 block size 为 4KB，那么 Linux 中能创建的最大文件大小为 4TB+4GB+4MB+48KB。如果我们有一个 10KB 的文件，那么只需要前 3 个 direct pointer 就可以，后面的指针都是 NULL，不需要展开。
@@ -207,6 +215,9 @@ To improve file system performance
 * Use cache: separate section of main memory for frequently used blocks
 * Use asynchronous writes, it can be buffered/cached, thus faster
 * Free-behind and read-ahead
+
+## 需要复习PPT！！！ 还有要考的一个支持点
+
 
 ## Takeaway
 

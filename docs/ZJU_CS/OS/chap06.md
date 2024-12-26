@@ -119,6 +119,8 @@ A **memory barrier** is an instruction that forces any change in memory to be pr
 
 ### Hardware Instructions
 
+期末必考！！！
+
 Special hardware instructions that allow us to either test-and modify the content of a word, or two swap the contents of two words atomically (uninterruptable)
 
 #### Test-and-Set Instruction
