@@ -1223,6 +1223,20 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -4010,7 +4024,7 @@ defaults选项可以指定默认挂载参数，0表示不进行备份，2表示�
 <h3 id="_5">创建挂载目录<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
 <p>在本地创建一个目录用于挂载远程文件夹。这个目录最好放到大家自己的家目录下：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkdir<span class="w"> </span>~/remote_folder
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sshfs<span class="w"> </span>username@remote_host:/remote/path/to/folder<span class="w"> </span>~/remote_folder
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sshfs<span class="w"> </span>-o<span class="w"> </span>follow_symlinks<span class="w"> </span>username@remote_host:/remote/path/to/folder<span class="w"> </span>~/remote_folder
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>•<span class="w">   </span>username：远程服务器上的用户名
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>•<span class="w">   </span>remote_host：远程服务器的<span class="w"> </span>IP<span class="w"> </span>地址或域名
@@ -4082,7 +4096,7 @@ sshfs -o allow_other username@remote_host:/path/to/remote/directory ~/host-dzz
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月16日 23:00:00</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年12月26日 19:07:16</span>
       
         <br>
         Created:

@@ -1225,6 +1225,20 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1443,7 +1457,7 @@
         
   
   <span class="md-ellipsis">
-    Chap05 |S cheduling
+    Chap05 | Scheduling
   </span>
   
 
@@ -4545,6 +4559,7 @@ VMA 是 Virtual Memory Area，<code>brk()</code> 只是增大了 VMA 的大小�
 </ul>
 <h3 id="who_handles_page_fault">Who handles page fault?<a class="headerlink" href="#who_handles_page_fault" title="Permanent link">#</a></h3>
 <p>Linux implementation</p>
+<p>先看是否在VMA里面！！！</p>
 <p>Page Fault 出现有两种情况，一种是地址本身超过了 <code>vma</code> 的范围，或者落在 Heap 内但权限不对，这种情况操作系统会杀死进程；一种是落在 Heap 里，而且权限也正确，那么这个时候 OS 就会分配一个空闲帧，然后把这个页映射到这个帧上。</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231121103527.png" width=75%></div>
 
@@ -4906,7 +4921,7 @@ User 和 OS 都缓存了同一份内容，导致一个文件占用了两个帧�
 <li>process migrates from one locality to another, localities may overlap.</li>
 </ul>
 </li>
-<li>Why does thrashing occur? <ul>
+<li>**Why does thrashing occur? **<ul>
 <li>
 <p>total memory size &lt; total size of locality</p>
 <p>一个 locality 大小比内存大，因此我们不得不一直换进换出页。</p>
@@ -5037,7 +5052,7 @@ an interval timer + a reference bit，访问了这个界面就把 reference bit 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月16日 23:00:00</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年12月26日 19:07:16</span>
       
         <br>
         Created:

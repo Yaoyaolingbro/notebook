@@ -1217,6 +1217,20 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3730,6 +3744,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ppt" class="md-nav__link">
+    <span class="md-ellipsis">
+      需要复习PPT！！！ 还有要考的一个支持点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#takeaway" class="md-nav__link">
     <span class="md-ellipsis">
       Takeaway
@@ -3852,6 +3875,9 @@
 <p>如果要关闭文件，per-process open-file table 中对应 entry 将被删除，system-wide open-file table 中的 counter 将被 -1；如果该 counter 清零，则更新的 metadata 将被写会磁盘上的 directory structure 中，system-wide open-file table 的对应 entry 将被删除。</p>
 <p>在 Unix 里面（UFS）System-Wide Open-File Table 会放设备、网络，所以我们的设备也是用文件来表示的，读写文件相当于读写设备。 </p>
 <h2 id="virtual_file_systems">Virtual File Systems<a class="headerlink" href="#virtual_file_systems" title="Permanent link">#</a></h2>
+<blockquote>
+<p>定义了统一的接口（函数指针），被实例化为具体的文件系统。</p>
+</blockquote>
 <p>操作系统可以同时支持多种类型的文件系统。</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231224105213.png" width=70%></div>
 
@@ -3873,6 +3899,9 @@ Write syscall -&gt; <code>vfs_write</code> -&gt; indirect call -&gt; <code>ext4_
 <p><code>struct file</code> 里存了文件的 <code>file_operations</code>，但没有存文件的 type，因为我们有知道操作对应 fs 的文件，就不需要知道文件的类型了。</p>
 <h2 id="directory_implementation">Directory Implementation<a class="headerlink" href="#directory_implementation" title="Permanent link">#</a></h2>
 <p>Directory is a special file, storing the mapping from file name to inode.</p>
+<blockquote>
+<p>做了文件名到 inode 的映射。</p>
+</blockquote>
 <p>他的数据块有自己的名字（目录项 <code>dir_entry</code>），每一个目录项有一个 inode、目录项长度、名字长度。</p>
 <div align = center><img src="https://cdn.hobbitqia.cc/20231224161523.png" width=70%></div>
 
@@ -3912,6 +3941,7 @@ Write syscall -&gt; <code>vfs_write</code> -&gt; indirect call -&gt; <code>ext4_
 <p>需要一个方法分配 index block 的大小（太大会浪费，太小那么指向的空间小）。我们可以把 index block 链接起来，或者用多级索引。</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
+<p><strong>这个计算必考！！！</strong></p>
 <p><div align = center><img src="https://cdn.hobbitqia.cc/20231224164718.png" width=70%></div></p>
 <p>如果 block size 为 4KB，那么 Linux 中能创建的最大文件大小为 4TB+4GB+4MB+48KB。如果我们有一个 10KB 的文件，那么只需要前 3 个 direct pointer 就可以，后面的指针都是 NULL，不需要展开。</p>
 </div>
@@ -3953,6 +3983,7 @@ Write syscall -&gt; <code>vfs_write</code> -&gt; indirect call -&gt; <code>ext4_
 <li>Use asynchronous writes, it can be buffered/cached, thus faster</li>
 <li>Free-behind and read-ahead</li>
 </ul>
+<h2 id="ppt">需要复习PPT！！！ 还有要考的一个支持点<a class="headerlink" href="#ppt" title="Permanent link">#</a></h2>
 <h2 id="takeaway">Takeaway<a class="headerlink" href="#takeaway" title="Permanent link">#</a></h2>
 <div class="admonition summary">
 <p class="admonition-title">Takeaway</p>
@@ -3979,7 +4010,7 @@ Write syscall -&gt; <code>vfs_write</code> -&gt; indirect call -&gt; <code>ext4_
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月9日 17:03:32</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年12月26日 19:07:16</span>
       
         <br>
         Created:

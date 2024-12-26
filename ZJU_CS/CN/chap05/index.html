@@ -1,0 +1,5605 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yaoyaoling">
+      
+      
+        <link rel="canonical" href="https://yaoyaolingbro.github.io/notebook/ZJU_CS/CN/chap05/">
+      
+      
+        <link rel="prev" href="../chap04/">
+      
+      
+        <link rel="next" href="../chap06/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.12">
+    
+    
+      
+        <title>Chap05 | Network Layer - Yaoyaoling's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="../../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/more_changelog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-KJB4RXSKZG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-KJB4RXSKZG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-KJB4RXSKZG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chap05_network_layer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Yaoyaoling&#39;s notebook" class="md-header__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Yaoyaoling's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chap05 | Network Layer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU_CS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Missing%20semester/" class="md-tabs__link">
+          
+  
+    
+  
+  Missing semester
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Online%20CS%20Courses/CS285/" class="md-tabs__link">
+          
+  
+    
+  
+  Online CS Courses
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/" class="md-tabs__link">
+          
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Language/Advanced%20C%20Language/" class="md-tabs__link">
+          
+  
+    
+  
+  Language
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../English/" class="md-tabs__link">
+          
+  
+    
+  
+  English
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Scientific%20research/" class="md-tabs__link">
+          
+  
+    
+  
+  Scientific research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Paper%20Reading/" class="md-tabs__link">
+          
+  
+    
+  
+  Paper Reading
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../spark%20in%20life/" class="md-tabs__link">
+          
+  
+    
+  
+  Spark in life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Yaoyaoling&#39;s notebook" class="md-nav__button md-logo" aria-label="Yaoyaoling's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Yaoyaoling's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Yaoyaolingbro/Notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Yaoyaolingbro/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ZJU_CS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU_CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../HPC/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../FDS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    FDS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../DigitalDesign/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Digital desin
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Discrete%20math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Discrete math
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../oop/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    OOP
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ADS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    ADS
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Database/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../computer_organization/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Computer Organization
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../3DCV/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to 3D CV
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../CA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Computer Arichitecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Network
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap01 | Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap02 | Physical Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap03 | Data Link Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap04 | MAC Sublayer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chap05 | Network Layer
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chap05 | Network Layer
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51_network_layer_design_issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Network Layer Design Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Network Layer Design Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511_connectionless_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Connectionless Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512_connection-oriented_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 Connection-oriented Service
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52_routing_algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Routing Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Routing Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521_shortest_path_algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Shortest Path Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522_flooding" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 Flooding（洪泛）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523_distance_vector_routingrip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3 Distance Vector Routing（RIP）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524_link_state_routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.4 Link State Routing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#525_hierarchical_routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.5 Hierarchical Routing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53_traffic_management" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Traffic Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54_quality_of_serviceqos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Quality of Service（QoS）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55_internetworking" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Internetworking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56_sdnsoftware-defined_networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 SDN（Software-Defined Networking）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57_the_network_layer_in_the_internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 The Network Layer in the Internet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 The Network Layer in the Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571_ipv4_protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.1 IPv4 Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572_ipv4_address" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.2 IPv4 Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573_ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.3 IPv6
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#574_internet_control_protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.4 Internet Control Protocols
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#575_label_switching_mpls" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.5 Label Switching &amp; MPLS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#576_ospf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.6 OSPF
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap06 | Transport Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap07 | Application Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap08/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap08 | Network Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../OS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Operating System
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Missing%20semester/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Missing semester
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Missing semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/toolbox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工具箱（一些好用的网站or分享）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Missing%20semester/NAS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自组NAS指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/git/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Markdown/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Markdown
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Docker/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Ladder/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Ladder
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Latex/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Latex
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Mkdocs%20material/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Mkdocs material
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Missing%20semester/Zotero/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Zotero
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Online CS Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Online CS Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS285/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS285
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106L/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106L
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS50%20AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS50 AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS61B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS61B
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/Fundation%20of%20computer%20science/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机科学导论
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Online%20CS%20Courses/CS106X/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CS106X
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AI/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/LLM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/machine%20learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Language
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Advanced%20C%20Language/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/C%2B%2B/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/CUDA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CUDA
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Python/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Language/Verilog/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Verilog
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../English/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../English/CET6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些些单词
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../English/research/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    research
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../English/IELTS%20words/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IELTS words
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Scientific%20research/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Scientific research
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Scientific research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/writing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    论文写作词汇表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/ode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scientific%20research/vlm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些常见的VLM的问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/3d%20vision/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    3d vision
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/4science/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    4science
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/mathematic%20model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    mathematic model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Scientific%20research/basic%20tutor/voice%20synthesis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Basic tutor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Paper%20Reading/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Paper Reading
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Paper Reading
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Paper%20Reading/basic%20model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Basic Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Paper%20Reading/protein/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Paper%20Reading/LLM%20Inference/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LLM Inference
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spark%20in%20life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Spark in life
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Spark in life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/college%20life/competition/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    College life
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/skills/cook/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../spark%20in%20life/travel/GuiZhou/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Travel
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51_network_layer_design_issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Network Layer Design Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Network Layer Design Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511_connectionless_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Connectionless Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512_connection-oriented_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 Connection-oriented Service
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52_routing_algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Routing Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Routing Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521_shortest_path_algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Shortest Path Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522_flooding" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 Flooding（洪泛）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523_distance_vector_routingrip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3 Distance Vector Routing（RIP）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524_link_state_routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.4 Link State Routing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#525_hierarchical_routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.5 Hierarchical Routing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53_traffic_management" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Traffic Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54_quality_of_serviceqos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Quality of Service（QoS）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55_internetworking" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Internetworking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56_sdnsoftware-defined_networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 SDN（Software-Defined Networking）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57_the_network_layer_in_the_internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 The Network Layer in the Internet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 The Network Layer in the Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571_ipv4_protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.1 IPv4 Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572_ipv4_address" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.2 IPv4 Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573_ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.3 IPv6
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#574_internet_control_protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.4 Internet Control Protocols
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#575_label_switching_mpls" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.5 Label Switching &amp; MPLS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#576_ospf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.6 OSPF
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chap05_network_layer">Chap05 | Network Layer<a class="headerlink" href="#chap05_network_layer" title="Permanent link">#</a></h1>
+<h2 id="51_network_layer_design_issues">5.1 Network Layer Design Issues<a class="headerlink" href="#51_network_layer_design_issues" title="Permanent link">#</a></h2>
+<ul>
+<li>网络层是处理end-to-end transmission（端到端传输）的最底层<ul>
+<li>数据链路层只关心帧在 wire 上的传输</li>
+<li>主要研究数据包在路由器之间的转发过程</li>
+</ul>
+</li>
+<li>网络层必须知道网络的 topology（拓扑结构，即所有 routers 和 links 的集合），并选择适当的路径进行传输。</li>
+<li>网络层向传输层提供的服务<ol>
+<li>服务应独立于路由器技术。</li>
+<li>传输层应不受现有路由器的数量、类型和拓扑结构的影响。</li>
+<li>提供给传输层的网络地址应使用 uniform numbering plan（统一的编号方案），即使在局域网（LAN）和广域网（WAN）之间也是如此。</li>
+</ol>
+</li>
+<li>路由器的任务<ul>
+<li>Forwarding: To handle each incoming packet, look up the route table, then forward to a output line.</li>
+<li>Filling and updating the route table.</li>
+</ul>
+</li>
+<li>网络层有提供 Connection-oriented Service 和 Connectionless Service 两种实现<ul>
+<li>Connectionless Service<ul>
+<li>end-to-end（端到端）</li>
+<li>只提供SEND PACKET和RECEIVE PACKET两个基本操作</li>
+<li>网络层不进行 packet ordering（数据包排序）和flow control（流量控制）<ul>
+<li>主机自行进行 error control（error detection &amp; correction）以及flow control</li>
+</ul>
+</li>
+<li>在这里，packets（数据包）被称为 datagrams（数据报），网络被称为 datagram network（数据报网络）</li>
+<li>不需要advanced setup</li>
+<li>举例：IP 协议</li>
+</ul>
+</li>
+<li>Connection-oriented Service<ul>
+<li>必须在发送任何数据包之前，建立从源路由器到目的路由器的路径<ul>
+<li>预先建立的连接称为 Virtual Circuit（VC，虚拟电路）</li>
+</ul>
+</li>
+<li>举例：ATM、MPLS（多协议标签交换）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217104011277" src="../graph/image-20241217104011277.png" /></p>
+<h3 id="511_connectionless_service">5.1.1 Connectionless Service<a class="headerlink" href="#511_connectionless_service" title="Permanent link">#</a></h3>
+<ul>
+<li>每个路由器通过Routing table（路由表）决定如何将数据包向目标路由器的方向传递<ul>
+<li>路由表可以在运行过程中随时被路由器修改</li>
+<li>举例：从A到F发送四个数据包<ul>
+<li>发送前三个时，路由器根据路由表，决定通过C发送</li>
+<li>发送第四个之前，路由器处于某些决策改变了路由表，决定通过B发送<ul>
+<li>这个决策算法称为Routing algorithm（路由算法）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217102600323" src="../graph/image-20241217102600323.png" /></p>
+<h3 id="512_connection-oriented_service">5.1.2 Connection-oriented Service<a class="headerlink" href="#512_connection-oriented_service" title="Permanent link">#</a></h3>
+<ul>
+<li>每个数据包携带一个 connection identifier（连接标识符），指示它属于哪个虚拟电路<ul>
+<li>路由器需要能够替换 outgoing packages（出站数据包）中连接标识符，以方便后续路由器区分数据包所属VC</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217103638378" src="../graph/image-20241217103638378.png" /></p>
+<h2 id="52_routing_algorithms">5.2 Routing Algorithms<a class="headerlink" href="#52_routing_algorithms" title="Permanent link">#</a></h2>
+<ul>
+<li>算法目标：correctness、simplicity、robustness、stability、fairness and optimality<ul>
+<li>stability: converge quickly（快速收敛）<ul>
+<li>收敛指的是每个路由器对最佳路径的学习过程</li>
+</ul>
+</li>
+<li>fairness &amp; optimality 有时相互矛盾</li>
+</ul>
+</li>
+<li>
+<p>路由算法的分类</p>
+<ul>
+<li>Nonadaptive algorithms（非自适应算法）：决策不受当前 topology 和 traffic 变化的影响<ul>
+<li>又称 static routing</li>
+</ul>
+</li>
+<li>Adaptive algorithms（自适应算法）：决策随着当前 topology（有时还包括 traffic）的变化而调整<ul>
+<li>又称 dynamic routing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The Optimality Principle（最优性原理）</p>
+<ul>
+<li>如果路由器J位于从路由器I到路由器K的最优路径上，那么从J到K的最优路径应该是I到K路径的一部分</li>
+<li>推论：从所有源到给定目的地的最优路径的集合一定会形成一棵以目的地为根的树（即sink tree 汇聚树）<ul>
+<li>汇聚树可以不唯一，汇聚树的并集构成有向无环图（DAG，Directed Acyclic Graph）</li>
+<li>依赖于一个Assumption：paths do not interfere with each other</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="521_shortest_path_algorithm">5.2.1 Shortest Path Algorithm<a class="headerlink" href="#521_shortest_path_algorithm" title="Permanent link">#</a></h3>
+<ul>
+<li>测量路径长度的方法可以包括 number of hops（跳数）、物理距离、mean delay（平均延迟）等<ul>
+<li>可以生成一个权重函数</li>
+</ul>
+</li>
+<li>Dijkstra 算法<ul>
+<li>这里不展开了，可以<a href="https://ziji-cs.github.io/T-FundamentalDataStructure/9-x.html#dijkstras-algorithmfor-weighted-shortest-paths">回忆一下FDS</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="522_flooding">5.2.2 Flooding（洪泛）<a class="headerlink" href="#522_flooding" title="Permanent link">#</a></h3>
+<ul>
+<li>每个传入路由器的数据包都会在除了到达线路之外的所有传出线路上发送</li>
+<li>避免产生指数级重复数据包的措施<ul>
+<li>Hop counter in packet header（跳数计数器）<ul>
+<li>每跳一次计数器减一，当计数器达到零时丢弃该数据包</li>
+<li>计数器初始化为从源到目的地的路径长度，或者the full diameter of the network（直径）</li>
+</ul>
+</li>
+<li>Sequence Number（序列号）<ul>
+<li>源路由器在从其主机接收到的每个数据包中放入一个序列号</li>
+<li>每个路由器需要为每个源路由器保存一个列表，记录从它哪里收过哪些序列号</li>
+<li>可以用一个计数器k，如果数据包序列号小于k，则认为已经洪泛过</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>洪泛的延迟最短（如果不考虑操作本身对流量的挤占的话）</li>
+</ul>
+<h3 id="523_distance_vector_routingrip">5.2.3 Distance Vector Routing（RIP）<a class="headerlink" href="#523_distance_vector_routingrip" title="Permanent link">#</a></h3>
+<ul>
+<li>即RIP（Routing Information Protocol）或者 Bellman-Ford Routing Algorithm</li>
+<li>每个路由器维护一个routing table（路由表），即 vector<ul>
+<li>按路由器索引</li>
+<li>每个路由器一个entry<ol>
+<li>以这个路由器为目的地的 preferred outgoing line</li>
+<li>到该目的地的最小距离估计（estimate of the distance to that destination）<ul>
+<li>标准可以是 hop number，也可以是其它</li>
+<li>如果用传播延迟，路由器使用特殊ECHO数据包来测量延迟</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>算法流程（以传播延迟为例）<ul>
+<li>每隔T毫秒，每个路由器与每个邻居交换一个列表，其中列出它对到每个目的地的延迟的估计。</li>
+<li>假如说<span class="arithmatex">\(d_x(y)\)</span>表示从节点<span class="arithmatex">\(x\)</span>到节点<span class="arithmatex">\(y\)</span>的最小距离估计，现在让节点<span class="arithmatex">\(x\)</span>与所有相邻节点<span class="arithmatex">\(v\)</span>交换distance vector，则<span class="arithmatex">\(d_x(y)\)</span>取各个<span class="arithmatex">\(v\)</span>节点的<span class="arithmatex">\(d_v(y)+c(x,v)\)</span>中的最小值，其中<span class="arithmatex">\(c(x,v)\)</span>表示二者之间的直连距离（这里表现为从<span class="arithmatex">\(x\)</span>到<span class="arithmatex">\(v\)</span>的延迟）。</li>
+<li>同时与多个邻居交换数据</li>
+<li>注意，计算过程中<strong>不使用</strong>自身存储的上一周期计算的路由表</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217115813942" src="../graph/image-20241217115813942.png" /></p>
+<ul>
+<li>Count-to-infinity Problem<ul>
+<li>RIP converges slowly，好消息传得快，坏消息传得慢</li>
+<li>举例来说，考虑下图的线性网络，以hop number为<ul>
+<li>假设最初A处于关闭状态，则其它路由器均将它们到A的距离记为无穷大</li>
+<li>假设此时打开A，则与A距离为<span class="arithmatex">\(N\)</span>跳的路由器可以在<span class="arithmatex">\(N\)</span>次交换时间内更新到A的距离</li>
+<li>假设此时关闭A，则B在下次交换时，听不到A的信息，则<span class="arithmatex">\(d_A(A)+c(B,A)=\infin\)</span>；然后从C知道C到A的距离<span class="arithmatex">\(d_C(A)=2\)</span>，则B将自己到A的距离更新为<span class="arithmatex">\(\min(\infin, d_C(A)+c(B,C))=3\)</span>。<ul>
+<li>C在下次交换时，发现周围B和D到A的距离都是3，则它将自己到A的距离更新为4。</li>
+<li>经过很久，所有路由器中到A的距离才能回到无穷大。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217121329954" src="../graph/image-20241217121329954.png" /></p>
+<ul>
+<li>Distance Vector Routing 的缺点<ul>
+<li>Take too long to converge</li>
+<li>Not taking bandwidth into account</li>
+</ul>
+</li>
+</ul>
+<h3 id="524_link_state_routing">5.2.4 Link State Routing<a class="headerlink" href="#524_link_state_routing" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>举例：IS-IS和OSPF。区别是IS-IS可以同时携带多个网络层协议的信息（例如，IP和AppleTalk），而OSPF不会。</p>
+</li>
+<li>
+<p>操作方法</p>
+<ol>
+<li>
+<p>发现其邻居并学习它们的 network addresses。</p>
+<ul>
+<li>
+<p>路由器启动时，向每个相邻的路由器发送特殊的HELLO数据包</p>
+</li>
+<li>
+<p>每个相邻的路由器发送一个回复，其中包含它的全局唯一名称</p>
+</li>
+<li>
+<p>如果多个路由器通过 broadcast link（如交换机、环网或经典以太网）连接，将这些局域网本身视为一个节点。（见下图）</p>
+<p><img alt="image-20241217131510705" src="../graph/image-20241217131510705.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>设置到每个邻居的距离或 cost metric（成本度量）。</p>
+<ul>
+<li>每个路由器到每个邻居的成本。可以自动设置也可以管理员手动设置<ul>
+<li>举例：成本与链路带宽成反比</li>
+<li>举例：链路延迟<ul>
+<li>测量方法：在链路上发送特殊的ECHO数据包，要求链路立即发送回来，将往返时间除以二作为延迟的估计时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>构建一个包含刚才学习到的信息的数据包（link state package）。</p>
+<ul>
+<li>数据包包含 sender identity（发送者身份）、sequence number、age、neighbor list including costs</li>
+<li>构建数据包时机：可以以固定时间间隔构建，或者在发生特定事件（邻居状态变化或者本身属性变化）时构建。OSPF采用后者。</li>
+</ul>
+<p><img alt="image-20241217132812113" src="../graph/image-20241217132812113.png" /></p>
+</li>
+<li>
+<p>向所有其他路由器 distribute（分发）此数据包，接收来自其它路由器的包。</p>
+<ul>
+<li>基本分发方法：flooding<ul>
+<li>每个数据包包含一个 sequence number（序列号），每次发送新数据包时递增</li>
+<li>路由器会跟踪它们看到的所有（源路由器，序列号）对<ul>
+<li>如果到达的数据包的序列号低于迄今为止看到的最高序列号，则视为过时并丢弃</li>
+</ul>
+</li>
+<li>这个算法有诸多问题。<ol>
+<li>序列号溢出<ul>
+<li>解决方法：32位序列号，用不完</li>
+</ul>
+</li>
+<li>路由器崩溃会丢失其对序列号的跟踪</li>
+<li>序列号传输过程中可能因包损坏而损坏</li>
+</ol>
+</li>
+<li>解决方法：每个数据包中包含一个age，每秒递减。<ul>
+<li>路由器中记录的某个路由器的age变为0时，这一entry失效。</li>
+<li>在initial flooding过程中，每个路由器也会递减age。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>改进：收到数据包后不立即转发，先在 packet buffer 中暂存片刻</p>
+<ul>
+<li>如果收到了来自同一源的数据包，则取序列号更低的</li>
+<li>
+<p>所有link state package都需要acknowledge
+        - 举例：上图中的B路由器</p>
+</li>
+<li>
+<p>对于它的三个邻居ACF，每个邻居都有一个对应的send和ACK位。</p>
+<ul>
+<li>send位表示这一条的数据包需要转发给这一位为1的邻居</li>
+<li>ACK位表示需要向这一位为1的邻居确认</li>
+<li>如果原始数据包仍在缓冲区时，有重复的数据包到达，则需要更改标志位</li>
+<li>举例：来自E的数据包到达了两次，一次通过EAB，一次通过EFB。因此，它只需要发送到C，但必须向A和F确认。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217135055817" src="../graph/image-20241217135055817.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>计算到其它每个路由器的最短路径。</p>
+<ul>
+<li>完整的拓扑结构被分发到每个服务器（甚至一条边的信息重复两次），每个服务器自己运行 Dijkstra 算法</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="525_hierarchical_routing">5.2.5 Hierarchical Routing<a class="headerlink" href="#525_hierarchical_routing" title="Permanent link">#</a></h3>
+<ul>
+<li>为了避免路由表过大，将大规模网络分成几个区域，每个路由器记录它到区域的距离。</li>
+<li>路由器无需了解其它网络结构的拓扑结构。</li>
+<li>代价是部分情况下，选择的链路的路程可能更长，如下图中1A到5C最近是走region 2，但实际走region 3。</li>
+</ul>
+<p><img alt="image-20241217140111158" src="../graph/image-20241217140111158.png" /></p>
+<h2 id="53_traffic_management">5.3 Traffic Management<a class="headerlink" href="#53_traffic_management" title="Permanent link">#</a></h2>
+<ul>
+<li>Congestion（拥塞）的意思是，如果网络中某个部分的数据包过多，会导致数据包延迟和丢失，从而降低性能。网络层与传输层共同负责它的处理。<ul>
+<li>传输层中，用congestion control来指代拥塞的处理</li>
+<li>网络层中，我们讨论的是congestion management（或称 traffic management）</li>
+<li>注意congestion control、traffic management 和 flow control 之间的区别。<ul>
+<li>flow control 关心的是一对发送方与接收方之间的流量，保证发送方不会以接收方无法处理的速度传输数据。</li>
+<li>congestion management &amp; control 确保网络能够承载各部分产生的流量。涉及一整个网络中，所有主机和路由器的行为。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拥塞的具体表现是，如果路由器处理速度不足，内部缓冲区被填满，导致数据包丢失。</li>
+<li>还有一种原因是，由于延迟较大，部分路由器没收到确认，会大量重传</li>
+</ul>
+<p>5.3.2 居然不考，那不学了。</p>
+<h2 id="54_quality_of_serviceqos">5.4 Quality of Service（QoS）<a class="headerlink" href="#54_quality_of_serviceqos" title="Permanent link">#</a></h2>
+<p>QoS四指标：bandwidth, delay, jitter, and loss</p>
+<ul>
+<li>jitter（抖动）指的是延迟或数据包到达时间的变化（即标准差）</li>
+</ul>
+<p>Overprovisioning（过度配置）：构建一个具有足够容量的网络，以应对任何流量。成本过高。</p>
+<p>互联网目前有两种服务质量版本：集成服务（Integrated Services）和区分服务（Differentiated Services）。</p>
+<p>5.4.3-5.4.5 简单考，先跳过了。</p>
+<h2 id="55_internetworking">5.5 Internetworking<a class="headerlink" href="#55_internetworking" title="Permanent link">#</a></h2>
+<p>IP协议提供了一种通用的数据包格式，所有路由器都能识别，并且几乎可以在任何网络中传递。</p>
+<p>注意 routing 与 switching（bridging）存在本质区别，后者只需要基于MAC地址传输帧，前者则还需要从数据包中提取网络地址。</p>
+<p>能够处理多种网络协议的路由器称为多协议路由器（multiprotocol router）。它必须要么转换协议，要么为更高协议层留出连接。这两种方法都不完全令人满意。</p>
+<p>路由器无法在不同网络（network）之间转换数据包，如IPv4与IPv6的不兼容问题。</p>
+<p>连通不同的网络非常困难，只有一种特殊情况容易解决：源主机和目标主机位于相同类型的网络上，只是中间隔着一个不同的网络。</p>
+<ul>
+<li>举例来说，从IPv6过IPv4到IPv6，只需要用上面提到的多协议路由器将IPv6数据包装进IPv4数据包中，后面再用多协议路由器去掉IPv4数据包，露出IPv6数据包来传输。</li>
+</ul>
+<p>Internetwork Routing（Routing Across Multiple Networks）：跨网络进行路由</p>
+<ul>
+<li>采用两级路由算法。<ul>
+<li>在网络内部，使用 intradomain or interior gateway protocol（域内或内部网关协议）进行路由，采用的可能是前面提到的 link state routing<ul>
+<li>这个过程称为 intradomain routing</li>
+<li>域内路由协议也称为IGP（Interior Gateway Protocol 内部网关协议）</li>
+</ul>
+</li>
+<li>在组成互联网的网络之间，使用 interdomain or exterior gateway protocol（域间或外部网关协议）。不同网络之间必须使用同样的域间网络协议。<ul>
+<li>这个过程称为 interdomain routing</li>
+<li>互联网中，域间路由协议称为BGP（Border Gateway Protocol 边界网关协议）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>每个网络层协议或者链路层协议都对数据包的大小由一定的限制。</p>
+<ul>
+<li>
+<p>传输尽可能大的数据包可以减小主机开销，但是源主机不知道数据包会经过哪些网络，也就不知道要采用多小的数据包。</p>
+</li>
+<li>
+<p>一种解决方法是，采取这些网络中最小的数据包。</p>
+<ul>
+<li>
+<p>这个数据包大小称为路径最大传输单元（path MTU，Path Maximum Transmission Unit）</p>
+</li>
+<li>
+<p>即使源主机在发送时知道 Path MTU，网络的路由也可能发生变化，从而改变数据包会经过的网络。</p>
+</li>
+<li>
+<p>现代互联网采用这个方法，称为 path MTU discovery。</p>
+<ul>
+<li>IP数据包头部指示不允许分片。</li>
+<li>如果路由器接收到一个太大的数据包，它会生成一个错误数据包，将其返回给源，并丢弃该数据包。</li>
+<li>当源接收到错误数据包时，它使用其中的信息将数据包重新分片为路由器可以处理的小片段。</li>
+<li>如果路径上的另一个路由器的MTU更小，重复进行这个过程。</li>
+<li>除了路由变化问题，这个方案本身会增加 startup delay（或者说，需要尝试很多次才能真正开始发送）。</li>
+</ul>
+<p><img alt="image-20241217155027989" src="../graph/image-20241217155027989.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>另一种解决方法是，路由器将数据包分解成 fragment（片段），将每个片段作为单独的网络层数据包发送。</p>
+<ul>
+<li>
+<p>策略1，transparent fragmentation（透明分片）：数据包的分片操作对后续网络透明。</p>
+<ul>
+<li>过大的数据包到达路由器G1时，G1将其分解，分解产生的每个片段都指向同一个出口路由器G2，在G2将片段重新组合。</li>
+<li>问题<ul>
+<li>由于必须经过一个指定的路由器，routing过程受到限制。</li>
+<li>路由器需要缓冲到达的片段，并在未接收到所有片段时决定何时丢弃它们</li>
+<li>数据包可能被反复分片和重复组装</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>策略2，非透明分片：避免在中间路由器上重新组合片段，只在目的地主机上进行重新组装。</p>
+<ul>
+<li>
+<p>被IP采用</p>
+<ul>
+<li>为每个片段提供一个 packet number（在所有数据包上携带）、fragment offset（数据包内的绝对字节偏移量）以及一个end of packet flag（用于标记这个片段是不是这个 packet 的最后一个）。</li>
+</ul>
+</li>
+<li>
+<p>优点</p>
+<ul>
+<li>路由器负担低</li>
+<li>可以多次分片</li>
+<li>可以分片段重传</li>
+<li>可以是任意大小</li>
+</ul>
+</li>
+<li>
+<p>问题</p>
+<ul>
+<li>开销高于透明分片，因为每个片段都有一份数据包头，但数据包头在link layer传输时不一定用得到。</li>
+<li>分片对性能影响过大：如果丢失了任何一个片段，整个数据包都会丢失，需要重传。</li>
+</ul>
+<p><img alt="image-20241217154733601" src="../graph/image-20241217154733601.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="56_sdnsoftware-defined_networking">5.6 SDN（Software-Defined Networking）<a class="headerlink" href="#56_sdnsoftware-defined_networking" title="Permanent link">#</a></h2>
+<p>SDN的核心概念是 control plane 和 data plane 各自独立运行。</p>
+<ul>
+<li>Control plane 运行在软件中，选择路由并决定如何处理转发流量。</li>
+<li>
+<p>Data plane 负责实际执行数据包查找并决定如何处理它们。</p>
+</li>
+<li>
+<p>Control plane 通常是一个 single, logically centralized program。</p>
+<ul>
+<li>SDN control logic（controllers）负责 compute the paths through the network 和 update resulting forwarding tables</li>
+<li>协议举例：<ul>
+<li>直接控制每个路由器选择的路由：RCP（Routing Control Platform）和 Ethane。</li>
+<li>OpenFlow<ul>
+<li>向一个内存写入match-action table（匹配-动作表），可以让交换机对拥有符合某些条件的所有数据包头字段的执行同样的操作</li>
+<li>通过单一的集中式软件程序控制网络，允许跨网络设备和转发元素进行协调</li>
+<li>通过单一的高级编程语言表达控制</li>
+</ul>
+</li>
+<li>在cellular networks中：CORD</li>
+</ul>
+</li>
+<li>
+<p>Data Plane: Programmable Hardware</p>
+</li>
+<li>
+<p>protocol-independent switch architecture：网络接口卡（NIC）和交换机中可编程硬件使得从数据包格式到转发行为的一切都可以定制。</p>
+<ul>
+<li>该架构中包含一组 processing pipeline（处理流水线）</li>
+<li>
+<p>Forwarding Model 称为 RMT（Reconfigurable Match Tables，可重构匹配表）：</p>
+<ul>
+<li>流水线的每个阶段都可以从数据包头中读取信息，根据简单的算术操作修改头中的值，并将这些值写回数据包。</li>
+<li>允许自定义数据包头格式/修改任意头字段。</li>
+<li>可以指定任意大小的多个匹配表。
+<img alt="image-20241217165102165" src="../graph/image-20241217165102165.png" /></li>
+<li>模型允许改进，如实现INT（In-band Network Telemetry），可以携带网络本身状态的信息，如 network path 中每跳的延迟。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="57_the_network_layer_in_the_internet">5.7 The Network Layer in the Internet<a class="headerlink" href="#57_the_network_layer_in_the_internet" title="Permanent link">#</a></h2>
+<p>IP（Internet Protocol）将整个互联网连接起来。互联网中的通信工作方式如下：</p>
+<ul>
+<li>传输层接收数据流并将其拆分，以便它们可以作为IP数据包发送。<ul>
+<li>理论上每个数据包最大可达64 KB，但实际上通常不超过1500字节，使其能被放入以太网帧中</li>
+</ul>
+</li>
+<li>IP路由器通过互联网转发每个数据包。</li>
+<li>在目的地，网络层将数据交给传输层，传输层将其交给接收进程。</li>
+<li>当所有数据包最终到达目的地机器时，网络层将它们重新组装成原始的 datagram（数据报）</li>
+<li>数据报被交给传输层</li>
+</ul>
+<p>互联网可以被视为一组互联的networks或者AS（Autonomous Systems，自治系统）</p>
+<ul>
+<li>存在几个主要的骨干网络，最大的称为Tier 1 Networks（一级网络）<ul>
+<li>连接到骨干网络的有ISP（Internet Service Providers，互联网服务提供商）、data centers 和 colocation facilities（托管设施）、regional networks（区域网络）等<ul>
+<li>连接到区域网络的有更多ISPs以及LANs（局域网）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="571_ipv4_protocol">5.7.1 IPv4 Protocol<a class="headerlink" href="#571_ipv4_protocol" title="Permanent link">#</a></h3>
+<p>IPv4数据报由header（头部）和data（数据部分，也叫 payload 有效载荷）组成</p>
+<ul>
+<li>
+<p>IPv4协议的数据报头部有20字节的定长部分和一个可选的长度可变（0-40字节）的部分（Options）</p>
+</li>
+<li>
+<p>Version字段的高位先传输（big-endian，与Intel x86等小端机器不同）</p>
+</li>
+<li>
+<p>数据报头部的组成</p>
+<p><img alt="image-20241217184611142" src="../graph/image-20241217184611142.png" /></p>
+<ul>
+<li>
+<p>Version 字段（4 bit）由于是IPv4，所以值为4</p>
+</li>
+<li>
+<p>IHL 字段（4 bit）指示头部的长度，以32bit word为单位，最小值为5（即没有Options的情况），最大值为15。</p>
+</li>
+<li>
+<p>Differentiated services 字段（8 bit）</p>
+<ul>
+<li>早期被称为 Type of service，区分不同类型的服务（语音/文件等），但是没有实际使用<ul>
+<li>3位用于信号优先级，3位用于指示主机是否关心延迟、吞吐量和可靠性</li>
+</ul>
+</li>
+<li>现在前6位用于标记数据包的service class，包括 expedited &amp; assured services（见教材5.4.5，先前跳过了），表示不同的QoS。</li>
+<li>后2位用于携带explicit congestion notification information（显式拥塞通知信息），例如数据包是否经历了拥塞。</li>
+</ul>
+</li>
+<li>
+<p>Total length 字段（16 bit）描述数据报的总长，包括头部和数据字段，最大为65535字节</p>
+</li>
+<li>
+<p>Identification 字段（16 bit）：用于标记 fragment 属于哪个数据包，一个数据包的所有片段的该字段的值相同。（参考上文“非透明分片”部分）</p>
+</li>
+<li>
+<p>1 bit未被使用</p>
+</li>
+<li>
+<p>DF（1 bit）代表Don’t Fragment（不分片）（参考上文path MTU discovery）。</p>
+<ul>
+<li>为0表示可以分片，为1表示不允许分片。</li>
+</ul>
+</li>
+<li>
+<p>MF（1 bit）代表More Fragments（更多片段）。</p>
+<ul>
+<li>使用非透明传输时，最后一个片段的这一位设为0，其余片段设为1。</li>
+</ul>
+</li>
+<li>
+<p>Fragment offset 字段（13 bit）表示当前片段的数据在数据包中地址的绝对偏移量</p>
+<ul>
+<li>除数据报中的最后一个片段外，所有片段的大小必须是8字节的倍数</li>
+<li>该字段的单位是8字节。相比之下，Total length 字段的单位仍然是1字节</li>
+<li>每个数据报最多可以有8192个片段</li>
+</ul>
+</li>
+<li>
+<p>TTL（Time to live）字段（8 bit）是一个用于限制数据包生命周期的计数器</p>
+<ul>
+<li>设计时认为应以秒为单位，每跳以及在路由器 buffer 中 queue 时，值应递减</li>
+<li>实际表示跳数，到 0 时，数据包被丢弃，并向源主机发送一个 warning 数据包。</li>
+</ul>
+</li>
+<li>
+<p>Protocol 字段（8 bit）指示网络层组装数据包结束后，应该交给哪个传输层进程处理（如TCP/UDP）。</p>
+</li>
+<li>
+<p>Header Checksum字段（16 bit）为校验和。</p>
+<ul>
+<li>算法：将头部以16bit为单位相加，使用补码算术，然后取结果的补码。</li>
+<li>在计算这个算法的时候，假设Header Checksum字段为0。</li>
+<li>每跳时需要重新计算</li>
+</ul>
+</li>
+<li>
+<p>Source address 和 Destination address 字段（各32 bit）指示源和目标的network interfaces的IP地址。</p>
+</li>
+<li>
+<p>Options 字段填充为4字节（32 bit）的倍数。协议设计时，定义了下面五个选项。</p>
+<ul>
+<li>Security option 指示信息的保密程度，实际上不被使用</li>
+<li>Strict source routing option 提供了从源到目的地的完整路径，作为一系列IP地址。数据报必须遵循这条确切的路径。<ul>
+<li>对于系统管理员在路由表损坏时发送紧急数据包，或进行时序或性能测量非常有用</li>
+</ul>
+</li>
+<li>Loose source routing option 要求数据包按指定顺序遍历指定的路由器列表，但允许在途中经过其他路由器。</li>
+<li>Record route option 要求路径上的每个路由器将其IP地址附加到Options字段中，现在由于数据包会经过太多路由器，option 字段的40字节已经不够用了。</li>
+<li>Timestamp option 类似于 Record route option，只是每个路由器除了记录其32位IP地址外，还记录一个32位时间戳。此选项也主要用于网络测量。</li>
+</ul>
+<p><img alt="image-20241217192202475" src="../graph/image-20241217192202475.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="572_ipv4_address">5.7.2 IPv4 Address<a class="headerlink" href="#572_ipv4_address" title="Permanent link">#</a></h3>
+<p>IPv4协议中的IP地址是一个<strong>32位的地址</strong>，互联网上的每一台主机和路由器都有一个IP地址，用于数据包中的Source address和Destination address字段。</p>
+<ul>
+<li>
+<p>需要注意的是，IP地址实际上并不指代主机，而是指代network interface（网络接口）。</p>
+<ul>
+<li>如果一个主机连接到两个网络，它必须有两个IP地址</li>
+<li>路由器有多个接口，因此有多个IP地址</li>
+</ul>
+</li>
+<li>
+<p>IP地址以 dotted decimal notation（点分十进制表示法）书写。</p>
+<ul>
+<li>4个字节中的每一个都以十进制形式书写，范围从0到255。</li>
+<li>例如，32位十六进制地址80D00297被写为128.208.2.151。</li>
+</ul>
+</li>
+<li>
+<p>Prefix（前缀）</p>
+<ul>
+<li>IP地址是分层的，每个32位地址由顶部的高位比特中的可变长度网络部分和底部的低位比特中的主机部分组成。</li>
+<li>单个网络（如以太网LAN）上的所有主机的网络部分相同。</li>
+<li>一个网络对应于一个连续的IP address space（地址空间），这个地址空间块称为前缀。</li>
+<li>前缀通过将块中最低IP地址和块的大小结合起来来表示。<ul>
+<li>如果128.208.2.151所在的这个网络为IP地址中的网络部分保留24位，则它被写为128.208.2.0/24。</li>
+<li>如果前缀通过<code>/24</code>或者<code>255.255.255.0</code>的方式（也就是仅通过其长度）描述，则称为子网掩码。<ul>
+<li>子网掩码与IP地址按位与运算可以提取出IP地址的网络部分。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分层地址的优点：路由器可以按地址的网络部分转发数据包，只有当数据包到达它们所指向的网络时，它们才会被转发到正确的主机。</li>
+<li>分层地址的缺点：<ul>
+<li>需要额外的设置（mobile IP等）来支持在网络之间移动但希望保持相同IP地址的主机。</li>
+<li>分层结构会浪费地址（部分地址分配但未使用）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Subnet（子网）</p>
+<ul>
+<li>
+<p>Network number（网络号码）由一个名为ICANN的非营利性公司管理，以避免冲突。</p>
+</li>
+<li>
+<p>基于前缀的路由要求网络中的所有主机具有相同的Network number</p>
+</li>
+<li>
+<p>subnetting（子网划分）：一个地址空间块可以被拆分为多个部分，作为多个网络来使用</p>
+<ul>
+<li>划分网络而产生的网络（如以太网LAN）称为subnet（子网）</li>
+<li>拆分不需要每个子地址块大小均匀，但拆成的地址块之间不能有重叠。</li>
+<li>在外部网络中，子网划分是不可见的。也因此，子网划分可以在以后更改。</li>
+</ul>
+</li>
+<li>
+<p>连接外部与各子网的主路由器只需存储各子网的掩码和前缀。</p>
+<ul>
+<li>将数据包的目的IP地址，与各掩码作按位与操作，并与存储的前缀比较，就能知道应该转发到哪个子网。</li>
+</ul>
+</li>
+<li>
+<p>下面是一个大学网络给各院系分配子网前缀的案例</p>
+<p><img alt="image-20241217201749588" src="../graph/image-20241217201749588.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>CIDR（Classless InterDomain Routing，无类别域间路由）</p>
+<ul>
+<li>
+<p>default-free zone 中的骨干网路由器的路由表规模非常大；路由算法要求路由器与邻居交换地址信息，路由表太大导致每次交换需要处理大量信息</p>
+</li>
+<li>
+<p>route aggregation（路由聚合）：路由器将给定的IP地址视为属于不同大小的前缀，将多个小前缀合并为一个更大的前缀。</p>
+</li>
+<li>
+<p>前缀允许重叠。数据包被发送到最具体的路由方向，即匹配最长前缀、IP地址最少的路由。</p>
+</li>
+<li>
+<p>CIDR工作算法如下：</p>
+<ul>
+<li>当数据包进入时，路由表被扫描以确定目的地是否在前缀内。</li>
+<li>可能会有多个不同前缀长度的条目匹配，此时优先检查前缀最长的条目。<ul>
+<li>如果<code>/20</code>掩码和<code>/24</code>掩码都匹配，则先使用<code>/24</code>条目来查找数据包的发出方向，找不到再用这个<code>/20</code>掩码。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>举例：</p>
+<p><img alt="image-20241217202308471" src="../graph/image-20241217202308471.png" /></p>
+<ul>
+<li>假如说这个例子中的 Available 块后来被分配给了旧金山，则<code>192.24.0.0/19</code>这个前缀被定向到伦敦，<code>194.24.12.0/22</code>这个前缀被定向到旧金山。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>classful addressing（有类别地址分配）</p>
+<ul>
+<li>
+<p>CIDB的前身</p>
+</li>
+<li>
+<p>在1993年之前，IP地址被分为下图中列出的五类。</p>
+<p><img alt="image-20241217203241931" src="../graph/image-20241217203241931.png" /></p>
+<ul>
+<li>这里的ABC三类地址格式用于network分配。例如B类地址可以分给<span class="arithmatex">\(2^{14}\)</span>个网络，每个网络下有<span class="arithmatex">\(2^{16}\)</span>个主机。</li>
+<li>D类地址在互联网中用于多播。</li>
+<li>E类地址被预留。</li>
+</ul>
+</li>
+<li>
+<p>特殊含义的地址</p>
+<ul>
+<li>IP地址0.0.0.0（最低地址）在主机启动时使用。它表示“本网络”或“本主机”。</li>
+<li>网络号为0的IP地址指的是当前网络。这些地址允许机器在不了解其编号的情况下引用自己的网络（但它们必须知道网络掩码，不然不知道网络号有几位）。</li>
+<li>由全1组成的地址，即255.255.255.255（最高地址），用于表示指定网络上的所有主机。它允许在本地网络上进行广播，通常是LAN。</li>
+<li>所有形式为127.xx.yy.zz的地址都保留用于环回测试。发送到该地址的数据包不会放到线路上；它们在本地处理并被视为传入数据包。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>NAT（Network Address Translation，网络地址转换）</p>
+<ul>
+<li>节省IP地址的一种方式是动态分配，但是现在很多计算机全天开机。</li>
+<li>使用NAT时，ISP为一个network分配少量的IP地址，在这个network内部，每台计算机被分配唯一的一个IP地址。<ul>
+<li>在数据包离开network并前往ISP之前，进行地址转换，将唯一的内部IP地址转换为共享的公共IP地址。</li>
+<li>network内部分配的IP地址不能出现在互联网上，否则会引起混淆。</li>
+</ul>
+</li>
+<li>NAT box 将发回network的数据包中的公共IP地址替换为内部IP地址的方法：<ul>
+<li>利用数据包内层的TCP和UDP端口。<ul>
+<li>每个传出的TCP消息都包含源端口和目标端口。这些端口共同用于识别使用连接的两端进程。</li>
+</ul>
+</li>
+<li>每当传出数据包进入NAT时，network内部的源地址被替换为公共IP地址。此外，TCP源端口字段被替换为NAT盒的65,536个条目转换表中的索引。该表的每条entry包含内部原始IP地址和原始源端口。<ul>
+<li>必须替换源端口，因为内部的不同主机可能都恰好使用端口5000</li>
+<li>数据包传入NAT盒时，从TCP头中提取目标端口，以这个目标端口为索引查找并提取内部IP地址和原始TCP端口，并插入到数据包中，然后重新计算并插入IP和TCP校验和，再将数据包转发到内部network中。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NAT带来的问题：<ul>
+<li>违反了IP的结构模型，即一台机器对应一个IP</li>
+<li>NAT打破了端到端的连接模型：在发送传出数据包之前，无法接受传入数据包。需要引入 NAT traversal 相关 techniques 才能解决这一问题。</li>
+<li>NAT将互联网从无连接网络变成了面向连接的网络：如果NAT box崩溃、映射表丢失，所有TCP连接都丢失</li>
+<li>违反了最基本的协议分层规则</li>
+<li>互联网上的进程并不一定只使用TCP和UDP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="573_ipv6">5.7.3 IPv6<a class="headerlink" href="#573_ipv6" title="Permanent link">#</a></h3>
+<p>IPv6与IPv4不兼容，但它与其他辅助互联网协议（包括TCP、UDP、ICMP、IGMP、OSPF、BGP和DNS）兼容，只需对更长的地址进行少量修改。其相对IPv4的改进如下：</p>
+<ol>
+<li>128 bit 地址，几乎无限</li>
+<li>简化头部为7字段</li>
+<li>不常使用的字段变为可选，路由器可以跳过无关选项</li>
+<li>安全性：隐私和认证</li>
+<li>改善QoS</li>
+</ol>
+<ul>
+<li>
+<p>Main IPv6 Header</p>
+<p><img alt="image-20241217213828489" src="../graph/image-20241217213828489.png" /></p>
+<ul>
+<li>
+<p>Version 字段对于IPv6始终为6</p>
+</li>
+<li>
+<p>Differentiated services 字段（最初称为Traffic class）用于区分具有不同实时交付要求的数据包的服务类别。该字段与IPv4相比变化不大。</p>
+<ul>
+<li>用于区分service architecture以实现QoS。</li>
+<li>低阶2位用于信号显式拥塞指示。</li>
+</ul>
+</li>
+<li>
+<p>Flow label 字段：用于形成 pseudo-connection（伪链接）</p>
+<ul>
+<li>flow（流）尝试融合 datagram network 的灵活性和VC对数据传输的保障</li>
+<li>例如，一个 stream of packets 可能具有严格的延迟要求，因此需要预留带宽。可以预先设置流并为其分配 identifier。当带有非零 Flow label 的数据包出现时，所有路由器都可以在内置表中查找，以查看它需要何种特殊处理。</li>
+<li>每个流由源地址、目的地址和 flow number 指定.</li>
+<li>flow label会通过某种hash随机选择</li>
+</ul>
+</li>
+<li>
+<p>Payload length 字段指示在40字节头部之后有多少字节。</p>
+<ul>
+<li>注意，这个字段的名称与IPv4的Total length不同，意味着头部不在计入长度。</li>
+</ul>
+</li>
+<li>
+<p>Next header 字段指示当前头部之后是哪一个（目前有六个）扩展头部。如果这是最后一个IP头部，Next header 字段指示将数据包传递给哪个传输协议处理程序（例如，TCP、UDP）。</p>
+</li>
+<li>
+<p>Hop limit 字段用于防止数据包永远存在，与IPv4中的Time to live字段相同，也是在每跳时递减的字段。</p>
+</li>
+<li>
+<p>Source address 和 Destination address 字段</p>
+<ul>
+<li>IPv6 16字节地址的表示方法：八个四位hexadecimal数字组，组之间用冒号分隔。<ul>
+<li>组内的前导零可以省略</li>
+<li>16位零组可以用一对冒号替换</li>
+<li><code>8000:0000:0000:0000:0123:4567:89AB:CDEF</code>变为<code>8000::123:4567:89AB:CDEF</code></li>
+</ul>
+</li>
+<li>IPv4地址可以写为一对冒号和一个旧的点分十进制数，例如：<code>::192.31.20.46</code></li>
+</ul>
+</li>
+<li>
+<p>对比：</p>
+<ul>
+<li>
+<p>IHL字段消失</p>
+</li>
+<li>
+<p>Protocol字段被移除（被Next header替代）</p>
+</li>
+<li>
+<p>与分片相关的字段都被移除</p>
+<ul>
+<li>采用 path MTU discovery</li>
+</ul>
+</li>
+<li>
+<p>Checksum字段消失</p>
+<ul>
+<li>数据链路层和传输层通常有自己的校验和</li>
+</ul>
+</li>
+<li>
+<p>路由器必须能够转发的最小数据包大小已从576字节提高到1280字节，以允许1024字节的数据和许多头部。</p>
+<blockquote>
+<p>注：并没有在书中找到关于这个576字节的说法</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Extension Headers</p>
+<ul>
+<li>
+<p>目前有六种
+    <img alt="image-20241217215523543" src="../graph/image-20241217215523543.png" /></p>
+</li>
+<li>
+<p>所有Extension Header的结构大致如下：</p>
+<ul>
+<li>开头一个 8 bit Next header 字段，指示下一个头部的类型</li>
+<li>然后是一个 8 bit Payload Length 字段，指示逐跳头部的长度（以字节为单位），不包括强制性的前8个字节</li>
+<li>一些头部具有固定格式；其他头部包含数量可变的长度可变的 options。<ul>
+<li>每个 option 编码为一个 TLV 元组<code>Type-Length-Value</code>。</li>
+<li>Type 是一个1字节字段，指示这个元组是哪个 option。<ul>
+<li>Type 的前 2 bit 告诉不知道如何处理该选项的路由器该怎么做。选择包括：跳过该选项；丢弃数据包；丢弃数据包并发送回一个ICMP数据包；丢弃数据包但不发送ICMP数据包给多播地址（以防止一个坏的多播数据包生成数百万个ICMP报告）。</li>
+</ul>
+</li>
+<li>Length 也是一个 1 字节字段，指示 Value 字段的长度（0-255字节）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Hop-by-hop options header</p>
+<ul>
+<li>用于所有沿路径的路由器都必须检查的信息</li>
+<li>支持超过64 KB的数据报。</li>
+<li>当使用它时，固定头部中的Payload length字段设置为0。</li>
+<li>接下来的2个字节指示此 option 定义数据报大小（code 194），并且大小是一个4字节数字。</li>
+<li>最后4个字节给出数据报的大小。</li>
+<li>
+<p>使用此头部扩展的数据报称为巨型数据报（jumbograms）</p>
+<ul>
+<li>小于65,536字节的大小是不允许的，并且会导致第一个路由器丢弃数据包并发送回一个ICMP错误消息。</li>
+</ul>
+<p><img alt="image-20241217225704118" src="../graph/image-20241217225704118.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Destination options header</p>
+<ul>
+<li>用于存储仅需要在目标主机上解析的字段</li>
+<li>暂无功能，预留</li>
+</ul>
+</li>
+<li>
+<p>Routing options header</p>
+<ul>
+<li>
+<p>列出了在前往目的地的途中必须访问的一个或多个路由器。</p>
+</li>
+<li>
+<p>列出的所有地址必须按顺序访问，但未列出的其他路由器可以在中间访问。</p>
+</li>
+<li>
+<p>类似IPv4的Loop Source Routing</p>
+</li>
+<li>
+<p>option header 结构如下：</p>
+<ul>
+<li>Next header 和 Header extension length 字段如上所述。</li>
+<li>Routing Type <ul>
+<li>如果这个值为0，表示第一个 32 bit word 后面有一个保留的 32 bit word，然后后面是IPv6地址。</li>
+</ul>
+</li>
+<li>Segments left 字段跟踪列表中尚未访问的地址数量。<ul>
+<li>每次访问一个地址时，它都会递减。</li>
+<li>当它达到0时，数据包不再有必须经过的路由，通常来说此时它已经很接近目的地。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241217231011374" src="../graph/image-20241217231011374.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fragment header</p>
+<ul>
+<li>头部保存 datagram identifier、fragment number 以及代表后面还有没有 fragment 的位</li>
+<li>在 IPv6 中只有源主机可以分片数据包</li>
+<li>IPv6 采用 path MTU discovery</li>
+</ul>
+</li>
+<li>
+<p>Authentication header</p>
+<ul>
+<li>使数据包的接收者能够确认发送者是谁、只有预期的接收者才能读取它</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="574_internet_control_protocols">5.7.4 Internet Control Protocols<a class="headerlink" href="#574_internet_control_protocols" title="Permanent link">#</a></h3>
+<p>本节描述 ICMP、ARP 和 DHCP 与 IPv4对应的版本。ARP在IPv6中的等效协议称为NDP。</p>
+<ul>
+<li>
+<p>ICMP（Internet Control Message Protocol）</p>
+<ul>
+<li>
+<p>用于路由器向发送方报告在处理数据包时发生的意外情况，以及测试互联网。</p>
+<p><img alt="image-20241218094817995" src="../graph/image-20241218094817995.png" /></p>
+</li>
+<li>
+<p>Destination unreachable：路由器找不到目标IP地址，或者数据包的DF位被置1但是它比前面网络能处理的最大大小要大</p>
+</li>
+<li>
+<p>Time exceeded（超时）：数据包因TTL（生存时间）计数器达到零而被丢弃</p>
+<ul>
+<li>traceroute会利用这个特性，将TTL从1开始每次递增1，这样路径中每个路由器都会依次向主机发送Time exceeded。</li>
+</ul>
+</li>
+<li>
+<p>Parameter problem：在数据包头部字段中检测到了非法值</p>
+</li>
+<li>
+<p>Source quench（源抑制）：主机收到此消息时，预期会减慢发送速度。</p>
+<ul>
+<li>由于会使拥塞更严重，目前不会使用它。</li>
+<li>现在拥塞控制主要在传输层进行，使用数据包丢失作为拥塞信号。</li>
+</ul>
+</li>
+<li>
+<p>Redirect（重定向）：路由器使用此消息告诉发送主机，数据包被错误路由，应该更新到更好的路由。</p>
+</li>
+<li>
+<p>Echo and echo reply（回显）：查看给定目标是否可达且当前在线</p>
+<ul>
+<li>用于ping</li>
+</ul>
+</li>
+<li>
+<p>Timestamp request/reply：二者类似</p>
+<ul>
+<li>不同之处在于 timestamp reply 中记录了消息的到达时间和应答的离开时间</li>
+<li>用于测量网络性能</li>
+</ul>
+</li>
+<li>Router advertisement/solicitation（路由器通告/请求）：用于让主机发现附近的路由器。<ul>
+<li>主机需要学习至少一个路由器的IP地址，才能将数据包发送到本地网络之外。</li>
+</ul>
+</li>
+<li>
+<p>ARP（The Address Resolution Protocol）</p>
+</li>
+<li>
+<p>作用流程</p>
+<ul>
+<li>主机1在以太网上发送ARP广播包，询问哪个主机上拥有特定的IP地址（记为IP2）</li>
+<li>每台机器都会检查其IP地址。IP地址位IP2的主机用ARP格式回复它的 Ethernet address（记为E2）。</li>
+<li>主机1要发送数据时，构建一个目标地址为E2的以太网帧，将IP数据包放入有效载荷字段，并将其发送到以太网上。</li>
+<li>主机2的以太网NIC检测到此帧，识别出它是发送给自己的帧，接收它并触发中断。</li>
+</ul>
+</li>
+<li>优化<ul>
+<li>缓存ARP结果，以防不久后需要联系同一台机器</li>
+<li>在ARP广播帧中包含自身IP地址和以太网地址，所有接收到广播包的主机均缓存这些信息</li>
+<li>让每台机器在配置IP地址时广播其映射（但此时以太网地址不变）<ul>
+<li>gratuitous ARP（无偿ARP）：以ARP查找其自身IP地址的形式进行这种广播</li>
+<li>不应有响应，否则相当于两台机器被分配了相同的IP地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>proxy ARP：如果要跨network发送信息，由路由器负责转交和重组ARP请求和响应。<ul>
+<li>这个路由器称为default gateway（默认网关），按照惯例，默认网关使用network上的最低IP地址</li>
+</ul>
+</li>
+<li>
+<p>DHCP（The Dynamic Host Configuration Protocol）</p>
+</li>
+<li>
+<p>用于给主机自动分配IP地址</p>
+</li>
+<li>如果要使用DHCP，每个网络都必须有一个负责配置的DHCP服务器</li>
+<li>计算机启动时，它内置的以太网或其他链路层地址嵌入在NIC中，但没有IP地址。<ul>
+<li>计算机广播一个DHCP DISCOVER数据包，请求一个IP地址<ul>
+<li>DHCP DISCOVER数据包中需要包含主机的以太网地址</li>
+<li>如果该服务器未直接连接到网络，应该预先配置路由器，让它接收DHCP广播并将其转发到DHCP服务器</li>
+</ul>
+</li>
+<li>服务器接收到请求后分配一个空闲的IP地址，并将其在DHCP OFFER数据包中发送给主机</li>
+<li>Leasing（租约）：IP地址的分配有一个固定的期限<ul>
+<li>租约 expire（到期）时，主机必须请求 DHCP renewal（续订）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="575_label_switching_mpls">5.7.5 Label Switching &amp; MPLS<a class="headerlink" href="#575_label_switching_mpls" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>回忆本章开头，MPLS（MultiProtocol Label Switching，多协议标签交换）是一种Connection-oriented network，早年曾被称为 tag switching 等。</p>
+</li>
+<li>
+<p>MPLS在每个数据包前添加一个标签，路由器在转发时，将标签（而不是目标地址）作为内部表的索引，通过进行表查找，选择正确的输出线路。</p>
+</li>
+<li>
+<p>必须在IP头部前添加一个新的MPLS头部。</p>
+<ul>
+<li>
+<p>在使用PPP作为成帧协议的路由器到路由器链路上，使用PPP+MPLS+IP+TCP协议组合的帧结构如下图</p>
+<p><img alt="image-20241218103438291" src="../graph/image-20241218103438291.png" /></p>
+</li>
+<li>
+<p>MPLS头部长度为4字节，有4个字段</p>
+<ul>
+<li>Label 字段保存路由器内部表索引</li>
+<li>QoS 字段表示服务类别。</li>
+<li>S 字段与堆叠多个标签有关<ul>
+<li>底部标签设为1，其余标签设为0</li>
+</ul>
+</li>
+<li>TTL 字段表示数据包还可以被转发的次数<ul>
+<li>防止在路由不稳定的情况下出现无限循环</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>MLPS介于数据链路层与网络层之间，独立于这两层（不依赖于IP协议）</p>
+<ul>
+<li>MLPS可以在非IP网络上承载IP数据包。</li>
+</ul>
+</li>
+<li>
+<p>MLPS的传输过程</p>
+<ul>
+<li>
+<p>当IP数据包到达MPLS网络的边缘、准备进入MLPS时，将标签附加在数据包上</p>
+<ul>
+<li>由 LER（Label Edge Router）负责</li>
+<li>在MPLS网络的另一端，标签完成其使命并被移除，IP数据包重新被暴露出来</li>
+</ul>
+</li>
+<li>
+<p>MPLS网络内部负责转发的路由器称为LSR（Label Switched Router）</p>
+<ul>
+<li>两个不同的路由器可以向另一个LSR发送带有相同标签的不同数据包，使这些数据包在同一条输出线路上传输。<ul>
+<li>对于不同的来源，标签需要在每一跳的路由器上重新映射（或者说被更新）</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241218111148219" src="../graph/image-20241218111148219.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>MPLS与传统VC的区别</p>
+<ul>
+<li>路由器将多个流向特定路由器或LAN的流分组，并使用单个标签来表示它们。<ul>
+<li>在单个标签下分组在一起的流被称为属于同一个FEC（Forwarding Equivalence Class 转发等价类）</li>
+<li>此类不仅涵盖数据包的去向，还涵盖它们的 service class</li>
+<li>由于MPLS数据包中仍然包含最终地址，所以无需像在VC中一样，担心无法在网络边缘区分流向不同终点的数据包。</li>
+</ul>
+</li>
+<li>stack of labels：堆叠多个标签<ul>
+<li>用于让整体路径存在不同的数据包遵循相同的子路径传递</li>
+</ul>
+</li>
+<li>label forwarding tables 的设置<ul>
+<li>在VC中，用户想要建立连接时，发送一个数据包来创建路径、设置 forwarding table entry</li>
+<li>在MLPS中，使用一种介于 routing protocols 和 connection setup protocols 之间的协议<ul>
+<li>一种变体：路由器启动时，检查哪些路由是其最终目的地。路由器为它们创建一个或多个FEC，为每个FEC分配一个标签，并将标签传递给其邻居。邻居们依次将标签输入其转发表，并向它们的邻居们发送新标签。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="576_ospf">5.7.6 OSPF<a class="headerlink" href="#576_ospf" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>Open Shortest Path First</p>
+</li>
+<li>
+<p>An Interior Gateway Routing Protocol（IGP）</p>
+</li>
+<li>
+<p>支持点对点链路（例如，SONET）和广播网络（例如，大多数LAN）</p>
+</li>
+<li>
+<p>支持具有多个路由器的网络，每个路由器都可以直接与其他路由器通信（称为multiaccess networks），即使它们没有广播能力。</p>
+</li>
+<li>
+<p>OSPF的运行基础</p>
+<ul>
+<li>
+<p>将实际网络、路由器和链路的集合抽象为一个directed graph，每个arc（弧）都被分配一个weight（权重，可以是距离、延迟等）</p>
+<ul>
+<li>两个路由器之间的点对点连接由一对弧表示，两弧方向相反、权重可以不同。</li>
+<li>广播网络由网络本身的节点加上每个路由器的节点表示。<ul>
+<li>从该网络节点到路由器的弧的权重为0。</li>
+</ul>
+</li>
+<li>只有主机的网络只有到达它们的弧，而没有返回的弧，防止规划的 path 穿过它们。</li>
+</ul>
+</li>
+<li>
+<p>基于这个directed graph，使用link state method，让每个路由器计算从自身到所有其他节点的最短路径。</p>
+<ul>
+<li>ECMP（Equal Cost MultiPath）：如果找到多条同样是最短的路径，OSPF会在数据包转发期间将流量分散到这些路径上，以平衡负载。</li>
+</ul>
+<p><img alt="image-20241218113945916" src="../graph/image-20241218113945916.png" /></p>
+</li>
+<li>
+<p>OSPF允许将一个AS（Autonomous Systems）分为 numbered areas（区域）</p>
+<ul>
+<li>
+<p>每个 area 包含一个 network 或者一组 contiguous（连续的）networks</p>
+</li>
+<li>
+<p>area 之间不能重叠，但所有area的交集不必覆盖所有路由器</p>
+</li>
+<li>
+<p>完全位于一个 area 内的路由器称为 internal routers</p>
+</li>
+<li>
+<p>所有 area 内部的拓扑结构在 area 之外均不可见。</p>
+</li>
+<li>
+<p>每个AS都有一个 backbone area（骨干区域），称为 area 0</p>
+<ul>
+<li>该区域中的路由器称作 backbone routers</li>
+<li>所有区域都连接到骨干区域，可能通过tunnel（隧道）连接<ul>
+<li>因此可以从AS中的任何区域通过骨干区域到达AS中的任何其他区域</li>
+<li>隧道在图中也表示为一个弧</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>两个或更多区域的路由器称为 area border routers</p>
+<ul>
+<li>需要是 backbone area 的一部分</li>
+<li>总结 destinations 的 cost 信息，但不包括拓扑细节<ul>
+<li>信息的总结允许其它区域中的主机找到进入区域的最佳 area border router</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>AS boundary router（AS边界路由器）</p>
+<ul>
+<li>将其它AS的外部目标的路由注入到 area 中</li>
+<li>外部路由可以在一个或者多个 AS boundary router 上注入</li>
+</ul>
+</li>
+<li>
+<p>这三种路由器的功能可以存在重叠，例如，area border routers一定是backbone routers</p>
+<p><img alt="image-20241218114431559" src="../graph/image-20241218114431559.png" /></p>
+</li>
+<li>
+<p>每个 area 内的路由器具有相同的 link state database，运行相同的最短路径算法</p>
+<ul>
+<li>主要工作是计算从自身到整个AS中每个其他路由器和网络的最短路径</li>
+<li>area border routers 需要连接的所有区域的链路状态数据库，并分别为每个区域运行最短路径算法。</li>
+</ul>
+</li>
+<li>
+<p>OSPF强制要求 star configuration</p>
+<ul>
+<li>如果 source 和 destination 在同一 area 中，路由需要完全位于 area 内</li>
+<li>如果 source 和 destination 在不同 area 中，路由必须经过 backbone area<ul>
+<li>由于一个 area 可能有多个 area border router 连接到 backbone area，而且要选择成本最低的路由，网络不同部分的路由器可能使用不同的 area border router 进出骨干区域</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据包在传输过程中不会被封装，非必要不会通过tunnel传输。</p>
+</li>
+<li>
+<p>如果需要跨AS，则跨AS的cost也要被 AS boundary router 记录。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>OSPF的工作原理</p>
+<ul>
+<li>
+<p>所有数据包以IP数据包形式发送</p>
+</li>
+<li>
+<p>位于同一LAN上的路由器都是 neighbor。</p>
+<ul>
+<li>路由器启动时，它会在所有点对点连接上发送，并在LAN上向所有其他路由器组播HELLO消息</li>
+<li>OSPF通过在 adjacent（相邻的）路由器之间交换信息来工作，这与 neighbor（邻居）路由器的概念有所不同</li>
+<li>为了避免出现一个路由器与LAN上所有路由器交谈的情况，选择一个 designated router（指定路由器），将其视作与LAN上所有路由器 adjacent。</li>
+<li>neighbor 路由器如果不 adjacent 则不交换信息</li>
+</ul>
+</li>
+<li>
+<p>每个路由器定期向每个 adjacent 路由器泛洪 LINK STATE UPDATE 消息</p>
+<ul>
+<li>提供其当前状态，以及传输 cost</li>
+<li>这些消息需要被确认</li>
+<li>每条消息都有一个序列号</li>
+<li>连接发生变化（建立/关闭/传输成本变化）时，路由器也要发送这些消息</li>
+</ul>
+</li>
+<li>
+<p>DATABASE DESCRIPTION 消息给出发送方当前持有的所有连接状态条目的 sequence number</p>
+<ul>
+<li>线路连接建立时发送这种消息。</li>
+<li>接收方根据 sequence number 判断发送方与接收方谁的数据更新</li>
+</ul>
+</li>
+<li>
+<p>连接中的任意一方都可以通过发送 LINK STATE REQUEST 请求连接状态信息</p>
+<p><img alt="image-20241218142629171" src="../graph/image-20241218142629171.png" /></p>
+</li>
+<li>
+<p>总结：</p>
+<ul>
+<li>通过flooding，每个路由器向其 area 中的所有其他路由器通知它与其他路由器和网络的连接及其 cost。<ul>
+<li>通过这些信息，每个路由器可以计算出从它到它的各个 neighbor 之间的最佳路径。</li>
+</ul>
+</li>
+<li>backbone routers 除了与 area 内部路由器沟通，还要接收 area border routers 的信息，来计算从每个 backbone router 到每个其他路由器的最佳路径。<ul>
+<li>backbone routers 的计算结果再通过 area border routers 传回 internal routers，使其可以计算到 area 以外的其它 destinations 的最佳路径。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>5.7.7 BGP 简单考，先跳过。</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年12月26日 19:07:16</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年12月26日 19:07:16</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Yaoyaolingbro/notebook/home" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.prune", "navigation.tracking", "navigation.indexes", "navigation.tracking", "navigation.top", "header.autohide", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "material.extensions.emoji.twemoji"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
