@@ -56,7 +56,7 @@ points to the next instruction to execute (i.e., an address in the code)
 ??? Example "Simple Runtime Stack"
     <div align = center><img src="https://cdn.hobbitqia.cc/20231010163732.png" width=30%></div>
 
-**引入栈是为了解决函数调用的问题。  **
+**引入栈是为了解决函数调用的问题**
 
 Any function needs to have some “state” so that it can run. 
 
@@ -136,7 +136,7 @@ The child is is a copy of the parent, but
 
 * It has a different pid (and thus ppid)
 * Its resource utilization (so far) is set to 0
-* **`fork()` returns the child’s pid to the parent, and 0 to the child.  **
+* **`fork()` returns the child’s pid to the parent, and 0 to the child.**
 `fork` 会把 child 的 pid 返回给 parent，给 child 返回 0. [implement]()
 * Both processes continue execution after the call to `fork()`
 

@@ -199,7 +199,7 @@ In Java, the `Thread.stop()` method is deprecated, and so cancellation has to be
 
 In Linux, a thread is also called a **light-weight process**(**LWP**).
 
-The `**clone()**` syscall is used to create a thread or a process. 
+The `clone()` syscall is used to create a thread or a process. 
 
 !!! Note
     `clone` 有一个参数 `CLONE_VM`，如果不设置那么类似于 `fork`，每个线程都有自己的内存空间；**如果设置了那么线程跑在同一地址空间上**。
