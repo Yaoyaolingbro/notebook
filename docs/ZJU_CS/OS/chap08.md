@@ -408,8 +408,6 @@ In hashed page table, virtual page# is hashed into a frame#.
 
 Inverted page tables 索引 physical address 而不是 logical address，也就是说，整个系统只有一个页表，并且每个物理内存的 frame 只有一条相应的条目。寻址时，CPU 遍历页表，找到对应的 pid 和 page number，其在页表中所处的位置即为 frame number。
 
-<div align = center><img src="https://cdn.hobbitqia.cc/20231117171922.png" width=60%></div>
-
 每次要遍历整个页表，效率低下。而且这样不能共享内存（因为一个物理帧只能映射到一个页）。
 
 ## Swapping

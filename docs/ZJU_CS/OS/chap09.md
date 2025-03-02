@@ -135,9 +135,9 @@ Operating system typically allocate free frames using a technique known as **zer
     
 ### Demand Paging Optimizations
 
-Page fault rate: $0\leq p\leq 1$.  
+Page fault rate: $ 0\leq p\leq 1 $.  
 Effective Access Time(EAT):  
-$(1-p)$$\times$ memory access $+$ p$\times$$($page fault overhead $+$ swap page out $+$ swap page in $+$ instruction restart overhead$)$
+$ (1-p) \times$ memory access $+$ p $\times($ page fault overhead $+$ swap page out $+$ swap page in $+$ instruction restart overhead $)$
 
 !!! Example "Demand Paging Example"
     <div align = center><img src="https://cdn.hobbitqia.cc/20231121111321.png" width=65%></div>
@@ -373,7 +373,7 @@ Each process needs minimum number of frames - according to instructions semantic
 * Why does demand paging work?
     * process memory access has high locality.
     * process migrates from one locality to another, localities may overlap.
-* **Why does thrashing occur? **
+* **Why does thrashing occur?**
     * total memory size < total size of locality
 
         一个 locality 大小比内存大，因此我们不得不一直换进换出页。

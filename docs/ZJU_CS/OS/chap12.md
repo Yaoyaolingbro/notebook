@@ -271,7 +271,7 @@ Types of access
 
 ## Takeaway
 
-!! Summary "Takeway"
+!!! Summary "Takeway"
     * File system
     * File operations
         * Create, open, read/write, close
