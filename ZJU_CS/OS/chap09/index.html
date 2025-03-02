@@ -3331,6 +3331,8 @@
       
         
       
+        
+      
     
     
     
@@ -3471,6 +3473,50 @@
   
   <span class="md-ellipsis">
     IELTS words
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../English/TOFEL/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    TOFEL
   </span>
   
 
@@ -4703,9 +4749,9 @@ VMA 是 Virtual Memory Area，<code>brk()</code> 只是增大了 VMA 的大小�
 <p><div align = center><img src="https://cdn.hobbitqia.cc/20231121110622.png" width=75%></div></p>
 </div>
 <h3 id="demand_paging_optimizations">Demand Paging Optimizations<a class="headerlink" href="#demand_paging_optimizations" title="Permanent link">#</a></h3>
-<p>Page fault rate: <span class="arithmatex">\(0\leq p\leq 1\)</span>.<br />
+<p>Page fault rate: $ 0\leq p\leq 1 $.<br />
 Effective Access Time(EAT):<br />
-<span class="arithmatex">\((1-p)\)</span><span class="arithmatex">\(\times\)</span> memory access <span class="arithmatex">\(+\)</span> p<span class="arithmatex">\(\times\)</span><span class="arithmatex">\((\)</span>page fault overhead <span class="arithmatex">\(+\)</span> swap page out <span class="arithmatex">\(+\)</span> swap page in <span class="arithmatex">\(+\)</span> instruction restart overhead<span class="arithmatex">\()\)</span></p>
+$ (1-p) \times$ memory access <span class="arithmatex">\(+\)</span> p <span class="arithmatex">\(\times(\)</span> page fault overhead <span class="arithmatex">\(+\)</span> swap page out <span class="arithmatex">\(+\)</span> swap page in <span class="arithmatex">\(+\)</span> instruction restart overhead <span class="arithmatex">\()\)</span></p>
 <div class="admonition example">
 <p class="admonition-title">Demand Paging Example</p>
 <p><div align = center><img src="https://cdn.hobbitqia.cc/20231121111321.png" width=65%></div></p>
@@ -4987,7 +5033,7 @@ User 和 OS 都缓存了同一份内容，导致一个文件占用了两个帧�
 <li>process migrates from one locality to another, localities may overlap.</li>
 </ul>
 </li>
-<li>**Why does thrashing occur? **<ul>
+<li><strong>Why does thrashing occur?</strong><ul>
 <li>
 <p>total memory size &lt; total size of locality</p>
 <p>一个 locality 大小比内存大，因此我们不得不一直换进换出页。</p>
@@ -5118,7 +5164,7 @@ an interval timer + a reference bit，访问了这个界面就把 reference bit 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年12月26日 19:07:16</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年3月2日 16:30:12</span>
       
         <br>
         Created:
