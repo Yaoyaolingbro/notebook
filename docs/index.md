@@ -15,12 +15,13 @@
 <!-- prettier-ignore-end -->
 
 !!! note "List"
-    > 哈哈哈哈哈哈哈，真的意识到想做的事情好多，但……心力憔悴
+    > 哈哈哈哈哈哈哈，意识到想做的事情好多……心力憔悴，加油小杜
 
-    - [ ] 蛋白质相关科研
+    - [x] 3DCV研究
     - [ ] 论文阅读与基础模型更新
-    - [ ] ZJUCST(浙江大学超算队) LLM inference
-    - [ ] 大二下学期的课程学习
-    - [ ] python进阶？例如pytorch库的学习等
+    - [ ] TOFEL
+    - [x] ZJUCST(浙江大学超算队) LLM inference
+    - [ ] 大三下学期的课程学习、软件工程等应用
+    - [ ] Python工程规范；Rubyn、Reactpy等进阶应用
 
 
